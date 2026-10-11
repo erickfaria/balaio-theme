@@ -4,11 +4,11 @@ Um caderno aberto de ideias: simples de navegar e confortável de ler. O minimal
 
 ## Escolhas do projeto
 
-- Fundo claro e quente, texto em tom de grafite e azul discreto nos links.
-- Nome do blog em fonte sem serifa; títulos e artigos em serifa do sistema.
-- Home organizada como uma lista editorial de ritmo constante, sem mosaico de notícias ou banner de destaque automático.
+- Fundo claro e quente, texto em tom de grafite e verde profundo nos links e tons suaves de verde, areia e azul nos cards.
+- Inter para o nome do blog e a interface; Newsreader para títulos e artigos, com fallback para fontes do dispositivo.
+- Home aberta por três cards das publicações mais recentes, com composição própria; as demais seguem em lista editorial.
 - Texto antes da imagem, inclusive na ordem do HTML. Miniaturas opcionais acompanham cada entrada sem comandar a página.
-- Linhas finas separam as publicações; sem sombras, carrosséis ou animações decorativas.
+- Cards com cantos discretos e cores suaves; linhas finas separam a lista. Sem sombras, carrosséis ou animações decorativas.
 - Abertura curta sobre curiosidade e aprendizado; título e descrição do blog continuam personalizáveis.
 - Assuntos na lateral das listagens e leitura concentrada numa coluna nas páginas de artigo.
 - No celular, entradas em uma coluna, menu com quebra de linha e busca sempre acessível.
@@ -17,7 +17,7 @@ Um caderno aberto de ideias: simples de navegar e confortável de ler. O minimal
 
 Cada elemento deve ajudar a encontrar ou compreender conteúdo. A identidade será desenvolvida a partir das necessidades do Balaio, com textos, código e recursos próprios. Definir medidas, composição e detalhes gráficos a partir desta direção visual.
 
-Recursos opcionais devem funcionar sem comprometer leitura e navegação. Sem fontes remotas e bibliotecas na base. Imagens de demonstração futuras devem ser próprias ou ter licença documentada.
+Recursos opcionais devem funcionar sem comprometer leitura e navegação. Fontes abertas são carregadas pelo Google Fonts com `display=swap`. Sem bibliotecas JavaScript na base. Imagens de demonstração futuras devem ser próprias ou ter licença documentada.
 
 ## Estado
 

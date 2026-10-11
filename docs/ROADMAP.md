@@ -2,7 +2,7 @@
 
 ## Base entregue
 
-XML independente do WordPress, home com lista editorial, artigos, páginas, busca, marcadores, paginação, comentários básicos, gadgets e CSS responsivo. Todos os posts da listagem recebem o mesmo tratamento visual; ainda não há módulo separado de destaques. Os campos `thumbnailUrl`, `snippet`, `locale` e o estado de lista vazia precisam ser confirmados durante a importação.
+XML independente do WordPress, home com lista editorial, artigos, páginas, busca, marcadores, paginação, comentários básicos, gadgets e CSS responsivo. Na home, os três primeiros posts são cards de abertura; os demais ficam na lista, sem duplicação. Busca e arquivos preservam a listagem comum. Os campos `thumbnailUrl`, `snippet`, `locale` e o estado de lista vazia precisam ser confirmados durante a importação.
 
 ## Próxima etapa: validar no Blogger
 

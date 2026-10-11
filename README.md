@@ -15,13 +15,13 @@ Tema open source para Blogger, voltado a blogs pessoais, divulgação científic
 
 ## Primeira implementação
 
-- Home com lista editorial: texto em primeiro plano e miniaturas opcionais ao lado.
+- Home com três cards de abertura e lista editorial, sem duplicar publicações.
 - Artigos e páginas com coluna de leitura, imagens fluidas, tabelas e blocos de código com rolagem.
 - Busca nativa, marcadores, paginação e link para comentar.
 - Lista básica de comentários; formulário incorporado e respostas encadeadas ainda pendentes.
 - Cabeçalho textual, menu de links, lateral e rodapé editáveis pelo Layout.
 - Layout responsivo, navegação por teclado, link para pular ao conteúdo e estilo para impressão.
-- Fontes do sistema; nenhuma biblioteca, fonte remota ou JavaScript de terceiros.
+- Inter e Newsreader via Google Fonts, com fallback local; nenhuma biblioteca JavaScript.
 
 Os textos de interface desta versão estão em português. Para mudar cores e largura, edite as propriedades CSS em `:root` no XML. O texto de abertura pode ser editado no gadget **Apresentação**, em **Layout**. Preserve uma única tag `<h1>` na abertura. A configuração visual pelo Designer de temas e a imagem de logo ainda não estão implementadas.
 
@@ -29,6 +29,7 @@ Os textos de interface desta versão estão em português. Para mudar cores e la
 
 ```sh
 python3 scripts/validate_theme.py
+python3 -m unittest discover -s tests -v
 python3 scripts/build_preview.py
 python3 -m http.server 8765 --bind 127.0.0.1 --directory preview
 ```
@@ -40,3 +41,23 @@ O validador usa somente a biblioteca padrão do Python. Verifica XML, estrutura 
 ## Licença e referências
 
 O código original deste projeto usa a [licença MIT](LICENSE). Backups e conteúdos privados não integram a distribuição. Recursos de terceiros exigem licença e origem documentadas antes de entrar nos commits. Veja [docs/PROVENANCE.md](docs/PROVENANCE.md).
+
+## Estrutura do repositório
+
+| Caminho | Conteúdo |
+| --- | --- |
+| `theme/balaio.xml` | Tema para instalar no Blogger e CSS principal |
+| `scripts/` | Validador e gerador de prévia, sem dependências Python externas |
+| `tests/` | Verificações estruturais do validador |
+| `docs/` | Direção visual, personalização, origem e validação |
+| `licenses/` | Avisos das fontes de terceiros |
+| `.github/` | CI e modelos de issues e pull requests |
+| `preview/` | Arquivos gerados localmente, ignorados pelo Git |
+
+Se tiver `make` instalado, `make check` roda as verificações e `make serve` gera e abre o servidor local.
+
+Para contribuir, veja [CONTRIBUTING.md](CONTRIBUTING.md). Mudanças são registradas em [CHANGELOG.md](CHANGELOG.md). A automação executa os checks em pushes e pull requests; seu sucesso não confirma compatibilidade com o Blogger.
+
+## Fontes e personalização
+
+Inter atende menu, busca e interface; Newsreader atende títulos e texto longo. As duas famílias usam SIL OFL 1.1, com avisos em `licenses/`. O código Balaio continua MIT. Veja [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md) para cores, fontes, cards e gadgets.

@@ -15,3 +15,10 @@ O teste encontrou um transbordamento causado pela largura mínima dos itens do g
 A prévia usa o CSS real e marcação de exemplo; não interpreta os widgets ou expressões do Blogger. O gadget de apresentação, os dados reais, os comentários e a paginação ainda precisam ser validados na plataforma. A captura de tela não estava disponível no navegador desta sessão; esta verificação foi feita por estrutura e medidas do DOM, sem revisão por screenshot.
 
 Não há confirmação de importação bem-sucedida no Blogger. O checklist completo está em [ROADMAP.md](ROADMAP.md).
+
+## Refinamento de cards e tipografia
+
+- Prévia da home conferida por DOM em 360, 768 e 1440 px, sem transbordamento da página.
+- A fixture exibe três cards de abertura e uma entrada na lista, com quatro publicações ao todo, sem repetição.
+- O CSS computado utiliza a família Inter na interface. A confirmação de download das fontes não foi concluída: a espera do navegador excedeu o tempo disponível. O fallback permanece configurado. A tipografia final precisa de revisão visual em ambiente com acesso ao Google Fonts.
+- Quatro testes estruturais do validador passaram localmente. O workflow está preparado para repetir a validação no GitHub; ainda não foi executado lá.
