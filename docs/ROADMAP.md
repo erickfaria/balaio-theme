@@ -4,11 +4,13 @@
 
 ## Base entregue
 
-XMLs estáveis v0.1.0, home com lista editorial, artigos, páginas, busca, marcadores, paginação, comentários básicos, gadgets e CSS responsivo. Na home, os três primeiros posts são cards de abertura; os demais ficam na lista, sem duplicação. Busca e arquivos preservam a listagem comum. O proprietário confirmou a importação. A saída de miniaturas/resumos, idioma e comportamento com lista vazia ainda precisam de checks específicos em execução.
+A v0.2.0-rc.1 adiciona espaçamento móvel, navegação de Páginas, controles nativos do Designer e leitura de 22px à base minimalista própria. A v0.1.0 anterior tem importação confirmada pelo proprietário. A candidata mantém três cards e a lista completa dos posts recebidos; as novas ligações nativas ainda precisam de conferência no Blogger.
 
 ## Próxima etapa: validar no Blogger
 
-- [x] Importação bem-sucedida confirmada pelo proprietário.
+- [x] Importação da v0.1.0 anterior confirmada pelo proprietário.
+- [ ] Importar v0.2.0-rc.1 e salvar cores/fontes no Designer.
+- [ ] Conferir posição de Páginas/Menu e valores salvos após a migração.
 - [ ] Registrar o idioma importado e testar explicitamente as duas variantes.
 - [ ] Conferir home com zero, um e vários posts; títulos ausentes e posts sem imagem.
 - [ ] Conferir busca com e sem resultados, marcadores e arquivos por data.

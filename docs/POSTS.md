@@ -38,3 +38,7 @@ Use a URL de incorporação do provedor. Outras proporções precisam de `aspect
 Tabelas largas e código rolam dentro de seus contêineres. Use legendas e cabeçalhos com `scope` nas tabelas. Evite estilos inline de largura fixa no corpo. Escreva links descritivos para posts relacionados e fontes originais. Mantenha a autoria correta nas configurações do Blogger; registre alterações relevantes no texto quando atualizar um artigo.
 
 Confira títulos longos, mídia, tabelas e código em uma largura de celular após publicar. A prévia demonstra layout; as [verificações de SEO](SEO.md) inspecionam metadados renderizados. A importação de teste no Blogger continua necessária.
+
+## Leitura e prévias nas listas
+
+A v0.2.0-rc.1 usa Newsreader em 22px com entrelinha de 1,75 no corpo de posts/páginas. H2/H3 seguem o tamanho de leitura selecionado. Evite tamanhos fixos copiados de outros editores, que podem substituir a tipografia do tema. Em posts longos, insira a quebra de expansão nativa do Blogger após a introdução; ela mantém o artigo completo no permalink e pode ajudar a paginação da home. A quantidade máxima na home é uma configuração do Blogger, não um limite do tema. [Editor de posts](https://support.google.com/blogger/answer/154172?hl=pt-BR) · [Instalação](INSTALLATION.md).

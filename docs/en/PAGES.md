@@ -26,4 +26,4 @@ Static pages use the same responsive reading column as articles, without post au
 
 The upper menu uses ordinary links, wraps on small screens and highlights the current link when its URL exactly matches Blogger's page URL. There is no dropdown script or hamburger dependency. Keep labels short and URLs accurate; aliases, query strings or trailing-slash differences may not receive the current-page highlight.
 
-Test each page and both menus on a phone after import. Local previews use fictitious content and do not verify live Blogger behavior.
+Test each page and the top navigation on a phone after import. Local previews use fictitious content and do not verify live Blogger behavior.

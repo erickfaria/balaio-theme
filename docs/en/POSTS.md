@@ -38,3 +38,7 @@ Use an embed URL from your video provider. Other aspect ratios need a matching `
 Wide tables and code scroll within their containers. Give tables captions and header cells with `scope`. Avoid fixed-width inline styles on body elements. Use descriptive link text, including links to related posts and original sources. Keep authorship accurate in Blogger settings; show meaningful update notes in the text when an article changes.
 
 Check long titles, media, tables and code at a narrow phone width after publishing. The local preview demonstrates layout; [SEO checks](SEO.md) inspect the rendered metadata. Neither substitutes for a test import on Blogger.
+
+## Reading and list previews
+
+Version v0.2.0-rc.1 uses Newsreader at 22px with a 1.75 line height for post/page bodies. H2/H3 scale relative to the selected reading size. Avoid fixed font sizes copied from other editors, which can override theme typography. For long posts, insert Blogger’s native jump break after the introduction; it leaves the full article available on its permalink and can help home-page pagination. The maximum home-page count is a Blogger setting, not a theme limit. [Post editor](https://support.google.com/blogger/answer/154172?hl=en) · [Installation](INSTALLATION.md).

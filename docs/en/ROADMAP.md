@@ -4,11 +4,13 @@
 
 ## Current base
 
-Stable v0.1.0 XML templates, three opening cards on the home page, lists, articles, static pages, search, labels, pagination, basic comments, gadgets and responsive CSS. Cards do not repeat in the list; search and archives use the normal list. The owner confirmed import. Thumbnail/snippet output, locale and empty-list behavior still need specific runtime checks.
+v0.2.0-rc.1 adds mobile spacing, Pages navigation, native Designer controls and 22px reading to the minimal original base. The previous v0.1.0 has owner-confirmed import. The new candidate retains three opening cards and a complete list of supplied posts, while new native bindings still need live Blogger verification.
 
 ## Platform checklist
 
-- [x] Successful Blogger import confirmed by the project owner.
+- [x] Previous v0.1.0 import confirmed by the project owner.
+- [ ] Import v0.2.0-rc.1 and save colors/fonts in Designer.
+- [ ] Verify Pages/Menu placement and saved settings after migration.
 - [ ] Record the imported language variant and test both language variants explicitly.
 - [ ] Check zero, one and multiple posts; missing titles and images.
 - [ ] Check search with and without results, labels and date archives.
@@ -22,7 +24,7 @@ Stable v0.1.0 XML templates, three opening cards on the home page, lists, articl
 
 ## Future work
 
-1. Validate this branch’s native color/font controls in Theme Designer. Optional logo remains future work.
+1. Validate the candidate’s native color/font controls in Theme Designer. Optional logo remains future work.
 2. Higher-resolution images and topic navigation.
 3. Embedded comments and threaded replies.
 4. Reading time, sharing and related articles using progressive enhancement.

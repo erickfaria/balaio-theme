@@ -4,14 +4,14 @@
 
 ## Antes de instalar
 
-Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. A v0.1.0 estável tem importação confirmada pelo proprietário. As mudanças da branch de desenvolvimento ainda precisam de validação própria na plataforma.
+Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. Este guia corresponde à v0.2.0-rc.1. A v0.1.0 estável anterior tem importação confirmada pelo proprietário; a candidata alterada ainda precisa de nova importação no Blogger.
 
 ## Passo a passo
 
 1. Baixe `theme/balaio.xml` para português ou `theme/balaio.en.xml` para inglês. Baixe o arquivo raw, sem copiar a página HTML do GitHub.
 2. No Blogger, selecione o blog correto e vá a **Tema → menu → Fazer backup**.
 3. Em **Tema → menu → Editar HTML**, substitua o conteúdo pelo XML completo, desde a declaração inicial até o fechamento de `html`, e salve.
-4. Configure título, descrição e idioma em **Configurações**. Em **Layout**, ajuste Menu, Apresentação, marcadores e lateral. Os gadgets têm nomes ingleses no XML inglês.
+4. Configure título, descrição e idioma em **Configurações**. Em **Layout**, ajuste Páginas, Menu, Apresentação, marcadores e lateral. Os gadgets têm nomes ingleses no XML inglês.
 5. Publique posts fictícios com e sem imagem para testar os cards. A home usa os três posts mais recentes da página; configure mais de três posts por página se quiser também a lista abaixo.
 6. Abra artigos, páginas, busca, marcadores e outras páginas de posts. Confira comentários e celular. Veja [ROADMAP.md](ROADMAP.md).
 
@@ -32,7 +32,7 @@ As capturas do proprietário mostraram a apresentação móvel antiga em `?m=1` 
 | O editor rejeita o arquivo | Confira se copiou o XML completo, sem cercas de Markdown ou HTML do GitHub. Registre a mensagem exata para uma issue. |
 | Não há imagem no card | Use um post com imagem. A miniatura depende dos dados fornecidos pelo Blogger; sem imagem, a entrada continua legível. |
 | As fontes parecem diferentes | Confira acesso ao Google Fonts. O fallback usa fontes do dispositivo quando as fontes remotas não carregam. |
-| O menu não tem minhas páginas | Cadastre os links no gadget Menu. O tema não cria as páginas do blog. |
+| O menu não tem minhas páginas | Publique em Páginas e selecione em **Layout → Páginas**. Use Menu apenas para links extras. |
 | A abertura continua igual | Edite Apresentação/Introduction no Layout e salve. Preserve um único `h1`. |
 | Comentários não aparecem | Confira as configurações e permissões do post. O formulário incorporado e as respostas encadeadas ainda não estão prontos. |
 | Quero voltar ao tema anterior | Restaure o XML que você salvou antes da instalação pelo menu do tema. |
@@ -45,7 +45,7 @@ Antes de publicar, siga a [configuração de SEO](SEO.md).
 
 ## Páginas básicas
 
-[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie e publique as páginas no Blogger e selecione-as em **Layout → Páginas**. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
 
 ## Mostrar mais posts e páginas fixas
 

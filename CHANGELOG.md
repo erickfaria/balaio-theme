@@ -1,36 +1,30 @@
 # Changelog / Histórico
 
-## Unreleased / Em desenvolvimento
+## v0.2.0-rc.1 — 2026-10-11
 
 ### English
 
-- Increase default post/page reading text from 20px to 22px, with a 1.75 line height and the same open Newsreader font.
+Release candidate for the next minimal Balaio theme. Twenty local tests and CI pass; a fresh Blogger import and new Designer/widget checks remain pending. Stable v0.1.0 remains available.
 
-- Add native Pages navigation at the top, enable custom widgets on mobile, and fix search URLs containing mobile query parameters. Preview nine unique home posts and document Blogger post-count settings.
-
-- Remove the visible footer and credits; hide inherited Profile/Attribution widgets and the article/page sidebar at every width. Keep Contact/Privacy links in the top menu.
-
-- Compact mobile header/intro spacing and arrange sidebar topics in two plain columns with 44px minimum link heights; remove the duplicated sidebar divider.
-
-- Add native Blogger color/font variables with translated control labels and the original pastel defaults.
-- Preserve sober article/page layouts and responsive heading sizes; let the selected reading font size apply on phones too (20px by default).
-- Resolve Designer values in local previews; check variable integrity, locale parity and default text contrast.
-- Document customization in both languages. Live Designer validation remains pending; v0.1.0 is unchanged.
+- Add translated native color/font controls with the original pastel defaults.
+- Set post/page reading text to 22px with a 1.75 line height and explicit H2/H3 sizes; preserve open Inter and Newsreader fonts under SIL OFL.
+- Compact mobile header/intro spacing and topics into two columns with 44px minimum link heights; remove the duplicate sidebar divider.
+- Add native Pages navigation at the top, retain optional Menu links, enable custom widgets on mobile and fix search URLs containing mobile parameters.
+- Remove the visible footer and credits; hide inherited Profile/Attribution widgets and article/page sidebars at all widths.
+- Preview three opening cards plus six unique list entries. Document Blogger's post-count setting and jump breaks; the theme cannot force extra posts into Blogger's response.
+- Update bilingual installation, migration, customization, validation and release guides. Include clean install assets and SHA-256 checksums.
 
 ### Português
 
-- Aumentar o texto padrão de posts/páginas de 20px para 22px, com entrelinha de 1,75 e a mesma fonte aberta Newsreader.
+Versão candidata do próximo tema minimalista Balaio. Vinte testes locais e CI passam; nova importação e checks dos controles/gadgets no Blogger seguem pendentes. A v0.1.0 estável continua disponível.
 
-- Adicionar navegação nativa de Páginas no topo, habilitar gadgets no celular e corrigir busca com parâmetros móveis na URL. Demonstrar nove posts únicos na home e documentar a quantidade no Blogger.
-
-- Remover rodapé e créditos visíveis; ocultar gadgets herdados de Perfil/Atribuição e a lateral de artigos/páginas em todas as larguras. Manter links de Contato/Privacidade no menu superior.
-
-- Compactar cabeçalho/apresentação no celular e organizar assuntos em duas colunas simples com links de altura mínima de 44px; remover a divisória duplicada da lateral.
-
-- Adicionar variáveis nativas de cores/fontes do Blogger com controles traduzidos e os padrões pastel originais.
-- Preservar artigos/páginas sóbrios e títulos responsivos; aplicar o tamanho escolhido da fonte de leitura também no celular (20px por padrão).
-- Resolver valores do Designer nas prévias; verificar integridade das variáveis, equivalência de idiomas e contraste do texto padrão.
-- Documentar a personalização nos dois idiomas. A validação no Designer permanece pendente; v0.1.0 continua igual.
+- Adicionar controles nativos de cores/fontes traduzidos, com os padrões pastel originais.
+- Definir leitura de posts/páginas em 22px e entrelinha de 1,75, com tamanhos explícitos para H2/H3; preservar Inter e Newsreader abertas sob SIL OFL.
+- Compactar cabeçalho/apresentação e assuntos em duas colunas no celular, com links de altura mínima de 44px; remover a divisória duplicada.
+- Adicionar Páginas no topo, preservar o Menu de links extras, habilitar gadgets no celular e corrigir a busca com parâmetros móveis.
+- Remover rodapé/créditos visíveis; ocultar gadgets herdados de Perfil/Atribuição e a lateral de artigos/páginas em todas as larguras.
+- Demonstrar três cards e seis entradas únicas na lista. Documentar a quantidade de posts e quebras de expansão do Blogger; o tema não força posts adicionais na resposta da plataforma.
+- Atualizar instalação, migração, personalização, validação e release nos dois idiomas. Incluir arquivos limpos de instalação e checksums SHA-256.
 
 ## v0.1.0 — 2026-10-11
 

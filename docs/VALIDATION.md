@@ -1,47 +1,33 @@
-# Validação da versão — 11/10/2026
+# Validação — v0.2.0-rc.1
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
-## Importação no Blogger confirmada
+## Status
 
-Em 11/10/2026, o proprietário informou importação bem-sucedida e autorizou expressamente a promoção para `v0.1.0` estável. Esta é uma evidência de plataforma relatada pelo mantenedor. O idioma importado e os resultados completos dos widgets não foram registrados; não significa que ambos os XMLs ou todos os comportamentos foram testados independentemente. Os templates XML são os mesmos da alpha importada.
+Versão candidata preparada em 11/10/2026. O proprietário confirmou a importação da v0.1.0 anterior, mas os XMLs alterados da v0.2.0-rc.1 ainda precisam de nova importação no Blogger. Não há afirmação de que ambos os idiomas ou todos os gadgets nativos tenham sido testados independentemente na plataforma.
 
 ## Checks automatizados
 
-Treze testes verificam seções de widgets inválidas, IDs duplicados, includes ausentes, equivalência de idiomas, metadados nativos e auditoria de SEO no HTML. Os dois XMLs são válidos, a geração de idiomas está atualizada, links Markdown locais e whitespace do Git passam. O CI repete esses checks e gera a prévia. URLs externas e âncoras de títulos não são conferidas automaticamente.
+Vinte testes verificam estrutura XML/gadgets, equivalência de idiomas, metadados nativos de SEO e auditoria de HTML, resolução das variáveis do Designer/contraste padrão e regressões de navegação/busca móvel. Os dois XMLs são válidos; a geração inglesa está atualizada; links Markdown locais e whitespace passam. O CI repete os checks e gera prévia e pacote limpo. Links externos e âncoras de títulos não são conferidos automaticamente.
 
 ## Evidências da prévia responsiva
 
-- Home e artigo medidos por DOM em 320, 360, 480, 600, 768, 900, 1050 e 1440 px, sem transbordamento horizontal.
-- Títulos sem espaços, URLs, tabelas e código conferidos em 320, 360, 768 e 1440 px, com rolagem contida.
-- Exemplo de post, figura e iframe vazio 16:9 conferidos em 320, 360, 768 e 1440 px. Mídia dentro da coluna de leitura.
-- Privacidade conferida em 320, 768 e 1440 px: um H1, microdados WebPage, link atual destacado e navegação para Contato funcionando.
-- A fixture da home tem três cards e uma entrada distinta na lista.
+- Home com nove posts: três cards e seis entradas distintas em 320, 360, 768, 801, 1050 e 1440px, sem transbordamento horizontal da página.
+- Artigo, privacidade e conteúdo longo em 320, 360, 768 e 1440px: leitura de 22px e entrelinha de 38,5px, com conteúdo largo contido.
+- Assuntos no celular: os 24 links continuam visíveis, com ao menos 44px de altura e uma única divisória externa. A comparação anterior de espaçamento em 360px reduziu o cabeçalho de 290px para 258px e a lista de 885px para 642px.
+- Navegação de Privacidade: um H1, microdados WebPage e indicação de página atual.
+- Fixture de Perfil/Atribuição herdados: ocultos em 320, 768 e 1440px; lateral de artigo oculta e nenhum rodapé gerado.
 
-## Limites e próximas verificações
+São checks de CSS/DOM em exemplos, não compilação do Blogger nem revisão visual completa por captura de tela. As capturas estavam indisponíveis na revisão anterior; o carregamento remoto das fontes nas fixtures locais não foi confirmado.
 
-São checks de CSS/DOM em fixtures, não execução do compilador do Blogger. A importação foi confirmada pelo proprietário. Testes completos de dados nativos, gadgets, comentários, paginação e marcação publicada seguem pendentes. A captura de tela estava indisponível e o carregamento das fontes remotas não foi confirmado; as medidas refletem fontes de fallback. Não há comprovação de Core Web Vitals nem posição em buscas.
+## Auditoria do blog publicado
 
-O proprietário autorizou a versão estável após confirmar a importação; o [checklist de plataforma](ROADMAP.md) registra verificações complementares. Consulte [SEO.md](SEO.md) para auditar HTML publicado e [RELEASE.md](RELEASE.md) para instalação e conteúdo do pacote.
+A inspeção por navegador de `www.balaiocientifico.com` em 11/10 encontrou CSS anterior, menu superior vazio, dois posts na home e outros pela paginação. A busca móvel acrescentava `search` depois de `?m=1`; a candidata usa `/search`. Foram observadas requisições de fontes Inter/Newsreader e famílias calculadas correspondentes. Um artigo público medido em 360px ainda usava o texto anterior de 18px.
 
-## Branch de desenvolvimento: personalização nativa
+A auditoria corresponde ao tema anterior instalado, não à publicação desta candidata. Nenhum conteúdo ou configuração do blog foi alterado.
 
-Os controles de cores/fontes são alterações novas e não estão cobertos pelo relato de importação da versão estável acima. Dezoito testes locais passam, incluindo resolução de variáveis, equivalência de idiomas e contraste mínimo de 4,5:1 do texto padrão. A prévia usa os valores salvos resolvidos; não verifica se o Blogger apresenta ou salva os controles do Designer. Importe e salve o tema personalizado num blog de teste antes de lançar estas mudanças.
+## Checks de plataforma pendentes
 
-A prévia atualizada foi medida em 320, 360, 768 e 1440px para home, artigo, privacidade, conteúdo longo e mídia, sem transbordamento horizontal da página. O corpo de artigos e páginas resolve para 20px nas quatro larguras.
+Importe a candidata num blog de teste; salve cores/fontes no Designer; confira posição de Páginas/Menu, ambos os idiomas, busca, marcadores, listas vazias, miniaturas, paginação e comentários. Confira teclado, zoom a 200% e impressão. Registre o idioma e os resultados antes de promover esta candidata a estável. Core Web Vitals, indexação e posição em buscas/IA não são comprovados por estes checks.
 
-Uma fixture temporária com texto serif de 24px e fundo areia pastel também respeitou a largura da tela em 320, 768 e 1440px para artigos e privacidade. Estas prévias geradas não integram o Git.
-
-## Refinamento do espaçamento móvel
-
-Medidas do DOM da home atualizada em 320, 360, 480, 768, 800, 801 e 1440px não mostraram transbordamento horizontal da página. Os 24 assuntos de exemplo continuam com links; no celular, os links têm ao menos 44px de altura e apenas a lateral externa tem divisória. Em 360px, a mesma fixture passou de 290px para 258px de cabeçalho e de 885px para 642px de lista de assuntos. Artigo, privacidade e conteúdo longo também respeitam a tela em 320, 360, 768 e 1440px, com texto de leitura de 20px. São medidas de fixtures locais; o XML atualizado ainda precisa de conferência no Blogger.
-
-## Auditoria do blog publicado antes da integração
-
-Em 11/10/2026, a inspeção por navegador de `www.balaiocientifico.com` encontrou dois posts na home e mais dois pelo link de publicações anteriores, navegação superior vazia, CSS anterior e formulário de busca com a URL incorreta `?m=1search`. Havia requisições de CSS de Inter e Newsreader; as famílias calculadas correspondiam e o carregador de fontes do navegador informou conclusão. As licenças OFL originais e os avisos locais foram conferidos. O código atual corrige a rota de busca, adiciona Páginas no topo e habilita gadgets personalizados no celular. Vinte testes locais passam. A prévia com nove posts demonstra três cards e seis entradas únicas; não controla a paginação do Blogger. Estas mudanças novas de gadgets ainda precisam de nova importação no Blogger.
-
-## Tipografia de leitura ampliada
-
-Um artigo público inspecionado em 360px ainda usava o tamanho móvel anterior de 18px. O código atual aumenta o padrão de leitura de 20px para 22px em todas as larguras, com entrelinha de 1,75. As medidas históricas acima se referem às revisões anteriores. Famílias e licenças das fontes permanecem iguais.
-
-Prévias de artigo, privacidade e conteúdo longo foram medidas em 320, 360, 768 e 1440px: texto de 22px, entrelinha de 38,5px e sem transbordamento horizontal da página. Títulos de seção usam tamanhos relativos explícitos para evitar que o CSS de gadgets nativos reduza o H2 abaixo do tamanho de leitura.
+[Checklist de plataforma](ROADMAP.md) · [Auditoria de SEO](SEO.md) · [Atualização e arquivos da versão](RELEASE.md)
