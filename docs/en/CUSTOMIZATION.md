@@ -22,7 +22,7 @@ Current source adds controls under **Theme → Customize → Advanced** using [B
 
 The controls cover page background, main and secondary text, links/buttons, dividers, green/sand/blue pastel surfaces, interface font and post/page font. Choose pale backgrounds and dark text. The default palette passes a 4.5:1 contrast check for normal text on its four reading/card surfaces. Custom colors need a new contrast check.
 
-The interface starts at 17px and article/page text at 20px, including phones. The reading font applies to titles too, with their existing responsive sizes preserved. Reading width, spacing and layouts remain defined by the theme: a centered column, plain background and restrained separators.
+The interface starts at 17px and article/page text at 22px, including phones. The reading font applies to titles too, with their existing responsive sizes preserved. Reading width, spacing and layouts remain defined by the theme: a centered column, plain background and restrained separators.
 
 Inter and Newsreader remain the open defaults under SIL OFL. Choosing another font does not add its assets to the repository; check its license before redistributing font files. The default Google Fonts links use `display=swap` and contact `fonts.googleapis.com` and `fonts.gstatic.com`.
 
@@ -34,7 +34,7 @@ Inside the CSS comment at the beginning of `b:skin`, edit a `<Variable>` declara
 <Variable name="washcolor" description="Pastel green surface" type="color" default="#edf5ef" value="#edf5ef"/>
 ```
 
-Keep `$variable` references in `:root` connected to those declarations. The preview resolves saved values and validates unknown or duplicate names. For local fonts only, remove the three font links from `head` and set `interfacefont` to `normal 400 17px system-ui, sans-serif` and `readingfont` to `normal 400 20px serif`. Self-hosted fonts can use HTTPS `@font-face` URLs with their OFL notices preserved.
+Keep `$variable` references in `:root` connected to those declarations. The preview resolves saved values and validates unknown or duplicate names. For local fonts only, remove the three font links from `head` and set `interfacefont` to `normal 400 17px system-ui, sans-serif` and `readingfont` to `normal 400 22px serif`. Self-hosted fonts can use HTTPS `@font-face` URLs with their OFL notices preserved.
 
 `--reading-width:760px` and `--width:1120px` remain advanced CSS options. Change them only after checking mobile layout and line length. When editing repository source, edit Portuguese and regenerate English with `python3 scripts/build_locales.py`. No build tool is needed for an installed XML edited directly in Blogger.
 
@@ -57,3 +57,5 @@ On screens up to 800px, the header and introduction use shorter spacing. Sidebar
 ## End of posts and pages
 
 This development version has no visible footer or credits. Articles and static pages hide the sidebar at every screen width. Profile and Attribution widgets inherited from a previous installation are hidden by theme CSS. Contact and Privacy links belong in the top Menu. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.
+
+The reading default is 22px with a 1.75 line height. Installed Designer settings may preserve a previous size: choose 22px in **Post and page font** after importing if needed.

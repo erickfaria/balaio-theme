@@ -22,7 +22,7 @@
 <Variable name="sandcolor" description="Pastel sand card" type="color" default="#f8f1e7" value="#f8f1e7"/>
 <Variable name="bluecolor" description="Pastel blue card" type="color" default="#eef2f6" value="#eef2f6"/>
 <Variable name="interfacefont" description="Interface font" type="font" default="normal 400 17px Inter, system-ui, sans-serif" value="normal 400 17px Inter, system-ui, sans-serif"/>
-<Variable name="readingfont" description="Post and page font" type="font" default="normal 400 20px Newsreader, serif" value="normal 400 20px Newsreader, serif"/>
+<Variable name="readingfont" description="Post and page font" type="font" default="normal 400 22px Newsreader, serif" value="normal 400 22px Newsreader, serif"/>
 */
 :root {
   --paper:$papercolor;
@@ -361,13 +361,19 @@ a:focus-visible,input:focus-visible {
 }
 .post-body {
   font:var(--reading-font);
-  line-height:1.8;
+  line-height:1.75;
   overflow-wrap:anywhere;
   margin-top:32px;
 }
 .post-body h2,.post-body h3 {
   line-height:1.3;
   margin-top:1.8em;
+}
+.post-body h2 {
+  font-size:1.4em;
+}
+.post-body h3 {
+  font-size:1.18em;
 }
 .post-body a {
   text-decoration:underline;

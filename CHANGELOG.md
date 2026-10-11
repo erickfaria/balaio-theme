@@ -4,6 +4,8 @@
 
 ### English
 
+- Increase default post/page reading text from 20px to 22px, with a 1.75 line height and the same open Newsreader font.
+
 - Add native Pages navigation at the top, enable custom widgets on mobile, and fix search URLs containing mobile query parameters. Preview nine unique home posts and document Blogger post-count settings.
 
 - Remove the visible footer and credits; hide inherited Profile/Attribution widgets and the article/page sidebar at every width. Keep Contact/Privacy links in the top menu.
@@ -16,6 +18,8 @@
 - Document customization in both languages. Live Designer validation remains pending; v0.1.0 is unchanged.
 
 ### Português
+
+- Aumentar o texto padrão de posts/páginas de 20px para 22px, com entrelinha de 1,75 e a mesma fonte aberta Newsreader.
 
 - Adicionar navegação nativa de Páginas no topo, habilitar gadgets no celular e corrigir busca com parâmetros móveis na URL. Demonstrar nove posts únicos na home e documentar a quantidade no Blogger.
 
