@@ -1,29 +1,21 @@
-# Local validation — October 11, 2026
+# Release validation — 2026-10-11
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
-## Recorded checks
+## Automated checks
 
-- XML and local widget structure pass the Python validator.
-- Four validator regression tests pass locally.
-- Preview home and article were measured through browser DOM at 360, 768 and 1440 px without horizontal page overflow in the initial base. Home was checked again after cards and typography changed.
-- Code and table overflow is contained; entries without images use their available width.
-- Home-to-article navigation was exercised in the preview.
-- The current fixture has three opening cards and one list entry, with no duplicate posts.
+Thirteen regression tests cover malformed widget sections, duplicate IDs, missing includes, locale equivalence, metadata ownership and HTML SEO auditing. Both XML variants parse; locale generation is current; local Markdown links and Git whitespace checks pass. GitHub CI repeats these checks and builds the preview. External documentation links and heading anchors are not checked automatically.
 
-An article overflow issue was fixed by allowing grid items to shrink (`min-width: 0`) and constraining the reading column. Font-family CSS selects Inter; download confirmation was interrupted by browser synchronization/timeouts. Fallback fonts remain configured.
+## Responsive preview evidence
 
-## Limits
+- Home and article DOM measured at 320, 360, 480, 600, 768, 900, 1050 and 1440 px without horizontal page overflow.
+- Long unbroken titles, URLs, tables and code checked at 320, 360, 768 and 1440 px; scrolling remains contained.
+- Editable post example, figure and empty 16:9 iframe checked at 320, 360, 768 and 1440 px. Media stays within the reading column.
+- Privacy page checked at 320, 768 and 1440 px: one H1, WebPage microdata, current menu link highlighted and working navigation to Contact.
+- The home fixture contains three opening cards plus one distinct list entry.
 
-The preview uses actual CSS with sample markup; it does not compile Blogger expressions or widgets. Import, live data, comments and pagination remain unverified in Blogger. Screenshot capture was unavailable; recorded checks use DOM structure and dimensions, not screenshot review.
+## Limits and next checks
 
-CI is configured, but no GitHub run has been confirmed. Passing static checks does not imply Blogger compatibility. Use the checklist in [ROADMAP.md](ROADMAP.md).
+These are CSS/DOM fixture checks, not a Blogger compiler. Import, native data bindings, gadgets, comments, pagination and published structured data remain unverified. Screenshot capture was unavailable, and remote font faces were not confirmed loaded; measurements reflect fallback typography. No Core Web Vitals or ranking claims are established.
 
-## Responsive and bilingual review
-
-- Home and article measured through DOM at 320, 360, 480, 600, 768, 900, 1050 and 1440 px: no horizontal document overflow.
-- Long unbroken titles, URLs, wide table content and code checked in a stress fixture at 320, 360, 768 and 1440 px, also without page overflow.
-- Added wrapping for long titles and minimum-width constraints in the header.
-- Both XML variants validate. Two additional tests ensure matching CSS and widget identities; six tests pass overall.
-- Local bilingual documentation links are checked automatically. Heading anchors and external URLs are outside that check.
-- Remote font faces were not reported as loaded during this review, so dimensions were checked with fallback typography. Final-font visual review remains pending.
+The release is an alpha until the [platform checklist](ROADMAP.md) is completed. Use [SEO.md](SEO.md) for published HTML auditing and [RELEASE.md](RELEASE.md) for package contents and installation.

@@ -30,3 +30,9 @@ Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atu
 Posts, imagens e URLs não são migrados por este tema. Guarde uma cópia do XML que personalizou. A instalação altera a apresentação do blog; mantenha seus backups separados do repositório.
 
 [Personalizar](CUSTOMIZATION.md) · [Voltar ao README](../README.pt-BR.md) · [Ajuda oficial do Blogger](https://support.google.com/blogger/answer/176245?hl=pt-BR)
+
+Antes de publicar, siga a [configuração de SEO](SEO.md).
+
+## Páginas básicas
+
+[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu e aos Links do rodapé. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
