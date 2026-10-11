@@ -1,0 +1,17 @@
+# Referências locais do WordPress: nunca publicar backups ou dados do site.
+*.zip
+*.sql
+*.sql.gz
+/public_html/
+/wordpress/
+/wp-*/
+/reference/
+/references/
+wp-config.php
+.env
+.env.*
+__pycache__/
+*.pyc
+
+# Prévia gerada localmente
+/preview/
