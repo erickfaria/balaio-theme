@@ -32,3 +32,7 @@ This theme does not migrate posts, images or URLs. Keep a copy of your customize
 [Customize](CUSTOMIZATION.md) · [Back to README](../../README.md) · [Official Blogger help](https://support.google.com/blogger/answer/176245?hl=en)
 
 Before publishing, complete the [SEO configuration checklist](SEO.md).
+
+## Basic pages
+
+[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu and Footer links. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.

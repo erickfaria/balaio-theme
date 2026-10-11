@@ -2,6 +2,9 @@
 
 ## English — Unreleased
 
+- Lorem ipsum About, Contact and Privacy page samples in both languages.
+- Current-page navigation styling, configurable footer links and an explicit resource license inventory.
+
 - Editable pastel card colors and reading width, responsive figures/video embeds, and bilingual post examples.
 - Bing, DuckDuckGo and SearXNG discovery guidance; scoped DuckDuckBot audit checks.
 
@@ -17,6 +20,9 @@
 Blogger import and live behavior still need verification. No stable release has been published.
 
 ## Português — Em desenvolvimento
+
+- Exemplos de páginas Sobre, Contato e Privacidade com Lorem ipsum nos dois idiomas.
+- Destaque da página atual, links editáveis do rodapé e inventário de licenças dos recursos.
 
 - Cores pastel e largura de leitura editáveis, figuras/vídeos responsivos e exemplos bilíngues de posts.
 - Guia de descoberta em Bing, DuckDuckGo e SearXNG; auditoria com escopo de DuckDuckBot.

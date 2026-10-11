@@ -3,6 +3,7 @@ import importlib.util
 from pathlib import Path
 import tempfile
 import unittest
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location("validator", ROOT / "scripts/validate_theme.py")
@@ -31,7 +32,10 @@ class ThemeValidationTests(unittest.TestCase):
         self.assert_rejected(self.source.replace("name='card'", "name='absent'"), "Missing local include")
 
     def test_html_inside_section(self):
-        self.assert_rejected(self.source.replace("<b:section class='footer' id='footer' showaddelement='yes'/>", "<b:section id='footer'><p>invalid</p></b:section>"), "non-widget")
+        root = ET.fromstring(self.source)
+        footer = root.find(".//{http://www.google.com/2005/gml/b}section[@id='footer']")
+        ET.SubElement(footer, '{http://www.w3.org/1999/xhtml}p').text = 'invalid'
+        self.assert_rejected(ET.tostring(root, encoding='unicode'), 'non-widget')
 
 
 if __name__ == "__main__":

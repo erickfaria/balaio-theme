@@ -23,7 +23,7 @@
   --card-blue:#eef2f6;
   --reading-width:760px;
   --sans:"Inter",system-ui,sans-serif;
-  --serif:"Newsreader",Georgia,serif;
+  --serif:"Newsreader",serif;
   --width:1120px;
 }
 * {
@@ -127,8 +127,28 @@ a:focus-visible,input:focus-visible {
   padding:0;
 }
 .navigation a {
+  display:inline-flex;
+  padding:6px 10px;
+  border-radius:6px;
+  overflow-wrap:anywhere;
   font-size:14px;
   color:var(--ink);
+}
+.navigation a[aria-current='page'] {
+  background:var(--wash);
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+.footer-navigation ul {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 24px;
+  list-style:none;
+  margin:0 0 20px;
+  padding:0;
+}
+.footer-navigation a {
+  overflow-wrap:anywhere;
 }
 .widget h2 {
   font:700 21px/1.3 var(--serif);
@@ -536,8 +556,8 @@ a:focus-visible,input:focus-visible {
           <b:section class='navbar' id='navigation' maxwidgets='1' showaddelement='yes'>
             <b:widget id='LinkList1' locked='false' title='Menu' type='LinkList' version='1'>
               <b:includable id='main'>
-                <ul><li><a expr:href='data:blog.homepageUrl'>Home</a></li>
-                  <b:loop values='data:links' var='link'><li><a expr:href='data:link.target'><data:link.name/></a></li></b:loop>
+                <ul><li><a expr:href='data:blog.homepageUrl' expr:aria-current='data:blog.url == data:blog.homepageUrl ? "page" : "false"'>Home</a></li>
+                  <b:loop values='data:links' var='link'><li><a expr:href='data:link.target' expr:aria-current='data:blog.url == data:link.target ? "page" : "false"'><data:link.name/></a></li></b:loop>
                 </ul>
               </b:includable>
             </b:widget>
@@ -644,7 +664,17 @@ a:focus-visible,input:focus-visible {
       </div>
     </main>
     <footer class='site-footer'><div class='wrap'>
-      <b:section class='footer' id='footer' showaddelement='yes'/>
+      <b:section class='footer' id='footer' showaddelement='yes'>
+        <b:widget id='LinkList2' locked='false' title='Footer links' type='LinkList' version='1'>
+          <b:includable id='main'>
+            <b:if cond='data:links'>
+              <nav aria-label='Footer navigation' class='footer-navigation'>
+                <ul><b:loop values='data:links' var='link'><li><a expr:href='data:link.target'><data:link.name/></a></li></b:loop></ul>
+              </nav>
+            </b:if>
+          </b:includable>
+        </b:widget>
+      </b:section>
       <div class='footer-line'><span><data:blog.title/></span><span>Balaio theme · <a href='https://www.blogger.com/'>Blogger</a></span></div>
     </div></footer>
   </body>

@@ -47,3 +47,7 @@ These observations do not establish actual search indexing, AI citations or perf
 ## Multi-engine and post layout review
 
 Thirteen local tests pass, including a scoped DuckDuckBot restriction case. The new `media.html` fixture uses the editable Portuguese post example plus a figure and empty 16:9 video iframe. DOM measurements at 320, 360, 768 and 1440 px showed no horizontal document overflow; figure and iframe widths stayed within the reading column. This verifies container layout, not playback or a Blogger import.
+
+## Basic page review
+
+The privacy preview has one H1, WebPage microdata and the current menu link highlighted. DOM measurements at 320, 768 and 1440 px showed no horizontal overflow. Navigation from Privacy to Contact worked. All page text is Lorem ipsum; these samples are not published site content. The thirteen structural and SEO regression tests pass. Import and gadget behavior on Blogger remain unverified.

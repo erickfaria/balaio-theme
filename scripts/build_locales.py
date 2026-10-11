@@ -11,6 +11,8 @@ TRANSLATIONS = {
     "Buscar": "Search",
     "Navegação principal": "Main navigation",
     "Início": "Home",
+    "Links do rodapé": "Footer links",
+    "Navegação do rodapé": "Footer navigation",
     "Apresentação": "Introduction",
     "Um espaço para a curiosidade": "A space for curiosity",
     "Conhecimento começa com uma boa pergunta.": "Knowledge starts with a good question.",

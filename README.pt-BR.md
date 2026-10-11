@@ -89,3 +89,7 @@ O tema preserva os metadados do Blogger e adiciona microdados de artigos ligados
 **O tema é preparado para SEO?** Oferece metadados nativos do Blogger, títulos semânticos, links rastreáveis e microdados de artigos. O [guia de busca](docs/SEO.md) cobre Google, Bing, DuckDuckGo, SearXNG e descoberta por IA. Indexação e compatibilidade publicadas ainda precisam de verificação.
 
 **Como escrever posts responsivos?** Use o [guia de postagens e exemplo HTML editável](docs/POSTS.md). Títulos, resumos, tabelas, imagens e vídeos respeitam a coluna de leitura sem adicionar JavaScript ao tema.
+
+## Páginas básicas
+
+[Modelos de Sobre, Contato e Privacidade](docs/PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu e aos Links do rodapé. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.

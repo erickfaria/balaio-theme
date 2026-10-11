@@ -32,3 +32,17 @@ Estas páginas documentam a estrutura do Blogger; não são fontes do código ou
 | Newsreader | [The Newsreader Project Authors / Production Type](https://github.com/productiontype/Newsreader) | Títulos e leitura | [SIL OFL 1.1](../licenses/newsreader-OFL.txt) |
 
 Avisos copiados do [repositório oficial Google Fonts](https://github.com/google/fonts/tree/main/ofl) em 11/10/2026, preservados integralmente. As famílias são utilizadas sem modificação. O template usa a API CSS do Google Fonts com `display=swap` e fallback do sistema. A licença MIT do código não altera a licença das fontes.
+
+## Inventário de licenças dos recursos
+
+| Recurso distribuído ou solicitado | Origem | Licença |
+| --- | --- | --- |
+| XML, CSS, Python, documentação e exemplos HTML | Implementação própria Balaio | [MIT](../LICENSE) |
+| Paleta pastel e regras de layout | Valores próprios do CSS, editáveis em `:root` | MIT como parte do código |
+| SVG geométrico da prévia | Gerado pelo nosso script | MIT |
+| Inter e Newsreader | Projetos de fontes listados acima | Seus avisos SIL OFL 1.1 |
+| Placeholders Lorem ipsum das páginas | Exemplos editáveis incluídos | MIT como parte dos exemplos |
+
+Não distribuímos fontes compradas, fotos de banco proprietário, ícones proprietários ou código de temas terceiros. As requisições padrão carregam fontes OFL via Google Fonts; a hospedagem é opcional e pode ser substituída por hospedagem própria ou fontes genéricas do dispositivo. A disponibilidade e licença das fontes do dispositivo pertencem a ele, não ao repositório. O Blogger é uma plataforma externa, não distribuída ou licenciada pelo projeto.
+
+Todos os recursos incluídos permitem reutilização e modificação sob suas respectivas licenças. Preserve avisos MIT e OFL ao redistribuir os códigos ou fontes correspondentes. O [guia de personalização](CUSTOMIZATION.md) explica como remover requisições externas de fontes.

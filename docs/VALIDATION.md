@@ -53,3 +53,7 @@ Isso não comprova indexação real, citações por IA ou desempenho. Nenhuma co
 ## Revisão de buscadores e layout das postagens
 
 Treze testes locais passam, incluindo restrição com escopo de DuckDuckBot. A fixture `media.html` usa o exemplo editável de post em português, figura e iframe vazio de vídeo 16:9. Medições por DOM em 320, 360, 768 e 1440 px não mostraram transbordamento horizontal; figura e iframe ficaram na coluna de leitura. Isso verifica contêineres, não reprodução de vídeo nem importação no Blogger.
+
+## Revisão de páginas básicas
+
+A prévia de Privacidade tem um H1, microdados WebPage e destaque do link atual no menu. Medições por DOM em 320, 768 e 1440 px não mostraram transbordamento horizontal. A navegação de Privacidade para Contato funcionou. Os corpos das páginas usam Lorem ipsum; não são conteúdo publicado do site. Os treze testes estruturais e de SEO passam. Importação e funcionamento dos gadgets no Blogger seguem pendentes.

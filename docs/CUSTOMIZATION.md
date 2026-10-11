@@ -22,7 +22,7 @@ Edite as variáveis `:root` no bloco `b:skin` do XML. `--paper` controla o fundo
 
 `--sans` e `--serif` controlam as famílias de fonte. O tema solicita Inter e Newsreader ao Google Fonts e usa fontes locais se o serviço não responder. `display=swap` mantém texto disponível durante o carregamento. Essa configuração faz requisições a `fonts.googleapis.com` e `fonts.gstatic.com`.
 
-Para usar somente fontes locais, remova os três links de fontes no `<head>` e substitua as variáveis por `system-ui,sans-serif` e `Georgia,serif`. Para hospedar fontes por conta própria, configure URLs HTTPS em `@font-face` e preserve as licenças em `licenses/`.
+Para usar somente fontes locais, remova os três links de fontes no `<head>` e substitua as variáveis por `system-ui,sans-serif` e `serif`. Para hospedar fontes por conta própria, configure URLs HTTPS em `@font-face` e preserve as licenças em `licenses/`.
 
 ## Conferir mudanças
 
@@ -46,3 +46,7 @@ Mude apenas estes valores no bloco `:root` existente; não precisa editar widget
 ```
 
 Mantenha texto e links escuros o suficiente para contraste. Estes são os tons pastel próprios do Balaio. Para conteúdo das postagens, consulte [POSTS.md](POSTS.md).
+
+## Páginas básicas
+
+[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu e aos Links do rodapé. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
