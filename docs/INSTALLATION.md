@@ -30,3 +30,5 @@ Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atu
 Posts, imagens e URLs não são migrados por este tema. Guarde uma cópia do XML que personalizou. A instalação altera a apresentação do blog; mantenha seus backups separados do repositório.
 
 [Personalizar](CUSTOMIZATION.md) · [Voltar ao README](../README.pt-BR.md) · [Ajuda oficial do Blogger](https://support.google.com/blogger/answer/176245?hl=pt-BR)
+
+Antes de publicar, siga a [configuração de SEO](SEO.md).

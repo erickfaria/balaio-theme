@@ -537,6 +537,7 @@ a:focus-visible,input:focus-visible {
               <b:if cond='data:blog.pageType == "item" or data:blog.pageType == "static_page"'>
                 <b:loop values='data:posts' var='post'><b:include data='post' name='article'/></b:loop>
               <b:else/>
+                <b:if cond='data:blog.url != data:blog.homepageUrl'><h1 class='section-title'><data:blog.pageTitle/></h1></b:if>
                 <b:if cond='data:posts.empty'><p class='empty'>Nenhuma publicação encontrada. <a expr:href='data:blog.homepageUrl'>Voltar ao início</a>.</p></b:if>
                 <b:if cond='data:blog.url == data:blog.homepageUrl'>
                   <b:if cond='not data:posts.empty'><h2 class='section-title'>Últimas publicações</h2></b:if>
@@ -558,7 +559,12 @@ a:focus-visible,input:focus-visible {
               </b:if>
             </b:includable>
             <b:includable id='metadata' var='post'>
-              <div class='meta'><span><data:post.author/></span><span><data:post.timestamp/></span></div>
+              <div class='meta'>
+                <b:if cond='data:blog.pageType == "item"'>
+                  <span itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'><span itemprop='name'><data:post.author/></span></span>
+                <b:else/><span><data:post.author/></span></b:if>
+                <span><data:post.timestamp/></span>
+              </div>
             </b:includable>
             <b:includable id='labels' var='post'>
               <b:if cond='data:post.labels'><div class='labels'><b:loop values='data:post.labels' var='label'><a expr:href='data:label.url' rel='tag'><data:label.name/></a></b:loop></div></b:if>
@@ -571,15 +577,17 @@ a:focus-visible,input:focus-visible {
                   <p class='post-summary'><data:post.snippet/></p>
                   <b:include data='post' name='metadata'/>
                 </div>
-                <b:if cond='data:post.thumbnailUrl'><a class='post-image-link' expr:href='data:post.url' tabindex='-1' aria-hidden='true'><img alt='' class='post-image' expr:src='data:post.thumbnailUrl' loading='lazy'/></a></b:if>
+                <b:if cond='data:post.thumbnailUrl'><a class='post-image-link' expr:href='data:post.url' tabindex='-1' aria-hidden='true'><img alt='' class='post-image' expr:src='data:post.thumbnailUrl' loading='lazy' decoding='async' width='640' height='480'/></a></b:if>
               </article>
             </b:includable>
             <b:includable id='article' var='post'>
-              <article class='article'>
+              <article class='article' itemscope='itemscope' expr:itemtype='data:blog.pageType == "item" ? "https://schema.org/BlogPosting" : "https://schema.org/WebPage"'>
+                <link itemprop='url' expr:href='data:post.url'/>
+                <b:if cond='data:blog.pageType == "item"'><link itemprop='mainEntityOfPage' expr:href='data:post.url'/></b:if>
                 <b:include data='post' name='labels'/>
-                <h1><b:if cond='data:post.title'><data:post.title/><b:else/>Publicação sem título</b:if></h1>
+                <h1 expr:itemprop='data:blog.pageType == "item" ? "headline" : "name"'><b:if cond='data:post.title'><data:post.title/><b:else/>Publicação sem título</b:if></h1>
                 <b:if cond='data:blog.pageType == "item"'><b:include data='post' name='metadata'/></b:if>
-                <div class='post-body'><data:post.body/></div>
+                <div class='post-body' expr:itemprop='data:blog.pageType == "item" ? "articleBody" : "text"'><data:post.body/></div>
                 <nav aria-label='Voltar às publicações' class='pager'><a expr:href='data:blog.homepageUrl'>Voltar ao início</a></nav>
                 <b:if cond='data:blog.pageType == "item" and data:post.allowComments'>
                   <section class='comments' id='comments' aria-label='Comentários'>

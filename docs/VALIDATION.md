@@ -23,7 +23,7 @@ Não há confirmação de importação bem-sucedida no Blogger. O checklist comp
 - Prévia da home conferida por DOM em 360, 768 e 1440 px, sem transbordamento da página.
 - A fixture exibe três cards de abertura e uma entrada na lista, com quatro publicações ao todo, sem repetição.
 - O CSS computado utiliza a família Inter na interface. A confirmação de download das fontes não foi concluída: a espera do navegador excedeu o tempo disponível. O fallback permanece configurado. A tipografia final precisa de revisão visual em ambiente com acesso ao Google Fonts.
-- Quatro testes estruturais do validador passaram localmente. O workflow está preparado para repetir a validação no GitHub; ainda não foi executado lá.
+- Quatro testes estruturais do validador passaram localmente. O PR inicial passou no CI do GitHub antes do merge; a branch de SEO precisa de execução remota própria.
 
 ## Revisão responsiva e bilíngue
 
@@ -33,3 +33,7 @@ Não há confirmação de importação bem-sucedida no Blogger. O checklist comp
 - Variantes XML em português e inglês validadas. Dois testes adicionais garantem CSS equivalente e as mesmas identidades de widgets; seis testes passaram ao todo.
 - Links locais da documentação bilíngue conferidos automaticamente. Âncoras e URLs externas não fazem parte desse check.
 - As fontes remotas não apareceram como carregadas na inspeção atual; os testes de largura refletem o fallback. A revisão visual com as fontes finais continua pendente.
+
+## Validação da branch de SEO
+
+Doze testes locais cobrem XML, idiomas, metadados nativos e auditoria de HTML. Esta branch adiciona microdados parciais de artigos/páginas e títulos de listagens; importação no Blogger e validação de resultados enriquecidos seguem pendentes. O [guia de SEO](SEO.md) registra o diagnóstico público, separado da verificação do template.

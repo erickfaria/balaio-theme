@@ -17,7 +17,7 @@ An article overflow issue was fixed by allowing grid items to shrink (`min-width
 
 The preview uses actual CSS with sample markup; it does not compile Blogger expressions or widgets. Import, live data, comments and pagination remain unverified in Blogger. Screenshot capture was unavailable; recorded checks use DOM structure and dimensions, not screenshot review.
 
-CI is configured, but no GitHub run has been confirmed. Passing static checks does not imply Blogger compatibility. Use the checklist in [ROADMAP.md](ROADMAP.md).
+The initial theme PR passed GitHub CI before merge; this branch still needs its own remote run. Passing static checks does not imply Blogger compatibility. Use the checklist in [ROADMAP.md](ROADMAP.md).
 
 ## Responsive and bilingual review
 
@@ -27,3 +27,7 @@ CI is configured, but no GitHub run has been confirmed. Passing static checks do
 - Both XML variants validate. Two additional tests ensure matching CSS and widget identities; six tests pass overall.
 - Local bilingual documentation links are checked automatically. Heading anchors and external URLs are outside that check.
 - Remote font faces were not reported as loaded during this review, so dimensions were checked with fallback typography. Final-font visual review remains pending.
+
+## SEO branch validation
+
+Twelve local tests cover XML, locales, metadata ownership and rendered HTML auditing. This branch adds partial article/page microdata and listing headings; live Blogger import and rich-results validation remain pending. The [SEO guide](SEO.md) records a read-only domain baseline, separate from template verification.

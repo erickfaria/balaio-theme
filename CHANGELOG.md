@@ -2,6 +2,9 @@
 
 ## English — Unreleased
 
+- Article/WebPage microdata, listing headings and explicit card image dimensions.
+- Rendered HTML SEO auditor, regression checks and bilingual search/AI discovery setup guide.
+
 - Independent MIT-licensed Blogger theme with cards, lists, articles, pages, navigation, search, labels and basic comments.
 - Soft green, sand and blue colors; Inter and Newsreader under SIL OFL.
 - Responsive CSS, editable introduction, keyboard focus and print styles.
@@ -11,6 +14,9 @@
 Blogger import and live behavior still need verification. No stable release has been published.
 
 ## Português — Em desenvolvimento
+
+- Microdados de artigos/páginas, títulos de listagens e dimensões de imagens dos cards.
+- Auditor de SEO no HTML renderizado, testes e guia bilíngue de busca e descoberta por IA.
 
 
 

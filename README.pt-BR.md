@@ -74,3 +74,7 @@ Abra `http://127.0.0.1:8765`. Encerre o servidor com Ctrl+C. Com Make instalado,
 [Contribuir](CONTRIBUTING.md) · [Histórico](CHANGELOG.md) · [Design](docs/DESIGN.md) · [Plano](docs/ROADMAP.md) · [Validação](docs/VALIDATION.md) · [Autoria e licenças](docs/PROVENANCE.md)
 
 Backups, credenciais e conteúdo privado não integram a distribuição. Fontes mantêm a licença OFL; posts e imagens têm direitos próprios. A automação do GitHub verifica os templates, as traduções e a geração da prévia; um check verde não confirma importação no Blogger.
+
+## SEO e descoberta por IA
+
+O tema preserva os metadados do Blogger e adiciona microdados de artigos ligados ao conteúdo visível. Consulte o [guia de SEO e auditoria](docs/SEO.md) para configurar descrições de pesquisa, indexação e acesso de robôs. Inclui auditor de HTML sem dependências; posição e citações por IA não são garantidas.

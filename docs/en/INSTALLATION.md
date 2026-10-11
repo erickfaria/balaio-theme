@@ -30,3 +30,5 @@ Use a test blog with several posts and a static page. Keep a backup of your curr
 This theme does not migrate posts, images or URLs. Keep a copy of your customized XML. Installing a theme changes presentation; keep blog backups outside this repository.
 
 [Customize](CUSTOMIZATION.md) · [Back to README](../../README.md) · [Official Blogger help](https://support.google.com/blogger/answer/176245?hl=en)
+
+Before publishing, complete the [SEO configuration checklist](SEO.md).
