@@ -51,3 +51,7 @@ A MIT não exige crédito visível no site: o rodapé pode ser personalizado, ma
 ## Páginas básicas
 
 [Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu e aos Links do rodapé. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+
+## Layout compacto no celular
+
+Em telas de até 800px, cabeçalho e apresentação usam espaçamento menor. Os assuntos da lateral ficam em duas colunas simples, com nomes que quebram linha e contagens clicáveis; todos continuam visíveis. Cada link de assunto tem altura mínima de 44px. Apenas o painel externo recebe uma divisória superior. Posts e páginas estáticas preservam a estrutura de leitura e a paleta pastel.

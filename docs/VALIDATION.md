@@ -31,3 +31,7 @@ Os controles de cores/fontes são alterações novas e não estão cobertos pelo
 A prévia atualizada foi medida em 320, 360, 768 e 1440px para home, artigo, privacidade, conteúdo longo e mídia, sem transbordamento horizontal da página. O corpo de artigos e páginas resolve para 20px nas quatro larguras.
 
 Uma fixture temporária com texto serif de 24px e fundo areia pastel também respeitou a largura da tela em 320, 768 e 1440px para artigos e privacidade. Estas prévias geradas não integram o Git.
+
+## Refinamento do espaçamento móvel
+
+Medidas do DOM da home atualizada em 320, 360, 480, 768, 800, 801 e 1440px não mostraram transbordamento horizontal da página. Os 24 assuntos de exemplo continuam com links; no celular, os links têm ao menos 44px de altura e apenas a lateral externa tem divisória. Em 360px, a mesma fixture passou de 290px para 258px de cabeçalho e de 885px para 642px de lista de assuntos. Artigo, privacidade e conteúdo longo também respeitam a tela em 320, 360, 768 e 1440px, com texto de leitura de 20px. São medidas de fixtures locais; o XML atualizado ainda precisa de conferência no Blogger.

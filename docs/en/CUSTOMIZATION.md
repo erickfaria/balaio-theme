@@ -49,3 +49,7 @@ Regenerate the preview after XML changes. Check contrast, long titles, posts wit
 ## Basic pages
 
 [About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu and Footer links. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+
+## Compact mobile layout
+
+On screens up to 800px, the header and introduction use shorter spacing. Sidebar topics form two plain columns with wrapping labels and clickable counts; all topics remain visible. Each topic link has a minimum 44px height. Only the outer sidebar gets a top divider. Posts and static pages retain their reading layout and pastel palette.

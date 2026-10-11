@@ -31,3 +31,7 @@ The color/font controls are new source changes and are not covered by the stable
 The updated default preview was measured at 320, 360, 768 and 1440px for home, article, privacy, long-content and media fixtures, with no page-wide horizontal overflow. Article and page body text resolves to 20px at all four widths.
 
 A temporary customization fixture with 24px serif reading text and a pastel sand page background also stayed within the viewport at 320, 768 and 1440px for articles and privacy pages. These generated fixtures are excluded from Git.
+
+## Mobile spacing refinement
+
+DOM measurements of the updated home fixture at 320, 360, 480, 768, 800, 801 and 1440px show no page-wide horizontal overflow. All 24 sample topics remain linked; mobile links are at least 44px tall, and only the outer sidebar has a divider. At 360px, the same fixture changed from a 290px to a 258px header and an 885px to a 642px topic list. Article, privacy and long-content fixtures also remain within the viewport at 320, 360, 768 and 1440px, with 20px reading text. These are local fixture measurements; the updated XML still needs live Blogger verification.

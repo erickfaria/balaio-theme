@@ -86,6 +86,9 @@ a:focus-visible,input:focus-visible {
   padding:32px 0 20px;
   border-bottom:1px solid var(--line);
 }
+.masthead .widget,.masthead .section {
+  margin:0;
+}
 .masthead-top > * {
   min-width:0;
 }
@@ -336,6 +339,14 @@ a:focus-visible,input:focus-visible {
 .sidebar li {
   margin:8px 0;
 }
+.topic-count {
+  color:var(--muted);
+  font-size:13px;
+  white-space:nowrap;
+}
+.topic-list a {
+  overflow-wrap:anywhere;
+}
 .pager {
   display:flex;
   justify-content:space-between;
@@ -485,7 +496,11 @@ a:focus-visible,input:focus-visible {
   .wrap {
     width:calc(100% - 32px);
   }
+  .masthead {
+    padding:20px 0 16px;
+  }
   .masthead-top {
+    gap:16px;
     align-items:flex-start;
     flex-direction:column;
   }
@@ -495,17 +510,44 @@ a:focus-visible,input:focus-visible {
   .search input {
     flex:1;
   }
+  .navigation {
+    padding-top:12px;
+  }
+  .intro {
+    padding:28px 0 16px;
+  }
   .content-grid {
     grid-template-columns:1fr;
-    gap:36px;
+    gap:24px;
+    padding:24px 0 40px;
   }
   .post-card {
     grid-template-columns:minmax(0,1fr) 160px;
     gap:20px;
   }
-  .sidebar {
+  .content-grid > .sidebar {
     border-top:1px solid var(--line);
-    padding-top:28px;
+    padding-top:20px;
+  }
+  .sidebar .widget {
+    margin-bottom:24px;
+  }
+  .sidebar .topic-list {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:4px 16px;
+    margin:0;
+    font-size:14px;
+    line-height:1.45;
+  }
+  .sidebar .topic-list li {
+    min-width:0;
+    margin:0;
+  }
+  .topic-list a {
+    display:block;
+    min-height:44px;
+    padding:10px 0;
   }
   .article {
     padding:20px 0;
@@ -688,7 +730,7 @@ a:focus-visible,input:focus-visible {
         <aside aria-label='Explore o blog' class='sidebar'>
           <b:section class='sidebar' id='sidebar' showaddelement='yes'>
             <b:widget id='Label1' locked='false' title='Explore os assuntos' type='Label' version='1'>
-              <b:includable id='main'><h2><data:title/></h2><ul><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/></a> <span class='meta' style='display:inline'>(<data:label.count/>)</span></li></b:loop></ul></b:includable>
+              <b:includable id='main'><h2><data:title/></h2><ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/> <span class='topic-count'>(<data:label.count/>)</span></a></li></b:loop></ul></b:includable>
             </b:widget>
           </b:section>
         </aside>
