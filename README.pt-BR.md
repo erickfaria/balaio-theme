@@ -93,3 +93,7 @@ O tema preserva os metadados do Blogger e adiciona microdados de artigos ligados
 ## Páginas básicas
 
 [Modelos de Sobre, Contato e Privacidade](docs/PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu e aos Links do rodapé. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+
+## Contribuir por pull requests
+
+Forks públicos e contribuições são bem-vindos. Mudanças na `main` exigem CI e revisão do mantenedor; somente `@erickfaria` integra alterações. Consulte a [política de manutenção](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md) e o [guia de contribuição](CONTRIBUTING.md).

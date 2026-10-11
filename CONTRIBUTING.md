@@ -57,3 +57,9 @@ Não inclua `preview/`, backups, credenciais ou conteúdo privado. O gerador de 
 Siga [docs/DESIGN.md](docs/DESIGN.md). Código e gráficos novos devem ter autoria ou origem documentadas. Para incluir fontes, imagens ou dependências, registre licença e atribuição em `docs/PROVENANCE.md` e preserve os avisos necessários. Não inclua recursos sem permissão de redistribuição verificável.
 
 Não acrescente dependências ou serviços externos sem explicar sua utilidade. Leitura, navegação e busca precisam funcionar sem JavaScript do tema.
+
+## Review and merge / Revisão e integração
+
+Open a PR from your fork or working branch; do not push to `main`. The `validate` check must pass, discussions must be resolved and the branch must be current. `@erickfaria` is the sole required code owner and integrates approved changes by squash merge. New reviewable commits dismiss previous approvals. External Actions runs need maintainer approval. See the [maintenance policy](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md).
+
+Abra PR de um fork ou branch de trabalho; não envie diretamente para `main`. O check `validate` precisa passar, as conversas devem estar resolvidas e a branch atualizada. `@erickfaria` é o único CODEOWNER obrigatório e integra mudanças por squash merge. Novos commits revisáveis invalidam aprovações anteriores. Runs externos do Actions precisam de aprovação do mantenedor.
