@@ -1,16 +1,16 @@
-# Validação — v0.2.0-rc.3
+# Validação — v0.2.0-rc.4
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
 ## Status
 
-Versão candidata preparada em 11/10/2026. A importação da v0.1.0 foi confirmada pelo proprietário e a v0.2.0-rc.2 foi observada publicada em português, com a falha da home descrita abaixo. Os XMLs corrigidos da v0.2.0-rc.3 ainda precisam de nova importação no Blogger. Não há afirmação de que ambos os idiomas ou todos os gadgets nativos tenham sido testados independentemente na plataforma.
+Candidata preparada em 11/10/2026. O proprietário confirmou a importação da v0.1.0 e a continuação da home da rc.3. Nova inspeção da rc.3 mostrou dez posts distintos e console sem erros. A rc.4 otimizada precisa de nova importação no Blogger. Ambos os idiomas, Designer e todos os gadgets nativos ainda não foram conferidos independentemente na plataforma.
 
 **Pausa do Actions:** as execuções de CI registradas abaixo passaram antes da pausa. O Actions do repositório agora está desativado; as validações podem ser executadas localmente e o workflow salvo é apenas manual para retomada futura autorizada.
 
 ## Checks automatizados
 
-Vinte e três testes verificam estrutura XML/gadgets, equivalência de idiomas, metadados nativos de SEO e auditoria de HTML, resolução das variáveis do Designer/contraste padrão e regressões de navegação/busca móvel. Três checks com Node.js verificam a sintaxe do script com CDATA preservado, com CDATA removido pelo parser XML e a rejeição da forma que falhou na rc.2. Sem Node, os três são pulados localmente; são obrigatórios quando o workflow é executado. Os dois XMLs são válidos; a geração inglesa está atualizada; links Markdown locais e whitespace passam. O CI repete os checks e gera prévia e pacote limpo. Links externos e âncoras de títulos não são conferidos automaticamente.
+Vinte e quatro testes locais passam: estrutura XML/gadgets, equivalência de idiomas, metadados nativos/auditoria HTML, resolução/contraste do Designer e navegação/busca móvel. Quatro checks Node verificam sintaxe com CDATA preservado/removido, falha da rc.2 e agendamento adiado (antes de load, execução tardia e sem API ociosa) nos dois idiomas. Sem Node, os quatro são pulados localmente. XMLs, geração inglesa, links Markdown, whitespace e geração da prévia passam. O workflow manual pode repetir checks/pacote somente após retomada autorizada; não houve CI para rc.4. Links externos e âncoras de títulos não são conferidos automaticamente.
 
 ## Evidências anteriores da prévia responsiva — v0.2.0-rc.1
 
@@ -43,6 +43,17 @@ A nova inspeção do blog em 11/10/2026 confirmou a rc.2 publicada, dois posts i
 Uma reprodução local manteve o HTML público completo, inclusive seus delimitadores, mudando apenas o domínio para atender as requisições na cópia local. A forma original repetiu os dois posts e o mesmo erro. Ao adicionar somente `//` aos dois delimitadores, o navegador mostrou dez permalinks distintos: dois destaques e oito entradas abaixo, começando por “Como usar R no Jamovi?”. A paginação avançou além do último post exibido e o console dessa cópia corrigida ficou sem erros/avisos. As páginas seguintes foram consultadas no blog real; redirecionamentos não foram seguidos silenciosamente pelo servidor de teste.
 
 `build_preview.py` agora preserva o bloco de script bruto em vez de extrair seu texto via parser XML. A prévia atual, com `//<![CDATA[` presente no HTML, também exibiu 2 + 8 posts em quadros de 320, 360, 768 e 1440px, com larguras de cliente/rolagem iguais (305, 345, 753 e 1425px). Isto verifica DOM, execução e largura; não equivale à importação da rc.3 nem a uma nova revisão por captura de tela. As observações anteriores da rc.2 não comprovavam compatibilidade com a serialização do Blogger.
+
+## Candidata de performance — v0.2.0-rc.4
+
+- CSS oficial das fontes: 13.667 → 3.772 bytes descomprimidos; as duas respostas apontaram para os mesmos dez URLs de arquivos de fontes. Os intervalos cobrem os pesos intermediários da interface.
+- O artigo rc.3 inspecionado continha lateral oculta de 10.086 bytes (192 tags de abertura). O XML candidato condiciona a seção para item/static_page; a redução compilada precisa de nova importação.
+- Reprodução local do HTML rc.3 com script candidato: dois destaques e oito entradas distintas, links adicionais sem `m`, próxima página correta e console sem erros/avisos.
+- Fixtures regeneradas preservam sucesso, duplicações, ciclos, falha inicial/parcial, rejeição de URL externo, fim do arquivo, conteúdo inerte, sem script/desligado, limite de uma página e última página completa. Novos casos preservam outros parâmetros/fragmentos, ignoram cards/paginação fora de `Blog1` e mantêm navegação se `Blog1` estiver ausente.
+- Quadros de home em 320, 360, 768 e 1440px mostraram dez entradas distintas; larguras de cliente/rolagem coincidiram em 305, 345, 753 e 1425px. Artigo/privacidade/stress mantêm texto de 22px e entrelinha de 38,5px sem transbordamento da página.
+- Auditorias da home rc.3 e de um artigo publicado encontraram um título/canonical/H1, idioma português e nenhum erro estrutural. Ambos estavam sem descrição de pesquisa; configure-a nas Configurações/editor do Blogger. Conteúdo/configurações não foram alterados.
+
+São checks locais de execução/DOM e bytes; não houve Lighthouse, Core Web Vitals, rede limitada ou comparação de velocidade em produção. [Evidências e ajustes de performance](PERFORMANCE.md).
 
 ## Checks de plataforma pendentes
 

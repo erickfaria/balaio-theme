@@ -1,14 +1,24 @@
 # Changelog / Histórico
 
-## Unreleased
+## v0.2.0-rc.4 — 2026-10-11
 
 ### English
 
-- Temporarily disable repository GitHub Actions at the owner’s request; remove automatic push/PR/tag triggers. Keep a manual workflow for an explicitly approved future resumption and document local validation during the pause. Published theme assets and main protections remain unchanged.
+- Prioritize initial content: defer home continuation until load/idle and hint low fetch priority; keep the working rc.3 pagination fallback and ten-post target.
+- Request variable-font ranges, reducing the measured Google Fonts CSS from 13,667 to 3,772 decoded bytes while keeping open Inter/Newsreader and the same font file URLs.
+- Omit hidden article/static-page sidebar markup; scope fetched cards/pagination to Blog1 and normalize only mobile parameters in appended content links.
+- Add lifecycle/runtime regressions, bilingual performance guidance, measured evidence and live rc.3 owner confirmation. Twenty-four local tests pass; optimized rc.4 import and production speed measurements remain pending.
+
+- Temporarily disable repository GitHub Actions at the owner’s request; remove automatic push/PR/tag triggers. Keep a manual workflow for an explicitly approved future resumption and document local validation during the pause. Previously published assets and main protections remain unchanged.
 
 ### Português
 
-- Desativar temporariamente o GitHub Actions do repositório a pedido do proprietário; retirar disparos automáticos por push/PR/tag. Manter o workflow manual para retomada futura explicitamente autorizada e documentar checks locais durante a pausa. Arquivos publicados do tema e proteções da main permanecem iguais.
+- Priorizar conteúdo inicial: adiar continuação para load/ociosidade e indicar prioridade baixa; preservar paginação de fallback da rc.3 e meta de dez posts.
+- Solicitar intervalos de fontes variáveis, reduzindo CSS Google Fonts medido de 13.667 para 3.772 bytes descomprimidos com Inter/Newsreader abertas e mesmos URLs de arquivos de fontes.
+- Evitar HTML da lateral oculta em artigos/páginas; restringir cards/paginação recebidos a Blog1 e normalizar apenas parâmetros móveis em links de conteúdo adicionais.
+- Adicionar regressões de ciclo/execução, guia de performance bilíngue, evidências medidas e confirmação da rc.3 pelo proprietário. Vinte e quatro testes locais passam; importação da rc.4 e medições de velocidade em produção seguem pendentes.
+
+- Desativar temporariamente o GitHub Actions do repositório a pedido do proprietário; retirar disparos automáticos por push/PR/tag. Manter o workflow manual para retomada futura explicitamente autorizada e documentar checks locais durante a pausa. Arquivos das versões anteriores e proteções da main permanecem iguais.
 
 ## v0.2.0-rc.3 — 2026-10-11
 

@@ -1,16 +1,16 @@
-# Validation — v0.2.0-rc.3
+# Validation — v0.2.0-rc.4
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
 ## Status
 
-Release candidate prepared on October 11, 2026. The owner confirmed v0.1.0 import, and Portuguese v0.2.0-rc.2 was observed published with the home failure described below. The corrected v0.2.0-rc.3 XMLs still need a fresh Blogger import. No claim is made that both languages or every native widget have been tested independently on the platform.
+Release candidate prepared on October 11, 2026. The owner confirmed v0.1.0 import and rc.3 home continuation. A fresh rc.3 browser inspection displayed ten distinct posts without console errors. Optimized rc.4 needs a fresh Blogger import. Both languages, Designer and every native widget have not been independently verified on the platform.
 
 **Actions pause:** the CI runs recorded below passed before the pause. Repository Actions is now disabled; checks can run locally, and the saved workflow is manual-only for an explicitly authorized future resumption.
 
 ## Automated checks
 
-Twenty-three tests cover XML/widget structure, locale equivalence, native SEO metadata and rendered HTML auditing, Designer variable resolution/default contrast, and mobile navigation/search regressions. Three Node.js checks parse the home script with preserved CDATA, XML-stripped CDATA, and reject the form that failed in rc.2. Without Node the three are skipped locally; they are mandatory when the workflow runs. Both XMLs parse; English generation is current; local Markdown links and Git whitespace pass. CI repeats the checks and builds the preview and clean install package. External links and heading anchors are not checked automatically.
+Twenty-four local tests pass, covering XML/widget structure, locale equivalence, native SEO metadata and HTML auditing, Designer resolution/contrast and mobile navigation/search. Four Node checks cover preserved/stripped CDATA syntax, the rc.2 failure and deferred scheduling (before load, late execution, and no idle API) in both locales. Without Node those four are skipped locally. Both XMLs parse; English generation, Markdown links, whitespace and preview generation pass. The manual workflow can repeat checks/package generation only after an authorized resumption; no CI was run for rc.4. External links and heading anchors are not checked automatically.
 
 ## Earlier responsive preview evidence — v0.2.0-rc.1
 
@@ -43,6 +43,17 @@ A fresh inspection on 11 October 2026 confirmed rc.2 published, two initial post
 A local replay retained the complete public HTML including its delimiters, changing only the domain to serve requests through the local copy. The original form reproduced two posts and the same error. Adding only `//` before both delimiters displayed ten distinct permalinks: two highlights and eight list entries, starting with “Como usar R no Jamovi?”. Pagination advanced beyond the last displayed entry and that corrected replay logged no errors/warnings. Next pages were requested from the actual blog; the test server did not silently follow redirects.
 
 `build_preview.py` now preserves the raw script block instead of extracting XML parser text. The current preview, with `//<![CDATA[` in its HTML, also displayed 2 + 8 posts in 320, 360, 768 and 1440px frames, with matching client/scroll widths (305, 345, 753 and 1425px). This verifies DOM, execution and width; it is neither an rc.3 Blogger import nor a fresh screenshot review. The earlier rc.2 observations did not establish compatibility with Blogger serialization.
+
+## Performance candidate — v0.2.0-rc.4
+
+- Official font CSS measured 13,667 → 3,772 decoded bytes; both requests referenced the same ten font-file URLs. The ranges cover existing intermediate interface weights.
+- The inspected rc.3 article had a 10,086-byte hidden sidebar (192 opening tags). Candidate XML gates this section for item/static_page; the compiled reduction needs a fresh import.
+- Local replay of published rc.3 HTML with candidate script: two highlights plus eight distinct entries, no `m` on appended links, correct next-page continuation, no console errors/warnings.
+- Rebuilt fixtures preserve success, duplicates, cycles, initial/partial failure, external URL rejection, archive end, inert content, no-script/disabled modes, one-page budget and complete final pages. New cases preserve other query parameters/fragments, ignore cards/pagers outside `Blog1`, and preserve navigation if `Blog1` is missing.
+- Home frames at 320, 360, 768 and 1440px each displayed ten distinct entries; client and scroll widths matched at 305, 345, 753 and 1425px. Article/privacy/stress checks retain 22px text and 38.5px line height without page overflow.
+- Audits of the live rc.3 home and one article found one title/canonical/H1, Portuguese language, and no structural errors. Both lacked a search description; configure it in Blogger Settings/post editor. No content/settings were changed.
+
+These are local runtime/DOM and byte checks; no Lighthouse, Core Web Vitals, throttled network or production speed comparison was performed. [Performance evidence and controls](PERFORMANCE.md).
 
 ## Pending platform checks
 
