@@ -1,20 +1,20 @@
-# Install release v0.1.0-alpha.1
+# Install release v0.1.0
 
 [English](RELEASE.md) · [Português](../RELEASE.md)
 
-[Download on GitHub](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0-alpha.1).
+[Download on GitHub](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0).
 
-This is an **experimental prerelease**, not a platform-verified stable theme. XML validation, thirteen local tests and CI pass; Blogger import still needs testing. See [known limits](../../CHANGELOG.md) and [validation evidence](VALIDATION.md).
+This is the first **stable release**. The project owner confirmed successful Blogger import on October 11, 2026. XML validation, thirteen local tests and CI pass. Full gadget, comment and pagination regression testing remains separate from that import confirmation. See [known limits](../../CHANGELOG.md) and [validation evidence](VALIDATION.md).
 
 ## Assets
 
-- `balaio-0.1.0-alpha.1.zip`: install package with both templates, page/post examples, bilingual documentation, version, changelog and license notices. No development tests, scripts, backup files or generated previews.
+- `balaio-0.1.0.zip`: install package with both templates, page/post examples, bilingual documentation, version, changelog and license notices. No development tests, scripts, backup files or generated previews.
 - `balaio.xml`: Portuguese interface.
 - `balaio.en.xml`: English interface.
 - `SHA256SUMS.txt`: checksums for the ZIP and both XML files.
 - GitHub's automatic source archives: complete tracked development source, including useful scripts and tests.
 
-The ZIP extracts into `balaio-0.1.0-alpha.1/`. Choose an XML from `theme/`; don't upload the ZIP as a Blogger theme. Standalone XML assets contain the same templates. Use the package if you also want examples and complete license notices.
+The ZIP extracts into `balaio-0.1.0/`. Choose an XML from `theme/`; don't upload the ZIP as a Blogger theme. Standalone XML assets contain the same templates. Use the package if you also want examples and complete license notices.
 
 ## Quick installation
 

@@ -2,6 +2,10 @@
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
+## Importação no Blogger confirmada
+
+Em 11/10/2026, o proprietário informou importação bem-sucedida e autorizou expressamente a promoção para `v0.1.0` estável. Esta é uma evidência de plataforma relatada pelo mantenedor. O idioma importado e os resultados completos dos widgets não foram registrados; não significa que ambos os XMLs ou todos os comportamentos foram testados independentemente. Os templates XML são os mesmos da alpha importada.
+
 ## Checks automatizados
 
 Treze testes verificam seções de widgets inválidas, IDs duplicados, includes ausentes, equivalência de idiomas, metadados nativos e auditoria de SEO no HTML. Os dois XMLs são válidos, a geração de idiomas está atualizada, links Markdown locais e whitespace do Git passam. O CI repete esses checks e gera a prévia. URLs externas e âncoras de títulos não são conferidas automaticamente.
@@ -16,6 +20,6 @@ Treze testes verificam seções de widgets inválidas, IDs duplicados, includes 
 
 ## Limites e próximas verificações
 
-São checks de CSS/DOM em fixtures, não execução do compilador do Blogger. Importação, dados nativos, gadgets, comentários, paginação e marcação publicada seguem pendentes. A captura de tela estava indisponível e o carregamento das fontes remotas não foi confirmado; as medidas refletem fontes de fallback. Não há comprovação de Core Web Vitals nem posição em buscas.
+São checks de CSS/DOM em fixtures, não execução do compilador do Blogger. A importação foi confirmada pelo proprietário. Testes completos de dados nativos, gadgets, comentários, paginação e marcação publicada seguem pendentes. A captura de tela estava indisponível e o carregamento das fontes remotas não foi confirmado; as medidas refletem fontes de fallback. Não há comprovação de Core Web Vitals nem posição em buscas.
 
-A release é alpha até concluir o [checklist de plataforma](ROADMAP.md). Consulte [SEO.md](SEO.md) para auditar HTML publicado e [RELEASE.md](RELEASE.md) para instalação e conteúdo do pacote.
+O proprietário autorizou a versão estável após confirmar a importação; o [checklist de plataforma](ROADMAP.md) registra verificações complementares. Consulte [SEO.md](SEO.md) para auditar HTML publicado e [RELEASE.md](RELEASE.md) para instalação e conteúdo do pacote.
