@@ -69,6 +69,8 @@ def build():
     (OUT / "short-home.html").write_text(page("Home paginada", intro + listing(cards[:2], "older-1.html", home=True), home=True))
     frames = ''.join(f'<iframe id="width-{width}" src="short-home.html" width="{width}" height="900" title="Home {width}px" style="display:block;border:0"></iframe>' for width in (320, 360, 768, 1440))
     (OUT / "responsive-home.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Home responsiva</title><body>' + frames + '</body></html>')
+    reading_frames = ''.join(f'<iframe id="{name}-{width}" src="{name}.html" width="{width}" height="900" title="{name} {width}px" style="display:block;border:0"></iframe>' for name in ('article', 'privacy', 'stress') for width in (320, 360, 768, 1440))
+    (OUT / "responsive-reading.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Leitura responsiva</title><body>' + reading_frames + '</body></html>')
     (OUT / "short-nojs.html").write_text(page("Sem JavaScript", intro + listing(cards[:2], "older-1.html", home=True)))
     for index in range(4):
         next_page = f"older-{index + 2}.html"  # Last link stays crawlable after reaching the target.
@@ -87,6 +89,17 @@ def build():
     unsafe = cards[2].replace('<p class="post-summary">', """<p class="post-summary"><img src="missing.png" onerror="document.body.setAttribute('data-attack','ran')">""")
     (OUT / "unsafe-page.html").write_text(page("Conteúdo inerte", listing([unsafe])) + '<script>document.body.setAttribute("data-attack","ran")</script>')
     (OUT / "short-unsafe.html").write_text(page("Conteúdo inerte", intro + listing(cards[:2], "unsafe-page.html", home=True), home=True))
+    # Query cleanup must preserve unrelated parameters and fragments.
+    mobile_card = cards[2].replace('post-3.html', 'post-3.html?m=0&amp;ref=fixture#reading').replace(
+        '<div class="labels">Método</div>',
+        '<div class="labels"><a href="empty.html?m=1&amp;ref=label#topics">Método</a></div>')
+    (OUT / "mobile-links-page.html").write_text(page("Links de conteúdo", listing([mobile_card])))
+    (OUT / "short-mobile-links.html").write_text(page("Links móveis", intro + listing(cards[:2], "mobile-links-page.html", home=True), home=True))
+    decoy = '<section class="posts">' + cards[9] + '</section><nav class="pager"><a rel="next" href="https://example.org/older">Outro gadget</a></nav>'
+    (OUT / "mixed-page.html").write_text(page("Gadgets fora do Blog1", decoy + listing(cards[2:4])))
+    (OUT / "short-mixed.html").write_text(page("Gadgets fora do Blog1", intro + listing(cards[:2], "mixed-page.html", home=True), home=True))
+    (OUT / "missing-blog-page.html").write_text(page("Página sem Blog1", decoy))
+    (OUT / "short-missing-blog.html").write_text(page("Resposta incompleta", intro + listing(cards[:2], "missing-blog-page.html", home=True), home=True))
     article = '''<div class="content-grid article-grid"><div><article class="article"><div class="labels">Ciência</div><h1>O que uma pergunta pode mudar?</h1><div class="meta"><span>Equipe Balaio</span><span>11 de outubro de 2026</span></div><div class="post-body"><p>Às vezes, aprender começa com uma pausa. Olhamos para algo familiar e percebemos que ainda há uma pergunta a fazer.</p><h2>O espaço entre observar e entender</h2><p>A curiosidade aproxima ideias distantes. Podemos começar com um detalhe cotidiano, reunir observações e comparar explicações.</p><blockquote>Uma boa pergunta abre espaço para continuar pensando.</blockquote><p>Este texto é fictício e serve para avaliar a tipografia do tema.</p><h2>Um pequeno registro</h2><table><thead><tr><th>Etapa</th><th>Pergunta</th></tr></thead><tbody><tr><td>Observação</td><td>O que aconteceu?</td></tr><tr><td>Investigação</td><td>Como podemos conferir?</td></tr></tbody></table><pre><code>perguntas = ["Como?", "Por quê?", "Como conferir?"]</code></pre><h2>Para continuar</h2><ul><li>Registrar o que sabemos.</li><li>Identificar o que ainda falta descobrir.</li><li>Revisitar as primeiras hipóteses.</li></ul><p><a href="index.html">Voltar às publicações</a></p></div></article></div></div>'''
     (OUT / "article.html").write_text(page("Leitura", article))
     for index in range(len(cards)):

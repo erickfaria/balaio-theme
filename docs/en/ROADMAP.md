@@ -4,12 +4,13 @@
 
 ## Current base
 
-v0.2.0-rc.3 adds mobile spacing, Pages navigation, native Designer controls and 22px reading to the minimal original base. The previous v0.1.0 has owner-confirmed import. The new candidate retains two opening cards and supplements short lists through native pagination, while new native bindings still need live Blogger verification.
+v0.2.0-rc.4 adds mobile spacing, Pages navigation, native Designer controls and 22px reading to the minimal original base. The previous v0.1.0 has owner-confirmed import. The new candidate retains two opening cards and supplements short lists through native pagination, while new native bindings still need live Blogger verification.
 
 ## Platform checklist
 
 - [x] Previous v0.1.0 import confirmed by the project owner.
-- [ ] Import v0.2.0-rc.3 and save colors/fonts in Designer.
+- [x] rc.3 continuation confirmed by the owner and observed in Portuguese; ten distinct posts.
+- [ ] Import v0.2.0-rc.4 and save colors/fonts in Designer.
 - [ ] Verify Pages/Menu placement and saved settings after migration.
 - [ ] Record the imported language variant and test both language variants explicitly.
 - [ ] Check zero, one and multiple posts; missing titles and images.

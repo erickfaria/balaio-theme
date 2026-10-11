@@ -8,9 +8,9 @@
     <b:include data='blog' name='all-head-content'/>
     <link href='https://fonts.googleapis.com' rel='preconnect'/>
     <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
-    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400..750&amp;family=Newsreader:opsz,wght@6..72,400..700&amp;display=swap' rel='stylesheet'/>
     <b:skin><![CDATA[
-/* Balaio v0.2.0-rc.3 — código original, MIT. Inter e Newsreader: SIL OFL 1.1.
+/* Balaio v0.2.0-rc.4 — código original, MIT. Inter e Newsreader: SIL OFL 1.1.
    Edite as variáveis abaixo para personalizar a identidade do blog. */
 /* Controles do Designer do Blogger.
 <Variable name="papercolor" description="Fundo da página" type="color" default="#fffefb" value="#fffefb"/>
@@ -696,9 +696,14 @@ a:focus-visible,input:focus-visible {
       return url.origin === location.origin && /^https?:$/.test(url.protocol) ? url : null;
     } catch (_) { return null; }
   }
+  function contentURL(value, base) {
+    const url = localURL(value, base);
+    if (url) url.searchParams.delete('m');
+    return url;
+  }
   function postURL(card, base) {
     const link = card.querySelector('h2 a');
-    return link && localURL(link.getAttribute('href'), base);
+    return link && contentURL(link.getAttribute('href'), base);
   }
   function key(url) { return url.origin + url.pathname; }
   for (const card of blog.querySelectorAll('.post-card')) {
@@ -721,7 +726,7 @@ a:focus-visible,input:focus-visible {
     if (sourceLabels.length) {
       const labels = node('div', 'labels');
       for (const sourceLink of sourceLabels) {
-        const labelURL = localURL(sourceLink.getAttribute('href'), base);
+        const labelURL = contentURL(sourceLink.getAttribute('href'), base);
         if (!labelURL) continue;
         const link = node('a', '', sourceLink.textContent);
         link.href = labelURL.href;
@@ -780,14 +785,15 @@ a:focus-visible,input:focus-visible {
         const timer = setTimeout(() => controller.abort(), 8000);
         let markup;
         try {
-          const response = await fetch(next.href, {signal: controller.signal, credentials: 'omit', redirect: 'error'});
+          const response = await fetch(next.href, {signal: controller.signal, credentials: 'omit', redirect: 'error', priority: 'low'});
           if (!response.ok) throw new Error('Page unavailable');
           markup = await response.text();
         } finally { clearTimeout(timer); }
         // A template keeps fetched styles, images and scripts inert.
         const template = document.createElement('template');
         template.innerHTML = markup;
-        const source = template.content;
+        const source = template.content.querySelector('#Blog1');
+        if (!source) break;
         const cards = [...source.querySelectorAll('.posts > .post-card, .opening-cards > .post-card')];
         if (!cards.length) break;
         const following = source.querySelector('.pager a[rel="next"]');
@@ -817,7 +823,13 @@ a:focus-visible,input:focus-visible {
       // The last working native pagination link remains available on failure.
     } finally { list.removeAttribute('aria-busy'); }
   }
-  fillHome();
+  // Let the initial page resources finish before fetching extra posts.
+  function scheduleHome() {
+    if (window.requestIdleCallback) window.requestIdleCallback(fillHome, {timeout: 1000});
+    else setTimeout(fillHome, 0);
+  }
+  if (document.readyState === 'complete') scheduleHome();
+  else window.addEventListener('load', scheduleHome, {once: true});
 })();
               //]]></script>
             </b:includable>
@@ -871,13 +883,15 @@ a:focus-visible,input:focus-visible {
             </b:includable>
           </b:widget>
         </b:section>
-        <aside aria-label='Explore o blog' class='sidebar'>
-          <b:section class='sidebar' id='sidebar' showaddelement='yes'>
-            <b:widget id='Label1' locked='false' title='Explore os assuntos' type='Label' version='1' mobile='yes'>
-              <b:includable id='main'><h2><data:title/></h2><ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/> <span class='topic-count'>(<data:label.count/>)</span></a></li></b:loop></ul></b:includable>
-            </b:widget>
-          </b:section>
-        </aside>
+        <b:if cond='data:blog.pageType != "item" and data:blog.pageType != "static_page"'>
+          <aside aria-label='Explore o blog' class='sidebar'>
+            <b:section class='sidebar' id='sidebar' showaddelement='yes'>
+              <b:widget id='Label1' locked='false' title='Explore os assuntos' type='Label' version='1' mobile='yes'>
+                <b:includable id='main'><h2><data:title/></h2><ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/> <span class='topic-count'>(<data:label.count/>)</span></a></li></b:loop></ul></b:includable>
+              </b:widget>
+            </b:section>
+          </aside>
+        </b:if>
       </div>
     </main>
   </body>

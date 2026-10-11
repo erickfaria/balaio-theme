@@ -19,7 +19,7 @@ Se houver menos de dois posts, os cards exibem somente os disponíveis. Posts se
 
 ## Controles nativos de cores e fontes
 
-A v0.2.0-rc.3 inclui controles em **Tema → Personalizar → Avançado**, usando [variáveis de cor e fonte documentadas pelo Blogger](https://support.google.com/blogger/answer/46871?hl=en). Importe o XML atualizado primeiro em um blog de teste. Estes controles ainda precisam de confirmação no Designer publicado. Eles não existem na v0.1.0 estável anterior.
+A v0.2.0-rc.4 inclui controles em **Tema → Personalizar → Avançado**, usando [variáveis de cor e fonte documentadas pelo Blogger](https://support.google.com/blogger/answer/46871?hl=en). Importe o XML atualizado primeiro em um blog de teste. Estes controles ainda precisam de confirmação no Designer publicado. Eles não existem na v0.1.0 estável anterior.
 
 Os controles abrangem fundo da página, textos principal e secundário, links/botões, divisórias, superfícies pastel verde/areia/azul, fonte da interface e fonte de posts/páginas. Escolha fundos claros e texto escuro. A paleta padrão passa na verificação de contraste mínimo de 4,5:1 para texto comum sobre as quatro superfícies de leitura/cards. Cores personalizadas precisam de nova conferência de contraste.
 
@@ -59,6 +59,6 @@ Em telas de até 800px, cabeçalho e apresentação usam espaçamento menor. Os 
 
 ## Fim dos posts e páginas
 
-A v0.2.0-rc.3 não exibe rodapé nem créditos. Artigos e páginas estáticas ocultam a lateral em todas as larguras. Gadgets de Perfil e Atribuição herdados de uma instalação anterior ficam ocultos pelo CSS do tema. Selecione Contato e Privacidade no gadget Páginas do topo. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.
+A v0.2.0-rc.4 não exibe rodapé nem créditos. Artigos e páginas estáticas não renderizam a lateral em nenhuma largura. As listagens a mantêm. Gadgets de Perfil e Atribuição herdados de uma instalação anterior ficam ocultos pelo CSS do tema. Selecione Contato e Privacidade no gadget Páginas do topo. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.
 
 O padrão de leitura é 22px com entrelinha de 1,75. Configurações salvas no Designer podem preservar um tamanho anterior: selecione 22px em **Fonte de posts e páginas** após importar, se necessário.

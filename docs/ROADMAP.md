@@ -4,12 +4,13 @@
 
 ## Base entregue
 
-A v0.2.0-rc.3 adiciona espaçamento móvel, navegação de Páginas, controles nativos do Designer e leitura de 22px à base minimalista própria. A v0.1.0 anterior tem importação confirmada pelo proprietário. A candidata mantém dois cards e complementa a lista pela paginação nativa quando o Blogger entrega poucos posts; as novas ligações nativas ainda precisam de conferência no Blogger.
+A v0.2.0-rc.4 adiciona espaçamento móvel, navegação de Páginas, controles nativos do Designer e leitura de 22px à base minimalista própria. A v0.1.0 anterior tem importação confirmada pelo proprietário. A candidata mantém dois cards e complementa a lista pela paginação nativa quando o Blogger entrega poucos posts; as novas ligações nativas ainda precisam de conferência no Blogger.
 
 ## Próxima etapa: validar no Blogger
 
 - [x] Importação da v0.1.0 anterior confirmada pelo proprietário.
-- [ ] Importar v0.2.0-rc.3 e salvar cores/fontes no Designer.
+- [x] Continuação da rc.3 confirmada pelo proprietário e observada em português; dez posts distintos.
+- [ ] Importar v0.2.0-rc.4 e salvar cores/fontes no Designer.
 - [ ] Conferir posição de Páginas/Menu e valores salvos após a migração.
 - [ ] Registrar o idioma importado e testar explicitamente as duas variantes.
 - [ ] Conferir home com zero, um e vários posts; títulos ausentes e posts sem imagem.
