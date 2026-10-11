@@ -19,7 +19,7 @@ With fewer than two posts, cards show only the available entries. Without a thum
 
 ## Native color and font controls
 
-Version v0.2.0-rc.2 includes controls under **Theme → Customize → Advanced** using [Blogger's documented color/font variables](https://support.google.com/blogger/answer/46871?hl=en). Import the updated XML in a test blog first. These controls still need confirmation in the live Designer. They are absent from the previous stable v0.1.0.
+Version v0.2.0-rc.3 includes controls under **Theme → Customize → Advanced** using [Blogger's documented color/font variables](https://support.google.com/blogger/answer/46871?hl=en). Import the updated XML in a test blog first. These controls still need confirmation in the live Designer. They are absent from the previous stable v0.1.0.
 
 The controls cover page background, main and secondary text, links/buttons, dividers, green/sand/blue pastel surfaces, interface font and post/page font. Choose pale backgrounds and dark text. The default palette passes a 4.5:1 contrast check for normal text on its four reading/card surfaces. Custom colors need a new contrast check.
 
@@ -57,6 +57,6 @@ On screens up to 800px, the header and introduction use shorter spacing. Sidebar
 
 ## End of posts and pages
 
-Version v0.2.0-rc.2 has no visible footer or credits. Articles and static pages hide the sidebar at every screen width. Profile and Attribution widgets inherited from a previous installation are hidden by theme CSS. Select Contact and Privacy in the top Pages gadget. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.
+Version v0.2.0-rc.3 has no visible footer or credits. Articles and static pages hide the sidebar at every screen width. Profile and Attribution widgets inherited from a previous installation are hidden by theme CSS. Select Contact and Privacy in the top Pages gadget. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.
 
 The reading default is 22px with a 1.75 line height. Installed Designer settings may preserve a previous size: choose 22px in **Post and page font** after importing if needed.

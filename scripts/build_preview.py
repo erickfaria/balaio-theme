@@ -3,11 +3,18 @@
 from html import escape
 from pathlib import Path
 import xml.etree.ElementTree as ET
+import re
 from validate_theme import preview_css
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "preview"
-TREE = ET.parse(ROOT / "theme/balaio.xml").getroot()
+SOURCE = (ROOT / "theme/balaio.xml").read_text(encoding="utf-8")
+TREE = ET.fromstring(SOURCE)
+# Blogger preserves CDATA delimiters in published HTML; do not strip them here.
+HOME_SCRIPT = re.search(
+    r"<b:includable id='homeContinuation'>\s*(<script\b.*?</script>)",
+    SOURCE, flags=re.S
+).group(1)
 FONT_LINKS = "".join(ET.tostring(link, encoding="unicode").replace("html:", "").replace("ns0:", "") for link in TREE.findall(".//{http://www.w3.org/1999/xhtml}head/{http://www.w3.org/1999/xhtml}link"))
 CSS = preview_css(TREE.find(
     ".//{http://www.google.com/2005/gml/b}skin"
@@ -37,8 +44,7 @@ SIDEBAR = '<aside class="sidebar" aria-label="Explore o blog"><section class="si
 
 
 def page(title, content, home=False):
-    loader = TREE.find(".//{http://www.google.com/2005/gml/b}includable[@id='homeContinuation']/{http://www.w3.org/1999/xhtml}script").text if home else ""
-    script = "<script>" + loader + "</script>" if loader else ""
+    script = HOME_SCRIPT if home else ""
     return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main>{script}</body></html>'
 
 

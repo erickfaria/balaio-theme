@@ -16,7 +16,7 @@ make check
 make preview
 ```
 
-Without Make, run the Python commands listed in [README.md](README.md). Python 3.10+ is required, with no external packages.
+Without Make, run the Python commands listed in [README.md](README.md). Python 3.10+ is required, with no external packages. Install Node.js 22+ to run the three JavaScript syntax regressions too; without Node they are skipped locally, while CI always runs them.
 
 5. Examine phone, tablet and desktop layouts. For widget or expression changes, also import into a separate test Blogger blog and record the outcome.
 6. Submit a concise description of the issue, result and validation. Keep both language guides aligned.

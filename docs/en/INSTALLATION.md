@@ -4,7 +4,7 @@
 
 ## Before installation
 
-Use a test blog with several posts and a static page. Keep a backup of your current theme. This guide covers v0.2.0-rc.2. The previous stable v0.1.0 has owner-confirmed import; the changed candidate still needs a fresh Blogger import.
+Use a test blog with several posts and a static page. Keep a backup of your current theme. This guide covers v0.2.0-rc.3. The previous stable v0.1.0 has owner-confirmed import; the changed candidate still needs a fresh Blogger import.
 
 ## Steps
 

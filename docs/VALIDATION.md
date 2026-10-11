@@ -1,14 +1,14 @@
-# Validação — v0.2.0-rc.2
+# Validação — v0.2.0-rc.3
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
 ## Status
 
-Versão candidata preparada em 11/10/2026. O proprietário confirmou a importação da v0.1.0 anterior, mas os XMLs alterados da v0.2.0-rc.2 ainda precisam de nova importação no Blogger. Não há afirmação de que ambos os idiomas ou todos os gadgets nativos tenham sido testados independentemente na plataforma.
+Versão candidata preparada em 11/10/2026. A importação da v0.1.0 foi confirmada pelo proprietário e a v0.2.0-rc.2 foi observada publicada em português, com a falha da home descrita abaixo. Os XMLs corrigidos da v0.2.0-rc.3 ainda precisam de nova importação no Blogger. Não há afirmação de que ambos os idiomas ou todos os gadgets nativos tenham sido testados independentemente na plataforma.
 
 ## Checks automatizados
 
-Vinte testes verificam estrutura XML/gadgets, equivalência de idiomas, metadados nativos de SEO e auditoria de HTML, resolução das variáveis do Designer/contraste padrão e regressões de navegação/busca móvel. Os dois XMLs são válidos; a geração inglesa está atualizada; links Markdown locais e whitespace passam. O CI repete os checks e gera prévia e pacote limpo. Links externos e âncoras de títulos não são conferidos automaticamente.
+Vinte e três testes verificam estrutura XML/gadgets, equivalência de idiomas, metadados nativos de SEO e auditoria de HTML, resolução das variáveis do Designer/contraste padrão e regressões de navegação/busca móvel. Três checks com Node.js verificam a sintaxe do script com CDATA preservado, com CDATA removido pelo parser XML e a rejeição da forma que falhou na rc.2. Sem Node, os três são pulados localmente; no CI são obrigatórios. Os dois XMLs são válidos; a geração inglesa está atualizada; links Markdown locais e whitespace passam. O CI repete os checks e gera prévia e pacote limpo. Links externos e âncoras de títulos não são conferidos automaticamente.
 
 ## Evidências anteriores da prévia responsiva — v0.2.0-rc.1
 
@@ -26,13 +26,21 @@ Uma inspeção anterior em 11/10, antes da importação da v0.2.0-rc.1, encontro
 
 A auditoria corresponde ao tema anterior instalado, não à publicação desta candidata. Nenhum conteúdo ou configuração do blog foi alterado.
 
-## Continuação da home — v0.2.0-rc.2
+## Evidência anterior da continuação — v0.2.0-rc.2
 
-O blog público em português foi observado usando a v0.2.0-rc.1 em 11/10/2026. As respostas nativas continham apenas dois posts na página inicial apesar do link com `max-results=20`. Uma cópia local dos HTMLs públicos reais, com o novo script, exibiu dois destaques e oito posts adicionais únicos; o link de paginação avançou até o primeiro trecho não exibido. É um check de DOM/execução no navegador, não uma importação do novo XML no Blogger.
+Antes de preparar a rc.2, o blog público em português foi observado usando a v0.2.0-rc.1 em 11/10/2026. As respostas nativas continham apenas dois posts na página inicial apesar do link com `max-results=20`. Uma cópia local dos HTMLs públicos reais, com o novo script, exibiu dois destaques e oito posts adicionais únicos; o link de paginação avançou até o primeiro trecho não exibido. É um check de DOM/execução no navegador, não uma importação do novo XML no Blogger.
 
 Os cenários reproduzíveis de `build_preview.py` conferiram: dez posts únicos a partir de dois; filtragem de duplicações; falha inicial e parcial de rede com preservação do último link de paginação; interrupção de ciclos; links seguintes externos sem requisição; fim do arquivo ocultando a navegação; scripts/eventos recebidos inertes; modo sem script e carregamento desligado; orçamento de uma página respeitado; meta atingida sem cortar a última página. O código não insere o HTML recebido no documento ativo.
 
 A prévia `responsive-home.html` foi conferida em quadros locais de 320, 360, 768 e 1440px: dois destaques e oito entradas, sem transbordamento horizontal do documento interno. O cliente medido desconta 15px da barra vertical (305, 345, 753 e 1425px). Os ajustes de viewport da ferramenta não funcionaram; os quadros aplicaram dimensões reais. Capturas estavam indisponíveis, portanto é uma revisão de CSS/DOM, sem nova inspeção por imagem. Os checks anteriores acima correspondem à v0.2.0-rc.1; confira também o celular real após importar. Metadados e paginação nativos permanecem; não há garantia de indexação das entradas extras por JavaScript na home.
+
+## Correção do HTML publicado — v0.2.0-rc.3
+
+A nova inspeção do blog em 11/10/2026 confirmou a rc.2 publicada, dois posts iniciais, lista vazia e link nativo com `max-results=50`. O console acusou `SyntaxError: Unexpected token '<'`: o Blogger publicou os delimitadores CDATA literalmente dentro do script. A próxima página consultada respondeu HTTP 200 sem redirecionar. Datas antigas não impediram o acesso aos posts seguintes.
+
+Uma reprodução local manteve o HTML público completo, inclusive seus delimitadores, mudando apenas o domínio para atender as requisições na cópia local. A forma original repetiu os dois posts e o mesmo erro. Ao adicionar somente `//` aos dois delimitadores, o navegador mostrou dez permalinks distintos: dois destaques e oito entradas abaixo, começando por “Como usar R no Jamovi?”. A paginação avançou além do último post exibido e o console dessa cópia corrigida ficou sem erros/avisos. As páginas seguintes foram consultadas no blog real; redirecionamentos não foram seguidos silenciosamente pelo servidor de teste.
+
+`build_preview.py` agora preserva o bloco de script bruto em vez de extrair seu texto via parser XML. A prévia atual, com `//<![CDATA[` presente no HTML, também exibiu 2 + 8 posts em quadros de 320, 360, 768 e 1440px, com larguras de cliente/rolagem iguais (305, 345, 753 e 1425px). Isto verifica DOM, execução e largura; não equivale à importação da rc.3 nem a uma nova revisão por captura de tela. As observações anteriores da rc.2 não comprovavam compatibilidade com a serialização do Blogger.
 
 ## Checks de plataforma pendentes
 
