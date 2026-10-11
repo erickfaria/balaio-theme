@@ -22,7 +22,7 @@ Stable v0.1.0 XML templates, three opening cards on the home page, lists, articl
 
 ## Future work
 
-1. Optional image logo and Theme Designer controls.
+1. Validate this branch’s native color/font controls in Theme Designer. Optional logo remains future work.
 2. Higher-resolution images and topic navigation.
 3. Embedded comments and threaded replies.
 4. Reading time, sharing and related articles using progressive enhancement.

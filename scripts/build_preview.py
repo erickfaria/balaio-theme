@@ -3,14 +3,15 @@
 from html import escape
 from pathlib import Path
 import xml.etree.ElementTree as ET
+from validate_theme import preview_css
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "preview"
 TREE = ET.parse(ROOT / "theme/balaio.xml").getroot()
 FONT_LINKS = "".join(ET.tostring(link, encoding="unicode").replace("html:", "").replace("ns0:", "") for link in TREE.findall(".//{http://www.w3.org/1999/xhtml}head/{http://www.w3.org/1999/xhtml}link"))
-CSS = TREE.find(
+CSS = preview_css(TREE.find(
     ".//{http://www.google.com/2005/gml/b}skin"
-).text
+).text)
 
 POSTS = [
     ("Ciência", "O que uma pergunta pode mudar?", "Observar, investigar e aceitar novas respostas: uma conversa sobre como construímos conhecimento.", True),

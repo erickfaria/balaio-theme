@@ -42,7 +42,7 @@ No build tools are needed to install the theme.
 - **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
 - No theme JavaScript or Python package dependencies.
 
-A logo image, Theme Designer controls and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
+This development branch adds native color and font controls, pending live Blogger Designer validation; stable v0.1.0 remains unchanged. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
 
 ## Develop locally
 
@@ -84,7 +84,7 @@ The theme preserves Blogger metadata and adds visible-content article microdata.
 
 **Is this Blogger template really free?** Yes. MIT permits personal and commercial use, modification and redistribution with license notices preserved. No purchase or visible attribution is required.
 
-**Can I change colors and layout?** Yes. Start with the editable Layout gadgets and the documented CSS variables for the pastel palette, fonts and reading width. [Customization guide](docs/en/CUSTOMIZATION.md).
+**Can I change colors and layout?** Yes. Start with Layout gadgets and the native color/font controls on this development branch. Reading width remains an advanced CSS option. [Customization guide](docs/en/CUSTOMIZATION.md).
 
 **Is it built for SEO?** It provides native Blogger metadata, semantic headings, ordinary crawlable links and article microdata. The [search guide](docs/en/SEO.md) covers Google, Bing, DuckDuckGo, SearXNG and AI discovery. Published indexing and compatibility still need verification.
 

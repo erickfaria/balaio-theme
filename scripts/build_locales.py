@@ -5,6 +5,17 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 TRANSLATIONS = {
+    "Controles do Designer do Blogger.": "Blogger Designer controls.",
+    "Fundo da página": "Page background",
+    "Texto principal": "Main text",
+    "Texto secundário": "Secondary text",
+    "Links e botões": "Links and buttons",
+    "Divisórias suaves": "Soft dividers",
+    "Superfície verde pastel": "Pastel green surface",
+    "Card areia pastel": "Pastel sand card",
+    "Card azul pastel": "Pastel blue card",
+    "Fonte da interface": "Interface font",
+    "Fonte de posts e páginas": "Post and page font",
     "Pular para o conteúdo": "Skip to content",
     "Cabeçalho": "Header",
     "Buscar no blog": "Search this blog",

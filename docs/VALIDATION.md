@@ -23,3 +23,11 @@ Treze testes verificam seções de widgets inválidas, IDs duplicados, includes 
 São checks de CSS/DOM em fixtures, não execução do compilador do Blogger. A importação foi confirmada pelo proprietário. Testes completos de dados nativos, gadgets, comentários, paginação e marcação publicada seguem pendentes. A captura de tela estava indisponível e o carregamento das fontes remotas não foi confirmado; as medidas refletem fontes de fallback. Não há comprovação de Core Web Vitals nem posição em buscas.
 
 O proprietário autorizou a versão estável após confirmar a importação; o [checklist de plataforma](ROADMAP.md) registra verificações complementares. Consulte [SEO.md](SEO.md) para auditar HTML publicado e [RELEASE.md](RELEASE.md) para instalação e conteúdo do pacote.
+
+## Branch de desenvolvimento: personalização nativa
+
+Os controles de cores/fontes são alterações novas e não estão cobertos pelo relato de importação da versão estável acima. Dezoito testes locais passam, incluindo resolução de variáveis, equivalência de idiomas e contraste mínimo de 4,5:1 do texto padrão. A prévia usa os valores salvos resolvidos; não verifica se o Blogger apresenta ou salva os controles do Designer. Importe e salve o tema personalizado num blog de teste antes de lançar estas mudanças.
+
+A prévia atualizada foi medida em 320, 360, 768 e 1440px para home, artigo, privacidade, conteúdo longo e mídia, sem transbordamento horizontal da página. O corpo de artigos e páginas resolve para 20px nas quatro larguras.
+
+Uma fixture temporária com texto serif de 24px e fundo areia pastel também respeitou a largura da tela em 320, 768 e 1440px para artigos e privacidade. Estas prévias geradas não integram o Git.

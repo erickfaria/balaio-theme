@@ -42,7 +42,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 - **Inter** para interface e **Newsreader** para títulos e leitura, via Google Fonts com fallback local e `display=swap`. Ambas usam SIL OFL 1.1; suas licenças são separadas da MIT.
 - Sem JavaScript do tema ou dependências externas de pacotes Python.
 
-Logo em imagem, controles do Designer de temas e layout específico de 404 ainda não estão implementados. A prévia usa o CSS real com conteúdo de exemplo; não compila expressões do Blogger.
+Esta branch adiciona controles nativos de cores e fontes, pendentes de validação no Designer do Blogger; a versão estável v0.1.0 permanece igual. Logo em imagem e layout específico de 404 ainda não estão implementados. A prévia usa o CSS real com conteúdo de exemplo; não compila expressões do Blogger.
 
 ## Desenvolvimento local
 
@@ -84,7 +84,7 @@ O tema preserva os metadados do Blogger e adiciona microdados de artigos ligados
 
 **Este tema Blogger é gratuito mesmo?** Sim. A MIT permite uso pessoal e comercial, modificação e redistribuição com os avisos de licença preservados. Não exige compra nem crédito visível.
 
-**Posso mudar cores e layout?** Sim. Comece pelos gadgets de Layout e pelas variáveis CSS documentadas para paleta pastel, fontes e largura de leitura. [Guia de personalização](docs/CUSTOMIZATION.md).
+**Posso mudar cores e layout?** Sim. Comece pelos gadgets de Layout e pelos controles nativos de cores/fontes desta branch. A largura de leitura continua como opção avançada de CSS. [Guia de personalização](docs/CUSTOMIZATION.md).
 
 **O tema é preparado para SEO?** Oferece metadados nativos do Blogger, títulos semânticos, links rastreáveis e microdados de artigos. O [guia de busca](docs/SEO.md) cobre Google, Bing, DuckDuckGo, SearXNG e descoberta por IA. Indexação e compatibilidade publicadas ainda precisam de verificação.
 

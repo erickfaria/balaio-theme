@@ -23,3 +23,11 @@ Thirteen regression tests cover malformed widget sections, duplicate IDs, missin
 These are CSS/DOM fixture checks, not a Blogger compiler. Import is confirmed by the owner. Full testing of native data, gadgets, comments, pagination and published structured data remains pending. Screenshot capture was unavailable, and remote font faces were not confirmed loaded; measurements reflect fallback typography. No Core Web Vitals or ranking claims are established.
 
 The owner authorized stable status after import confirmation; the remaining [platform checklist](ROADMAP.md) documents follow-up testing. Use [SEO.md](SEO.md) for published HTML auditing and [RELEASE.md](RELEASE.md) for package contents and installation.
+
+## Development branch: native customization
+
+The color/font controls are new source changes and are not covered by the stable-release import report above. Eighteen local tests now pass, including variable resolution, locale parity and a 4.5:1 default text contrast check. The preview uses resolved saved values; it cannot verify that Blogger displays or saves Designer controls. Import and save a customized theme in a test blog before releasing these changes.
+
+The updated default preview was measured at 320, 360, 768 and 1440px for home, article, privacy, long-content and media fixtures, with no page-wide horizontal overflow. Article and page body text resolves to 20px at all four widths.
+
+A temporary customization fixture with 24px serif reading text and a pastel sand page background also stayed within the viewport at 320, 768 and 1440px for articles and privacy pages. These generated fixtures are excluded from Git.
