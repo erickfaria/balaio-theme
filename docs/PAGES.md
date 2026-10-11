@@ -16,7 +16,7 @@ O Balaio inclui modelos editáveis de corpo das páginas **Sobre**, **Contato** 
 2. No modo HTML do editor, cole o conteúdo do exemplo. Não cole um documento HTML inteiro: o tema fornece o contêiner da página e o H1.
 3. Visualize e salve como rascunho enquanto estiver usando placeholders. Substitua o texto antes de publicar no blog público.
 4. Depois de publicar, copie a URL real fornecida pelo Blogger. O endereço depende da plataforma e dos títulos; o tema não presume caminhos `/p/` fixos.
-5. Em **Layout → Menu**, adicione as URLs na ordem desejada, por exemplo Sobre, Contato e Privacidade. Início já está presente; não duplique.
+5. Em **Layout → Páginas**, selecione as páginas publicadas e ordene Sobre mim, Contato e Privacidade. Use o gadget **Menu** apenas para links extras, como marcadores ou sites externos; evite repetir Início.
 
 O XML instala layouts e gadgets, não registros de páginas. Os exemplos separados permitem importar o tema sem sobrescrever o conteúdo das páginas. Renomeie, reordene, remova links e adicione páginas pelo Layout sem editar o XML. [Instruções do Blogger](https://support.google.com/blogger/answer/165955?hl=pt-BR).
 
@@ -26,4 +26,4 @@ Páginas estáticas usam a mesma coluna responsiva dos artigos, sem autor/data d
 
 O menu superior usa links comuns, quebra linhas em telas pequenas e destaca o link atual quando sua URL corresponde exatamente à URL da página no Blogger. Não há dependência de script de dropdown ou menu hambúrguer. Prefira nomes curtos e URLs corretas; aliases, parâmetros e diferenças de barra final podem impedir o destaque de página atual.
 
-Teste cada página e os dois menus em celular após importar. As prévias usam conteúdo fictício e não verificam o comportamento real no Blogger.
+Teste cada página e o menu superior em celular após importar. As prévias usam conteúdo fictício e não verificam o comportamento real no Blogger.

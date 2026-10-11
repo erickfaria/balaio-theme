@@ -16,7 +16,7 @@ Balaio includes editable **About**, **Contact** and **Privacy** page-body sample
 2. Switch the editor to HTML mode and paste the sample's contents. Do not paste a whole HTML document; the theme supplies the page wrapper and H1.
 3. Preview and save as a draft while using placeholder text. Replace the sample with your own content before publishing on your public blog.
 4. After publishing, copy the actual URL shown by Blogger. Page URLs depend on the platform and your titles; the theme does not assume fixed `/p/` paths.
-5. In **Layout → Menu**, add those URLs in your preferred order, for example About, Contact, Privacy. Home is already present; do not add it twice.
+5. In **Layout → Pages**, select your published About me, Contact and Privacy pages and arrange their order. Use the separate **Menu** gadget for extra links; avoid duplicating Home.
 
 The theme XML installs layouts and gadgets, not page records. Samples are separate so importing the theme cannot overwrite your page content. You can rename pages, reorder navigation, remove links or add other pages through Layout without changing XML. [Blogger page instructions](https://support.google.com/blogger/answer/165955?hl=en).
 

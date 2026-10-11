@@ -46,3 +46,9 @@ Before publishing, complete the [SEO configuration checklist](SEO.md).
 ## Basic pages
 
 [About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+
+## Show more posts and fixed pages
+
+The theme displays all posts supplied by Blogger: the first three in opening cards, followed by a list without duplicates. Set **Settings → Posts → Max posts shown on main page** to **9** as a starting point. This is a maximum, not a guarantee: Blogger may paginate earlier for large posts. If only two entries remain, add a native **jump break** after the introduction of long posts, then recheck. Do not change publication dates or duplicate posts. [Blogger settings](https://support.google.com/blogger/answer/9691230?hl=en) · [Post editor](https://support.google.com/blogger/answer/154172?hl=en).
+
+The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publish About me, Contact and Privacy through **Pages**, then select them under **Layout → Pages**. The separate **Menu** gadget accepts extra links. Existing `PageList1` settings may be retained on import; verify its position in Layout. No page content or blog settings are changed by the XML.

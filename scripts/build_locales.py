@@ -21,6 +21,7 @@ TRANSLATIONS = {
     "Buscar no blog": "Search this blog",
     "Buscar": "Search",
     "Navegação principal": "Main navigation",
+    "Páginas": "Pages",
     "Início": "Home",
     "Apresentação": "Introduction",
     "Um espaço para a curiosidade": "A space for curiosity",

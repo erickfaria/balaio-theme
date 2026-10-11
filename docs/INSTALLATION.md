@@ -46,3 +46,9 @@ Antes de publicar, siga a [configuração de SEO](SEO.md).
 ## Páginas básicas
 
 [Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+
+## Mostrar mais posts e páginas fixas
+
+O tema exibe todos os posts fornecidos pelo Blogger: os três primeiros em cards, seguidos de uma lista sem duplicações. Configure **Configurações → Postagens → Máximo de postagens exibidas na página principal** como **9** para começar. É um máximo, não uma garantia: o Blogger pode paginar antes em posts grandes. Se continuarem aparecendo apenas duas entradas, adicione uma **quebra de expansão** nativa após a introdução dos posts longos e confira novamente. Não mude datas de publicação nem duplique posts. [Configurações do Blogger](https://support.google.com/blogger/answer/9691230?hl=pt-BR) · [Editor de posts](https://support.google.com/blogger/answer/154172?hl=pt-BR).
+
+A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no celular. Publique Sobre mim, Contato e Privacidade em **Páginas** e selecione-as em **Layout → Páginas**. O gadget separado **Menu** aceita links extras. As configurações de um `PageList1` existente podem ser preservadas na importação; confira sua posição no Layout. O XML não altera conteúdo de páginas nem configurações do blog.

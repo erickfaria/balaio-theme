@@ -4,6 +4,8 @@
 
 ### English
 
+- Add native Pages navigation at the top, enable custom widgets on mobile, and fix search URLs containing mobile query parameters. Preview nine unique home posts and document Blogger post-count settings.
+
 - Remove the visible footer and credits; hide inherited Profile/Attribution widgets and the article/page sidebar at every width. Keep Contact/Privacy links in the top menu.
 
 - Compact mobile header/intro spacing and arrange sidebar topics in two plain columns with 44px minimum link heights; remove the duplicated sidebar divider.
@@ -14,6 +16,8 @@
 - Document customization in both languages. Live Designer validation remains pending; v0.1.0 is unchanged.
 
 ### Português
+
+- Adicionar navegação nativa de Páginas no topo, habilitar gadgets no celular e corrigir busca com parâmetros móveis na URL. Demonstrar nove posts únicos na home e documentar a quantidade no Blogger.
 
 - Remover rodapé e créditos visíveis; ocultar gadgets herdados de Perfil/Atribuição e a lateral de artigos/páginas em todas as larguras. Manter links de Contato/Privacidade no menu superior.
 

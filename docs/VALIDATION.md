@@ -35,3 +35,7 @@ Uma fixture temporária com texto serif de 24px e fundo areia pastel também res
 ## Refinamento do espaçamento móvel
 
 Medidas do DOM da home atualizada em 320, 360, 480, 768, 800, 801 e 1440px não mostraram transbordamento horizontal da página. Os 24 assuntos de exemplo continuam com links; no celular, os links têm ao menos 44px de altura e apenas a lateral externa tem divisória. Em 360px, a mesma fixture passou de 290px para 258px de cabeçalho e de 885px para 642px de lista de assuntos. Artigo, privacidade e conteúdo longo também respeitam a tela em 320, 360, 768 e 1440px, com texto de leitura de 20px. São medidas de fixtures locais; o XML atualizado ainda precisa de conferência no Blogger.
+
+## Auditoria do blog publicado antes da integração
+
+Em 11/10/2026, a inspeção por navegador de `www.balaiocientifico.com` encontrou dois posts na home e mais dois pelo link de publicações anteriores, navegação superior vazia, CSS anterior e formulário de busca com a URL incorreta `?m=1search`. Havia requisições de CSS de Inter e Newsreader; as famílias calculadas correspondiam e o carregador de fontes do navegador informou conclusão. As licenças OFL originais e os avisos locais foram conferidos. O código atual corrige a rota de busca, adiciona Páginas no topo e habilita gadgets personalizados no celular. Vinte testes locais passam. A prévia com nove posts demonstra três cards e seis entradas únicas; não controla a paginação do Blogger. Estas mudanças novas de gadgets ainda precisam de nova importação no Blogger.

@@ -25,7 +25,7 @@ No build tools are needed to install the theme.
 2. Choose a **test blog** in Blogger. Back up the current theme from **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
 4. Configure your title, description and language in **Settings**.
-5. In **Layout**, edit **Menu** to add page or label links. Home is already provided.
+5. In **Layout → Pages**, select published About me, Contact and Privacy pages for the top navigation. Use **Menu** for extra links, such as labels.
 6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Configure labels and sidebar gadgets.
 7. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
@@ -42,7 +42,7 @@ No build tools are needed to install the theme.
 - **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
 - No theme JavaScript or Python package dependencies.
 
-This development branch adds native color and font controls, pending live Blogger Designer validation; stable v0.1.0 remains unchanged. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
+Current source adds native color and font controls, pending live Blogger Designer validation; stable v0.1.0 remains unchanged. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
 
 ## Develop locally
 
@@ -84,7 +84,7 @@ The theme preserves Blogger metadata and adds visible-content article microdata.
 
 **Is this Blogger template really free?** Yes. MIT permits personal and commercial use, modification and redistribution with license notices preserved. No purchase or visible attribution is required.
 
-**Can I change colors and layout?** Yes. Start with Layout gadgets and the native color/font controls on this development branch. Reading width remains an advanced CSS option. [Customization guide](docs/en/CUSTOMIZATION.md).
+**Can I change colors and layout?** Yes. Start with Layout gadgets and the native color/font controls on current source. Reading width remains an advanced CSS option. [Customization guide](docs/en/CUSTOMIZATION.md).
 
 **Is it built for SEO?** It provides native Blogger metadata, semantic headings, ordinary crawlable links and article microdata. The [search guide](docs/en/SEO.md) covers Google, Bing, DuckDuckGo, SearXNG and AI discovery. Published indexing and compatibility still need verification.
 

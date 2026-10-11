@@ -209,9 +209,9 @@ a:focus-visible,input:focus-visible {
 }
 .opening-cards {
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));
   gap:16px;
-  margin-bottom:40px;
+  margin-bottom:24px;
 }
 .opening-cards .post-card {
   display:flex;
@@ -236,7 +236,7 @@ a:focus-visible,input:focus-visible {
   aspect-ratio:4/3;
   border-radius:7px;
 }
-.opening-cards h2 {
+.opening-cards .post-card h2 {
   font-size:25px;
 }
 .opening-cards .post-summary {
@@ -251,7 +251,7 @@ a:focus-visible,input:focus-visible {
   flex:1;
 }
 .opening-cards .meta {
-  margin-top:auto;
+  margin-top:12px;
 }
 .posts {
   display:flex;
@@ -488,6 +488,13 @@ a:focus-visible,input:focus-visible {
   .intro {
     padding:28px 0 16px;
   }
+  .opening-cards {
+    margin-bottom:16px;
+  }
+  .pager {
+    margin-top:24px;
+    padding-top:16px;
+  }
   .content-grid {
     grid-template-columns:1fr;
     gap:24px;
@@ -585,23 +592,32 @@ a:focus-visible,input:focus-visible {
       <div class='wrap'>
         <div class='masthead-top'>
           <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
-            <b:widget id='Header1' locked='true' title='Header' type='Header' version='1'>
+            <b:widget id='Header1' locked='true' title='Header' type='Header' version='1' mobile='yes'>
               <b:includable id='main'>
                 <a class='brand' expr:href='data:blog.homepageUrl'><data:title/></a>
                 <b:if cond='data:description'><p class='description'><data:description/></p></b:if>
               </b:includable>
             </b:widget>
           </b:section>
-          <form class='search' expr:action='data:blog.homepageUrl + "search"' method='get' role='search'>
+          <form class='search' action='/search' method='get' role='search'>
             <input aria-label='Search this blog' name='q' placeholder='Search this blog' type='search'/>
             <button type='submit'>Search</button>
           </form>
         </div>
         <nav aria-label='Main navigation' class='navigation'>
-          <b:section class='navbar' id='navigation' maxwidgets='1' showaddelement='yes'>
-            <b:widget id='LinkList1' locked='false' title='Menu' type='LinkList' version='1'>
+          <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
+            <b:widget id='PageList1' locked='false' mobile='yes' title='Pages' type='PageList' version='1'>
               <b:includable id='main'>
-                <ul><li><a expr:href='data:blog.homepageUrl' expr:aria-current='data:blog.url == data:blog.homepageUrl ? "page" : "false"'>Home</a></li>
+                <ul>
+                  <b:if cond='data:links'>
+                    <b:loop values='data:links' var='link'><li><a expr:href='data:link.href' expr:aria-current='data:link.isCurrentPage ? "page" : "false"'><data:link.title/></a></li></b:loop>
+                  <b:else/><li><a expr:href='data:blog.homepageUrl'>Home</a></li></b:if>
+                </ul>
+              </b:includable>
+            </b:widget>
+            <b:widget id='LinkList1' locked='false' title='Menu' type='LinkList' version='1' mobile='yes'>
+              <b:includable id='main'>
+                <ul>
                   <b:loop values='data:links' var='link'><li><a expr:href='data:link.target' expr:aria-current='data:blog.url == data:link.target ? "page" : "false"'><data:link.name/></a></li></b:loop>
                 </ul>
               </b:includable>
@@ -613,7 +629,7 @@ a:focus-visible,input:focus-visible {
     <main class='wrap' id='content' tabindex='-1'>
       <b:if cond='data:blog.url == data:blog.homepageUrl'>
         <b:section id='introduction' maxwidgets='1' showaddelement='yes'>
-          <b:widget id='HTML1' locked='false' title='Introduction' type='HTML' version='1'>
+          <b:widget id='HTML1' locked='false' title='Introduction' type='HTML' version='1' mobile='yes'>
             <b:widget-settings>
               <b:widget-setting name='content'><![CDATA[<div class="eyebrow">A space for curiosity</div><h1>Knowledge starts with a good question.</h1><p>A place to gather discoveries, connect ideas and share what we learn.</p>]]></b:widget-setting>
             </b:widget-settings>
@@ -623,7 +639,7 @@ a:focus-visible,input:focus-visible {
       </b:if>
       <div expr:class='data:blog.pageType == "item" or data:blog.pageType == "static_page" ? "content-grid article-grid" : "content-grid"'>
         <b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
-          <b:widget id='Blog1' locked='true' title='Posts' type='Blog' version='1'>
+          <b:widget id='Blog1' locked='true' title='Posts' type='Blog' version='1' mobile='yes'>
             <b:includable id='main'>
               <b:if cond='data:blog.pageType == "item" or data:blog.pageType == "static_page"'>
                 <b:loop values='data:posts' var='post'><b:include data='post' name='article'/></b:loop>
@@ -701,7 +717,7 @@ a:focus-visible,input:focus-visible {
         </b:section>
         <aside aria-label='Explore the blog' class='sidebar'>
           <b:section class='sidebar' id='sidebar' showaddelement='yes'>
-            <b:widget id='Label1' locked='false' title='Explore topics' type='Label' version='1'>
+            <b:widget id='Label1' locked='false' title='Explore topics' type='Label' version='1' mobile='yes'>
               <b:includable id='main'><h2><data:title/></h2><ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/> <span class='topic-count'>(<data:label.count/>)</span></a></li></b:loop></ul></b:includable>
             </b:widget>
           </b:section>

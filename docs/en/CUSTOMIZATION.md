@@ -18,7 +18,7 @@ With fewer than three posts, only the available entries appear. Without a thumbn
 
 ## Native color and font controls
 
-This development branch adds controls under **Theme → Customize → Advanced** using [Blogger's documented color/font variables](https://support.google.com/blogger/answer/46871?hl=en). Import the updated XML in a test blog first. These controls are not included in stable v0.1.0 and still need confirmation in the live Designer.
+Current source adds controls under **Theme → Customize → Advanced** using [Blogger's documented color/font variables](https://support.google.com/blogger/answer/46871?hl=en). Import the updated XML in a test blog first. These controls are not included in stable v0.1.0 and still need confirmation in the live Designer.
 
 The controls cover page background, main and secondary text, links/buttons, dividers, green/sand/blue pastel surfaces, interface font and post/page font. Choose pale backgrounds and dark text. The default palette passes a 4.5:1 contrast check for normal text on its four reading/card surfaces. Custom colors need a new contrast check.
 

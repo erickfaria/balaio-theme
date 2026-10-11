@@ -18,7 +18,7 @@ Se houver menos de três posts, o tema exibe somente os disponíveis. Posts sem 
 
 ## Controles nativos de cores e fontes
 
-Esta branch de desenvolvimento adiciona controles em **Tema → Personalizar → Avançado**, usando [variáveis de cor e fonte documentadas pelo Blogger](https://support.google.com/blogger/answer/46871?hl=en). Importe o XML atualizado primeiro em um blog de teste. Estes controles não fazem parte da versão estável v0.1.0 e ainda precisam de confirmação no Designer publicado.
+O código atual de desenvolvimento adiciona controles em **Tema → Personalizar → Avançado**, usando [variáveis de cor e fonte documentadas pelo Blogger](https://support.google.com/blogger/answer/46871?hl=en). Importe o XML atualizado primeiro em um blog de teste. Estes controles não fazem parte da versão estável v0.1.0 e ainda precisam de confirmação no Designer publicado.
 
 Os controles abrangem fundo da página, textos principal e secundário, links/botões, divisórias, superfícies pastel verde/areia/azul, fonte da interface e fonte de posts/páginas. Escolha fundos claros e texto escuro. A paleta padrão passa na verificação de contraste mínimo de 4,5:1 para texto comum sobre as quatro superfícies de leitura/cards. Cores personalizadas precisam de nova conferência de contraste.
 
