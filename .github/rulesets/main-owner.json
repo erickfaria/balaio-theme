@@ -14,7 +14,7 @@
     {
       "actor_id": 52634714,
       "actor_type": "User",
-      "bypass_mode": "pull_request"
+      "bypass_mode": "always"
     }
   ],
   "rules": [
