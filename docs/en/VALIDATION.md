@@ -39,3 +39,9 @@ DOM measurements of the updated home fixture at 320, 360, 480, 768, 800, 801 and
 ## Published blog audit before integration
 
 On October 11, 2026, browser inspection of `www.balaiocientifico.com` found two posts on the home page and two more through the older-posts link, an empty top navigation, the previous CSS, and a search action incorrectly containing `?m=1search`. Inter and Newsreader CSS requests were present; computed families matched and the browser font loader reported completion. Their upstream OFL licenses and local notices were checked. The current source fixes the search route, adds top Pages navigation and enables custom widgets on mobile. Twenty local tests pass. The nine-post home preview demonstrates three cards plus six unique list entries; it does not control Blogger pagination. These new widget changes still need a fresh Blogger import.
+
+## Larger reading typography
+
+A public article inspected at 360px still used the earlier 18px mobile body size. The current source raises the default reading size from 20px to 22px at every width, with a 1.75 line height. Historical measurements above refer to earlier source revisions. Font families and licenses remain unchanged.
+
+Article, privacy and long-content previews were measured at 320, 360, 768 and 1440px: 22px reading text, 38.5px line height and no page-wide horizontal overflow. Section headings use explicit relative sizes to avoid native widget CSS shrinking H2 text below the reading size.

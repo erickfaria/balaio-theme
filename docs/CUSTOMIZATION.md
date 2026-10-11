@@ -22,7 +22,7 @@ O código atual de desenvolvimento adiciona controles em **Tema → Personalizar
 
 Os controles abrangem fundo da página, textos principal e secundário, links/botões, divisórias, superfícies pastel verde/areia/azul, fonte da interface e fonte de posts/páginas. Escolha fundos claros e texto escuro. A paleta padrão passa na verificação de contraste mínimo de 4,5:1 para texto comum sobre as quatro superfícies de leitura/cards. Cores personalizadas precisam de nova conferência de contraste.
 
-A interface começa em 17px e o corpo de posts/páginas em 20px, inclusive no celular. A fonte de leitura também se aplica aos títulos, preservando seus tamanhos responsivos. Largura de leitura, espaçamento e estrutura continuam definidos pelo tema: coluna centralizada, fundo simples e divisórias discretas.
+A interface começa em 17px e o corpo de posts/páginas em 22px, inclusive no celular. A fonte de leitura também se aplica aos títulos, preservando seus tamanhos responsivos. Largura de leitura, espaçamento e estrutura continuam definidos pelo tema: coluna centralizada, fundo simples e divisórias discretas.
 
 Inter e Newsreader continuam como padrões abertos sob SIL OFL. Escolher outra fonte não adiciona seus arquivos ao repositório; confira a licença antes de redistribuir arquivos de fontes. Os links padrão do Google Fonts usam `display=swap` e fazem requisições a `fonts.googleapis.com` e `fonts.gstatic.com`.
 
@@ -34,7 +34,7 @@ No comentário CSS do início de `b:skin`, edite uma declaração `<Variable>`. 
 <Variable name="washcolor" description="Superfície verde pastel" type="color" default="#edf5ef" value="#edf5ef"/>
 ```
 
-Preserve a ligação entre as referências `$variavel` em `:root` e essas declarações. A prévia resolve os valores salvos e valida nomes ausentes ou duplicados. Para usar apenas fontes locais, remova os três links de fontes do `head` e configure `interfacefont` como `normal 400 17px system-ui, sans-serif` e `readingfont` como `normal 400 20px serif`. Fontes hospedadas por você podem usar URLs HTTPS em `@font-face`, preservando os avisos OFL.
+Preserve a ligação entre as referências `$variavel` em `:root` e essas declarações. A prévia resolve os valores salvos e valida nomes ausentes ou duplicados. Para usar apenas fontes locais, remova os três links de fontes do `head` e configure `interfacefont` como `normal 400 17px system-ui, sans-serif` e `readingfont` como `normal 400 22px serif`. Fontes hospedadas por você podem usar URLs HTTPS em `@font-face`, preservando os avisos OFL.
 
 `--reading-width:760px` e `--width:1120px` continuam como opções avançadas de CSS. Altere apenas após conferir o celular e o comprimento das linhas. No código do repositório, edite o português e regenere o inglês com `python3 scripts/build_locales.py`. Não precisa de ferramentas de build para editar diretamente um XML instalado no Blogger.
 
@@ -59,3 +59,5 @@ Em telas de até 800px, cabeçalho e apresentação usam espaçamento menor. Os 
 ## Fim dos posts e páginas
 
 Esta versão em desenvolvimento não exibe rodapé nem créditos. Artigos e páginas estáticas ocultam a lateral em todas as larguras. Gadgets de Perfil e Atribuição herdados de uma instalação anterior ficam ocultos pelo CSS do tema. Coloque Contato e Privacidade no Menu superior. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.
+
+O padrão de leitura é 22px com entrelinha de 1,75. Configurações salvas no Designer podem preservar um tamanho anterior: selecione 22px em **Fonte de posts e páginas** após importar, se necessário.

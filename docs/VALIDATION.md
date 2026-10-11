@@ -39,3 +39,9 @@ Medidas do DOM da home atualizada em 320, 360, 480, 768, 800, 801 e 1440px não 
 ## Auditoria do blog publicado antes da integração
 
 Em 11/10/2026, a inspeção por navegador de `www.balaiocientifico.com` encontrou dois posts na home e mais dois pelo link de publicações anteriores, navegação superior vazia, CSS anterior e formulário de busca com a URL incorreta `?m=1search`. Havia requisições de CSS de Inter e Newsreader; as famílias calculadas correspondiam e o carregador de fontes do navegador informou conclusão. As licenças OFL originais e os avisos locais foram conferidos. O código atual corrige a rota de busca, adiciona Páginas no topo e habilita gadgets personalizados no celular. Vinte testes locais passam. A prévia com nove posts demonstra três cards e seis entradas únicas; não controla a paginação do Blogger. Estas mudanças novas de gadgets ainda precisam de nova importação no Blogger.
+
+## Tipografia de leitura ampliada
+
+Um artigo público inspecionado em 360px ainda usava o tamanho móvel anterior de 18px. O código atual aumenta o padrão de leitura de 20px para 22px em todas as larguras, com entrelinha de 1,75. As medidas históricas acima se referem às revisões anteriores. Famílias e licenças das fontes permanecem iguais.
+
+Prévias de artigo, privacidade e conteúdo longo foram medidas em 320, 360, 768 e 1440px: texto de 22px, entrelinha de 38,5px e sem transbordamento horizontal da página. Títulos de seção usam tamanhos relativos explícitos para evitar que o CSS de gadgets nativos reduza o H2 abaixo do tamanho de leitura.
