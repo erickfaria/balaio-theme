@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
+  <head>
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+    <b:include data='blog' name='all-head-content'/>
+    <link href='https://fonts.googleapis.com' rel='preconnect'/>
+    <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&amp;display=swap' rel='stylesheet'/>
+    <b:skin><![CDATA[
+/* Balaio — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
+   Edit the variables below to customize your blog identity. */
+:root {
+  --paper:#fffefb;
+  --ink:#202c28;
+  --muted:#5d6b64;
+  --accent:#22614c;
+  --line:#dce5df;
+  --wash:#edf5ef;
+  --sans:"Inter",system-ui,sans-serif;
+  --serif:"Newsreader",Georgia,serif;
+  --width:1120px;
+}
+* {
+  box-sizing:border-box;
+}
+body {
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:17px/1.65 var(--sans);
+}
+a {
+  color:var(--accent);
+  text-decoration:none;
+}
+a:hover {
+  text-decoration:underline;
+}
+img {
+  max-width:100%;
+  height:auto;
+}
+button,input {
+  font:inherit;
+}
+a:focus-visible,input:focus-visible {
+  outline:3px solid var(--accent);
+  outline-offset:4px;
+}
+.wrap {
+  width:min(var(--width),calc(100% - 48px));
+  margin-inline:auto;
+}
+.skip {
+  position:absolute;
+  top:-100px;
+  left:16px;
+  background:var(--ink);
+  color:white;
+  padding:10px;
+  z-index:10;
+}
+.skip:focus {
+  top:10px;
+}
+.masthead {
+  padding:32px 0 20px;
+  border-bottom:1px solid var(--line);
+}
+.masthead-top > * {
+  min-width:0;
+}
+.masthead-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.brand {
+  font:750 clamp(26px,4vw,38px)/1.2 var(--sans);
+  letter-spacing:-.045em;
+  color:var(--ink);
+  overflow-wrap:anywhere;
+}
+.description {
+  color:var(--muted);
+  margin:10px 0 0;
+  max-width:60ch;
+  font-size:15px;
+}
+.search {
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.search input {
+  width:180px;
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:var(--paper);
+  padding:8px 12px;
+}
+.search button {
+  background:var(--accent);
+  color:white;
+  border:0;
+  border-radius:4px;
+  padding:9px 14px;
+  cursor:pointer;
+}
+.navigation {
+  padding-top:20px;
+}
+.navigation ul {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 24px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.navigation a {
+  font-size:14px;
+  color:var(--ink);
+}
+.widget h2 {
+  font:700 21px/1.3 var(--serif);
+  margin:0 0 16px;
+}
+.intro {
+  padding:48px 0 32px;
+  max-width:700px;
+}
+.intro h1 {
+  font:400 clamp(32px,4vw,46px)/1.2 var(--serif);
+  letter-spacing:-.025em;
+  margin:0;
+}
+.intro p {
+  color:var(--muted);
+  margin:16px 0 0;
+  max-width:52ch;
+}
+.eyebrow {
+  font-size:11px;
+  font-weight:650;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--accent);
+  margin-bottom:16px;
+}
+.content-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 260px;
+  gap:56px;
+  padding:36px 0 64px;
+}
+.content-grid>* {
+  min-width:0;
+}
+.section-title {
+  font:600 22px/1.3 var(--sans);
+  letter-spacing:-.04em;
+  margin:0 0 24px;
+}
+.opening-cards {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin-bottom:40px;
+}
+.opening-cards .post-card {
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  padding:18px;
+  background:var(--wash);
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+.opening-cards .post-card:nth-child(2) {
+  background:#f8f1e7;
+}
+.opening-cards .post-card:nth-child(3) {
+  background:#eef2f6;
+}
+.opening-cards .post-image-link {
+  order:-1;
+  margin:0 0 8px;
+}
+.opening-cards .post-image {
+  aspect-ratio:4/3;
+  border-radius:7px;
+}
+.opening-cards h2 {
+  font-size:25px;
+}
+.opening-cards .post-summary {
+  font-size:14px;
+}
+.opening-cards .meta {
+  font-size:11px;
+}
+.opening-cards .post-copy {
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.opening-cards .meta {
+  margin-top:auto;
+}
+.posts {
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.post-card {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 180px;
+  gap:24px;
+  min-width:0;
+  border-top:1px solid var(--line);
+  padding:28px 0;
+}
+.post-card h2 {
+  overflow-wrap:anywhere;
+}
+.post-copy {
+  min-width:0;
+}
+.post-copy:only-child {
+  grid-column:1/-1;
+}
+.post-card h2 {
+  font:600 28px/1.25 var(--serif);
+  margin:10px 0;
+  letter-spacing:-.02em;
+}
+.post-card h2 a {
+  color:var(--ink);
+}
+.post-image-link {
+  align-self:start;
+  margin-top:12px;
+}
+.post-image {
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:2px;
+}
+.post-summary {
+  color:var(--muted);
+  margin:12px 0;
+  font-size:15px;
+}
+.meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 12px;
+  font-size:13px;
+  color:var(--muted);
+}
+.labels {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  font-size:12px;
+  margin:12px 0;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.sidebar .widget {
+  margin-bottom:32px;
+}
+.sidebar ul {
+  list-style:none;
+  padding:0;
+}
+.sidebar li {
+  margin:8px 0;
+}
+.pager {
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  margin-top:36px;
+  border-top:1px solid var(--line);
+  padding-top:20px;
+  font-size:14px;
+}
+.article {
+  width:100%;
+  max-width:760px;
+  margin:0 auto;
+  padding:48px 0 64px;
+}
+.article h1 {
+  overflow-wrap:anywhere;
+  font:700 clamp(34px,5vw,54px)/1.13 var(--serif);
+  margin:0 0 24px;
+}
+.post-body {
+  font:20px/1.8 var(--serif);
+  overflow-wrap:anywhere;
+  margin-top:32px;
+}
+.post-body h2,.post-body h3 {
+  line-height:1.3;
+  margin-top:1.8em;
+}
+.post-body a {
+  text-decoration:underline;
+}
+.post-body img {
+  height:auto;
+}
+.post-body iframe {
+  max-width:100%;
+}
+.post-body blockquote {
+  border-left:3px solid var(--accent);
+  margin:24px 0;
+  padding:4px 24px;
+  color:var(--muted);
+}
+.post-body pre {
+  overflow:auto;
+  background:var(--wash);
+  padding:20px;
+  font:14px/1.6 monospace;
+}
+.post-body code {
+  font-family:monospace;
+}
+.post-body table {
+  display:block;
+  overflow:auto;
+  max-width:100%;
+  border-collapse:collapse;
+}
+.post-body th,.post-body td {
+  border:1px solid var(--line);
+  padding:8px 12px;
+}
+.comments {
+  margin-top:48px;
+  border-top:1px solid var(--line);
+  padding-top:24px;
+}
+.comment {
+  padding:20px 0;
+  border-bottom:1px solid var(--line);
+}
+.comment-body {
+  overflow-wrap:anywhere;
+}
+.empty {
+  padding:32px;
+  background:var(--wash);
+}
+.site-footer {
+  border-top:1px solid var(--line);
+  padding:28px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+.footer-line {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:16px;
+}
+.footer .widget {
+  margin-bottom:24px;
+}
+@media(min-width:801px) {
+  .article-grid {
+    grid-template-columns:minmax(0,1fr);
+  }
+  .article-grid .sidebar {
+    display:none;
+  }
+}
+@media(min-width:801px) and (max-width:1050px) {
+  .opening-cards {
+    grid-template-columns:1fr;
+  }
+  .opening-cards .post-card {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 150px;
+    gap:20px;
+  }
+  .opening-cards .post-image-link {
+    order:0;
+    margin:0;
+  }
+}
+@media(max-width:800px) {
+  .wrap {
+    width:calc(100% - 32px);
+  }
+  .masthead-top {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .search {
+    width:100%;
+  }
+  .search input {
+    flex:1;
+  }
+  .content-grid {
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+  .post-card {
+    grid-template-columns:minmax(0,1fr) 160px;
+    gap:20px;
+  }
+  .sidebar {
+    border-top:1px solid var(--line);
+    padding-top:28px;
+  }
+  .article {
+    padding:20px 0;
+  }
+  .post-body {
+    font-size:18px;
+  }
+}
+@media(max-width:600px) {
+  .opening-cards {
+    grid-template-columns:1fr;
+  }
+  .opening-cards .post-image-link {
+    max-width:none;
+  }
+  .opening-cards .post-image {
+    aspect-ratio:16/9;
+  }
+}
+@media(max-width:480px) {
+  .post-card {
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .post-image-link {
+    margin-top:0;
+    max-width:240px;
+  }
+  .post-card h2 {
+    font-size:25px;
+  }
+  .navigation ul {
+    gap:10px 18px;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  * {
+    scroll-behavior:auto!important;
+  }
+}
+@media print {
+  .masthead,.sidebar,.pager,.comments,.site-footer,.skip {
+    display:none;
+  }
+  .content-grid {
+    display:block;
+    padding:0;
+  }
+  .wrap,.article {
+    width:100%;
+    max-width:none;
+  }
+  .post-body {
+    font-size:12pt;
+  }
+  body {
+    background:white;
+    color:black;
+  }
+}
+    ]]></b:skin>
+  </head>
+  <body>
+    <a class='skip' href='#content'>Skip to content</a>
+    <header class='masthead'>
+      <div class='wrap'>
+        <div class='masthead-top'>
+          <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
+            <b:widget id='Header1' locked='true' title='Header' type='Header' version='1'>
+              <b:includable id='main'>
+                <a class='brand' expr:href='data:blog.homepageUrl'><data:title/></a>
+                <b:if cond='data:description'><p class='description'><data:description/></p></b:if>
+              </b:includable>
+            </b:widget>
+          </b:section>
+          <form class='search' expr:action='data:blog.homepageUrl + "search"' method='get' role='search'>
+            <input aria-label='Search this blog' name='q' placeholder='Search this blog' type='search'/>
+            <button type='submit'>Search</button>
+          </form>
+        </div>
+        <nav aria-label='Main navigation' class='navigation'>
+          <b:section class='navbar' id='navigation' maxwidgets='1' showaddelement='yes'>
+            <b:widget id='LinkList1' locked='false' title='Menu' type='LinkList' version='1'>
+              <b:includable id='main'>
+                <ul><li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+                  <b:loop values='data:links' var='link'><li><a expr:href='data:link.target'><data:link.name/></a></li></b:loop>
+                </ul>
+              </b:includable>
+            </b:widget>
+          </b:section>
+        </nav>
+      </div>
+    </header>
+    <main class='wrap' id='content' tabindex='-1'>
+      <b:if cond='data:blog.url == data:blog.homepageUrl'>
+        <b:section id='introduction' maxwidgets='1' showaddelement='yes'>
+          <b:widget id='HTML1' locked='false' title='Introduction' type='HTML' version='1'>
+            <b:widget-settings>
+              <b:widget-setting name='content'><![CDATA[<div class="eyebrow">A space for curiosity</div><h1>Knowledge starts with a good question.</h1><p>A place to gather discoveries, connect ideas and share what we learn.</p>]]></b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'><div class='intro'><data:content/></div></b:includable>
+          </b:widget>
+        </b:section>
+      </b:if>
+      <div expr:class='data:blog.pageType == "item" or data:blog.pageType == "static_page" ? "content-grid article-grid" : "content-grid"'>
+        <b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
+          <b:widget id='Blog1' locked='true' title='Posts' type='Blog' version='1'>
+            <b:includable id='main'>
+              <b:if cond='data:blog.pageType == "item" or data:blog.pageType == "static_page"'>
+                <b:loop values='data:posts' var='post'><b:include data='post' name='article'/></b:loop>
+              <b:else/>
+                <b:if cond='data:posts.empty'><p class='empty'>No posts found. <a expr:href='data:blog.homepageUrl'>Back to home</a>.</p></b:if>
+                <b:if cond='data:blog.url == data:blog.homepageUrl'>
+                  <b:if cond='not data:posts.empty'><h2 class='section-title'>Latest posts</h2></b:if>
+                  <div class='opening-cards'>
+                    <b:loop index='index' values='data:posts' var='post'>
+                      <b:if cond='data:index &lt; 3'><b:include data='post' name='card'/></b:if>
+                    </b:loop>
+                  </div>
+                  <b:loop index='index' values='data:posts' var='post'>
+                    <b:if cond='data:index == 3'><h2 class='section-title'>More to read</h2></b:if>
+                  </b:loop>
+                </b:if>
+                <div class='posts'>
+                  <b:loop index='index' values='data:posts' var='post'>
+                    <b:if cond='data:blog.url != data:blog.homepageUrl or data:index &gt;= 3'><b:include data='post' name='card'/></b:if>
+                  </b:loop>
+                </div>
+                <b:include name='pagination'/>
+              </b:if>
+            </b:includable>
+            <b:includable id='metadata' var='post'>
+              <div class='meta'><span><data:post.author/></span><span><data:post.timestamp/></span></div>
+            </b:includable>
+            <b:includable id='labels' var='post'>
+              <b:if cond='data:post.labels'><div class='labels'><b:loop values='data:post.labels' var='label'><a expr:href='data:label.url' rel='tag'><data:label.name/></a></b:loop></div></b:if>
+            </b:includable>
+            <b:includable id='card' var='post'>
+              <article class='post-card'>
+                <div class='post-copy'>
+                  <b:include data='post' name='labels'/>
+                  <h2><a expr:href='data:post.url'><b:if cond='data:post.title'><data:post.title/><b:else/>Untitled post</b:if></a></h2>
+                  <p class='post-summary'><data:post.snippet/></p>
+                  <b:include data='post' name='metadata'/>
+                </div>
+                <b:if cond='data:post.thumbnailUrl'><a class='post-image-link' expr:href='data:post.url' tabindex='-1' aria-hidden='true'><img alt='' class='post-image' expr:src='data:post.thumbnailUrl' loading='lazy'/></a></b:if>
+              </article>
+            </b:includable>
+            <b:includable id='article' var='post'>
+              <article class='article'>
+                <b:include data='post' name='labels'/>
+                <h1><b:if cond='data:post.title'><data:post.title/><b:else/>Untitled post</b:if></h1>
+                <b:if cond='data:blog.pageType == "item"'><b:include data='post' name='metadata'/></b:if>
+                <div class='post-body'><data:post.body/></div>
+                <nav aria-label='Back to posts' class='pager'><a expr:href='data:blog.homepageUrl'>Back to home</a></nav>
+                <b:if cond='data:blog.pageType == "item" and data:post.allowComments'>
+                  <section class='comments' id='comments' aria-label='Comments'>
+                    <h2>Comments (<data:post.numComments/>)</h2>
+                    <b:loop values='data:post.comments' var='comment'>
+                      <article class='comment'><strong><data:comment.author/></strong><div class='meta'><data:comment.timestamp/></div><div class='comment-body'><data:comment.body/></div></article>
+                    </b:loop>
+                    <p><a expr:href='data:post.addCommentUrl'>Write a comment</a></p>
+                  </section>
+                </b:if>
+              </article>
+            </b:includable>
+            <b:includable id='pagination'>
+              <nav aria-label='Pagination' class='pager'>
+                <span><b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl' rel='prev'>Newer posts</a></b:if></span>
+                <span><b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl' rel='next'>Older posts</a></b:if></span>
+              </nav>
+            </b:includable>
+          </b:widget>
+        </b:section>
+        <aside aria-label='Explore the blog' class='sidebar'>
+          <b:section class='sidebar' id='sidebar' showaddelement='yes'>
+            <b:widget id='Label1' locked='false' title='Explore topics' type='Label' version='1'>
+              <b:includable id='main'><h2><data:title/></h2><ul><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/></a> <span class='meta' style='display:inline'>(<data:label.count/>)</span></li></b:loop></ul></b:includable>
+            </b:widget>
+          </b:section>
+        </aside>
+      </div>
+    </main>
+    <footer class='site-footer'><div class='wrap'>
+      <b:section class='footer' id='footer' showaddelement='yes'/>
+      <div class='footer-line'><span><data:blog.title/></span><span>Balaio theme · <a href='https://www.blogger.com/'>Blogger</a></span></div>
+    </div></footer>
+  </body>
+</html>

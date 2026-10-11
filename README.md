@@ -1,63 +1,76 @@
 # Balaio Theme
 
-Tema open source para Blogger, voltado a blogs pessoais, divulgação científica e compartilhamento de conhecimento. Código próprio sob licença MIT, com uma direção editorial minimalista: tipografia confortável, espaço em branco, destaque para conteúdo e navegação simples.
+**[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
-**Estado: primeira base experimental.** O XML pode ser verificado localmente, mas ainda não foi importado nem validado no Blogger. Não use diretamente no blog de produção.
+A free, open-source, responsive **Blogger** theme for personal blogs, science communication and sharing knowledge. An original editorial design with generous spacing, soft colors and readable typography.
 
-## Instalação para teste
+**MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-1. Crie um blog de teste no Blogger e adicione algumas postagens e uma página.
-2. Faça backup do tema atual em **Tema → menu → Fazer backup**.
-3. Em **Tema → Editar HTML**, substitua o conteúdo por `theme/balaio.xml` e salve.
-4. Em **Layout**, configure o gadget **Menu** com links de páginas ou marcadores; o link Início já vem no tema.
-5. Configure título e descrição nas configurações do blog. Acrescente gadgets na lateral e no rodapé.
-6. Confira a lista de verificação em [docs/ROADMAP.md](docs/ROADMAP.md) antes de usar em produção.
+> **Development status:** experimental. Local XML checks and preview layout checks pass; Blogger import and live widget behavior have not yet been verified. Try it on a test blog before using it on your main blog. No stable release is available yet.
 
-## Primeira implementação
+## Choose your language
 
-- Home com três cards de abertura e lista editorial, sem duplicar publicações.
-- Artigos e páginas com coluna de leitura, imagens fluidas, tabelas e blocos de código com rolagem.
-- Busca nativa, marcadores, paginação e link para comentar.
-- Lista básica de comentários; formulário incorporado e respostas encadeadas ainda pendentes.
-- Cabeçalho textual, menu de links, lateral e rodapé editáveis pelo Layout.
-- Layout responsivo, navegação por teclado, link para pular ao conteúdo e estilo para impressão.
-- Inter e Newsreader via Google Fonts, com fallback local; nenhuma biblioteca JavaScript.
+| Interface | Template |
+| --- | --- |
+| Brazilian Portuguese | [theme/balaio.xml](theme/balaio.xml) |
+| English | [theme/balaio.en.xml](theme/balaio.en.xml) |
 
-Os textos de interface desta versão estão em português. Para mudar cores e largura, edite as propriedades CSS em `:root` no XML. O texto de abertura pode ser editado no gadget **Apresentação**, em **Layout**. Preserve uma única tag `<h1>` na abertura. A configuração visual pelo Designer de temas e a imagem de logo ainda não estão implementadas.
+Set your Blogger blog language to match your chosen interface. Post content is yours and is not translated by the theme.
 
-## Desenvolvimento
+## Install on Blogger
+
+No build tools are needed to install the theme.
+
+1. Download the repository ZIP from **Code → Download ZIP** and extract it, or download the desired XML file using GitHub's **Raw / Download raw file** option.
+2. Choose a **test blog** in Blogger. Back up the current theme from **Theme → menu → Back up**.
+3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
+4. Configure your title, description and language in **Settings**.
+5. In **Layout**, edit **Menu** to add page or label links. Home is already provided.
+6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Configure labels, sidebar and footer gadgets.
+7. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
+
+[Detailed setup and troubleshooting](docs/en/INSTALLATION.md) · [Customization](docs/en/CUSTOMIZATION.md)
+
+## What is included
+
+- Three opening cards for the latest home-page posts, followed by an editorial list without duplicate entries.
+- Responsive layouts for phones, tablets and desktop; optional thumbnails and full-width entries when no image is available.
+- Native Blogger search, label links, pagination, article and static-page layouts.
+- Basic comment display and a link to add a comment; embedded forms and threaded replies remain pending.
+- Editable introduction, menu, sidebar and footer gadgets.
+- Keyboard focus, skip link, contained code/table scrolling and print styles.
+- **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
+- No theme JavaScript or Python package dependencies.
+
+A logo image, Theme Designer controls and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
+
+## Develop locally
+
+Requires Python 3.10+; `make` is optional.
 
 ```sh
+python3 scripts/validate_docs.py
+python3 scripts/build_locales.py --check
 python3 scripts/validate_theme.py
 python3 -m unittest discover -s tests -v
 python3 scripts/build_preview.py
 python3 -m http.server 8765 --bind 127.0.0.1 --directory preview
 ```
 
-Abra `http://127.0.0.1:8765` para ver home, artigo e busca sem resultados. As páginas usam o CSS extraído do XML e conteúdo fictício; não compilam tags do Blogger. Os HTML gerados ficam fora do Git.
+Open `http://127.0.0.1:8765`. Stop the server with Ctrl+C. With Make installed, use `make check` and `make serve`. After editing the Portuguese source, run `make locales` or `python3 scripts/build_locales.py` to regenerate the English XML.
 
-O validador usa somente a biblioteca padrão do Python. Verifica XML, estrutura de seções e referências aos blocos locais; não substitui o compilador do Blogger nem um teste visual. Veja [a direção visual](docs/DESIGN.md), [o plano de desenvolvimento](docs/ROADMAP.md) e [a origem e política de recursos](docs/PROVENANCE.md).
+## Repository guide
 
-## Licença e referências
-
-O código original deste projeto usa a [licença MIT](LICENSE). Backups e conteúdos privados não integram a distribuição. Recursos de terceiros exigem licença e origem documentadas antes de entrar nos commits. Veja [docs/PROVENANCE.md](docs/PROVENANCE.md).
-
-## Estrutura do repositório
-
-| Caminho | Conteúdo |
+| Path | Purpose |
 | --- | --- |
-| `theme/balaio.xml` | Tema para instalar no Blogger e CSS principal |
-| `scripts/` | Validador e gerador de prévia, sem dependências Python externas |
-| `tests/` | Verificações estruturais do validador |
-| `docs/` | Direção visual, personalização, origem e validação |
-| `licenses/` | Avisos das fontes de terceiros |
-| `.github/` | CI e modelos de issues e pull requests |
-| `preview/` | Arquivos gerados localmente, ignorados pelo Git |
+| `theme/` | Installable XML templates; Portuguese is the source for the English variant |
+| `scripts/` | Locale generation, XML validation and local preview |
+| `tests/` | Validator regression checks |
+| `docs/` / `docs/en/` | Portuguese / English guides and project notes |
+| `licenses/` | Original font license notices |
+| `.github/` | CI, issue and pull request templates |
+| `preview/` | Generated local files, excluded from Git |
 
-Se tiver `make` instalado, `make check` roda as verificações e `make serve` gera e abre o servidor local.
+[Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md) · [Design](docs/en/DESIGN.md) · [Roadmap](docs/en/ROADMAP.md) · [Validation](docs/en/VALIDATION.md) · [Credits and third-party licenses](docs/en/PROVENANCE.md)
 
-Para contribuir, veja [CONTRIBUTING.md](CONTRIBUTING.md). Mudanças são registradas em [CHANGELOG.md](CHANGELOG.md). A automação executa os checks em pushes e pull requests; seu sucesso não confirma compatibilidade com o Blogger.
-
-## Fontes e personalização
-
-Inter atende menu, busca e interface; Newsreader atende títulos e texto longo. As duas famílias usam SIL OFL 1.1, com avisos em `licenses/`. O código Balaio continua MIT. Veja [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md) para cores, fontes, cards e gadgets.
+Backups, credentials and private blog content are excluded from distribution. Fonts keep their OFL licenses; your posts and images keep their own rights. The GitHub workflow validates templates, translations and preview generation; a green check does not confirm a successful Blogger import.

@@ -25,13 +25,13 @@ class ThemeValidationTests(unittest.TestCase):
         VALIDATOR.validate(ROOT / "theme/balaio.xml")
 
     def test_duplicate_section_id(self):
-        self.assert_rejected(self.source.replace("id='sidebar'", "id='main'"), "ID duplicado")
+        self.assert_rejected(self.source.replace("id='sidebar'", "id='main'"), "Duplicate ID")
 
     def test_missing_include(self):
-        self.assert_rejected(self.source.replace("name='card'", "name='absent'"), "Include local inexistente")
+        self.assert_rejected(self.source.replace("name='card'", "name='absent'"), "Missing local include")
 
     def test_html_inside_section(self):
-        self.assert_rejected(self.source.replace("<b:section class='footer' id='footer' showaddelement='yes'/>", "<b:section id='footer'><p>invalid</p></b:section>"), "não é widget")
+        self.assert_rejected(self.source.replace("<b:section class='footer' id='footer' showaddelement='yes'/>", "<b:section id='footer'><p>invalid</p></b:section>"), "non-widget")
 
 
 if __name__ == "__main__":

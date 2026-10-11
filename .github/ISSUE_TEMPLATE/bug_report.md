@@ -1,17 +1,23 @@
 ---
-name: Relatar problema
-about: Erro visual, de importação ou de funcionamento
+name: Bug report / Relatar problema
+about: Layout, import or behavior issue / Erro visual, de importação ou funcionamento
 title: ''
 labels: ''
 assignees: ''
 ---
 
-**O que aconteceu e o que você esperava?**
+**What happened? / O que aconteceu?**
 
-**Como reproduzir?**
+Describe expected and actual behavior. / Descreva o resultado esperado e o observado.
 
-Informe navegador, tamanho de tela, versão/commit do tema e se o problema ocorreu na prévia ou no Blogger. Para erro de importação, inclua a mensagem do editor.
+**Steps to reproduce / Como reproduzir**
 
-**Evidência**
+Include browser, screen width, template language, theme commit/version, and whether this occurred in the preview or Blogger. For import errors, include the exact editor message.
 
-Anexe uma captura ou exemplo mínimo, sem credenciais, backups ou conteúdo privado.
+Informe navegador, largura de tela, idioma do template, commit/versão e se ocorreu na prévia ou Blogger. Para erros de importação, inclua a mensagem exata.
+
+**Evidence / Evidência**
+
+Attach a screenshot or minimal example without credentials, backups or private content.
+
+Anexe uma captura ou exemplo mínimo sem credenciais, backups ou conteúdo privado.

@@ -1,5 +1,7 @@
 # Verificação local — 11/10/2026
 
+[English](en/VALIDATION.md) · [Português](VALIDATION.md)
+
 ## Resultado
 
 - XML e estrutura local passaram em `scripts/validate_theme.py`.
@@ -22,3 +24,12 @@ Não há confirmação de importação bem-sucedida no Blogger. O checklist comp
 - A fixture exibe três cards de abertura e uma entrada na lista, com quatro publicações ao todo, sem repetição.
 - O CSS computado utiliza a família Inter na interface. A confirmação de download das fontes não foi concluída: a espera do navegador excedeu o tempo disponível. O fallback permanece configurado. A tipografia final precisa de revisão visual em ambiente com acesso ao Google Fonts.
 - Quatro testes estruturais do validador passaram localmente. O workflow está preparado para repetir a validação no GitHub; ainda não foi executado lá.
+
+## Revisão responsiva e bilíngue
+
+- Home e artigo medidos por DOM em viewports de 320, 360, 480, 600, 768, 900, 1050 e 1440 px: sem transbordamento horizontal do documento.
+- Fixture com título sem espaços, URLs extensas, tabela larga e código sem quebras conferida em 320, 360, 768 e 1440 px, também sem transbordamento da página.
+- Quebra de títulos longos e largura mínima do cabeçalho reforçadas no CSS.
+- Variantes XML em português e inglês validadas. Dois testes adicionais garantem CSS equivalente e as mesmas identidades de widgets; seis testes passaram ao todo.
+- Links locais da documentação bilíngue conferidos automaticamente. Âncoras e URLs externas não fazem parte desse check.
+- As fontes remotas não apareceram como carregadas na inspeção atual; os testes de largura refletem o fallback. A revisão visual com as fontes finais continua pendente.

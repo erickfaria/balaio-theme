@@ -1,5 +1,7 @@
 # Autoria e política de recursos
 
+[English](en/PROVENANCE.md) · [Português](PROVENANCE.md)
+
 ## Implementação Balaio
 
 O Balaio é um tema independente para Blogger, com código original sob licença MIT. A direção visual está documentada em [DESIGN.md](DESIGN.md).

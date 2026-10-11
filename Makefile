@@ -1,11 +1,16 @@
 PYTHON ?= python3
 
-.PHONY: check preview serve
+.PHONY: check locales preview serve
 
 check:
+	$(PYTHON) scripts/validate_docs.py
+	$(PYTHON) scripts/build_locales.py --check
 	$(PYTHON) scripts/validate_theme.py
 	$(PYTHON) -m unittest discover -s tests -v
 	git diff --check
+
+locales:
+	$(PYTHON) scripts/build_locales.py
 
 preview:
 	$(PYTHON) scripts/build_preview.py

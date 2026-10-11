@@ -1,10 +1,11 @@
-## Mudança
+## Change / Mudança
 
-Descreva o problema e o resultado para quem usa o tema.
+Describe the problem and outcome for readers. / Descreva o problema e o resultado para quem usa o tema.
 
-## Verificação
+## Validation / Verificação
 
-- [ ] Validador e testes locais passaram.
-- [ ] Prévia conferida nas larguras relevantes.
-- [ ] Mudanças em widgets/expressões testadas no Blogger, ou limitação registrada.
-- [ ] Recursos de terceiros têm origem e licença documentadas.
+- [ ] Local checks passed (`make check`). / Checks locais passaram.
+- [ ] Relevant responsive widths checked. / Larguras responsivas conferidas.
+- [ ] Widget changes tested in Blogger, or limitation documented. / Gadgets testados ou limitação registrada.
+- [ ] Both language guides updated. / Documentação nos dois idiomas atualizada.
+- [ ] Third-party resources have documented licenses. / Recursos externos têm licença documentada.

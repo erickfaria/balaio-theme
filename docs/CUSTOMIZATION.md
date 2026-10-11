@@ -1,5 +1,7 @@
 # Personalizar o Balaio
 
+[English](en/CUSTOMIZATION.md) · [Português](CUSTOMIZATION.md)
+
 ## Conteúdo e navegação
 
 - **Título e descrição:** configurações do blog. O cabeçalho usa o texto configurado.
@@ -25,3 +27,9 @@ Para usar somente fontes locais, remova os três links de fontes no `<head>` e s
 ## Conferir mudanças
 
 Gere novamente a prévia após editar o XML. Confira contraste, títulos longos, posts com e sem imagem e navegação por teclado. Mudanças nos dados ou widgets precisam ser verificadas também por importação num Blogger de teste.
+
+## Idioma da interface
+
+Use `theme/balaio.xml` para português ou `theme/balaio.en.xml` para inglês. Configure também o idioma do blog no Blogger. A versão inglesa é gerada com `python3 scripts/build_locales.py`; edite o português e regenere para preservar estilos iguais. Posts não são traduzidos pelo tema.
+
+A MIT não exige crédito visível no site: o rodapé pode ser personalizado, mantendo os avisos de licença no código redistribuído.

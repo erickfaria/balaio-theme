@@ -1,5 +1,7 @@
 # Direção visual do Balaio
 
+[English](en/DESIGN.md) · [Português](DESIGN.md)
+
 Um caderno aberto de ideias: simples de navegar e confortável de ler. O minimalismo é um princípio geral, não um modelo de tela a reproduzir.
 
 ## Escolhas do projeto
