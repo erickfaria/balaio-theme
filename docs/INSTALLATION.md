@@ -4,7 +4,7 @@
 
 ## Antes de instalar
 
-Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. A versão é experimental e ainda precisa de validação por importação no Blogger.
+Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. A v0.1.0 estável tem importação confirmada pelo proprietário. As mudanças da branch de desenvolvimento ainda precisam de validação própria na plataforma.
 
 ## Passo a passo
 
@@ -14,6 +14,16 @@ Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atu
 4. Configure título, descrição e idioma em **Configurações**. Em **Layout**, ajuste Menu, Apresentação, marcadores, lateral e rodapé. Os gadgets têm nomes ingleses no XML inglês.
 5. Publique posts fictícios com e sem imagem para testar os cards. A home usa os três posts mais recentes da página; configure mais de três posts por página se quiser também a lista abaixo.
 6. Abra artigos, páginas, busca, marcadores e outras páginas de posts. Confira comentários e celular. Veja [ROADMAP.md](ROADMAP.md).
+
+## Usar o tema responsivo no celular
+
+O Blogger pode servir um template móvel antigo separado. Se o celular mostra barras de data cinza, links azuis e outro cabeçalho em `?m=1`, enquanto `?m=0` mostra os cards pastel do Balaio, as duas requisições estão usando apresentações diferentes.
+
+Em **Tema**, abra o menu ao lado de **Personalizar**. Se houver **Configurações para dispositivos móveis**, selecione **Computador/Desktop** (ou a opção de mostrar o tema de computador no celular) e salve. O Balaio adapta seu próprio layout à largura da tela; essa configuração escolhe qual template o Blogger entrega. Os nomes dos menus podem variar conforme a interface do Blogger.
+
+Abra novamente a URL normal do blog no celular, sem acrescentar `?m=0` manualmente. Confira a home, um artigo completo e uma página estática. Compare também `?m=1` e `?m=0` para identificar diferenças restantes. Não use redirecionamento por JavaScript como substituto dessa configuração.
+
+As capturas do proprietário mostraram a apresentação móvel antiga em `?m=1` e os cards do Balaio em `?m=0`. Elas não confirmam a versão instalada nem os novos controles do Designer. [Explicação oficial sobre templates móveis separados](https://blogger-developers.googleblog.com/2011/11/introducing-custom-mobile-templates.html).
 
 ## Dúvidas comuns
 

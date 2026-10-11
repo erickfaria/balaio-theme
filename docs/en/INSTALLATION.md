@@ -4,7 +4,7 @@
 
 ## Before installation
 
-Use a test blog with several posts and a static page. Keep a backup of your current theme. This is an experimental version; successful Blogger import has not yet been confirmed.
+Use a test blog with several posts and a static page. Keep a backup of your current theme. Stable v0.1.0 has owner-confirmed Blogger import. Changes on the development branch still need their own platform validation.
 
 ## Steps
 
@@ -14,6 +14,16 @@ Use a test blog with several posts and a static page. Keep a backup of your curr
 4. Set title, description and blog language in **Settings**. In **Layout**, configure Menu, Introduction, labels, sidebar and footer. The Portuguese XML uses Portuguese gadget titles.
 5. Add sample posts with and without images. The home page uses the first three posts as cards; configure more than three posts per page if you also want the list below them.
 6. Check articles, pages, search, labels, pagination, comments and mobile layout. See [ROADMAP.md](ROADMAP.md).
+
+## Use the responsive theme on phones
+
+Blogger can serve a separate legacy mobile template. If the phone shows gray date bars, blue links and a different header at `?m=1`, while `?m=0` shows Balaio's pastel cards, the two requests are using different presentations.
+
+In **Theme**, open the menu beside **Customize**. If **Mobile settings** is available, select **Desktop** (or the option to show the desktop theme on mobile) and save. Balaio adapts its own layout to the screen width; this setting selects which template Blogger serves. Menu labels can vary across Blogger interfaces.
+
+Reopen the normal blog URL on a phone without manually adding `?m=0`. Check the home page, a full article and a static page. Also compare `?m=1` and `?m=0` to identify any remaining differences. Do not use a JavaScript redirect as a substitute for this setting.
+
+The project owner's screenshots showed the legacy mobile presentation at `?m=1` and Balaio cards at `?m=0`. They do not confirm the installed release or the new Designer controls. [Official background on separate mobile templates](https://blogger-developers.googleblog.com/2011/11/introducing-custom-mobile-templates.html).
 
 ## Troubleshooting
 
