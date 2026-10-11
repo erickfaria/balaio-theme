@@ -23,7 +23,7 @@ Não há confirmação de importação bem-sucedida no Blogger. O checklist comp
 - Prévia da home conferida por DOM em 360, 768 e 1440 px, sem transbordamento da página.
 - A fixture exibe três cards de abertura e uma entrada na lista, com quatro publicações ao todo, sem repetição.
 - O CSS computado utiliza a família Inter na interface. A confirmação de download das fontes não foi concluída: a espera do navegador excedeu o tempo disponível. O fallback permanece configurado. A tipografia final precisa de revisão visual em ambiente com acesso ao Google Fonts.
-- Quatro testes estruturais do validador passaram localmente. O PR inicial passou no CI do GitHub antes do merge; a branch de SEO precisa de execução remota própria.
+- Quatro testes estruturais do validador passaram localmente. O PR inicial passou no CI do GitHub antes do merge. A implementação de SEO em `15ad07e` também passou no [CI do GitHub](https://github.com/erickfaria/balaio-theme/actions/runs/38142451054).
 
 ## Revisão responsiva e bilíngue
 

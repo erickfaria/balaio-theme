@@ -17,7 +17,7 @@ An article overflow issue was fixed by allowing grid items to shrink (`min-width
 
 The preview uses actual CSS with sample markup; it does not compile Blogger expressions or widgets. Import, live data, comments and pagination remain unverified in Blogger. Screenshot capture was unavailable; recorded checks use DOM structure and dimensions, not screenshot review.
 
-The initial theme PR passed GitHub CI before merge; this branch still needs its own remote run. Passing static checks does not imply Blogger compatibility. Use the checklist in [ROADMAP.md](ROADMAP.md).
+The initial theme PR passed GitHub CI before merge. The SEO implementation at `15ad07e` also passed [GitHub CI](https://github.com/erickfaria/balaio-theme/actions/runs/38142451054). Passing static checks does not imply Blogger compatibility. Use the checklist in [ROADMAP.md](ROADMAP.md).
 
 ## Responsive and bilingual review
 
