@@ -4,11 +4,12 @@
 
 ## Current base
 
-Alpha XML templates, three opening cards on the home page, lists, articles, static pages, search, labels, pagination, basic comments, gadgets and responsive CSS. Cards do not repeat in the list; search and archives use the normal list. The `thumbnailUrl`, `snippet`, `locale` and empty-list fields still require Blogger import validation.
+Stable v0.1.0 XML templates, three opening cards on the home page, lists, articles, static pages, search, labels, pagination, basic comments, gadgets and responsive CSS. Cards do not repeat in the list; search and archives use the normal list. The owner confirmed import. Thumbnail/snippet output, locale and empty-list behavior still need specific runtime checks.
 
 ## Platform checklist
 
-- [ ] Import both language variants in a test blog and record compilation errors.
+- [x] Successful Blogger import confirmed by the project owner.
+- [ ] Record the imported language variant and test both language variants explicitly.
 - [ ] Check zero, one and multiple posts; missing titles and images.
 - [ ] Check search with and without results, labels and date archives.
 - [ ] Check pagination with more posts than the home-page limit.
@@ -25,4 +26,4 @@ Alpha XML templates, three opening cards on the home page, lists, articles, stat
 2. Higher-resolution images and topic navigation.
 3. Embedded comments and threaded replies.
 4. Reading time, sharing and related articles using progressive enhancement.
-5. A public demo and visual review before the first stable release.
+5. A public demo and visual review with downloaded fonts.

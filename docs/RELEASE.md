@@ -1,20 +1,20 @@
-# Instalar a versão v0.1.0-alpha.1
+# Instalar a versão v0.1.0
 
 [English](en/RELEASE.md) · [Português](RELEASE.md)
 
-[Baixar no GitHub](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0-alpha.1).
+[Baixar no GitHub](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0).
 
-Esta é uma **pré-release experimental**, ainda sem validação de plataforma para ser estável. XML, treze testes locais e CI passam; a importação no Blogger precisa de teste. Consulte [limites conhecidos](../CHANGELOG.md) e [evidências de validação](VALIDATION.md).
+Esta é a primeira **versão estável**. O proprietário confirmou importação bem-sucedida no Blogger em 11/10/2026. XML, treze testes locais e CI passam. A regressão completa de gadgets, comentários e paginação continua separada dessa confirmação de importação. Consulte [limites conhecidos](../CHANGELOG.md) e [evidências de validação](VALIDATION.md).
 
 ## Arquivos
 
-- `balaio-0.1.0-alpha.1.zip`: pacote com os dois templates, exemplos de páginas/posts, documentação bilíngue, versão, changelog e avisos de licença. Sem testes de desenvolvimento, scripts, backups ou prévias geradas.
+- `balaio-0.1.0.zip`: pacote com os dois templates, exemplos de páginas/posts, documentação bilíngue, versão, changelog e avisos de licença. Sem testes de desenvolvimento, scripts, backups ou prévias geradas.
 - `balaio.xml`: interface em português.
 - `balaio.en.xml`: interface em inglês.
 - `SHA256SUMS.txt`: checksums do ZIP e dos dois XMLs.
 - Arquivos de código-fonte automáticos do GitHub: todo o código rastreado, incluindo scripts e testes úteis para desenvolvimento.
 
-O ZIP extrai para `balaio-0.1.0-alpha.1/`. Escolha um XML em `theme/`; não envie o ZIP como tema Blogger. Os XMLs separados contêm os mesmos templates. Use o pacote para obter também os exemplos e avisos completos de licença.
+O ZIP extrai para `balaio-0.1.0/`. Escolha um XML em `theme/`; não envie o ZIP como tema Blogger. Os XMLs separados contêm os mesmos templates. Use o pacote para obter também os exemplos e avisos completos de licença.
 
 ## Instalação rápida
 

@@ -4,11 +4,12 @@
 
 ## Base entregue
 
-XMLs alpha, home com lista editorial, artigos, páginas, busca, marcadores, paginação, comentários básicos, gadgets e CSS responsivo. Na home, os três primeiros posts são cards de abertura; os demais ficam na lista, sem duplicação. Busca e arquivos preservam a listagem comum. Os campos `thumbnailUrl`, `snippet`, `locale` e o estado de lista vazia precisam ser confirmados durante a importação.
+XMLs estáveis v0.1.0, home com lista editorial, artigos, páginas, busca, marcadores, paginação, comentários básicos, gadgets e CSS responsivo. Na home, os três primeiros posts são cards de abertura; os demais ficam na lista, sem duplicação. Busca e arquivos preservam a listagem comum. O proprietário confirmou a importação. A saída de miniaturas/resumos, idioma e comportamento com lista vazia ainda precisam de checks específicos em execução.
 
 ## Próxima etapa: validar no Blogger
 
-- [ ] Importar as duas variantes de idioma em blog de teste e registrar qualquer erro de compilação.
+- [x] Importação bem-sucedida confirmada pelo proprietário.
+- [ ] Registrar o idioma importado e testar explicitamente as duas variantes.
 - [ ] Conferir home com zero, um e vários posts; títulos ausentes e posts sem imagem.
 - [ ] Conferir busca com e sem resultados, marcadores e arquivos por data.
 - [ ] Conferir links de paginação em um blog com mais posts que o limite da home.
@@ -25,4 +26,4 @@ XMLs alpha, home com lista editorial, artigos, páginas, busca, marcadores, pagi
 2. Imagens em resolução adequada e navegação complementar por assuntos. Avaliar destaques apenas se ajudarem a leitura.
 3. Comentários incorporados e respostas encadeadas com comportamento nativo.
 4. Tempo de leitura, compartilhamento e artigos relacionados, com melhoria progressiva.
-5. Versão demonstrativa pública e revisão visual antes do primeiro release estável. Guias bilíngues de instalação e personalização já estão disponíveis.
+5. Versão demonstrativa pública e revisão visual com as fontes carregadas. Guias bilíngues de instalação e personalização já estão disponíveis.

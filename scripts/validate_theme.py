@@ -41,7 +41,7 @@ def validate(path):
         errors.append("The theme must contain exactly one Blog widget.")
     if errors:
         raise ValueError("\n".join(errors))
-    print(f"OK: {path.name} — XML and local structure valid. Blogger import remains unverified.")
+    print(f"OK: {path.name} — XML and local structure valid.")
 
 
 if __name__ == "__main__":

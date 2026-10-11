@@ -1,5 +1,21 @@
 # Changelog / Histórico
 
+## v0.1.0 — 2026-10-11
+
+### English
+
+- Promote Balaio to its first stable release after the project owner confirmed successful Blogger import.
+- Keep both theme XML files identical to v0.1.0-alpha.1; this promotion changes version metadata, documentation and validation status.
+- Preserve the alpha release and publish a new stable install package, standalone XML assets and SHA-256 checksums.
+- Record the confirmed import separately from remaining full widget/runtime checks.
+
+### Português
+
+- Promover o Balaio à primeira versão estável após o proprietário confirmar importação bem-sucedida no Blogger.
+- Manter ambos os XMLs idênticos a v0.1.0-alpha.1; a promoção altera versão, documentação e status da validação.
+- Preservar a alpha e publicar novo pacote estável, XMLs separados e checksums SHA-256.
+- Registrar a importação confirmada separadamente dos checks completos de widgets/execução ainda pendentes.
+
 ## v0.1.0-alpha.1 — 2026-10-11
 
 ### English

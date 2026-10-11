@@ -6,7 +6,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Release status:** `v0.1.0-alpha.1` is an experimental preview. Local checks and CI pass; Blogger import and live widget behavior are not verified. Install on a test blog first. [Download the release](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0-alpha.1) · [Release guide](docs/en/RELEASE.md).
+> **Stable release:** `v0.1.0`. The project owner confirmed successful Blogger import on October 11, 2026. Thirteen local tests and CI also pass. See [validation scope](docs/en/VALIDATION.md). [Download](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0) · [Release guide](docs/en/RELEASE.md).
 
 ## Choose your language
 
