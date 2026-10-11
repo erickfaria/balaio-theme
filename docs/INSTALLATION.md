@@ -4,7 +4,7 @@
 
 ## Antes de instalar
 
-Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. Este guia corresponde à v0.2.0-rc.1. A v0.1.0 estável anterior tem importação confirmada pelo proprietário; a candidata alterada ainda precisa de nova importação no Blogger.
+Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. Este guia corresponde à v0.2.0-rc.2. A v0.1.0 estável anterior tem importação confirmada pelo proprietário; a candidata alterada ainda precisa de nova importação no Blogger.
 
 ## Passo a passo
 
@@ -12,7 +12,7 @@ Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atu
 2. No Blogger, selecione o blog correto e vá a **Tema → menu → Fazer backup**.
 3. Em **Tema → menu → Editar HTML**, substitua o conteúdo pelo XML completo, desde a declaração inicial até o fechamento de `html`, e salve.
 4. Configure título, descrição e idioma em **Configurações**. Em **Layout**, ajuste Páginas, Menu, Apresentação, marcadores e lateral. Os gadgets têm nomes ingleses no XML inglês.
-5. Publique posts fictícios com e sem imagem para testar os cards. A home usa os três posts mais recentes da página; configure mais de três posts por página se quiser também a lista abaixo.
+5. Publique posts fictícios com e sem imagem para testar os cards. A home destaca os dois posts mais recentes e mostra os seguintes em lista. A continuação automática complementa páginas curtas; veja [HOME.md](HOME.md).
 6. Abra artigos, páginas, busca, marcadores e outras páginas de posts. Confira comentários e celular. Veja [ROADMAP.md](ROADMAP.md).
 
 ## Usar o tema responsivo no celular
@@ -49,6 +49,6 @@ Antes de publicar, siga a [configuração de SEO](SEO.md).
 
 ## Mostrar mais posts e páginas fixas
 
-O tema exibe todos os posts fornecidos pelo Blogger: os três primeiros em cards, seguidos de uma lista sem duplicações. Configure **Configurações → Postagens → Máximo de postagens exibidas na página principal** como **9** para começar. É um máximo, não uma garantia: o Blogger pode paginar antes em posts grandes. Se continuarem aparecendo apenas duas entradas, adicione uma **quebra de expansão** nativa após a introdução dos posts longos e confira novamente. Não mude datas de publicação nem duplique posts. [Configurações do Blogger](https://support.google.com/blogger/answer/9691230?hl=pt-BR) · [Editor de posts](https://support.google.com/blogger/answer/154172?hl=pt-BR).
+O tema exibe todos os posts fornecidos pelo Blogger: os dois primeiros em cards, seguidos de uma lista sem duplicações. Na home, a continuação automática consulta até quatro páginas adicionais para tentar atingir dez posts; fora da home, a paginação continua nativa. Configure **Configurações → Postagens → Máximo de postagens exibidas na página principal** como **10** para começar. É um máximo, não uma garantia: o Blogger pode paginar antes em posts grandes. Se a continuação não carregar, confira a rede e o link de posts anteriores em [HOME.md](HOME.md). Adicione uma **quebra de expansão** nativa após a introdução dos posts longos e confira novamente. Não mude datas de publicação nem duplique posts. [Configurações do Blogger](https://support.google.com/blogger/answer/9691230?hl=pt-BR) · [Editor de posts](https://support.google.com/blogger/answer/154172?hl=pt-BR).
 
 A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no celular. Publique Sobre mim, Contato e Privacidade em **Páginas** e selecione-as em **Layout → Páginas**. O gadget separado **Menu** aceita links extras. As configurações de um `PageList1` existente podem ser preservadas na importação; confira sua posição no Layout. O XML não altera conteúdo de páginas nem configurações do blog.

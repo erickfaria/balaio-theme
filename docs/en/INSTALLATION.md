@@ -4,7 +4,7 @@
 
 ## Before installation
 
-Use a test blog with several posts and a static page. Keep a backup of your current theme. This guide covers v0.2.0-rc.1. The previous stable v0.1.0 has owner-confirmed import; the changed candidate still needs a fresh Blogger import.
+Use a test blog with several posts and a static page. Keep a backup of your current theme. This guide covers v0.2.0-rc.2. The previous stable v0.1.0 has owner-confirmed import; the changed candidate still needs a fresh Blogger import.
 
 ## Steps
 
@@ -12,7 +12,7 @@ Use a test blog with several posts and a static page. Keep a backup of your curr
 2. In Blogger, select the correct blog, then open **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the contents with the entire XML, from its declaration to the closing `html` tag, then save.
 4. Set title, description and blog language in **Settings**. In **Layout**, configure Pages, Menu, Introduction, labels and sidebar. The Portuguese XML uses Portuguese gadget titles.
-5. Add sample posts with and without images. The home page uses the first three posts as cards; configure more than three posts per page if you also want the list below them.
+5. Add sample posts with and without images. The home page highlights the first two posts and lists the rest. Automatic continuation supplements short pages; see [HOME.md](HOME.md).
 6. Check articles, pages, search, labels, pagination, comments and mobile layout. See [ROADMAP.md](ROADMAP.md).
 
 ## Use the responsive theme on phones
@@ -49,6 +49,6 @@ Before publishing, complete the [SEO configuration checklist](SEO.md).
 
 ## Show more posts and fixed pages
 
-The theme displays all posts supplied by Blogger: the first three in opening cards, followed by a list without duplicates. Set **Settings → Posts → Max posts shown on main page** to **9** as a starting point. This is a maximum, not a guarantee: Blogger may paginate earlier for large posts. If only two entries remain, add a native **jump break** after the introduction of long posts, then recheck. Do not change publication dates or duplicate posts. [Blogger settings](https://support.google.com/blogger/answer/9691230?hl=en) · [Post editor](https://support.google.com/blogger/answer/154172?hl=en).
+The theme displays all posts supplied by Blogger: the first two in opening cards, followed by a list without duplicates. Home continuation follows up to four additional pages toward ten posts; other listing views keep native pagination. Set **Settings → Posts → Max posts shown on main page** to **10** as a starting point. This is a maximum, not a guarantee: Blogger may paginate earlier for large posts. If continuation does not load, check the network and older-posts link in [HOME.md](HOME.md). Add a native **jump break** after the introduction of long posts, then recheck. Do not change publication dates or duplicate posts. [Blogger settings](https://support.google.com/blogger/answer/9691230?hl=en) · [Post editor](https://support.google.com/blogger/answer/154172?hl=en).
 
 The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publish About me, Contact and Privacy through **Pages**, then select them under **Layout → Pages**. The separate **Menu** gadget accepts extra links. Existing `PageList1` settings may be retained on import; verify its position in Layout. No page content or blog settings are changed by the XML.

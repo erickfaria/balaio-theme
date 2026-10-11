@@ -8,7 +8,7 @@ Um caderno aberto de ideias: simples de navegar e confortável de ler. O minimal
 
 - Fundo claro e quente, texto em tom de grafite e verde profundo nos links e tons suaves de verde, areia e azul nos cards.
 - Inter para o nome do blog e a interface; Newsreader para títulos e artigos, com fallback para fontes do dispositivo.
-- Home aberta por três cards das publicações mais recentes, com composição própria; as demais seguem em lista editorial.
+- Home aberta por dois cards das publicações mais recentes, com composição própria; as demais seguem em lista editorial.
 - Texto antes da imagem, inclusive na ordem do HTML. Miniaturas opcionais acompanham cada entrada sem comandar a página.
 - Cards com cantos discretos e cores suaves; linhas finas separam a lista. Sem sombras, carrosséis ou animações decorativas.
 - Abertura curta sobre curiosidade e aprendizado; título e descrição do blog continuam personalizáveis.

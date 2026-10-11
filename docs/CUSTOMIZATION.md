@@ -13,13 +13,13 @@
 
 ## Cards de abertura
 
-Na home, as três primeiras publicações da página recebem o formato de card. Não há seleção manual por enquanto. Os posts seguintes aparecem uma única vez na lista. Busca, marcadores e arquivos usam apenas a lista comum.
+Na home, as duas primeiras publicações da página recebem o formato de card. Não há seleção manual por enquanto. Os posts seguintes aparecem uma única vez na lista. Busca, marcadores e arquivos usam apenas a lista comum. A continuação automática é exclusiva da home; veja [HOME.md](HOME.md) para meta de posts, limite de requisições e como desativá-la.
 
-Se houver menos de três posts, o tema exibe somente os disponíveis. Posts sem miniatura preservam título, resumo e autoria. Para mudar a quantidade, mantenha os limites dos dois loops coerentes no widget Blog: os cards usam `index < 3`, a lista começa em `index >= 3` e o título da lista aparece em `index == 3`.
+Se houver menos de dois posts, os cards exibem somente os disponíveis. Posts sem miniatura preservam título, resumo e autoria. Para mudar a quantidade, mantenha os limites dos dois loops coerentes no widget Blog: os cards usam `index < 2`, a lista começa em `index >= 2` e o título da lista aparece em `index == 2`.
 
 ## Controles nativos de cores e fontes
 
-A v0.2.0-rc.1 inclui controles em **Tema → Personalizar → Avançado**, usando [variáveis de cor e fonte documentadas pelo Blogger](https://support.google.com/blogger/answer/46871?hl=en). Importe o XML atualizado primeiro em um blog de teste. Estes controles ainda precisam de confirmação no Designer publicado. Eles não existem na v0.1.0 estável anterior.
+A v0.2.0-rc.2 inclui controles em **Tema → Personalizar → Avançado**, usando [variáveis de cor e fonte documentadas pelo Blogger](https://support.google.com/blogger/answer/46871?hl=en). Importe o XML atualizado primeiro em um blog de teste. Estes controles ainda precisam de confirmação no Designer publicado. Eles não existem na v0.1.0 estável anterior.
 
 Os controles abrangem fundo da página, textos principal e secundário, links/botões, divisórias, superfícies pastel verde/areia/azul, fonte da interface e fonte de posts/páginas. Escolha fundos claros e texto escuro. A paleta padrão passa na verificação de contraste mínimo de 4,5:1 para texto comum sobre as quatro superfícies de leitura/cards. Cores personalizadas precisam de nova conferência de contraste.
 
@@ -59,6 +59,6 @@ Em telas de até 800px, cabeçalho e apresentação usam espaçamento menor. Os 
 
 ## Fim dos posts e páginas
 
-A v0.2.0-rc.1 não exibe rodapé nem créditos. Artigos e páginas estáticas ocultam a lateral em todas as larguras. Gadgets de Perfil e Atribuição herdados de uma instalação anterior ficam ocultos pelo CSS do tema. Selecione Contato e Privacidade no gadget Páginas do topo. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.
+A v0.2.0-rc.2 não exibe rodapé nem créditos. Artigos e páginas estáticas ocultam a lateral em todas as larguras. Gadgets de Perfil e Atribuição herdados de uma instalação anterior ficam ocultos pelo CSS do tema. Selecione Contato e Privacidade no gadget Páginas do topo. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.
 
 O padrão de leitura é 22px com entrelinha de 1,75. Configurações salvas no Designer podem preservar um tamanho anterior: selecione 22px em **Fonte de posts e páginas** após importar, se necessário.

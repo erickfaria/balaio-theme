@@ -10,7 +10,7 @@
     <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
     <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&amp;display=swap' rel='stylesheet'/>
     <b:skin><![CDATA[
-/* Balaio v0.2.0-rc.1 — código original, MIT. Inter e Newsreader: SIL OFL 1.1.
+/* Balaio v0.2.0-rc.2 — código original, MIT. Inter e Newsreader: SIL OFL 1.1.
    Edite as variáveis abaixo para personalizar a identidade do blog. */
 /* Controles do Designer do Blogger.
 <Variable name="papercolor" description="Fundo da página" type="color" default="#fffefb" value="#fffefb"/>
@@ -40,6 +40,9 @@
 }
 * {
   box-sizing:border-box;
+}
+[hidden] {
+  display:none!important;
 }
 body {
   margin:0;
@@ -656,20 +659,167 @@ a:focus-visible,input:focus-visible {
                   <b:if cond='not data:posts.empty'><h2 class='section-title'>Últimas publicações</h2></b:if>
                   <div class='opening-cards'>
                     <b:loop index='index' values='data:posts' var='post'>
-                      <b:if cond='data:index &lt; 3'><b:include data='post' name='card'/></b:if>
+                      <b:if cond='data:index &lt; 2'><b:include data='post' name='card'/></b:if>
                     </b:loop>
                   </div>
                   <b:loop index='index' values='data:posts' var='post'>
-                    <b:if cond='data:index == 3'><h2 class='section-title'>Mais leituras</h2></b:if>
+                    <b:if cond='data:index == 2'><h2 class='section-title more-title'>Mais leituras</h2></b:if>
                   </b:loop>
                 </b:if>
-                <div class='posts'>
+                <div class='posts' id='postlist' data-home-posts='10' data-page-limit='4' data-list-title='Mais leituras'>
                   <b:loop index='index' values='data:posts' var='post'>
-                    <b:if cond='data:blog.url != data:blog.homepageUrl or data:index &gt;= 3'><b:include data='post' name='card'/></b:if>
+                    <b:if cond='data:blog.url != data:blog.homepageUrl or data:index &gt;= 2'><b:include data='post' name='card'/></b:if>
                   </b:loop>
                 </div>
                 <b:include name='pagination'/>
+                <b:if cond='data:blog.url == data:blog.homepageUrl'><b:include name='homeContinuation'/></b:if>
               </b:if>
+            </b:includable>
+            <b:includable id='homeContinuation'>
+              <script type='text/javascript'><![CDATA[
+(() => {
+  'use strict';
+  const list = document.getElementById('postlist');
+  if (!list || !window.fetch || !window.AbortController) return;
+  const blog = list.closest('.widget');
+  const older = blog && blog.querySelector('.pager a[rel="next"]');
+  if (!older) return;
+  const target = Math.min(40, Math.max(2, Number(list.dataset.homePosts) || 10));
+  const pageLimit = Math.min(6, Math.max(0, Number(list.dataset.pageLimit) || 0));
+  const seen = new Set();
+  const visited = new Set();
+
+  function localURL(value, base) {
+    if (typeof value !== "string" || !value.trim()) return null;
+    try {
+      const url = new URL(value, base);
+      return url.origin === location.origin && /^https?:$/.test(url.protocol) ? url : null;
+    } catch (_) { return null; }
+  }
+  function postURL(card, base) {
+    const link = card.querySelector('h2 a');
+    return link && localURL(link.getAttribute('href'), base);
+  }
+  function key(url) { return url.origin + url.pathname; }
+  for (const card of blog.querySelectorAll('.post-card')) {
+    const url = postURL(card, location.href);
+    if (url) seen.add(key(url));
+  }
+  if (!seen.size || seen.size >= target || !pageLimit) return;
+
+  function node(tag, className, text) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (text != null) element.textContent = text;
+    return element;
+  }
+  // Rebuild only text, links and the thumbnail; never insert fetched scripts or HTML.
+  function copyCard(source, url, base) {
+    const card = node('article', 'post-card');
+    const copy = node('div', 'post-copy');
+    const sourceLabels = source.querySelectorAll('.labels a');
+    if (sourceLabels.length) {
+      const labels = node('div', 'labels');
+      for (const sourceLink of sourceLabels) {
+        const labelURL = localURL(sourceLink.getAttribute('href'), base);
+        if (!labelURL) continue;
+        const link = node('a', '', sourceLink.textContent);
+        link.href = labelURL.href;
+        link.rel = 'tag';
+        labels.append(link);
+      }
+      if (labels.childElementCount) copy.append(labels);
+    }
+    const heading = node('h2');
+    const link = node('a', '', source.querySelector('h2 a').textContent);
+    link.href = url.href;
+    heading.append(link);
+    copy.append(heading);
+    const summary = source.querySelector('.post-summary');
+    if (summary) copy.append(node('p', 'post-summary', summary.textContent));
+    const meta = node('div', 'meta');
+    for (const span of source.querySelectorAll('.meta > span')) {
+      meta.append(node('span', '', span.textContent));
+    }
+    if (meta.childElementCount) copy.append(meta);
+    card.append(copy);
+    const sourceImage = source.querySelector('img.post-image');
+    if (sourceImage) {
+      try {
+        const imageURL = new URL(sourceImage.getAttribute('src'), base);
+        if (imageURL.protocol === 'https:') {
+          const imageLink = node('a', 'post-image-link');
+          imageLink.href = url.href;
+          imageLink.tabIndex = -1;
+          imageLink.setAttribute('aria-hidden', 'true');
+          const image = node('img', 'post-image');
+          image.alt = '';
+          image.width = 640;
+          image.height = 480;
+          image.loading = 'lazy';
+          image.decoding = 'async';
+          image.src = imageURL.href;
+          imageLink.append(image);
+          card.append(imageLink);
+        }
+      } catch (_) { /* A missing thumbnail never removes the post. */ }
+    }
+    return card;
+  }
+
+  async function fillHome() {
+    let next = localURL(older.getAttribute('href'), location.href);
+    list.setAttribute('aria-busy', 'true');
+    try {
+      for (let page = 0; next && page < pageLimit && seen.size < target; page++) {
+        next.searchParams.set('m', '0');
+        next.searchParams.set('max-results', String(target - seen.size));
+        if (visited.has(next.href)) break;
+        visited.add(next.href);
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 8000);
+        let markup;
+        try {
+          const response = await fetch(next.href, {signal: controller.signal, credentials: 'omit', redirect: 'error'});
+          if (!response.ok) throw new Error('Page unavailable');
+          markup = await response.text();
+        } finally { clearTimeout(timer); }
+        // A template keeps fetched styles, images and scripts inert.
+        const template = document.createElement('template');
+        template.innerHTML = markup;
+        const source = template.content;
+        const cards = [...source.querySelectorAll('.posts > .post-card, .opening-cards > .post-card')];
+        if (!cards.length) break;
+        const following = source.querySelector('.pager a[rel="next"]');
+        const followingURL = following && localURL(following.getAttribute('href'), next.href);
+        if (following && !followingURL) break;
+        const batch = document.createDocumentFragment();
+        const addedURLs = new Set();
+        for (const card of cards) {
+          const url = postURL(card, next.href);
+          if (!url) throw new Error('Invalid post link');
+          if (seen.has(key(url)) || addedURLs.has(key(url))) continue;
+          batch.append(copyCard(card, url, next.href));
+          addedURLs.add(key(url));
+        }
+        list.append(batch);
+        for (const url of addedURLs) seen.add(url);
+        if (addedURLs.size && !blog.querySelector('.more-title')) {
+          list.before(node('h2', 'section-title more-title', list.dataset.listTitle));
+        }
+        // Advance only after the complete page: no post is skipped at the target.
+        if (followingURL) older.href = followingURL.href;
+        else older.closest('.pager').hidden = true;
+        next = followingURL;
+        if (!addedURLs.size) break;
+      }
+    } catch (_) {
+      // The last working native pagination link remains available on failure.
+    } finally { list.removeAttribute('aria-busy'); }
+  }
+  fillHome();
+})();
+              ]]></script>
             </b:includable>
             <b:includable id='metadata' var='post'>
               <div class='meta'>

@@ -8,7 +8,7 @@ An open notebook of ideas: simple to navigate and comfortable to read. Minimalis
 
 - Warm light background, graphite text, deep green links and soft green, sand and blue cards.
 - Inter for identity and interface; Newsreader for titles and articles, with device-font fallbacks.
-- Three opening cards for the latest posts, followed by a steady editorial list.
+- Two opening cards for the latest posts, followed by a steady editorial list.
 - Text first in HTML order; optional images support the content.
 - Subtle corners and thin separators. No shadows, carousels or decorative animations.
 - A short introduction focused on curiosity and learning; blog title and description remain editable.

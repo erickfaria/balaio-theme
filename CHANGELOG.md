@@ -1,5 +1,23 @@
 # Changelog / Histórico
 
+## v0.2.0-rc.2 — 2026-10-11
+
+### English
+
+- Fix a short home page when Blogger returns only two posts despite a larger configured maximum. Keep two highlights and follow native older-page links toward ten posts, with up to four extra requests.
+- Append complete pages without duplicate permalinks; advance the older-posts link only after displaying that page. Keep native navigation if JavaScript/network support is unavailable.
+- Use original inline MIT JavaScript with no libraries or feed dependency. Rebuild text/link/thumbnail nodes from same-origin page responses without inserting fetched scripts, styles or event handlers.
+- Add reproducible preview scenarios for short pages, failures, duplicates, cycles, end of archive and inert content. Document settings and SEO scope in both languages.
+- Verify two highlights plus eight list entries using a local copy of the actual public blog responses. Updated XML import still needs validation in Blogger; stable v0.1.0 remains available.
+
+### Português
+
+- Corrigir a home curta quando o Blogger entrega apenas dois posts apesar de um máximo maior. Preservar dois destaques e seguir os links nativos para tentar completar dez posts, com até quatro requisições adicionais.
+- Adicionar páginas completas sem repetir permalinks; avançar o link de posts anteriores após exibir a página. Preservar navegação nativa se JavaScript/rede estiverem indisponíveis.
+- Usar JavaScript próprio MIT inline, sem bibliotecas nem dependência de feeds. Reconstruir texto, links e miniaturas das respostas do mesmo domínio sem inserir scripts, estilos ou eventos recebidos.
+- Adicionar cenários reproduzíveis para páginas curtas, falhas, duplicações, ciclos, fim do arquivo e conteúdo inerte. Documentar ajustes e limites de SEO nos dois idiomas.
+- Conferir dois destaques e oito entradas na lista numa cópia local das respostas reais do blog público. A nova importação do XML segue pendente; v0.1.0 estável preservada.
+
 ## v0.2.0-rc.1 — 2026-10-11
 
 ### English

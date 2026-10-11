@@ -6,7 +6,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Current version:** `v0.2.0-rc.1` (release candidate). Includes the mobile, navigation and 22px reading improvements. Twenty local tests and CI pass; fresh Blogger import and new widget/Designer behavior still need verification. [Download candidate](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.1) · [Upgrade guide](docs/en/RELEASE.md) · [Validation scope](docs/en/VALIDATION.md).
+> **Current version:** `v0.2.0-rc.2` (release candidate). Includes a fuller home page, mobile navigation and 22px reading text. Twenty local tests and CI pass; fresh Blogger import and new widget/Designer behavior still need verification. [Download candidate](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.2) · [Upgrade guide](docs/en/RELEASE.md) · [Validation scope](docs/en/VALIDATION.md).
 >
 > **Stable fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with owner-confirmed Blogger import. Its templates differ from the current candidate.
 
@@ -29,22 +29,22 @@ No build tools are needed to install the theme.
 4. Configure your title, description and language in **Settings**.
 5. In **Layout → Pages**, select published About me, Contact and Privacy pages for the top navigation. Use **Menu** for extra links, such as labels.
 6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Configure labels and sidebar gadgets.
-7. Start with 9 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
+7. Start with 10 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
-[Detailed setup and troubleshooting](docs/en/INSTALLATION.md) · [Customization](docs/en/CUSTOMIZATION.md)
+[Home-page posts and pagination](docs/en/HOME.md) · [Home-page posts and pagination](docs/en/HOME.md) · [Home-page posts and pagination](docs/en/HOME.md) · [Detailed setup and troubleshooting](docs/en/INSTALLATION.md) · [Customization](docs/en/CUSTOMIZATION.md)
 
 ## What is included
 
-- Three opening cards for the latest home-page posts, followed by an editorial list without duplicate entries.
+- Two opening cards for the latest home-page posts, followed by an editorial list. When Blogger returns a short page, a small built-in script follows native pagination toward 10 posts, without duplicate entries.
 - Responsive layouts for phones, tablets and desktop; optional thumbnails and full-width entries when no image is available.
 - Native Blogger search, label links, pagination, article and static-page layouts.
 - Basic comment display and a link to add a comment; embedded forms and threaded replies remain pending.
 - Editable introduction, Pages navigation, extra Menu links and sidebar gadgets.
 - Keyboard focus, skip link, contained code/table scrolling and print styles.
 - **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Post/page text defaults to 22px with a 1.75 line height. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
-- No theme JavaScript or Python package dependencies.
+- No third-party JavaScript libraries or Python package dependencies. The home continuation is original MIT code; native pagination works without JavaScript.
 
-Native color/font controls are included in v0.2.0-rc.1; live Designer verification remains pending. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
+Native color/font controls are included in v0.2.0-rc.2; live Designer verification remains pending. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
 
 ## Develop locally
 
@@ -86,11 +86,11 @@ The theme preserves Blogger metadata and adds visible-content article microdata.
 
 **Is this Blogger template really free?** Yes. MIT permits personal and commercial use, modification and redistribution with license notices preserved. No purchase or visible attribution is required.
 
-**Can I change colors and layout?** Yes. Start with Layout gadgets and the native color/font controls in v0.2.0-rc.1. Reading width remains an advanced CSS option. [Customization guide](docs/en/CUSTOMIZATION.md).
+**Can I change colors and layout?** Yes. Start with Layout gadgets and the native color/font controls in v0.2.0-rc.2. Reading width remains an advanced CSS option. [Customization guide](docs/en/CUSTOMIZATION.md).
 
 **Is it built for SEO?** It provides native Blogger metadata, semantic headings, ordinary crawlable links and article microdata. The [search guide](docs/en/SEO.md) covers Google, Bing, DuckDuckGo, SearXNG and AI discovery. Published indexing and compatibility still need verification.
 
-**How do I write responsive posts?** Use the [post guide and editable HTML sample](docs/en/POSTS.md). Titles, summaries, tables, images and video stay within the reading layout without adding theme JavaScript.
+**How do I write responsive posts?** Use the [post guide and editable HTML sample](docs/en/POSTS.md). Titles, summaries, tables, images and video stay within the reading layout without requiring scripts in your posts.
 
 ## Basic pages
 
