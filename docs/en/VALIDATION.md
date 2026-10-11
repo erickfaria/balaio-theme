@@ -31,3 +31,19 @@ The initial theme PR passed GitHub CI before merge. The SEO implementation at `1
 ## SEO branch validation
 
 Twelve local tests cover XML, locales, metadata ownership and rendered HTML auditing. This branch adds partial article/page microdata and listing headings; live Blogger import and rich-results validation remain pending. The [SEO guide](SEO.md) records a read-only domain baseline, separate from template verification.
+
+## Live baseline — 2026-10-11
+
+Read-only observations at `https://www.balaiocientifico.com/` **before installing this branch's theme**:
+
+- Home and `/2025/04/analise-de-dados-do-cnes-no-jamovi.html` return HTTP 200 and self-referencing HTTPS canonicals.
+- The inspected article has the blog name as H1 rather than the article title. The new theme assigns the article title to H1.
+- Both inspected pages lack a standard meta description; the home sharing description is empty. Configure Blogger search descriptions and recheck the output.
+- `/robots.txt` allows general crawling of public articles and excludes `/search` and `/share-widget`; it advertises `/sitemap.xml`.
+- The sitemap responds successfully with a populated XML URL set. Its `X-Robots-Tag: noindex` applies to the sitemap response and does not establish that articles are excluded.
+
+These observations do not establish actual search indexing, AI citations or performance. No published settings or content were changed during this audit.
+
+## Multi-engine and post layout review
+
+Thirteen local tests pass, including a scoped DuckDuckBot restriction case. The new `media.html` fixture uses the editable Portuguese post example plus a figure and empty 16:9 video iframe. DOM measurements at 320, 360, 768 and 1440 px showed no horizontal document overflow; figure and iframe widths stayed within the reading column. This verifies container layout, not playback or a Blogger import.

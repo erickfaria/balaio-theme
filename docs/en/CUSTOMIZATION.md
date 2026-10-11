@@ -18,7 +18,7 @@ With fewer than three posts, only the available entries appear. Without a thumbn
 
 ## Colors and typography
 
-Edit `:root` inside `b:skin` in the Portuguese XML, then regenerate the English variant. `--paper` is the background; `--ink` main text; `--muted` secondary text; `--accent` links and buttons; `--line` borders; `--wash` soft surfaces. Second and third card colors use `.opening-cards` `nth-child` rules.
+Edit `:root` inside `b:skin` in the Portuguese XML, then regenerate the English variant. `--paper` is the background; `--ink` main text; `--muted` secondary text; `--accent` links and buttons; `--line` borders; `--wash` soft surfaces. The second and third card backgrounds use `--card-sand` and `--card-blue`; `--reading-width` controls the article column.
 
 `--sans` selects interface fonts and `--serif` selects reading fonts. Inter and Newsreader are requested from Google Fonts with `display=swap`, with local fallbacks. This makes requests to `fonts.googleapis.com` and `fonts.gstatic.com`.
 
@@ -31,3 +31,16 @@ Use the matching XML from `theme/`. The English file is generated with `python3 
 ## Verify changes
 
 Regenerate the preview after XML changes. Check contrast, long titles, posts with and without images and keyboard navigation. Widget and expression changes must also be tested in Blogger.
+
+## Quick pastel customization
+
+Change only these values inside the existing `:root` block; no widget edits or build tools are needed when editing your chosen XML directly in Blogger:
+
+```css
+--wash:#edf5ef;
+--card-sand:#f8f1e7;
+--card-blue:#eef2f6;
+--reading-width:760px;
+```
+
+Keep text and link colors dark enough for contrast. These are Balaio's original pastel defaults. For post content, see [POSTS.md](POSTS.md).

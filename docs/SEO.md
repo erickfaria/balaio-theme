@@ -25,6 +25,21 @@ O Google aceita microdados de artigos e recomenda propriedades corretas e aplic�
 
 [Guia de busca do Blogger](https://support.google.com/blogger/answer/41373?hl=pt-BR).
 
+## Bing, DuckDuckGo e metabusca open source
+
+O tema expõe texto HTML, links e microdados sem depender de JavaScript próprio. Não restringe rastreadores por fornecedor. As permissões pertencem ao robots.txt do Blogger, aos cabeçalhos de robôs e a eventuais firewalls do domínio, não a uma lista especial no tema.
+
+| Serviço | Caminho de descoberta | Ação de quem publica |
+| --- | --- | --- |
+| Bing | Bingbot e índice do Bing | Verifique no Bing Webmaster Tools, envie o sitemap e inspecione URLs públicas. |
+| DuckDuckGo | DuckDuckBot e outras fontes, com resultados tradicionais vindos principalmente do Bing | Confira acesso de DuckDuckBot e Bingbot; não precisa de tag especial no tema. |
+| SearXNG | Metabuscador open source com motores escolhidos por cada instância | Torne posts descobertos nessas fontes; os resultados variam entre instâncias. |
+| Outros rastreadores independentes | Índices e políticas próprios | Preserve HTML público e links comuns; consulte a documentação do rastreador. |
+
+Fontes: [controles de rastreamento do Bing](https://www.bing.com/webmasters/help/how-to-create-a-robots-txt-file-cb7c31ec), [fontes do DuckDuckGo](https://duckduckgo.com/duckduckgo-help-pages/results/sources), [documentação do SearXNG](https://docs.searxng.org/).
+
+SearXNG é open source; Bing e DuckDuckGo não são apresentados aqui como buscadores open source. Evite inventar regras para `SearXNG-bot` ou copiar grupos separados sem conferir: grupos específicos podem substituir restrições do grupo geral. O auditor de HTML relata restrições com escopo de Googlebot, Bingbot, DuckDuckBot e OAI-SearchBot; robots.txt exige conferência separada.
+
 ## Busca com IA e escolhas de rastreamento
 
 As buscas com IA do Google usam a base tradicional de SEO, sem exigir arquivo ou schema especial para IA. As páginas precisam ser indexáveis e elegíveis para snippets. [Documentação do Google](https://developers.google.com/search/docs/appearance/ai-features).
@@ -44,15 +59,3 @@ python3 scripts/audit_seo.py --file /tmp/pagina-salva.html
 ```
 
 O relatório JSON verifica título, canonical, descrição, H1, idioma, ausência de alt, sintaxe JSON-LD e restrições de pesquisa. Código de saída 1 indica erro estrutural; avisos precisam de contexto e não alteram o código. O escopo de cada robô permanece no relatório. A auditoria **não** comprova indexação, completude de schema, acesso via robots.txt ou desempenho. Não execute sobre XML de template não compilado. Falhas HTTP são erros; redirecionamentos são seguidos e o HTML final é inspecionado.
-
-## Diagnóstico público — 11/10/2026
-
-Observações somente de leitura em `https://www.balaiocientifico.com/`, **antes de instalar o tema desta branch**:
-
-- Home e `/2025/04/analise-de-dados-do-cnes-no-jamovi.html` retornam HTTP 200, com canonical HTTPS apontando para a própria página.
-- O H1 do artigo inspecionado contém o nome do blog, não o título do artigo. O novo tema atribui o H1 ao título do artigo.
-- As duas páginas inspecionadas não têm meta description padrão; a descrição de compartilhamento da home está vazia. Configure descrições de pesquisa e confira novamente o HTML.
-- `/robots.txt` permite rastreamento geral de artigos públicos e exclui `/search` e `/share-widget`; anuncia `/sitemap.xml`.
-- O sitemap responde com um conjunto de URLs XML preenchido. Seu `X-Robots-Tag: noindex` aplica-se à resposta do sitemap e não comprova exclusão dos artigos.
-
-Isso não comprova indexação real, citações por IA ou desempenho. Nenhuma configuração ou conteúdo publicado foi alterado nesta auditoria.

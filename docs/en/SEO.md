@@ -25,6 +25,21 @@ Google supports article microdata and recommends applicable, accurate properties
 
 [Blogger's search setup guide](https://support.google.com/blogger/answer/41373?hl=en).
 
+## Bing, DuckDuckGo and open-source metasearch
+
+The theme exposes ordinary HTML text, links and article microdata without requiring theme JavaScript. It does not restrict a crawler by vendor. Crawl permissions belong to Blogger's robots.txt, robot headers and any domain firewall, not to a theme-specific allowlist.
+
+| Search service | Discovery path | Publisher action |
+| --- | --- | --- |
+| Bing | Bingbot and Bing indexing | Verify in Bing Webmaster Tools, submit the sitemap and inspect public URLs. |
+| DuckDuckGo | DuckDuckBot plus other sources, with traditional results largely from Bing | Check access for DuckDuckBot and Bingbot; no special theme tag is required. |
+| SearXNG | Open-source metasearch combining its instance's selected engines | Make posts discoverable in those upstream sources; results vary by instance. |
+| Other independent crawlers | Their own indexing and robots policies | Keep public HTML and normal links accessible; inspect their published crawler guidance. |
+
+Sources: [Bing crawler controls](https://www.bing.com/webmasters/help/how-to-create-a-robots-txt-file-cb7c31ec), [DuckDuckGo search sources](https://duckduckgo.com/duckduckgo-help-pages/results/sources), [SearXNG documentation](https://docs.searxng.org/).
+
+SearXNG is open source; Bing and DuckDuckGo are not described here as open-source search engines. Do not add invented `SearXNG-bot` rules or copy separate bot groups blindly: specific groups can replace a wildcard group's restrictions. The HTML audit reports scoped restrictions for Googlebot, Bingbot, DuckDuckBot and OAI-SearchBot; robots.txt still requires a separate check.
+
 ## AI search and crawler choices
 
 Google's AI search features use the existing SEO foundation; no special AI file or schema is required. Eligible pages need indexing and snippet availability. [Google AI search documentation](https://developers.google.com/search/docs/appearance/ai-features).
@@ -44,15 +59,3 @@ python3 scripts/audit_seo.py --file /tmp/saved-page.html
 ```
 
 The JSON report checks title, canonical, description, H1, language, missing image alt attributes, JSON-LD syntax and search restrictions. Exit code 1 means a structural error; warnings require context and do not change the exit code. Robot restrictions retain their agent scope. The audit does **not** prove indexing, schema completeness, robots.txt access or performance. Never run it on uncompiled template XML. HTTP failures propagate as errors; it follows redirects and checks their final HTML.
-
-## Live baseline — 2026-10-11
-
-Read-only observations at `https://www.balaiocientifico.com/` **before installing this branch's theme**:
-
-- Home and `/2025/04/analise-de-dados-do-cnes-no-jamovi.html` return HTTP 200 and self-referencing HTTPS canonicals.
-- The inspected article has the blog name as H1 rather than the article title. The new theme assigns the article title to H1.
-- Both inspected pages lack a standard meta description; the home sharing description is empty. Configure Blogger search descriptions and recheck the output.
-- `/robots.txt` allows general crawling of public articles and excludes `/search` and `/share-widget`; it advertises `/sitemap.xml`.
-- The sitemap responds successfully with a populated XML URL set. Its `X-Robots-Tag: noindex` applies to the sitemap response and does not establish that articles are excluded.
-
-These observations do not establish actual search indexing, AI citations or performance. No published settings or content were changed during this audit.

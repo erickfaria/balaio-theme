@@ -1,8 +1,8 @@
-# Balaio Theme
+# Balaio — Free minimal Blogger theme
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
-A free, open-source, responsive **Blogger** theme for personal blogs, science communication and sharing knowledge. An original editorial design with generous spacing, soft colors and readable typography.
+A **free Blogger XML template**: minimal, responsive, open source and easy to customize. Original editorial design with pastel green, sand and blue, readable typography and a technical SEO foundation for personal blogs and science communication.
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
@@ -64,6 +64,7 @@ Open `http://127.0.0.1:8765`. Stop the server with Ctrl+C. With Make installed, 
 | Path | Purpose |
 | --- | --- |
 | `theme/` | Installable XML templates; Portuguese is the source for the English variant |
+| `examples/` | Editable post body samples in English and Portuguese |
 | `scripts/` | Locale generation, XML validation and local preview |
 | `tests/` | Validator regression checks |
 | `docs/` / `docs/en/` | Portuguese / English guides and project notes |
@@ -78,3 +79,13 @@ Backups, credentials and private blog content are excluded from distribution. Fo
 ## SEO and AI discovery
 
 The theme preserves Blogger metadata and adds visible-content article microdata. Follow the [SEO setup and audit guide](docs/en/SEO.md) to configure search descriptions, indexing and crawler access. Includes a dependency-free HTML auditor; rankings and AI citations are not guaranteed.
+
+## Frequently asked questions
+
+**Is this Blogger template really free?** Yes. MIT permits personal and commercial use, modification and redistribution with license notices preserved. No purchase or visible attribution is required.
+
+**Can I change colors and layout?** Yes. Start with the editable Layout gadgets and the documented CSS variables for the pastel palette, fonts and reading width. [Customization guide](docs/en/CUSTOMIZATION.md).
+
+**Is it built for SEO?** It provides native Blogger metadata, semantic headings, ordinary crawlable links and article microdata. The [search guide](docs/en/SEO.md) covers Google, Bing, DuckDuckGo, SearXNG and AI discovery. Published indexing and compatibility still need verification.
+
+**How do I write responsive posts?** Use the [post guide and editable HTML sample](docs/en/POSTS.md). Titles, summaries, tables, images and video stay within the reading layout without adding theme JavaScript.

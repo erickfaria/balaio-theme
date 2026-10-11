@@ -2,6 +2,9 @@
 
 ## English — Unreleased
 
+- Editable pastel card colors and reading width, responsive figures/video embeds, and bilingual post examples.
+- Bing, DuckDuckGo and SearXNG discovery guidance; scoped DuckDuckBot audit checks.
+
 - Article/WebPage microdata, listing headings and explicit card image dimensions.
 - Rendered HTML SEO auditor, regression checks and bilingual search/AI discovery setup guide.
 
@@ -14,6 +17,9 @@
 Blogger import and live behavior still need verification. No stable release has been published.
 
 ## Português — Em desenvolvimento
+
+- Cores pastel e largura de leitura editáveis, figuras/vídeos responsivos e exemplos bilíngues de posts.
+- Guia de descoberta em Bing, DuckDuckGo e SearXNG; auditoria com escopo de DuckDuckBot.
 
 - Microdados de artigos/páginas, títulos de listagens e dimensões de imagens dos cards.
 - Auditor de SEO no HTML renderizado, testes e guia bilíngue de busca e descoberta por IA.

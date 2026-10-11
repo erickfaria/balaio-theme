@@ -37,3 +37,19 @@ Não há confirmação de importação bem-sucedida no Blogger. O checklist comp
 ## Validação da branch de SEO
 
 Doze testes locais cobrem XML, idiomas, metadados nativos e auditoria de HTML. Esta branch adiciona microdados parciais de artigos/páginas e títulos de listagens; importação no Blogger e validação de resultados enriquecidos seguem pendentes. O [guia de SEO](SEO.md) registra o diagnóstico público, separado da verificação do template.
+
+## Diagnóstico público — 11/10/2026
+
+Observações somente de leitura em `https://www.balaiocientifico.com/`, **antes de instalar o tema desta branch**:
+
+- Home e `/2025/04/analise-de-dados-do-cnes-no-jamovi.html` retornam HTTP 200, com canonical HTTPS apontando para a própria página.
+- O H1 do artigo inspecionado contém o nome do blog, não o título do artigo. O novo tema atribui o H1 ao título do artigo.
+- As duas páginas inspecionadas não têm meta description padrão; a descrição de compartilhamento da home está vazia. Configure descrições de pesquisa e confira novamente o HTML.
+- `/robots.txt` permite rastreamento geral de artigos públicos e exclui `/search` e `/share-widget`; anuncia `/sitemap.xml`.
+- O sitemap responde com um conjunto de URLs XML preenchido. Seu `X-Robots-Tag: noindex` aplica-se à resposta do sitemap e não comprova exclusão dos artigos.
+
+Isso não comprova indexação real, citações por IA ou desempenho. Nenhuma configuração ou conteúdo publicado foi alterado nesta auditoria.
+
+## Revisão de buscadores e layout das postagens
+
+Treze testes locais passam, incluindo restrição com escopo de DuckDuckBot. A fixture `media.html` usa o exemplo editável de post em português, figura e iframe vazio de vídeo 16:9. Medições por DOM em 320, 360, 768 e 1440 px não mostraram transbordamento horizontal; figura e iframe ficaram na coluna de leitura. Isso verifica contêineres, não reprodução de vídeo nem importação no Blogger.

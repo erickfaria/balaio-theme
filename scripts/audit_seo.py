@@ -44,7 +44,7 @@ class Page(HTMLParser):
             name = attrs.get('name', '').lower()
             if name == 'description':
                 self.descriptions.append(attrs.get('content', ''))
-            if name in ('robots', 'googlebot', 'bingbot', 'oai-searchbot'):
+            if name in ('robots', 'googlebot', 'bingbot', 'duckduckbot', 'oai-searchbot'):
                 self.robots.append({'agent': name, 'content': attrs.get('content', '')})
         if tag == 'img' and 'alt' not in attrs:
             self.images_missing_alt += 1

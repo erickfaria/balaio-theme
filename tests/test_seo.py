@@ -36,6 +36,12 @@ class RenderedSEOTests(unittest.TestCase):
         self.assertIn('googlebot: noindex', report['warnings'][0])
         self.assertEqual(module.audit(HTML, ['index, follow'])['warnings'], [])
 
+    def test_duckduckbot_restriction_retains_agent_scope(self):
+        html = HTML.replace('</head>', '<meta name="DuckDuckBot" content="noindex"></head>')
+        report = module.audit(html)
+        self.assertEqual(report['robots'][0]['agent'], 'duckduckbot')
+        self.assertIn('duckduckbot', report['warnings'][0])
+
     def test_invalid_json_and_missing_alt(self):
         report = module.audit(HTML.replace('<img alt="">', '<img><script type="application/ld+json">{"bad":}</script>'))
         self.assertTrue(any('JSON-LD' in error for error in report['errors']))
