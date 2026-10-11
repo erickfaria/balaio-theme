@@ -26,5 +26,7 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Build local preview
         run: python scripts/build_preview.py
+      - name: Build clean install package
+        run: python scripts/build_release.py --output /tmp/balaio-release
       - name: Check whitespace
         run: git diff --check

@@ -6,7 +6,7 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Estado:** experimental. As verificações locais de XML e de layout da prévia passaram; a importação e o funcionamento dos gadgets no Blogger ainda não foram confirmados. Use primeiro em um blog de teste. Ainda não há versão estável publicada.
+> **Estado da versão:** `v0.1.0-alpha.1` é uma prévia experimental. Checks locais e CI passam; importação e funcionamento dos gadgets no Blogger não estão confirmados. Instale primeiro num blog de teste. [Baixar a release](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0-alpha.1) · [Guia da versão](docs/RELEASE.md).
 
 ## Escolha o idioma
 

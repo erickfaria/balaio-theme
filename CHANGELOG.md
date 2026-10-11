@@ -1,44 +1,35 @@
 # Changelog / Histórico
 
-## English — Unreleased
+## v0.1.0-alpha.1 — 2026-10-11
 
-- Lorem ipsum About, Contact and Privacy page samples in both languages.
-- Current-page navigation styling, configurable footer links and an explicit resource license inventory.
+### English
 
-- Editable pastel card colors and reading width, responsive figures/video embeds, and bilingual post examples.
-- Bing, DuckDuckGo and SearXNG discovery guidance; scoped DuckDuckBot audit checks.
+First experimental release of Balaio, an original MIT-licensed minimal Blogger theme.
 
-- Article/WebPage microdata, listing headings and explicit card image dimensions.
-- Rendered HTML SEO auditor, regression checks and bilingual search/AI discovery setup guide.
+- Portuguese and English XML templates; three opening cards and a list without repeated posts.
+- Editable pastel colors, typography and reading width; responsive articles, pages, figures, tables, code and video containers.
+- Header search, configurable menu with current-page indication and optional footer links.
+- Blogger-native metadata, article/WebPage microdata and semantic listing headings.
+- Lorem ipsum About, Contact and Privacy samples, plus editable post examples.
+- Bilingual installation, customization, licensing and SEO guides for Google, Bing, DuckDuckGo, SearXNG and AI discovery.
+- Open Inter and Newsreader fonts under SIL OFL 1.1. Original code and examples under MIT.
+- Dependency-free validation, thirteen regression tests, HTML SEO audit and CI.
+- Install package, standalone XML files and SHA-256 checksums.
 
-- Independent MIT-licensed Blogger theme with cards, lists, articles, pages, navigation, search, labels and basic comments.
-- Soft green, sand and blue colors; Inter and Newsreader under SIL OFL.
-- Responsive CSS, editable introduction, keyboard focus and print styles.
-- English and Portuguese templates and documentation, installation help and customization guides.
-- Locale generation, preview generation, XML and documentation checks, regression tests and CI.
+**Known limits:** Blogger import and live gadgets remain unverified. Embedded/threaded comments, image logos, Theme Designer controls and a dedicated 404 layout are not implemented. Structured data is partial; dates and high-resolution images need verified native bindings. No indexing, ranking or AI citation guarantees.
 
-Blogger import and live behavior still need verification. No stable release has been published.
+### Português
 
-## Português — Em desenvolvimento
+Primeira versão experimental do Balaio, tema Blogger minimalista próprio sob MIT.
 
-- Exemplos de páginas Sobre, Contato e Privacidade com Lorem ipsum nos dois idiomas.
-- Destaque da página atual, links editáveis do rodapé e inventário de licenças dos recursos.
+- XMLs em português e inglês; três cards de abertura e lista sem posts repetidos.
+- Cores pastel, fontes e largura de leitura editáveis; artigos, páginas, figuras, tabelas, código e contêineres de vídeo responsivos.
+- Busca no cabeçalho, menu com indicação de página atual e links opcionais no rodapé.
+- Metadados nativos, microdados de artigos/WebPage e títulos semânticos nas listagens.
+- Modelos de Sobre, Contato e Privacidade com Lorem ipsum e exemplos editáveis de posts.
+- Guias bilíngues de instalação, personalização, licenças e SEO para Google, Bing, DuckDuckGo, SearXNG e busca com IA.
+- Inter e Newsreader abertas sob SIL OFL 1.1; código e exemplos próprios sob MIT.
+- Validadores sem dependências, treze testes, auditor de HTML e CI.
+- Pacote de instalação, XMLs separados e checksums SHA-256.
 
-- Cores pastel e largura de leitura editáveis, figuras/vídeos responsivos e exemplos bilíngues de posts.
-- Guia de descoberta em Bing, DuckDuckGo e SearXNG; auditoria com escopo de DuckDuckBot.
-
-- Microdados de artigos/páginas, títulos de listagens e dimensões de imagens dos cards.
-- Auditor de SEO no HTML renderizado, testes e guia bilíngue de busca e descoberta por IA.
-
-
-
-- Tema Blogger independente sob MIT, com navegação, busca, artigos, páginas, marcadores e comentários básicos.
-- Três cards de abertura na home, seguidos da lista editorial sem repetição de posts.
-- Paleta verde, areia e azul sobre fundo claro.
-- Inter para interface e Newsreader para leitura, com licenças SIL OFL preservadas.
-- Apresentação editável por gadget, layout responsivo e estilos de impressão.
-- Prévia local, validador de XML, testes estruturais e automação de verificações.
-
-A importação e o comportamento real no Blogger ainda estão em validação. Não há versão estável publicada.
-
-- Templates e documentação em inglês e português, com guias de instalação e verificação de links locais.
+**Limites conhecidos:** importação e gadgets reais no Blogger seguem pendentes. Comentários incorporados/encadeados, logo em imagem, controles no Designer e layout 404 dedicado não estão implementados. O schema é parcial; datas e imagens em alta resolução precisam de campos nativos verificados. Sem garantia de indexação, posição ou citações por IA.

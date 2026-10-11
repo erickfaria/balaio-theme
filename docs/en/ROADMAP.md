@@ -4,7 +4,7 @@
 
 ## Current base
 
-Independent XML, three opening cards on the home page, lists, articles, static pages, search, labels, pagination, basic comments, gadgets and responsive CSS. Cards do not repeat in the list; search and archives use the normal list. The `thumbnailUrl`, `snippet`, `locale` and empty-list fields still require Blogger import validation.
+Alpha XML templates, three opening cards on the home page, lists, articles, static pages, search, labels, pagination, basic comments, gadgets and responsive CSS. Cards do not repeat in the list; search and archives use the normal list. The `thumbnailUrl`, `snippet`, `locale` and empty-list fields still require Blogger import validation.
 
 ## Platform checklist
 
@@ -26,5 +26,3 @@ Independent XML, three opening cards on the home page, lists, articles, static p
 3. Embedded comments and threaded replies.
 4. Reading time, sharing and related articles using progressive enhancement.
 5. A public demo and visual review before the first stable release.
-
-Posts, media and URL migration are separate work. WordPress plugins, PHP, storefronts, custom accounts and synchronized bookmarks are not automatically provided by a Blogger theme.

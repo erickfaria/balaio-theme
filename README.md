@@ -6,7 +6,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Development status:** experimental. Local XML checks and preview layout checks pass; Blogger import and live widget behavior have not yet been verified. Try it on a test blog before using it on your main blog. No stable release is available yet.
+> **Release status:** `v0.1.0-alpha.1` is an experimental preview. Local checks and CI pass; Blogger import and live widget behavior are not verified. Install on a test blog first. [Download the release](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0-alpha.1) · [Release guide](docs/en/RELEASE.md).
 
 ## Choose your language
 
@@ -21,7 +21,7 @@ Set your Blogger blog language to match your chosen interface. Post content is y
 
 No build tools are needed to install the theme.
 
-1. Download the repository ZIP from **Code → Download ZIP** and extract it, or download the desired XML file using GitHub's **Raw / Download raw file** option.
+1. Download and extract the install package from the release above, or choose a standalone XML asset. The repository source ZIP is also available from **Code → Download ZIP**.
 2. Choose a **test blog** in Blogger. Back up the current theme from **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
 4. Configure your title, description and language in **Settings**.

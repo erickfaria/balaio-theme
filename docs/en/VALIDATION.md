@@ -1,53 +1,21 @@
-# Local validation — October 11, 2026
+# Release validation — 2026-10-11
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
-## Recorded checks
+## Automated checks
 
-- XML and local widget structure pass the Python validator.
-- Four validator regression tests pass locally.
-- Preview home and article were measured through browser DOM at 360, 768 and 1440 px without horizontal page overflow in the initial base. Home was checked again after cards and typography changed.
-- Code and table overflow is contained; entries without images use their available width.
-- Home-to-article navigation was exercised in the preview.
-- The current fixture has three opening cards and one list entry, with no duplicate posts.
+Thirteen regression tests cover malformed widget sections, duplicate IDs, missing includes, locale equivalence, metadata ownership and HTML SEO auditing. Both XML variants parse; locale generation is current; local Markdown links and Git whitespace checks pass. GitHub CI repeats these checks and builds the preview. External documentation links and heading anchors are not checked automatically.
 
-An article overflow issue was fixed by allowing grid items to shrink (`min-width: 0`) and constraining the reading column. Font-family CSS selects Inter; download confirmation was interrupted by browser synchronization/timeouts. Fallback fonts remain configured.
+## Responsive preview evidence
 
-## Limits
+- Home and article DOM measured at 320, 360, 480, 600, 768, 900, 1050 and 1440 px without horizontal page overflow.
+- Long unbroken titles, URLs, tables and code checked at 320, 360, 768 and 1440 px; scrolling remains contained.
+- Editable post example, figure and empty 16:9 iframe checked at 320, 360, 768 and 1440 px. Media stays within the reading column.
+- Privacy page checked at 320, 768 and 1440 px: one H1, WebPage microdata, current menu link highlighted and working navigation to Contact.
+- The home fixture contains three opening cards plus one distinct list entry.
 
-The preview uses actual CSS with sample markup; it does not compile Blogger expressions or widgets. Import, live data, comments and pagination remain unverified in Blogger. Screenshot capture was unavailable; recorded checks use DOM structure and dimensions, not screenshot review.
+## Limits and next checks
 
-The initial theme PR passed GitHub CI before merge. The SEO implementation at `15ad07e` also passed [GitHub CI](https://github.com/erickfaria/balaio-theme/actions/runs/38142451054). Passing static checks does not imply Blogger compatibility. Use the checklist in [ROADMAP.md](ROADMAP.md).
+These are CSS/DOM fixture checks, not a Blogger compiler. Import, native data bindings, gadgets, comments, pagination and published structured data remain unverified. Screenshot capture was unavailable, and remote font faces were not confirmed loaded; measurements reflect fallback typography. No Core Web Vitals or ranking claims are established.
 
-## Responsive and bilingual review
-
-- Home and article measured through DOM at 320, 360, 480, 600, 768, 900, 1050 and 1440 px: no horizontal document overflow.
-- Long unbroken titles, URLs, wide table content and code checked in a stress fixture at 320, 360, 768 and 1440 px, also without page overflow.
-- Added wrapping for long titles and minimum-width constraints in the header.
-- Both XML variants validate. Two additional tests ensure matching CSS and widget identities; six tests pass overall.
-- Local bilingual documentation links are checked automatically. Heading anchors and external URLs are outside that check.
-- Remote font faces were not reported as loaded during this review, so dimensions were checked with fallback typography. Final-font visual review remains pending.
-
-## SEO branch validation
-
-Twelve local tests cover XML, locales, metadata ownership and rendered HTML auditing. This branch adds partial article/page microdata and listing headings; live Blogger import and rich-results validation remain pending. The [SEO guide](SEO.md) records a read-only domain baseline, separate from template verification.
-
-## Live baseline — 2026-10-11
-
-Read-only observations at `https://www.balaiocientifico.com/` **before installing this branch's theme**:
-
-- Home and `/2025/04/analise-de-dados-do-cnes-no-jamovi.html` return HTTP 200 and self-referencing HTTPS canonicals.
-- The inspected article has the blog name as H1 rather than the article title. The new theme assigns the article title to H1.
-- Both inspected pages lack a standard meta description; the home sharing description is empty. Configure Blogger search descriptions and recheck the output.
-- `/robots.txt` allows general crawling of public articles and excludes `/search` and `/share-widget`; it advertises `/sitemap.xml`.
-- The sitemap responds successfully with a populated XML URL set. Its `X-Robots-Tag: noindex` applies to the sitemap response and does not establish that articles are excluded.
-
-These observations do not establish actual search indexing, AI citations or performance. No published settings or content were changed during this audit.
-
-## Multi-engine and post layout review
-
-Thirteen local tests pass, including a scoped DuckDuckBot restriction case. The new `media.html` fixture uses the editable Portuguese post example plus a figure and empty 16:9 video iframe. DOM measurements at 320, 360, 768 and 1440 px showed no horizontal document overflow; figure and iframe widths stayed within the reading column. This verifies container layout, not playback or a Blogger import.
-
-## Basic page review
-
-The privacy preview has one H1, WebPage microdata and the current menu link highlighted. DOM measurements at 320, 768 and 1440 px showed no horizontal overflow. Navigation from Privacy to Contact worked. All page text is Lorem ipsum; these samples are not published site content. The thirteen structural and SEO regression tests pass. Import and gadget behavior on Blogger remain unverified.
+The release is an alpha until the [platform checklist](ROADMAP.md) is completed. Use [SEO.md](SEO.md) for published HTML auditing and [RELEASE.md](RELEASE.md) for package contents and installation.

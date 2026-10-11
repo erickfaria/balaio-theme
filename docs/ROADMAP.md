@@ -4,7 +4,7 @@
 
 ## Base entregue
 
-XML independente do WordPress, home com lista editorial, artigos, páginas, busca, marcadores, paginação, comentários básicos, gadgets e CSS responsivo. Na home, os três primeiros posts são cards de abertura; os demais ficam na lista, sem duplicação. Busca e arquivos preservam a listagem comum. Os campos `thumbnailUrl`, `snippet`, `locale` e o estado de lista vazia precisam ser confirmados durante a importação.
+XMLs alpha, home com lista editorial, artigos, páginas, busca, marcadores, paginação, comentários básicos, gadgets e CSS responsivo. Na home, os três primeiros posts são cards de abertura; os demais ficam na lista, sem duplicação. Busca e arquivos preservam a listagem comum. Os campos `thumbnailUrl`, `snippet`, `locale` e o estado de lista vazia precisam ser confirmados durante a importação.
 
 ## Próxima etapa: validar no Blogger
 
@@ -26,7 +26,3 @@ XML independente do WordPress, home com lista editorial, artigos, páginas, busc
 3. Comentários incorporados e respostas encadeadas com comportamento nativo.
 4. Tempo de leitura, compartilhamento e artigos relacionados, com melhoria progressiva.
 5. Versão demonstrativa pública e revisão visual antes do primeiro release estável. Guias bilíngues de instalação e personalização já estão disponíveis.
-
-## Limites de migração
-
-Plugins PHP, contas próprias do WordPress, publicação por usuários, WooCommerce, perfis de autores e favoritos sincronizados exigem soluções específicas; não entram automaticamente numa conversão de tema. A migração de textos, mídia e URLs é um trabalho separado. Nenhum conteúdo do backup foi importado nesta etapa.
