@@ -4,6 +4,8 @@
 
 ### English
 
+- Remove the visible footer and credits; hide inherited Profile/Attribution widgets and the article/page sidebar at every width. Keep Contact/Privacy links in the top menu.
+
 - Compact mobile header/intro spacing and arrange sidebar topics in two plain columns with 44px minimum link heights; remove the duplicated sidebar divider.
 
 - Add native Blogger color/font variables with translated control labels and the original pastel defaults.
@@ -12,6 +14,8 @@
 - Document customization in both languages. Live Designer validation remains pending; v0.1.0 is unchanged.
 
 ### Português
+
+- Remover rodapé e créditos visíveis; ocultar gadgets herdados de Perfil/Atribuição e a lateral de artigos/páginas em todas as larguras. Manter links de Contato/Privacidade no menu superior.
 
 - Compactar cabeçalho/apresentação no celular e organizar assuntos em duas colunas simples com links de altura mínima de 44px; remover a divisória duplicada da lateral.
 

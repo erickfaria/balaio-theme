@@ -26,7 +26,7 @@ No build tools are needed to install the theme.
 3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
 4. Configure your title, description and language in **Settings**.
 5. In **Layout**, edit **Menu** to add page or label links. Home is already provided.
-6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Configure labels, sidebar and footer gadgets.
+6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Configure labels and sidebar gadgets.
 7. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
 [Detailed setup and troubleshooting](docs/en/INSTALLATION.md) · [Customization](docs/en/CUSTOMIZATION.md)
@@ -37,7 +37,7 @@ No build tools are needed to install the theme.
 - Responsive layouts for phones, tablets and desktop; optional thumbnails and full-width entries when no image is available.
 - Native Blogger search, label links, pagination, article and static-page layouts.
 - Basic comment display and a link to add a comment; embedded forms and threaded replies remain pending.
-- Editable introduction, menu, sidebar and footer gadgets.
+- Editable introduction, menu and sidebar gadgets.
 - Keyboard focus, skip link, contained code/table scrolling and print styles.
 - **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
 - No theme JavaScript or Python package dependencies.
@@ -92,7 +92,7 @@ The theme preserves Blogger metadata and adds visible-content article microdata.
 
 ## Basic pages
 
-[About, Contact and Privacy samples](docs/en/PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu and Footer links. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+[About, Contact and Privacy samples](docs/en/PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
 
 ## Contribute through pull requests
 

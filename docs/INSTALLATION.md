@@ -11,7 +11,7 @@ Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atu
 1. Baixe `theme/balaio.xml` para português ou `theme/balaio.en.xml` para inglês. Baixe o arquivo raw, sem copiar a página HTML do GitHub.
 2. No Blogger, selecione o blog correto e vá a **Tema → menu → Fazer backup**.
 3. Em **Tema → menu → Editar HTML**, substitua o conteúdo pelo XML completo, desde a declaração inicial até o fechamento de `html`, e salve.
-4. Configure título, descrição e idioma em **Configurações**. Em **Layout**, ajuste Menu, Apresentação, marcadores, lateral e rodapé. Os gadgets têm nomes ingleses no XML inglês.
+4. Configure título, descrição e idioma em **Configurações**. Em **Layout**, ajuste Menu, Apresentação, marcadores e lateral. Os gadgets têm nomes ingleses no XML inglês.
 5. Publique posts fictícios com e sem imagem para testar os cards. A home usa os três posts mais recentes da página; configure mais de três posts por página se quiser também a lista abaixo.
 6. Abra artigos, páginas, busca, marcadores e outras páginas de posts. Confira comentários e celular. Veja [ROADMAP.md](ROADMAP.md).
 
@@ -45,4 +45,4 @@ Antes de publicar, siga a [configuração de SEO](SEO.md).
 
 ## Páginas básicas
 
-[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu e aos Links do rodapé. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.

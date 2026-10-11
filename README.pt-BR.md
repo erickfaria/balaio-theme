@@ -26,7 +26,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 3. Abra **Tema → menu → Editar HTML**. Substitua o conteúdo do editor pelo XML completo e salve.
 4. Configure título, descrição e idioma em **Configurações**.
 5. Em **Layout**, edite **Menu** com links de páginas ou marcadores. Início já vem no código.
-6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Configure os gadgets de marcadores, lateral e rodapé.
+6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Configure os gadgets de marcadores e lateral.
 7. Confira artigos, páginas, busca, paginação e comentários no celular e no computador antes de usar no blog principal.
 
 [Instalação e solução de problemas](docs/INSTALLATION.md) · [Personalização](docs/CUSTOMIZATION.md)
@@ -37,7 +37,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 - Layout responsivo para celulares, tablets e computadores; miniaturas opcionais e entradas com largura completa quando não há imagem.
 - Busca nativa, marcadores, paginação, artigos e páginas estáticas.
 - Comentários básicos e link para comentar; formulário incorporado e respostas encadeadas ainda pendentes.
-- Apresentação, menu, lateral e rodapé editáveis por gadgets.
+- Apresentação, menu e lateral editáveis por gadgets.
 - Foco de teclado, link para pular ao conteúdo, rolagem contida em código/tabelas e estilos para impressão.
 - **Inter** para interface e **Newsreader** para títulos e leitura, via Google Fonts com fallback local e `display=swap`. Ambas usam SIL OFL 1.1; suas licenças são separadas da MIT.
 - Sem JavaScript do tema ou dependências externas de pacotes Python.
@@ -92,7 +92,7 @@ O tema preserva os metadados do Blogger e adiciona microdados de artigos ligados
 
 ## Páginas básicas
 
-[Modelos de Sobre, Contato e Privacidade](docs/PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu e aos Links do rodapé. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+[Modelos de Sobre, Contato e Privacidade](docs/PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
 
 ## Contribuir por pull requests
 

@@ -11,7 +11,7 @@ Use a test blog with several posts and a static page. Keep a backup of your curr
 1. Download `theme/balaio.en.xml` for English or `theme/balaio.xml` for Portuguese. Download the raw file, not GitHub's HTML page.
 2. In Blogger, select the correct blog, then open **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the contents with the entire XML, from its declaration to the closing `html` tag, then save.
-4. Set title, description and blog language in **Settings**. In **Layout**, configure Menu, Introduction, labels, sidebar and footer. The Portuguese XML uses Portuguese gadget titles.
+4. Set title, description and blog language in **Settings**. In **Layout**, configure Menu, Introduction, labels and sidebar. The Portuguese XML uses Portuguese gadget titles.
 5. Add sample posts with and without images. The home page uses the first three posts as cards; configure more than three posts per page if you also want the list below them.
 6. Check articles, pages, search, labels, pagination, comments and mobile layout. See [ROADMAP.md](ROADMAP.md).
 
@@ -45,4 +45,4 @@ Before publishing, complete the [SEO configuration checklist](SEO.md).
 
 ## Basic pages
 
-[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu and Footer links. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.

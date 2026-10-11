@@ -8,7 +8,7 @@
 - **Abertura:** gadget **Apresentação** no Layout. Edite o texto, preservando uma única tag `<h1>`. Pode remover o gadget para uma home mais direta.
 - **Menu:** gadget **Menu**, com links de páginas e marcadores. Início já está no código; evite cadastrar um segundo link para ele.
 - **Assuntos:** gadget de marcadores na lateral.
-- **Rodapé e lateral:** aceitam gadgets no Layout. Confira sempre o resultado em celular.
+- **Lateral:** aceitam gadgets no Layout. Confira sempre o resultado em celular.
 
 ## Cards de abertura
 
@@ -46,12 +46,16 @@ Gere novamente a prévia após editar o XML. Confira contraste, títulos longos,
 
 Use `theme/balaio.xml` para português ou `theme/balaio.en.xml` para inglês. Configure também o idioma do blog no Blogger. A versão inglesa é gerada com `python3 scripts/build_locales.py`; edite o português e regenere para preservar estilos iguais. Posts não são traduzidos pelo tema.
 
-A MIT não exige crédito visível no site: o rodapé pode ser personalizado, mantendo os avisos de licença no código redistribuído.
+A MIT não exige crédito visível no site. Preserve os avisos de licença no código redistribuído.
 
 ## Páginas básicas
 
-[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu e aos Links do rodapé. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
 
 ## Layout compacto no celular
 
 Em telas de até 800px, cabeçalho e apresentação usam espaçamento menor. Os assuntos da lateral ficam em duas colunas simples, com nomes que quebram linha e contagens clicáveis; todos continuam visíveis. Cada link de assunto tem altura mínima de 44px. Apenas o painel externo recebe uma divisória superior. Posts e páginas estáticas preservam a estrutura de leitura e a paleta pastel.
+
+## Fim dos posts e páginas
+
+Esta versão em desenvolvimento não exibe rodapé nem créditos. Artigos e páginas estáticas ocultam a lateral em todas as larguras. Gadgets de Perfil e Atribuição herdados de uma instalação anterior ficam ocultos pelo CSS do tema. Coloque Contato e Privacidade no Menu superior. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.

@@ -22,8 +22,6 @@ TRANSLATIONS = {
     "Buscar": "Search",
     "Navegação principal": "Main navigation",
     "Início": "Home",
-    "Links do rodapé": "Footer links",
-    "Navegação do rodapé": "Footer navigation",
     "Apresentação": "Introduction",
     "Um espaço para a curiosidade": "A space for curiosity",
     "Conhecimento começa com uma boa pergunta.": "Knowledge starts with a good question.",
@@ -42,7 +40,6 @@ TRANSLATIONS = {
     "Publicações anteriores": "Older posts",
     "Explore o blog": "Explore the blog",
     "Explore os assuntos": "Explore topics",
-    "Tema Balaio": "Balaio theme",
     "código original": "original code",
     "Edite as variáveis abaixo para personalizar a identidade do blog.": "Edit the variables below to customize your blog identity.",
 }

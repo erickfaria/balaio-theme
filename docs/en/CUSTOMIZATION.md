@@ -8,7 +8,7 @@
 - **Opening text:** Introduction gadget in Layout (Apresentação in Portuguese). Keep one `h1`; remove the gadget for a simpler home page.
 - **Menu:** links to pages or labels. Home is already in the code; avoid adding a duplicate.
 - **Topics:** the sidebar Labels gadget.
-- **Sidebar and footer:** accept gadgets through Layout. Check every change on mobile.
+- **Sidebar:** accept gadgets through Layout. Check every change on mobile.
 
 ## Opening cards
 
@@ -48,8 +48,12 @@ Regenerate the preview after XML changes. Check contrast, long titles, posts wit
 
 ## Basic pages
 
-[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu and Footer links. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
 
 ## Compact mobile layout
 
 On screens up to 800px, the header and introduction use shorter spacing. Sidebar topics form two plain columns with wrapping labels and clickable counts; all topics remain visible. Each topic link has a minimum 44px height. Only the outer sidebar gets a top divider. Posts and static pages retain their reading layout and pastel palette.
+
+## End of posts and pages
+
+This development version has no visible footer or credits. Articles and static pages hide the sidebar at every screen width. Profile and Attribution widgets inherited from a previous installation are hidden by theme CSS. Contact and Privacy links belong in the top Menu. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.

@@ -158,17 +158,6 @@ a:focus-visible,input:focus-visible {
   text-decoration:underline;
   text-underline-offset:4px;
 }
-.footer-navigation ul {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px 24px;
-  list-style:none;
-  margin:0 0 20px;
-  padding:0;
-}
-.footer-navigation a {
-  overflow-wrap:anywhere;
-}
 .widget h2 {
   font:var(--reading-font);
   font-weight:700;
@@ -455,28 +444,11 @@ a:focus-visible,input:focus-visible {
   padding:32px;
   background:var(--wash);
 }
-.site-footer {
-  border-top:1px solid var(--line);
-  padding:28px 0;
-  color:var(--muted);
-  font-size:13px;
+.article-grid {
+  grid-template-columns:minmax(0,1fr);
 }
-.footer-line {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  gap:16px;
-}
-.footer .widget {
-  margin-bottom:24px;
-}
-@media(min-width:801px) {
-  .article-grid {
-    grid-template-columns:minmax(0,1fr);
-  }
-  .article-grid .sidebar {
-    display:none;
-  }
+.article-grid .sidebar,.widget.Profile,.widget.Attribution {
+  display:none;
 }
 @media(min-width:801px) and (max-width:1050px) {
   .opening-cards {
@@ -586,7 +558,7 @@ a:focus-visible,input:focus-visible {
   }
 }
 @media print {
-  .masthead,.sidebar,.pager,.comments,.site-footer,.skip {
+  .masthead,.sidebar,.pager,.comments,.skip {
     display:none;
   }
   .content-grid {
@@ -736,19 +708,5 @@ a:focus-visible,input:focus-visible {
         </aside>
       </div>
     </main>
-    <footer class='site-footer'><div class='wrap'>
-      <b:section class='footer' id='footer' showaddelement='yes'>
-        <b:widget id='LinkList2' locked='false' title='Footer links' type='LinkList' version='1'>
-          <b:includable id='main'>
-            <b:if cond='data:links'>
-              <nav aria-label='Footer navigation' class='footer-navigation'>
-                <ul><b:loop values='data:links' var='link'><li><a expr:href='data:link.target'><data:link.name/></a></li></b:loop></ul>
-              </nav>
-            </b:if>
-          </b:includable>
-        </b:widget>
-      </b:section>
-      <div class='footer-line'><span><data:blog.title/></span><span>Balaio theme · <a href='https://www.blogger.com/'>Blogger</a></span></div>
-    </div></footer>
   </body>
 </html>
