@@ -4,14 +4,14 @@
 
 ## Before installation
 
-Use a test blog with several posts and a static page. Keep a backup of your current theme. Stable v0.1.0 has owner-confirmed Blogger import. Changes on the development branch still need their own platform validation.
+Use a test blog with several posts and a static page. Keep a backup of your current theme. This guide covers v0.2.0-rc.1. The previous stable v0.1.0 has owner-confirmed import; the changed candidate still needs a fresh Blogger import.
 
 ## Steps
 
 1. Download `theme/balaio.en.xml` for English or `theme/balaio.xml` for Portuguese. Download the raw file, not GitHub's HTML page.
 2. In Blogger, select the correct blog, then open **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the contents with the entire XML, from its declaration to the closing `html` tag, then save.
-4. Set title, description and blog language in **Settings**. In **Layout**, configure Menu, Introduction, labels and sidebar. The Portuguese XML uses Portuguese gadget titles.
+4. Set title, description and blog language in **Settings**. In **Layout**, configure Pages, Menu, Introduction, labels and sidebar. The Portuguese XML uses Portuguese gadget titles.
 5. Add sample posts with and without images. The home page uses the first three posts as cards; configure more than three posts per page if you also want the list below them.
 6. Check articles, pages, search, labels, pagination, comments and mobile layout. See [ROADMAP.md](ROADMAP.md).
 
@@ -32,7 +32,7 @@ The project owner's screenshots showed the legacy mobile presentation at `?m=1` 
 | The editor rejects the file | Make sure the XML is complete, without Markdown fences or GitHub HTML. Include the exact editor message in an issue. |
 | A card has no image | Try a post containing an image. Thumbnails depend on Blogger data; entries remain readable without an image. |
 | Fonts look different | Check access to Google Fonts. Local fallback fonts are used when remote fonts are unavailable. |
-| My pages are missing from the menu | Add their URLs to the Menu gadget. The theme does not create blog pages. |
+| My pages are missing from the menu | Publish them under Pages, then select them in **Layout → Pages**. Use Menu only for extra links. |
 | The introduction has not changed | Edit Introduction/Apresentação in Layout and save. Keep a single `h1`. |
 | Comments are missing | Check blog settings and post permissions. Embedded forms and threaded replies are not implemented yet. |
 | I want the previous theme back | Restore the XML you backed up before installation from the theme menu. |
@@ -45,7 +45,7 @@ Before publishing, complete the [SEO configuration checklist](SEO.md).
 
 ## Basic pages
 
-[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create and publish the pages in Blogger, then select them in **Layout → Pages**. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
 
 ## Show more posts and fixed pages
 

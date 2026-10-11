@@ -5,10 +5,11 @@
 ## Conteúdo e navegação
 
 - **Título e descrição:** configurações do blog. O cabeçalho usa o texto configurado.
-- **Abertura:** gadget **Apresentação** no Layout. Edite o texto, preservando uma única tag `<h1>`. Pode remover o gadget para uma home mais direta.
-- **Menu:** gadget **Menu**, com links de páginas e marcadores. Início já está no código; evite cadastrar um segundo link para ele.
+- **Abertura:** gadget **Apresentação** no Layout. Edite o texto, preservando uma única tag `<h1>`. Se remover o gadget, mantenha um único H1 descritivo na home.
+- **Páginas:** selecione páginas publicadas no Layout e ordene sua navegação no topo.
+- **Menu:** adicione links extras de marcadores ou sites externos; evite duplicar Início.
 - **Assuntos:** gadget de marcadores na lateral.
-- **Lateral:** aceitam gadgets no Layout. Confira sempre o resultado em celular.
+- **Lateral:** aceita gadgets no Layout. Confira sempre o resultado em celular.
 
 ## Cards de abertura
 
@@ -18,7 +19,7 @@ Se houver menos de três posts, o tema exibe somente os disponíveis. Posts sem 
 
 ## Controles nativos de cores e fontes
 
-O código atual de desenvolvimento adiciona controles em **Tema → Personalizar → Avançado**, usando [variáveis de cor e fonte documentadas pelo Blogger](https://support.google.com/blogger/answer/46871?hl=en). Importe o XML atualizado primeiro em um blog de teste. Estes controles não fazem parte da versão estável v0.1.0 e ainda precisam de confirmação no Designer publicado.
+A v0.2.0-rc.1 inclui controles em **Tema → Personalizar → Avançado**, usando [variáveis de cor e fonte documentadas pelo Blogger](https://support.google.com/blogger/answer/46871?hl=en). Importe o XML atualizado primeiro em um blog de teste. Estes controles ainda precisam de confirmação no Designer publicado. Eles não existem na v0.1.0 estável anterior.
 
 Os controles abrangem fundo da página, textos principal e secundário, links/botões, divisórias, superfícies pastel verde/areia/azul, fonte da interface e fonte de posts/páginas. Escolha fundos claros e texto escuro. A paleta padrão passa na verificação de contraste mínimo de 4,5:1 para texto comum sobre as quatro superfícies de leitura/cards. Cores personalizadas precisam de nova conferência de contraste.
 
@@ -50,7 +51,7 @@ A MIT não exige crédito visível no site. Preserve os avisos de licença no c�
 
 ## Páginas básicas
 
-[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Publique as páginas no Blogger e selecione-as em **Layout → Páginas**. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
 
 ## Layout compacto no celular
 
@@ -58,6 +59,6 @@ Em telas de até 800px, cabeçalho e apresentação usam espaçamento menor. Os 
 
 ## Fim dos posts e páginas
 
-Esta versão em desenvolvimento não exibe rodapé nem créditos. Artigos e páginas estáticas ocultam a lateral em todas as larguras. Gadgets de Perfil e Atribuição herdados de uma instalação anterior ficam ocultos pelo CSS do tema. Coloque Contato e Privacidade no Menu superior. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.
+A v0.2.0-rc.1 não exibe rodapé nem créditos. Artigos e páginas estáticas ocultam a lateral em todas as larguras. Gadgets de Perfil e Atribuição herdados de uma instalação anterior ficam ocultos pelo CSS do tema. Selecione Contato e Privacidade no gadget Páginas do topo. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.
 
 O padrão de leitura é 22px com entrelinha de 1,75. Configurações salvas no Designer podem preservar um tamanho anterior: selecione 22px em **Fonte de posts e páginas** após importar, se necessário.

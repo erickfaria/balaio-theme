@@ -5,10 +5,11 @@
 ## Content and navigation
 
 - **Title, description and language:** Blogger Settings. The header displays your configured text.
-- **Opening text:** Introduction gadget in Layout (Apresentação in Portuguese). Keep one `h1`; remove the gadget for a simpler home page.
-- **Menu:** links to pages or labels. Home is already in the code; avoid adding a duplicate.
+- **Opening text:** Introduction gadget in Layout (Apresentação in Portuguese). Keep one `h1`; if removing the gadget, keep a single descriptive home H1 elsewhere.
+- **Pages:** select published pages in Layout and arrange their top-navigation order.
+- **Menu:** add extra label or external links; avoid duplicating Home.
 - **Topics:** the sidebar Labels gadget.
-- **Sidebar:** accept gadgets through Layout. Check every change on mobile.
+- **Sidebar:** accepts gadgets through Layout. Check every change on mobile.
 
 ## Opening cards
 
@@ -18,7 +19,7 @@ With fewer than three posts, only the available entries appear. Without a thumbn
 
 ## Native color and font controls
 
-Current source adds controls under **Theme → Customize → Advanced** using [Blogger's documented color/font variables](https://support.google.com/blogger/answer/46871?hl=en). Import the updated XML in a test blog first. These controls are not included in stable v0.1.0 and still need confirmation in the live Designer.
+Version v0.2.0-rc.1 includes controls under **Theme → Customize → Advanced** using [Blogger's documented color/font variables](https://support.google.com/blogger/answer/46871?hl=en). Import the updated XML in a test blog first. These controls still need confirmation in the live Designer. They are absent from the previous stable v0.1.0.
 
 The controls cover page background, main and secondary text, links/buttons, dividers, green/sand/blue pastel surfaces, interface font and post/page font. Choose pale backgrounds and dark text. The default palette passes a 4.5:1 contrast check for normal text on its four reading/card surfaces. Custom colors need a new contrast check.
 
@@ -48,7 +49,7 @@ Regenerate the preview after XML changes. Check contrast, long titles, posts wit
 
 ## Basic pages
 
-[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Publish the pages in Blogger, then select them in **Layout → Pages**. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
 
 ## Compact mobile layout
 
@@ -56,6 +57,6 @@ On screens up to 800px, the header and introduction use shorter spacing. Sidebar
 
 ## End of posts and pages
 
-This development version has no visible footer or credits. Articles and static pages hide the sidebar at every screen width. Profile and Attribution widgets inherited from a previous installation are hidden by theme CSS. Contact and Privacy links belong in the top Menu. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.
+Version v0.2.0-rc.1 has no visible footer or credits. Articles and static pages hide the sidebar at every screen width. Profile and Attribution widgets inherited from a previous installation are hidden by theme CSS. Select Contact and Privacy in the top Pages gadget. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.
 
 The reading default is 22px with a 1.75 line height. Installed Designer settings may preserve a previous size: choose 22px in **Post and page font** after importing if needed.
