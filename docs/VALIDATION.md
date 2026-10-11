@@ -6,9 +6,11 @@
 
 Versão candidata preparada em 11/10/2026. A importação da v0.1.0 foi confirmada pelo proprietário e a v0.2.0-rc.2 foi observada publicada em português, com a falha da home descrita abaixo. Os XMLs corrigidos da v0.2.0-rc.3 ainda precisam de nova importação no Blogger. Não há afirmação de que ambos os idiomas ou todos os gadgets nativos tenham sido testados independentemente na plataforma.
 
+**Pausa do Actions:** as execuções de CI registradas abaixo passaram antes da pausa. O Actions do repositório agora está desativado; as validações podem ser executadas localmente e o workflow salvo é apenas manual para retomada futura autorizada.
+
 ## Checks automatizados
 
-Vinte e três testes verificam estrutura XML/gadgets, equivalência de idiomas, metadados nativos de SEO e auditoria de HTML, resolução das variáveis do Designer/contraste padrão e regressões de navegação/busca móvel. Três checks com Node.js verificam a sintaxe do script com CDATA preservado, com CDATA removido pelo parser XML e a rejeição da forma que falhou na rc.2. Sem Node, os três são pulados localmente; no CI são obrigatórios. Os dois XMLs são válidos; a geração inglesa está atualizada; links Markdown locais e whitespace passam. O CI repete os checks e gera prévia e pacote limpo. Links externos e âncoras de títulos não são conferidos automaticamente.
+Vinte e três testes verificam estrutura XML/gadgets, equivalência de idiomas, metadados nativos de SEO e auditoria de HTML, resolução das variáveis do Designer/contraste padrão e regressões de navegação/busca móvel. Três checks com Node.js verificam a sintaxe do script com CDATA preservado, com CDATA removido pelo parser XML e a rejeição da forma que falhou na rc.2. Sem Node, os três são pulados localmente; são obrigatórios quando o workflow é executado. Os dois XMLs são válidos; a geração inglesa está atualizada; links Markdown locais e whitespace passam. O CI repete os checks e gera prévia e pacote limpo. Links externos e âncoras de títulos não são conferidos automaticamente.
 
 ## Evidências anteriores da prévia responsiva — v0.2.0-rc.1
 

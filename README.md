@@ -6,9 +6,11 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Current version:** `v0.2.0-rc.3` (release candidate). Fixes home continuation when Blogger preserves CDATA in published scripts; keeps mobile navigation and 22px reading text. Twenty-three local tests and CI pass; fresh Blogger import and new widget/Designer behavior still need verification. [Download candidate](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.3) · [Upgrade guide](docs/en/RELEASE.md) · [Validation scope](docs/en/VALIDATION.md).
+> **Current version:** `v0.2.0-rc.3` (release candidate). Fixes home continuation when Blogger preserves CDATA in published scripts; keeps mobile navigation and 22px reading text. Twenty-three local tests and the last CI runs passed; fresh Blogger import and new widget/Designer behavior still need verification. [Download candidate](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.3) · [Upgrade guide](docs/en/RELEASE.md) · [Validation scope](docs/en/VALIDATION.md).
 >
 > **Stable fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with owner-confirmed Blogger import. Its templates differ from the current candidate.
+
+**GitHub Actions is temporarily disabled at the maintainer’s request.** Pushes, PRs and release tags do not start jobs. Run checks locally. The saved workflow is manual-only and cannot run until repository Actions is re-enabled. [Maintenance policy](MAINTAINERS.md).
 
 ## Choose your language
 
@@ -31,7 +33,7 @@ No build tools are needed to install the theme.
 6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Configure labels and sidebar gadgets.
 7. Start with 10 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
-[Home-page posts and pagination](docs/en/HOME.md) · [Home-page posts and pagination](docs/en/HOME.md) · [Home-page posts and pagination](docs/en/HOME.md) · [Detailed setup and troubleshooting](docs/en/INSTALLATION.md) · [Customization](docs/en/CUSTOMIZATION.md)
+[Home-page posts and pagination](docs/en/HOME.md) · [Detailed setup and troubleshooting](docs/en/INSTALLATION.md) · [Customization](docs/en/CUSTOMIZATION.md)
 
 ## What is included
 
@@ -48,7 +50,7 @@ Native color/font controls are included in v0.2.0-rc.3; live Designer verificati
 
 ## Develop locally
 
-Requires Python 3.10+; `make` is optional. Node.js 22+ runs the three JavaScript syntax regressions; without Node, those checks are skipped locally. CI always runs them. Installation needs neither Python nor Node.
+Requires Python 3.10+; `make` is optional. Node.js 22+ runs the three JavaScript syntax regressions; without Node, those checks are skipped locally. The workflow includes them when Actions is enabled. Installation needs neither Python nor Node.
 
 ```sh
 python3 scripts/validate_docs.py

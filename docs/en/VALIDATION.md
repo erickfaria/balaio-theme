@@ -6,9 +6,11 @@
 
 Release candidate prepared on October 11, 2026. The owner confirmed v0.1.0 import, and Portuguese v0.2.0-rc.2 was observed published with the home failure described below. The corrected v0.2.0-rc.3 XMLs still need a fresh Blogger import. No claim is made that both languages or every native widget have been tested independently on the platform.
 
+**Actions pause:** the CI runs recorded below passed before the pause. Repository Actions is now disabled; checks can run locally, and the saved workflow is manual-only for an explicitly authorized future resumption.
+
 ## Automated checks
 
-Twenty-three tests cover XML/widget structure, locale equivalence, native SEO metadata and rendered HTML auditing, Designer variable resolution/default contrast, and mobile navigation/search regressions. Three Node.js checks parse the home script with preserved CDATA, XML-stripped CDATA, and reject the form that failed in rc.2. Without Node the three are skipped locally; they are mandatory in CI. Both XMLs parse; English generation is current; local Markdown links and Git whitespace pass. CI repeats the checks and builds the preview and clean install package. External links and heading anchors are not checked automatically.
+Twenty-three tests cover XML/widget structure, locale equivalence, native SEO metadata and rendered HTML auditing, Designer variable resolution/default contrast, and mobile navigation/search regressions. Three Node.js checks parse the home script with preserved CDATA, XML-stripped CDATA, and reject the form that failed in rc.2. Without Node the three are skipped locally; they are mandatory when the workflow runs. Both XMLs parse; English generation is current; local Markdown links and Git whitespace pass. CI repeats the checks and builds the preview and clean install package. External links and heading anchors are not checked automatically.
 
 ## Earlier responsive preview evidence — v0.2.0-rc.1
 

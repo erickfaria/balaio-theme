@@ -6,9 +6,11 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Versão atual:** `v0.2.0-rc.3` (candidata). Corrige a continuação da home quando o Blogger preserva CDATA nos scripts publicados; mantém navegação móvel e leitura de 22px. Vinte e três testes locais e CI passam; nova importação e comportamento dos gadgets/Designer ainda precisam de conferência no Blogger. [Baixar candidata](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.3) · [Guia de atualização](docs/RELEASE.md) · [Escopo da validação](docs/VALIDATION.md).
+> **Versão atual:** `v0.2.0-rc.3` (candidata). Corrige a continuação da home quando o Blogger preserva CDATA nos scripts publicados; mantém navegação móvel e leitura de 22px. Vinte e três testes locais e as últimas execuções de CI passaram; nova importação e comportamento dos gadgets/Designer ainda precisam de conferência no Blogger. [Baixar candidata](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.3) · [Guia de atualização](docs/RELEASE.md) · [Escopo da validação](docs/VALIDATION.md).
 >
 > **Alternativa estável:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada pelo proprietário. Seus templates diferem da candidata atual.
+
+**O GitHub Actions está temporariamente desativado a pedido do mantenedor.** Pushes, PRs e tags de versão não iniciam jobs. Rode os checks localmente. O workflow salvo é apenas manual e não executa até o Actions do repositório ser reativado. [Política de manutenção](MAINTAINERS.md).
 
 ## Escolha o idioma
 
@@ -48,7 +50,7 @@ A v0.2.0-rc.3 inclui controles nativos de cores/fontes; a conferência no Design
 
 ## Desenvolvimento local
 
-Requer Python 3.10+; `make` é opcional. Node.js 22+ executa as três regressões de sintaxe JavaScript; sem Node, esses checks são pulados localmente. O CI sempre os executa. A instalação não exige Python nem Node.
+Requer Python 3.10+; `make` é opcional. Node.js 22+ executa as três regressões de sintaxe JavaScript; sem Node, esses checks são pulados localmente. O workflow os inclui quando o Actions está habilitado. A instalação não exige Python nem Node.
 
 ```sh
 python3 scripts/validate_docs.py
