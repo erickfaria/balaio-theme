@@ -27,7 +27,7 @@ O Google aceita microdados de artigos e recomenda propriedades corretas e aplic�
 
 ## Bing, DuckDuckGo e metabusca open source
 
-O tema expõe texto HTML, links e microdados sem depender de JavaScript próprio. Não restringe rastreadores por fornecedor. As permissões pertencem ao robots.txt do Blogger, aos cabeçalhos de robôs e a eventuais firewalls do domínio, não a uma lista especial no tema.
+Os posts nativos, links de paginação e microdados são HTML disponível sem JavaScript. A continuação da home adiciona posts para os leitores por JavaScript; rastreadores que não o executam encontram esses posts pelas páginas nativas e permalinks. Ela não substitui sitemap, canonical ou paginação e não garante indexação dos posts adicionais na home. [Funcionamento da home](HOME.md). Não restringe rastreadores por fornecedor. As permissões pertencem ao robots.txt do Blogger, aos cabeçalhos de robôs e a eventuais firewalls do domínio, não a uma lista especial no tema.
 
 | Serviço | Caminho de descoberta | Ação de quem publica |
 | --- | --- | --- |

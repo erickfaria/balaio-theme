@@ -27,7 +27,7 @@ Google supports article microdata and recommends applicable, accurate properties
 
 ## Bing, DuckDuckGo and open-source metasearch
 
-The theme exposes ordinary HTML text, links and article microdata without requiring theme JavaScript. It does not restrict a crawler by vendor. Crawl permissions belong to Blogger's robots.txt, robot headers and any domain firewall, not to a theme-specific allowlist.
+Native posts, pagination links and article microdata remain HTML available without JavaScript. Home continuation adds posts for readers through JavaScript; crawlers that do not execute it discover those posts through native listing pages and permalinks. It does not replace the sitemap, canonical URLs or pagination, and does not guarantee indexing of extra home entries. [Home behavior](HOME.md). It does not restrict a crawler by vendor. Crawl permissions belong to Blogger's robots.txt, robot headers and any domain firewall, not to a theme-specific allowlist.
 
 | Search service | Discovery path | Publisher action |
 | --- | --- | --- |

@@ -23,6 +23,7 @@ POSTS = [
     ("Pesquisa", "O caminho de uma hipótese", "Como registrar incertezas e revisar uma explicação.", False),
     ("Tecnologia", "Ferramentas para pensar com clareza", "A tecnologia como apoio ao trabalho de investigar.", False),
     ("Educação", "Aprender juntos", "Uma conversa sobre perguntas e experiências compartilhadas.", True),
+    ("Ideias", "Voltar às primeiras perguntas", "Revisar o que aprendemos ajuda a continuar.", False),
 ]
 
 HEADER = '''<a class="skip" href="#content">Pular para o conteúdo</a>
@@ -35,8 +36,10 @@ TOPIC_LINKS = ''.join(f'<li><a href="empty.html">{escape(name)} <span class="top
 SIDEBAR = '<aside class="sidebar" aria-label="Explore o blog"><section class="sidebar"><div class="widget"><h2>Explore os assuntos</h2><ul class="topic-list">' + TOPIC_LINKS + '</ul></div><div class="widget"><h2>Sobre este espaço</h2><p class="post-summary">Um caderno aberto para conectar perguntas, descobertas e pessoas.</p></div></section></aside>'
 
 
-def page(title, content):
-    return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main></body></html>'
+def page(title, content, home=False):
+    loader = TREE.find(".//{http://www.google.com/2005/gml/b}includable[@id='homeContinuation']/{http://www.w3.org/1999/xhtml}script").text if home else ""
+    script = "<script>" + loader + "</script>" if loader else ""
+    return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main>{script}</body></html>'
 
 
 def build():
@@ -44,13 +47,44 @@ def build():
     # Geometria original: asset de teste, sem imagens de terceiros.
     (OUT / "observation.svg").write_text('''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360"><rect width="480" height="360" fill="#e5edf0"/><g stroke="#365b7b" fill="none" stroke-width="2"><circle cx="240" cy="180" r="100"/><ellipse cx="240" cy="180" rx="150" ry="45" transform="rotate(35 240 180)"/><ellipse cx="240" cy="180" rx="150" ry="45" transform="rotate(-35 240 180)"/></g><circle cx="240" cy="180" r="12" fill="#365b7b"/></svg>''')
     cards = []
-    for label, title, summary, picture in POSTS:
+    for index, (label, title, summary, picture) in enumerate(POSTS):
         image = '<a class="post-image-link" href="article.html" tabindex="-1" aria-hidden="true"><img class="post-image" src="observation.svg" alt="" width="480" height="360"></a>' if picture else ''
-        cards.append(f'<article class="post-card"><div class="post-copy"><div class="labels">{escape(label)}</div><h2><a href="article.html">{escape(title)}</a></h2><p class="post-summary">{escape(summary)}</p><div class="meta"><span>Equipe Balaio</span><span>11 de outubro de 2026</span></div></div>{image}</article>')
+        cards.append(f'<article class="post-card"><div class="post-copy"><div class="labels">{escape(label)}</div><h2><a href="article.html">{escape(title)}</a></h2><p class="post-summary">{escape(summary)}</p><div class="meta"><span>Equipe Balaio</span><span>11 de outubro de 2026</span></div></div>{image}</article>'.replace('href="article.html"', f'href="post-{index + 1}.html"'))
     intro = '<div class="intro"><div class="eyebrow">Um espaço para a curiosidade</div><h1>Conhecimento começa com uma boa pergunta.</h1><p>Um lugar para reunir descobertas, conectar ideias e compartilhar o que aprendemos.</p></div>'
-    (OUT / "index.html").write_text(page("Início", intro + '<div class="content-grid"><div class="main section"><div class="widget Blog"><h2 class="section-title">Últimas publicações</h2><div class="opening-cards">' + ''.join(cards[:3]) + '</div><h2 class="section-title">Mais leituras</h2><div class="posts">' + ''.join(cards[3:]) + '</div></div></div>' + SIDEBAR + '</div>'))
+    def listing(entries, next_page=None, home=False):
+        opening = '<h2 class="section-title">Últimas publicações</h2><div class="opening-cards">' + ''.join(entries[:2]) + '</div>' if home else ''
+        remaining = entries[2:] if home else entries
+        title = '<h2 class="section-title more-title">Mais leituras</h2>' if home and remaining else ''
+        attrs = ' id="postlist" data-home-posts="10" data-page-limit="4" data-list-title="Mais leituras"'
+        pager = '<nav class="pager" aria-label="Paginação"><span></span><span><a href="' + next_page + '" rel="next">Publicações anteriores</a></span></nav>' if next_page else ''
+        return '<div class="content-grid"><div class="main section"><div class="widget Blog" id="Blog1">' + opening + title + '<div class="posts"' + attrs + '>' + ''.join(remaining) + '</div>' + pager + '</div></div>' + SIDEBAR + '</div>'
+    (OUT / "index.html").write_text(page("Início", intro + listing(cards, home=True), home=True))
+    # Reproduce Blogger delivering only two posts despite a higher configured maximum.
+    (OUT / "short-home.html").write_text(page("Home paginada", intro + listing(cards[:2], "older-1.html", home=True), home=True))
+    frames = ''.join(f'<iframe id="width-{width}" src="short-home.html" width="{width}" height="900" title="Home {width}px" style="display:block;border:0"></iframe>' for width in (320, 360, 768, 1440))
+    (OUT / "responsive-home.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Home responsiva</title><body>' + frames + '</body></html>')
+    (OUT / "short-nojs.html").write_text(page("Sem JavaScript", intro + listing(cards[:2], "older-1.html", home=True)))
+    for index in range(4):
+        next_page = f"older-{index + 2}.html"  # Last link stays crawlable after reaching the target.
+        (OUT / f"older-{index + 1}.html").write_text(page("Publicações anteriores", listing(cards[2 + index * 2:4 + index * 2], next_page)))
+    (OUT / "older-5.html").write_text(page("Fim do arquivo", listing([])))
+    for name, next_page in [("failure", "missing-page.html"), ("partial-failure", "partial-page.html"), ("duplicates", "duplicate-page.html"), ("cycle", "cycle-page.html"), ("external", "https://example.org/older")]:
+        (OUT / f"short-{name}.html").write_text(page(name, intro + listing(cards[:2], next_page, home=True), home=True))
+    (OUT / "partial-page.html").write_text(page("Falha parcial", listing(cards[2:4], "missing-page.html")))
+    (OUT / "duplicate-page.html").write_text(page("Duplicações", listing(cards[:4], "older-2.html")))
+    (OUT / "cycle-page.html").write_text(page("Ciclo", listing(cards[2:4], "cycle-page.html")))
+    (OUT / "short-budget.html").write_text(page("Uma página extra", intro + listing(cards[:2], "older-1.html", home=True).replace('data-page-limit="4"', 'data-page-limit="1"'), home=True))
+    (OUT / "short-target.html").write_text(page("Meta sem cortar página", intro + listing(cards[:2], "older-1.html", home=True).replace('data-home-posts="10"', 'data-home-posts="3"'), home=True))
+    (OUT / "short-disabled.html").write_text(page("Carregamento desligado", intro + listing(cards[:2], "older-1.html", home=True).replace('data-page-limit="4"', 'data-page-limit="0"'), home=True))
+    (OUT / "short-end.html").write_text(page("Fim antecipado", intro + listing(cards[:2], "end-page.html", home=True), home=True))
+    (OUT / "end-page.html").write_text(page("Fim", listing(cards[2:4])))
+    unsafe = cards[2].replace('<p class="post-summary">', """<p class="post-summary"><img src="missing.png" onerror="document.body.setAttribute('data-attack','ran')">""")
+    (OUT / "unsafe-page.html").write_text(page("Conteúdo inerte", listing([unsafe])) + '<script>document.body.setAttribute("data-attack","ran")</script>')
+    (OUT / "short-unsafe.html").write_text(page("Conteúdo inerte", intro + listing(cards[:2], "unsafe-page.html", home=True), home=True))
     article = '''<div class="content-grid article-grid"><div><article class="article"><div class="labels">Ciência</div><h1>O que uma pergunta pode mudar?</h1><div class="meta"><span>Equipe Balaio</span><span>11 de outubro de 2026</span></div><div class="post-body"><p>Às vezes, aprender começa com uma pausa. Olhamos para algo familiar e percebemos que ainda há uma pergunta a fazer.</p><h2>O espaço entre observar e entender</h2><p>A curiosidade aproxima ideias distantes. Podemos começar com um detalhe cotidiano, reunir observações e comparar explicações.</p><blockquote>Uma boa pergunta abre espaço para continuar pensando.</blockquote><p>Este texto é fictício e serve para avaliar a tipografia do tema.</p><h2>Um pequeno registro</h2><table><thead><tr><th>Etapa</th><th>Pergunta</th></tr></thead><tbody><tr><td>Observação</td><td>O que aconteceu?</td></tr><tr><td>Investigação</td><td>Como podemos conferir?</td></tr></tbody></table><pre><code>perguntas = ["Como?", "Por quê?", "Como conferir?"]</code></pre><h2>Para continuar</h2><ul><li>Registrar o que sabemos.</li><li>Identificar o que ainda falta descobrir.</li><li>Revisitar as primeiras hipóteses.</li></ul><p><a href="index.html">Voltar às publicações</a></p></div></article></div></div>'''
     (OUT / "article.html").write_text(page("Leitura", article))
+    for index in range(len(cards)):
+        (OUT / f"post-{index + 1}.html").write_text(page(POSTS[index][1], article))
     (OUT / "empty.html").write_text(page("Busca", '<div class="content-grid"><div><h1>Busca</h1><p class="empty">Nenhuma publicação encontrada. <a href="index.html">Voltar ao início</a>.</p></div>' + SIDEBAR + '</div>'))
     for slug, title in [('about', 'Sobre'), ('contact', 'Contato'), ('privacy', 'Privacidade')]:
         body = (ROOT / f'examples/pages/{slug}.pt-BR.html').read_text(encoding='utf-8')

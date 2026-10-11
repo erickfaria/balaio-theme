@@ -6,7 +6,7 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Versão atual:** `v0.2.0-rc.1` (candidata). Reúne melhorias de celular, navegação e leitura de 22px. Vinte testes locais e CI passam; nova importação e comportamento dos gadgets/Designer ainda precisam de conferência no Blogger. [Baixar candidata](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.1) · [Guia de atualização](docs/RELEASE.md) · [Escopo da validação](docs/VALIDATION.md).
+> **Versão atual:** `v0.2.0-rc.2` (candidata). Reúne uma home mais completa, navegação móvel e leitura de 22px. Vinte testes locais e CI passam; nova importação e comportamento dos gadgets/Designer ainda precisam de conferência no Blogger. [Baixar candidata](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.2) · [Guia de atualização](docs/RELEASE.md) · [Escopo da validação](docs/VALIDATION.md).
 >
 > **Alternativa estável:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada pelo proprietário. Seus templates diferem da candidata atual.
 
@@ -29,22 +29,22 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 4. Configure título, descrição e idioma em **Configurações**.
 5. Em **Layout → Páginas**, selecione Sobre mim, Contato e Privacidade publicados para o topo. Use **Menu** para links extras, como marcadores.
 6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Configure os gadgets de marcadores e lateral.
-7. Comece com 9 posts por página em **Configurações → Postagens**; o Blogger pode paginar antes. Confira artigos, páginas, busca, paginação e comentários no celular e no computador antes de usar no blog principal.
+7. Comece com 10 posts por página em **Configurações → Postagens**; o Blogger pode paginar antes. Confira artigos, páginas, busca, paginação e comentários no celular e no computador antes de usar no blog principal.
 
-[Instalação e solução de problemas](docs/INSTALLATION.md) · [Personalização](docs/CUSTOMIZATION.md)
+[Posts da home e paginação](docs/HOME.md) · [Instalação e solução de problemas](docs/INSTALLATION.md) · [Personalização](docs/CUSTOMIZATION.md)
 
 ## Recursos
 
-- Três cards de abertura na home, seguidos da lista editorial sem repetir posts.
+- Dois cards de abertura na home, seguidos da lista editorial. Quando o Blogger entrega uma página curta, um pequeno script próprio segue a paginação nativa em direção a 10 posts, sem duplicações.
 - Layout responsivo para celulares, tablets e computadores; miniaturas opcionais e entradas com largura completa quando não há imagem.
 - Busca nativa, marcadores, paginação, artigos e páginas estáticas.
 - Comentários básicos e link para comentar; formulário incorporado e respostas encadeadas ainda pendentes.
 - Apresentação, navegação de Páginas, Menu de links extras e lateral editáveis por gadgets.
 - Foco de teclado, link para pular ao conteúdo, rolagem contida em código/tabelas e estilos para impressão.
 - **Inter** para interface e **Newsreader** para títulos e leitura, via Google Fonts com fallback local e `display=swap`. Posts/páginas usam 22px e entrelinha de 1,75 por padrão. Ambas usam SIL OFL 1.1; suas licenças são separadas da MIT.
-- Sem JavaScript do tema ou dependências externas de pacotes Python.
+- Sem bibliotecas JavaScript de terceiros ou dependências externas de pacotes Python. A continuação da home é código próprio MIT; a paginação nativa funciona sem JavaScript.
 
-A v0.2.0-rc.1 inclui controles nativos de cores/fontes; a conferência no Designer publicado permanece pendente. Logo em imagem e layout específico de 404 ainda não estão implementados. A prévia usa o CSS real com conteúdo de exemplo; não compila expressões do Blogger.
+A v0.2.0-rc.2 inclui controles nativos de cores/fontes; a conferência no Designer publicado permanece pendente. Logo em imagem e layout específico de 404 ainda não estão implementados. A prévia usa o CSS real com conteúdo de exemplo; não compila expressões do Blogger.
 
 ## Desenvolvimento local
 
@@ -86,11 +86,11 @@ O tema preserva os metadados do Blogger e adiciona microdados de artigos ligados
 
 **Este tema Blogger é gratuito mesmo?** Sim. A MIT permite uso pessoal e comercial, modificação e redistribuição com os avisos de licença preservados. Não exige compra nem crédito visível.
 
-**Posso mudar cores e layout?** Sim. Comece pelos gadgets de Layout e pelos controles nativos de cores/fontes da v0.2.0-rc.1. A largura de leitura continua como opção avançada de CSS. [Guia de personalização](docs/CUSTOMIZATION.md).
+**Posso mudar cores e layout?** Sim. Comece pelos gadgets de Layout e pelos controles nativos de cores/fontes da v0.2.0-rc.2. A largura de leitura continua como opção avançada de CSS. [Guia de personalização](docs/CUSTOMIZATION.md).
 
 **O tema é preparado para SEO?** Oferece metadados nativos do Blogger, títulos semânticos, links rastreáveis e microdados de artigos. O [guia de busca](docs/SEO.md) cobre Google, Bing, DuckDuckGo, SearXNG e descoberta por IA. Indexação e compatibilidade publicadas ainda precisam de verificação.
 
-**Como escrever posts responsivos?** Use o [guia de postagens e exemplo HTML editável](docs/POSTS.md). Títulos, resumos, tabelas, imagens e vídeos respeitam a coluna de leitura sem adicionar JavaScript ao tema.
+**Como escrever posts responsivos?** Use o [guia de postagens e exemplo HTML editável](docs/POSTS.md). Títulos, resumos, tabelas, imagens e vídeos respeitam a coluna de leitura sem exigir scripts nos posts.
 
 ## Páginas básicas
 
