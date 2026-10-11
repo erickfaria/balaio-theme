@@ -8,7 +8,7 @@
 - **Abertura:** gadget **Apresentação** no Layout. Edite o texto, preservando uma única tag `<h1>`. Pode remover o gadget para uma home mais direta.
 - **Menu:** gadget **Menu**, com links de páginas e marcadores. Início já está no código; evite cadastrar um segundo link para ele.
 - **Assuntos:** gadget de marcadores na lateral.
-- **Rodapé e lateral:** aceitam gadgets no Layout. Confira sempre o resultado em celular.
+- **Lateral:** aceitam gadgets no Layout. Confira sempre o resultado em celular.
 
 ## Cards de abertura
 
@@ -16,13 +16,27 @@ Na home, as três primeiras publicações da página recebem o formato de card. 
 
 Se houver menos de três posts, o tema exibe somente os disponíveis. Posts sem miniatura preservam título, resumo e autoria. Para mudar a quantidade, mantenha os limites dos dois loops coerentes no widget Blog: os cards usam `index < 3`, a lista começa em `index >= 3` e o título da lista aparece em `index == 3`.
 
-## Paleta e tipografia
+## Controles nativos de cores e fontes
 
-Edite as variáveis `:root` no bloco `b:skin` do XML. `--paper` controla o fundo, `--ink` o texto, `--muted` os textos secundários, `--accent` os links e botões, `--line` as divisórias e `--wash` as superfícies suaves. Os fundos dos segundo e terceiro cards usam `--card-sand` e `--card-blue`; `--reading-width` controla a coluna do artigo.
+O código atual de desenvolvimento adiciona controles em **Tema → Personalizar → Avançado**, usando [variáveis de cor e fonte documentadas pelo Blogger](https://support.google.com/blogger/answer/46871?hl=en). Importe o XML atualizado primeiro em um blog de teste. Estes controles não fazem parte da versão estável v0.1.0 e ainda precisam de confirmação no Designer publicado.
 
-`--sans` e `--serif` controlam as famílias de fonte. O tema solicita Inter e Newsreader ao Google Fonts e usa fontes locais se o serviço não responder. `display=swap` mantém texto disponível durante o carregamento. Essa configuração faz requisições a `fonts.googleapis.com` e `fonts.gstatic.com`.
+Os controles abrangem fundo da página, textos principal e secundário, links/botões, divisórias, superfícies pastel verde/areia/azul, fonte da interface e fonte de posts/páginas. Escolha fundos claros e texto escuro. A paleta padrão passa na verificação de contraste mínimo de 4,5:1 para texto comum sobre as quatro superfícies de leitura/cards. Cores personalizadas precisam de nova conferência de contraste.
 
-Para usar somente fontes locais, remova os três links de fontes no `<head>` e substitua as variáveis por `system-ui,sans-serif` e `serif`. Para hospedar fontes por conta própria, configure URLs HTTPS em `@font-face` e preserve as licenças em `licenses/`.
+A interface começa em 17px e o corpo de posts/páginas em 20px, inclusive no celular. A fonte de leitura também se aplica aos títulos, preservando seus tamanhos responsivos. Largura de leitura, espaçamento e estrutura continuam definidos pelo tema: coluna centralizada, fundo simples e divisórias discretas.
+
+Inter e Newsreader continuam como padrões abertos sob SIL OFL. Escolher outra fonte não adiciona seus arquivos ao repositório; confira a licença antes de redistribuir arquivos de fontes. Os links padrão do Google Fonts usam `display=swap` e fazem requisições a `fonts.googleapis.com` e `fonts.gstatic.com`.
+
+### Editar diretamente o XML
+
+No comentário CSS do início de `b:skin`, edite uma declaração `<Variable>`. Altere `default` e `value` ao definir um novo padrão no código; as escolhas do Designer instalado ficam em `value`. Exemplo:
+
+```xml
+<Variable name="washcolor" description="Superfície verde pastel" type="color" default="#edf5ef" value="#edf5ef"/>
+```
+
+Preserve a ligação entre as referências `$variavel` em `:root` e essas declarações. A prévia resolve os valores salvos e valida nomes ausentes ou duplicados. Para usar apenas fontes locais, remova os três links de fontes do `head` e configure `interfacefont` como `normal 400 17px system-ui, sans-serif` e `readingfont` como `normal 400 20px serif`. Fontes hospedadas por você podem usar URLs HTTPS em `@font-face`, preservando os avisos OFL.
+
+`--reading-width:760px` e `--width:1120px` continuam como opções avançadas de CSS. Altere apenas após conferir o celular e o comprimento das linhas. No código do repositório, edite o português e regenere o inglês com `python3 scripts/build_locales.py`. Não precisa de ferramentas de build para editar diretamente um XML instalado no Blogger.
 
 ## Conferir mudanças
 
@@ -32,21 +46,16 @@ Gere novamente a prévia após editar o XML. Confira contraste, títulos longos,
 
 Use `theme/balaio.xml` para português ou `theme/balaio.en.xml` para inglês. Configure também o idioma do blog no Blogger. A versão inglesa é gerada com `python3 scripts/build_locales.py`; edite o português e regenere para preservar estilos iguais. Posts não são traduzidos pelo tema.
 
-A MIT não exige crédito visível no site: o rodapé pode ser personalizado, mantendo os avisos de licença no código redistribuído.
-
-## Personalização rápida da paleta pastel
-
-Mude apenas estes valores no bloco `:root` existente; não precisa editar widgets nem usar ferramentas de build ao editar o XML escolhido diretamente no Blogger:
-
-```css
---wash:#edf5ef;
---card-sand:#f8f1e7;
---card-blue:#eef2f6;
---reading-width:760px;
-```
-
-Mantenha texto e links escuros o suficiente para contraste. Estes são os tons pastel próprios do Balaio. Para conteúdo das postagens, consulte [POSTS.md](POSTS.md).
+A MIT não exige crédito visível no site. Preserve os avisos de licença no código redistribuído.
 
 ## Páginas básicas
 
-[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu e aos Links do rodapé. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie as páginas no Blogger e adicione suas URLs reais ao Menu. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+
+## Layout compacto no celular
+
+Em telas de até 800px, cabeçalho e apresentação usam espaçamento menor. Os assuntos da lateral ficam em duas colunas simples, com nomes que quebram linha e contagens clicáveis; todos continuam visíveis. Cada link de assunto tem altura mínima de 44px. Apenas o painel externo recebe uma divisória superior. Posts e páginas estáticas preservam a estrutura de leitura e a paleta pastel.
+
+## Fim dos posts e páginas
+
+Esta versão em desenvolvimento não exibe rodapé nem créditos. Artigos e páginas estáticas ocultam a lateral em todas as larguras. Gadgets de Perfil e Atribuição herdados de uma instalação anterior ficam ocultos pelo CSS do tema. Coloque Contato e Privacidade no Menu superior. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.

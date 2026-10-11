@@ -1,5 +1,33 @@
 # Changelog / Histórico
 
+## Unreleased / Em desenvolvimento
+
+### English
+
+- Add native Pages navigation at the top, enable custom widgets on mobile, and fix search URLs containing mobile query parameters. Preview nine unique home posts and document Blogger post-count settings.
+
+- Remove the visible footer and credits; hide inherited Profile/Attribution widgets and the article/page sidebar at every width. Keep Contact/Privacy links in the top menu.
+
+- Compact mobile header/intro spacing and arrange sidebar topics in two plain columns with 44px minimum link heights; remove the duplicated sidebar divider.
+
+- Add native Blogger color/font variables with translated control labels and the original pastel defaults.
+- Preserve sober article/page layouts and responsive heading sizes; let the selected reading font size apply on phones too (20px by default).
+- Resolve Designer values in local previews; check variable integrity, locale parity and default text contrast.
+- Document customization in both languages. Live Designer validation remains pending; v0.1.0 is unchanged.
+
+### Português
+
+- Adicionar navegação nativa de Páginas no topo, habilitar gadgets no celular e corrigir busca com parâmetros móveis na URL. Demonstrar nove posts únicos na home e documentar a quantidade no Blogger.
+
+- Remover rodapé e créditos visíveis; ocultar gadgets herdados de Perfil/Atribuição e a lateral de artigos/páginas em todas as larguras. Manter links de Contato/Privacidade no menu superior.
+
+- Compactar cabeçalho/apresentação no celular e organizar assuntos em duas colunas simples com links de altura mínima de 44px; remover a divisória duplicada da lateral.
+
+- Adicionar variáveis nativas de cores/fontes do Blogger com controles traduzidos e os padrões pastel originais.
+- Preservar artigos/páginas sóbrios e títulos responsivos; aplicar o tamanho escolhido da fonte de leitura também no celular (20px por padrão).
+- Resolver valores do Designer nas prévias; verificar integridade das variáveis, equivalência de idiomas e contraste do texto padrão.
+- Documentar a personalização nos dois idiomas. A validação no Designer permanece pendente; v0.1.0 continua igual.
+
 ## v0.1.0 — 2026-10-11
 
 ### English

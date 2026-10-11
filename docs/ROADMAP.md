@@ -22,7 +22,7 @@ XMLs estáveis v0.1.0, home com lista editorial, artigos, páginas, busca, marca
 
 ## Expansão visual e funcional
 
-1. Logo opcional e cores/fontes configuráveis pelo Designer de temas.
+1. Validar os controles de cores/fontes do código atual no Designer de temas. Logo opcional fica para uma etapa futura.
 2. Imagens em resolução adequada e navegação complementar por assuntos. Avaliar destaques apenas se ajudarem a leitura.
 3. Comentários incorporados e respostas encadeadas com comportamento nativo.
 4. Tempo de leitura, compartilhamento e artigos relacionados, com melhoria progressiva.

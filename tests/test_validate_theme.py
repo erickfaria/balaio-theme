@@ -33,8 +33,8 @@ class ThemeValidationTests(unittest.TestCase):
 
     def test_html_inside_section(self):
         root = ET.fromstring(self.source)
-        footer = root.find(".//{http://www.google.com/2005/gml/b}section[@id='footer']")
-        ET.SubElement(footer, '{http://www.w3.org/1999/xhtml}p').text = 'invalid'
+        sidebar = root.find(".//{http://www.google.com/2005/gml/b}section[@id='sidebar']")
+        ET.SubElement(sidebar, '{http://www.w3.org/1999/xhtml}p').text = 'invalid'
         self.assert_rejected(ET.tostring(root, encoding='unicode'), 'non-widget')
 
 

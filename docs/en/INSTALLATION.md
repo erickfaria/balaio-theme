@@ -4,16 +4,26 @@
 
 ## Before installation
 
-Use a test blog with several posts and a static page. Keep a backup of your current theme. This is an experimental version; successful Blogger import has not yet been confirmed.
+Use a test blog with several posts and a static page. Keep a backup of your current theme. Stable v0.1.0 has owner-confirmed Blogger import. Changes on the development branch still need their own platform validation.
 
 ## Steps
 
 1. Download `theme/balaio.en.xml` for English or `theme/balaio.xml` for Portuguese. Download the raw file, not GitHub's HTML page.
 2. In Blogger, select the correct blog, then open **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the contents with the entire XML, from its declaration to the closing `html` tag, then save.
-4. Set title, description and blog language in **Settings**. In **Layout**, configure Menu, Introduction, labels, sidebar and footer. The Portuguese XML uses Portuguese gadget titles.
+4. Set title, description and blog language in **Settings**. In **Layout**, configure Menu, Introduction, labels and sidebar. The Portuguese XML uses Portuguese gadget titles.
 5. Add sample posts with and without images. The home page uses the first three posts as cards; configure more than three posts per page if you also want the list below them.
 6. Check articles, pages, search, labels, pagination, comments and mobile layout. See [ROADMAP.md](ROADMAP.md).
+
+## Use the responsive theme on phones
+
+Blogger can serve a separate legacy mobile template. If the phone shows gray date bars, blue links and a different header at `?m=1`, while `?m=0` shows Balaio's pastel cards, the two requests are using different presentations.
+
+In **Theme**, open the menu beside **Customize**. If **Mobile settings** is available, select **Desktop** (or the option to show the desktop theme on mobile) and save. Balaio adapts its own layout to the screen width; this setting selects which template Blogger serves. Menu labels can vary across Blogger interfaces.
+
+Reopen the normal blog URL on a phone without manually adding `?m=0`. Check the home page, a full article and a static page. Also compare `?m=1` and `?m=0` to identify any remaining differences. Do not use a JavaScript redirect as a substitute for this setting.
+
+The project owner's screenshots showed the legacy mobile presentation at `?m=1` and Balaio cards at `?m=0`. They do not confirm the installed release or the new Designer controls. [Official background on separate mobile templates](https://blogger-developers.googleblog.com/2011/11/introducing-custom-mobile-templates.html).
 
 ## Troubleshooting
 
@@ -35,4 +45,10 @@ Before publishing, complete the [SEO configuration checklist](SEO.md).
 
 ## Basic pages
 
-[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu and Footer links. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create the pages in Blogger, then add their real URLs to Menu. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+
+## Show more posts and fixed pages
+
+The theme displays all posts supplied by Blogger: the first three in opening cards, followed by a list without duplicates. Set **Settings → Posts → Max posts shown on main page** to **9** as a starting point. This is a maximum, not a guarantee: Blogger may paginate earlier for large posts. If only two entries remain, add a native **jump break** after the introduction of long posts, then recheck. Do not change publication dates or duplicate posts. [Blogger settings](https://support.google.com/blogger/answer/9691230?hl=en) · [Post editor](https://support.google.com/blogger/answer/154172?hl=en).
+
+The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publish About me, Contact and Privacy through **Pages**, then select them under **Layout → Pages**. The separate **Menu** gadget accepts extra links. Existing `PageList1` settings may be retained on import; verify its position in Layout. No page content or blog settings are changed by the XML.

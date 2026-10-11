@@ -12,18 +12,30 @@
     <b:skin><![CDATA[
 /* Balaio — código original, MIT. Inter e Newsreader: SIL OFL 1.1.
    Edite as variáveis abaixo para personalizar a identidade do blog. */
+/* Controles do Designer do Blogger.
+<Variable name="papercolor" description="Fundo da página" type="color" default="#fffefb" value="#fffefb"/>
+<Variable name="inkcolor" description="Texto principal" type="color" default="#202c28" value="#202c28"/>
+<Variable name="mutedcolor" description="Texto secundário" type="color" default="#5d6b64" value="#5d6b64"/>
+<Variable name="accentcolor" description="Links e botões" type="color" default="#22614c" value="#22614c"/>
+<Variable name="linecolor" description="Divisórias suaves" type="color" default="#dce5df" value="#dce5df"/>
+<Variable name="washcolor" description="Superfície verde pastel" type="color" default="#edf5ef" value="#edf5ef"/>
+<Variable name="sandcolor" description="Card areia pastel" type="color" default="#f8f1e7" value="#f8f1e7"/>
+<Variable name="bluecolor" description="Card azul pastel" type="color" default="#eef2f6" value="#eef2f6"/>
+<Variable name="interfacefont" description="Fonte da interface" type="font" default="normal 400 17px Inter, system-ui, sans-serif" value="normal 400 17px Inter, system-ui, sans-serif"/>
+<Variable name="readingfont" description="Fonte de posts e páginas" type="font" default="normal 400 20px Newsreader, serif" value="normal 400 20px Newsreader, serif"/>
+*/
 :root {
-  --paper:#fffefb;
-  --ink:#202c28;
-  --muted:#5d6b64;
-  --accent:#22614c;
-  --line:#dce5df;
-  --wash:#edf5ef;
-  --card-sand:#f8f1e7;
-  --card-blue:#eef2f6;
+  --paper:$papercolor;
+  --ink:$inkcolor;
+  --muted:$mutedcolor;
+  --accent:$accentcolor;
+  --line:$linecolor;
+  --wash:$washcolor;
+  --card-sand:$sandcolor;
+  --card-blue:$bluecolor;
   --reading-width:760px;
-  --sans:"Inter",system-ui,sans-serif;
-  --serif:"Newsreader",serif;
+  --interface-font:$interfacefont;
+  --reading-font:$readingfont;
   --width:1120px;
 }
 * {
@@ -33,7 +45,8 @@ body {
   margin:0;
   background:var(--paper);
   color:var(--ink);
-  font:17px/1.65 var(--sans);
+  font:var(--interface-font);
+  line-height:1.65;
 }
 a {
   color:var(--accent);
@@ -73,6 +86,9 @@ a:focus-visible,input:focus-visible {
   padding:32px 0 20px;
   border-bottom:1px solid var(--line);
 }
+.masthead .widget,.masthead .section {
+  margin:0;
+}
 .masthead-top > * {
   min-width:0;
 }
@@ -83,7 +99,10 @@ a:focus-visible,input:focus-visible {
   gap:24px;
 }
 .brand {
-  font:750 clamp(26px,4vw,38px)/1.2 var(--sans);
+  font:var(--interface-font);
+  font-weight:750;
+  font-size:clamp(26px,4vw,38px);
+  line-height:1.2;
   letter-spacing:-.045em;
   color:var(--ink);
   overflow-wrap:anywhere;
@@ -139,19 +158,11 @@ a:focus-visible,input:focus-visible {
   text-decoration:underline;
   text-underline-offset:4px;
 }
-.footer-navigation ul {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px 24px;
-  list-style:none;
-  margin:0 0 20px;
-  padding:0;
-}
-.footer-navigation a {
-  overflow-wrap:anywhere;
-}
 .widget h2 {
-  font:700 21px/1.3 var(--serif);
+  font:var(--reading-font);
+  font-weight:700;
+  font-size:21px;
+  line-height:1.3;
   margin:0 0 16px;
 }
 .intro {
@@ -159,7 +170,10 @@ a:focus-visible,input:focus-visible {
   max-width:700px;
 }
 .intro h1 {
-  font:400 clamp(32px,4vw,46px)/1.2 var(--serif);
+  font:var(--reading-font);
+  font-weight:400;
+  font-size:clamp(32px,4vw,46px);
+  line-height:1.2;
   letter-spacing:-.025em;
   margin:0;
 }
@@ -186,15 +200,18 @@ a:focus-visible,input:focus-visible {
   min-width:0;
 }
 .section-title {
-  font:600 22px/1.3 var(--sans);
+  font:var(--interface-font);
+  font-weight:600;
+  font-size:22px;
+  line-height:1.3;
   letter-spacing:-.04em;
   margin:0 0 24px;
 }
 .opening-cards {
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));
   gap:16px;
-  margin-bottom:40px;
+  margin-bottom:24px;
 }
 .opening-cards .post-card {
   display:flex;
@@ -219,7 +236,7 @@ a:focus-visible,input:focus-visible {
   aspect-ratio:4/3;
   border-radius:7px;
 }
-.opening-cards h2 {
+.opening-cards .post-card h2 {
   font-size:25px;
 }
 .opening-cards .post-summary {
@@ -234,7 +251,7 @@ a:focus-visible,input:focus-visible {
   flex:1;
 }
 .opening-cards .meta {
-  margin-top:auto;
+  margin-top:12px;
 }
 .posts {
   display:flex;
@@ -259,7 +276,10 @@ a:focus-visible,input:focus-visible {
   grid-column:1/-1;
 }
 .post-card h2 {
-  font:600 28px/1.25 var(--serif);
+  font:var(--reading-font);
+  font-weight:600;
+  font-size:28px;
+  line-height:1.25;
   margin:10px 0;
   letter-spacing:-.02em;
 }
@@ -308,6 +328,14 @@ a:focus-visible,input:focus-visible {
 .sidebar li {
   margin:8px 0;
 }
+.topic-count {
+  color:var(--muted);
+  font-size:13px;
+  white-space:nowrap;
+}
+.topic-list a {
+  overflow-wrap:anywhere;
+}
 .pager {
   display:flex;
   justify-content:space-between;
@@ -325,11 +353,15 @@ a:focus-visible,input:focus-visible {
 }
 .article h1 {
   overflow-wrap:anywhere;
-  font:700 clamp(34px,5vw,54px)/1.13 var(--serif);
+  font:var(--reading-font);
+  font-weight:700;
+  font-size:clamp(34px,5vw,54px);
+  line-height:1.13;
   margin:0 0 24px;
 }
 .post-body {
-  font:20px/1.8 var(--serif);
+  font:var(--reading-font);
+  line-height:1.8;
   overflow-wrap:anywhere;
   margin-top:32px;
 }
@@ -349,7 +381,9 @@ a:focus-visible,input:focus-visible {
 }
 .post-body figcaption {
   color:var(--muted);
-  font:14px/1.6 var(--sans);
+  font:var(--interface-font);
+  font-size:14px;
+  line-height:1.6;
   margin-top:8px;
 }
 .post-body video {
@@ -410,28 +444,11 @@ a:focus-visible,input:focus-visible {
   padding:32px;
   background:var(--wash);
 }
-.site-footer {
-  border-top:1px solid var(--line);
-  padding:28px 0;
-  color:var(--muted);
-  font-size:13px;
+.article-grid {
+  grid-template-columns:minmax(0,1fr);
 }
-.footer-line {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  gap:16px;
-}
-.footer .widget {
-  margin-bottom:24px;
-}
-@media(min-width:801px) {
-  .article-grid {
-    grid-template-columns:minmax(0,1fr);
-  }
-  .article-grid .sidebar {
-    display:none;
-  }
+.article-grid .sidebar,.widget.Profile,.widget.Attribution {
+  display:none;
 }
 @media(min-width:801px) and (max-width:1050px) {
   .opening-cards {
@@ -451,7 +468,11 @@ a:focus-visible,input:focus-visible {
   .wrap {
     width:calc(100% - 32px);
   }
+  .masthead {
+    padding:20px 0 16px;
+  }
   .masthead-top {
+    gap:16px;
     align-items:flex-start;
     flex-direction:column;
   }
@@ -461,23 +482,54 @@ a:focus-visible,input:focus-visible {
   .search input {
     flex:1;
   }
+  .navigation {
+    padding-top:12px;
+  }
+  .intro {
+    padding:28px 0 16px;
+  }
+  .opening-cards {
+    margin-bottom:16px;
+  }
+  .pager {
+    margin-top:24px;
+    padding-top:16px;
+  }
   .content-grid {
     grid-template-columns:1fr;
-    gap:36px;
+    gap:24px;
+    padding:24px 0 40px;
   }
   .post-card {
     grid-template-columns:minmax(0,1fr) 160px;
     gap:20px;
   }
-  .sidebar {
+  .content-grid > .sidebar {
     border-top:1px solid var(--line);
-    padding-top:28px;
+    padding-top:20px;
+  }
+  .sidebar .widget {
+    margin-bottom:24px;
+  }
+  .sidebar .topic-list {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:4px 16px;
+    margin:0;
+    font-size:14px;
+    line-height:1.45;
+  }
+  .sidebar .topic-list li {
+    min-width:0;
+    margin:0;
+  }
+  .topic-list a {
+    display:block;
+    min-height:44px;
+    padding:10px 0;
   }
   .article {
     padding:20px 0;
-  }
-  .post-body {
-    font-size:18px;
   }
 }
 @media(max-width:600px) {
@@ -513,7 +565,7 @@ a:focus-visible,input:focus-visible {
   }
 }
 @media print {
-  .masthead,.sidebar,.pager,.comments,.site-footer,.skip {
+  .masthead,.sidebar,.pager,.comments,.skip {
     display:none;
   }
   .content-grid {
@@ -540,23 +592,32 @@ a:focus-visible,input:focus-visible {
       <div class='wrap'>
         <div class='masthead-top'>
           <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
-            <b:widget id='Header1' locked='true' title='Cabeçalho' type='Header' version='1'>
+            <b:widget id='Header1' locked='true' title='Cabeçalho' type='Header' version='1' mobile='yes'>
               <b:includable id='main'>
                 <a class='brand' expr:href='data:blog.homepageUrl'><data:title/></a>
                 <b:if cond='data:description'><p class='description'><data:description/></p></b:if>
               </b:includable>
             </b:widget>
           </b:section>
-          <form class='search' expr:action='data:blog.homepageUrl + "search"' method='get' role='search'>
+          <form class='search' action='/search' method='get' role='search'>
             <input aria-label='Buscar no blog' name='q' placeholder='Buscar no blog' type='search'/>
             <button type='submit'>Buscar</button>
           </form>
         </div>
         <nav aria-label='Navegação principal' class='navigation'>
-          <b:section class='navbar' id='navigation' maxwidgets='1' showaddelement='yes'>
-            <b:widget id='LinkList1' locked='false' title='Menu' type='LinkList' version='1'>
+          <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
+            <b:widget id='PageList1' locked='false' mobile='yes' title='Páginas' type='PageList' version='1'>
               <b:includable id='main'>
-                <ul><li><a expr:href='data:blog.homepageUrl' expr:aria-current='data:blog.url == data:blog.homepageUrl ? "page" : "false"'>Início</a></li>
+                <ul>
+                  <b:if cond='data:links'>
+                    <b:loop values='data:links' var='link'><li><a expr:href='data:link.href' expr:aria-current='data:link.isCurrentPage ? "page" : "false"'><data:link.title/></a></li></b:loop>
+                  <b:else/><li><a expr:href='data:blog.homepageUrl'>Início</a></li></b:if>
+                </ul>
+              </b:includable>
+            </b:widget>
+            <b:widget id='LinkList1' locked='false' title='Menu' type='LinkList' version='1' mobile='yes'>
+              <b:includable id='main'>
+                <ul>
                   <b:loop values='data:links' var='link'><li><a expr:href='data:link.target' expr:aria-current='data:blog.url == data:link.target ? "page" : "false"'><data:link.name/></a></li></b:loop>
                 </ul>
               </b:includable>
@@ -568,7 +629,7 @@ a:focus-visible,input:focus-visible {
     <main class='wrap' id='content' tabindex='-1'>
       <b:if cond='data:blog.url == data:blog.homepageUrl'>
         <b:section id='introduction' maxwidgets='1' showaddelement='yes'>
-          <b:widget id='HTML1' locked='false' title='Apresentação' type='HTML' version='1'>
+          <b:widget id='HTML1' locked='false' title='Apresentação' type='HTML' version='1' mobile='yes'>
             <b:widget-settings>
               <b:widget-setting name='content'><![CDATA[<div class="eyebrow">Um espaço para a curiosidade</div><h1>Conhecimento começa com uma boa pergunta.</h1><p>Um lugar para reunir descobertas, conectar ideias e compartilhar o que aprendemos.</p>]]></b:widget-setting>
             </b:widget-settings>
@@ -578,7 +639,7 @@ a:focus-visible,input:focus-visible {
       </b:if>
       <div expr:class='data:blog.pageType == "item" or data:blog.pageType == "static_page" ? "content-grid article-grid" : "content-grid"'>
         <b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
-          <b:widget id='Blog1' locked='true' title='Postagens' type='Blog' version='1'>
+          <b:widget id='Blog1' locked='true' title='Postagens' type='Blog' version='1' mobile='yes'>
             <b:includable id='main'>
               <b:if cond='data:blog.pageType == "item" or data:blog.pageType == "static_page"'>
                 <b:loop values='data:posts' var='post'><b:include data='post' name='article'/></b:loop>
@@ -656,26 +717,12 @@ a:focus-visible,input:focus-visible {
         </b:section>
         <aside aria-label='Explore o blog' class='sidebar'>
           <b:section class='sidebar' id='sidebar' showaddelement='yes'>
-            <b:widget id='Label1' locked='false' title='Explore os assuntos' type='Label' version='1'>
-              <b:includable id='main'><h2><data:title/></h2><ul><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/></a> <span class='meta' style='display:inline'>(<data:label.count/>)</span></li></b:loop></ul></b:includable>
+            <b:widget id='Label1' locked='false' title='Explore os assuntos' type='Label' version='1' mobile='yes'>
+              <b:includable id='main'><h2><data:title/></h2><ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/> <span class='topic-count'>(<data:label.count/>)</span></a></li></b:loop></ul></b:includable>
             </b:widget>
           </b:section>
         </aside>
       </div>
     </main>
-    <footer class='site-footer'><div class='wrap'>
-      <b:section class='footer' id='footer' showaddelement='yes'>
-        <b:widget id='LinkList2' locked='false' title='Links do rodapé' type='LinkList' version='1'>
-          <b:includable id='main'>
-            <b:if cond='data:links'>
-              <nav aria-label='Navegação do rodapé' class='footer-navigation'>
-                <ul><b:loop values='data:links' var='link'><li><a expr:href='data:link.target'><data:link.name/></a></li></b:loop></ul>
-              </nav>
-            </b:if>
-          </b:includable>
-        </b:widget>
-      </b:section>
-      <div class='footer-line'><span><data:blog.title/></span><span>Tema Balaio · <a href='https://www.blogger.com/'>Blogger</a></span></div>
-    </div></footer>
   </body>
 </html>
