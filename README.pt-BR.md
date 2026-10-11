@@ -6,7 +6,7 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Versão atual:** `v0.2.0-rc.2` (candidata). Reúne uma home mais completa, navegação móvel e leitura de 22px. Vinte testes locais e CI passam; nova importação e comportamento dos gadgets/Designer ainda precisam de conferência no Blogger. [Baixar candidata](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.2) · [Guia de atualização](docs/RELEASE.md) · [Escopo da validação](docs/VALIDATION.md).
+> **Versão atual:** `v0.2.0-rc.3` (candidata). Corrige a continuação da home quando o Blogger preserva CDATA nos scripts publicados; mantém navegação móvel e leitura de 22px. Vinte e três testes locais e CI passam; nova importação e comportamento dos gadgets/Designer ainda precisam de conferência no Blogger. [Baixar candidata](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.3) · [Guia de atualização](docs/RELEASE.md) · [Escopo da validação](docs/VALIDATION.md).
 >
 > **Alternativa estável:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada pelo proprietário. Seus templates diferem da candidata atual.
 
@@ -44,11 +44,11 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 - **Inter** para interface e **Newsreader** para títulos e leitura, via Google Fonts com fallback local e `display=swap`. Posts/páginas usam 22px e entrelinha de 1,75 por padrão. Ambas usam SIL OFL 1.1; suas licenças são separadas da MIT.
 - Sem bibliotecas JavaScript de terceiros ou dependências externas de pacotes Python. A continuação da home é código próprio MIT; a paginação nativa funciona sem JavaScript.
 
-A v0.2.0-rc.2 inclui controles nativos de cores/fontes; a conferência no Designer publicado permanece pendente. Logo em imagem e layout específico de 404 ainda não estão implementados. A prévia usa o CSS real com conteúdo de exemplo; não compila expressões do Blogger.
+A v0.2.0-rc.3 inclui controles nativos de cores/fontes; a conferência no Designer publicado permanece pendente. Logo em imagem e layout específico de 404 ainda não estão implementados. A prévia usa o CSS real com conteúdo de exemplo; não compila expressões do Blogger.
 
 ## Desenvolvimento local
 
-Requer Python 3.10+; `make` é opcional.
+Requer Python 3.10+; `make` é opcional. Node.js 22+ executa as três regressões de sintaxe JavaScript; sem Node, esses checks são pulados localmente. O CI sempre os executa. A instalação não exige Python nem Node.
 
 ```sh
 python3 scripts/validate_docs.py
@@ -86,7 +86,7 @@ O tema preserva os metadados do Blogger e adiciona microdados de artigos ligados
 
 **Este tema Blogger é gratuito mesmo?** Sim. A MIT permite uso pessoal e comercial, modificação e redistribuição com os avisos de licença preservados. Não exige compra nem crédito visível.
 
-**Posso mudar cores e layout?** Sim. Comece pelos gadgets de Layout e pelos controles nativos de cores/fontes da v0.2.0-rc.2. A largura de leitura continua como opção avançada de CSS. [Guia de personalização](docs/CUSTOMIZATION.md).
+**Posso mudar cores e layout?** Sim. Comece pelos gadgets de Layout e pelos controles nativos de cores/fontes da v0.2.0-rc.3. A largura de leitura continua como opção avançada de CSS. [Guia de personalização](docs/CUSTOMIZATION.md).
 
 **O tema é preparado para SEO?** Oferece metadados nativos do Blogger, títulos semânticos, links rastreáveis e microdados de artigos. O [guia de busca](docs/SEO.md) cobre Google, Bing, DuckDuckGo, SearXNG e descoberta por IA. Indexação e compatibilidade publicadas ainda precisam de verificação.
 

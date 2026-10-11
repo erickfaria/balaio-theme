@@ -6,7 +6,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Current version:** `v0.2.0-rc.2` (release candidate). Includes a fuller home page, mobile navigation and 22px reading text. Twenty local tests and CI pass; fresh Blogger import and new widget/Designer behavior still need verification. [Download candidate](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.2) · [Upgrade guide](docs/en/RELEASE.md) · [Validation scope](docs/en/VALIDATION.md).
+> **Current version:** `v0.2.0-rc.3` (release candidate). Fixes home continuation when Blogger preserves CDATA in published scripts; keeps mobile navigation and 22px reading text. Twenty-three local tests and CI pass; fresh Blogger import and new widget/Designer behavior still need verification. [Download candidate](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.3) · [Upgrade guide](docs/en/RELEASE.md) · [Validation scope](docs/en/VALIDATION.md).
 >
 > **Stable fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with owner-confirmed Blogger import. Its templates differ from the current candidate.
 
@@ -44,11 +44,11 @@ No build tools are needed to install the theme.
 - **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Post/page text defaults to 22px with a 1.75 line height. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
 - No third-party JavaScript libraries or Python package dependencies. The home continuation is original MIT code; native pagination works without JavaScript.
 
-Native color/font controls are included in v0.2.0-rc.2; live Designer verification remains pending. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
+Native color/font controls are included in v0.2.0-rc.3; live Designer verification remains pending. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
 
 ## Develop locally
 
-Requires Python 3.10+; `make` is optional.
+Requires Python 3.10+; `make` is optional. Node.js 22+ runs the three JavaScript syntax regressions; without Node, those checks are skipped locally. CI always runs them. Installation needs neither Python nor Node.
 
 ```sh
 python3 scripts/validate_docs.py
@@ -86,7 +86,7 @@ The theme preserves Blogger metadata and adds visible-content article microdata.
 
 **Is this Blogger template really free?** Yes. MIT permits personal and commercial use, modification and redistribution with license notices preserved. No purchase or visible attribution is required.
 
-**Can I change colors and layout?** Yes. Start with Layout gadgets and the native color/font controls in v0.2.0-rc.2. Reading width remains an advanced CSS option. [Customization guide](docs/en/CUSTOMIZATION.md).
+**Can I change colors and layout?** Yes. Start with Layout gadgets and the native color/font controls in v0.2.0-rc.3. Reading width remains an advanced CSS option. [Customization guide](docs/en/CUSTOMIZATION.md).
 
 **Is it built for SEO?** It provides native Blogger metadata, semantic headings, ordinary crawlable links and article microdata. The [search guide](docs/en/SEO.md) covers Google, Bing, DuckDuckGo, SearXNG and AI discovery. Published indexing and compatibility still need verification.
 

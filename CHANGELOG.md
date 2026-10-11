@@ -1,5 +1,19 @@
 # Changelog / Histórico
 
+## v0.2.0-rc.3 — 2026-10-11
+
+### English
+
+- Fix home continuation failing in the published rc.2: Blogger retained bare CDATA delimiters, causing `Unexpected token '<'` before any extra post request. Comment both delimiters for compatibility with preserved and XML-stripped output.
+- Make previews retain the raw script block; add three JavaScript syntax regressions in both locales and Node.js to CI. The previous preview stripped CDATA and missed this production error.
+- Reproduce the exact published HTML before/after: two posts and a syntax error become two highlights plus eight unique entries; update bilingual diagnosis, validation scope and install assets. Fresh rc.3 import remains pending.
+
+### Português
+
+- Corrigir a continuação da home na rc.2 publicada: o Blogger preservou delimitadores CDATA sem comentários, causando `Unexpected token '<'` antes de consultar posts extras. Comentar os dois delimitadores para funcionar com a serialização preservada e a extração XML.
+- Preservar o bloco de script bruto na prévia; adicionar três regressões de sintaxe JavaScript nos dois idiomas e Node.js ao CI. A prévia anterior removia CDATA e não detectou este erro publicado.
+- Reproduzir o HTML publicado antes/depois: dois posts e erro de sintaxe passam a dois destaques e oito entradas únicas; atualizar diagnóstico, escopo da validação e arquivos de instalação bilíngues. Nova importação da rc.3 ainda pendente.
+
 ## v0.2.0-rc.2 — 2026-10-11
 
 ### English
