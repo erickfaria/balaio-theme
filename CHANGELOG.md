@@ -1,5 +1,15 @@
 # Changelog / Histórico
 
+## Unreleased
+
+### English
+
+- Temporarily disable repository GitHub Actions at the owner’s request; remove automatic push/PR/tag triggers. Keep a manual workflow for an explicitly approved future resumption and document local validation during the pause. Published theme assets and main protections remain unchanged.
+
+### Português
+
+- Desativar temporariamente o GitHub Actions do repositório a pedido do proprietário; retirar disparos automáticos por push/PR/tag. Manter o workflow manual para retomada futura explicitamente autorizada e documentar checks locais durante a pausa. Arquivos publicados do tema e proteções da main permanecem iguais.
+
 ## v0.2.0-rc.3 — 2026-10-11
 
 ### English

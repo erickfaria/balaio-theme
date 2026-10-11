@@ -1,8 +1,7 @@
 name: Validate theme
 
 on:
-  push:
-  pull_request:
+  # Repository Actions are paused. Run manually only after the owner re-enables them.
   workflow_dispatch:
 
 permissions:
