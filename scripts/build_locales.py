@@ -5,6 +5,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 TRANSLATIONS = {
+    "Explore os assuntos": "Explore topics",
     "Denunciar abuso": "Report abuse",
     "Controles do Designer do Blogger.": "Blogger Designer controls.",
     "Fundo da página": "Page background",

@@ -2,6 +2,9 @@
 
 ## Unreleased / Não lançado
 
+- Preserve hidden sidebar/Label1 identities for Blogger restore migration while emitting no topic content; actual restore verification is pending.
+- Preservar IDs ocultos sidebar/Label1 para migração da restauração, sem exibir assuntos; confirmação real no Blogger pendente.
+
 - Remove the sidebar and use the full content width; keep only the header search. Hide legacy search/archive/featured/report gadgets retained by Blogger after import. Move the report-abuse link to a compact footer.
 - Restore PR/main/tag/manual CI checks and build downloadable XML, install ZIP, checksums and preview artifacts. Read-only workflow permissions and existing owner protections remain.
 - Remover a barra lateral e usar a largura do conteúdo; manter a busca no cabeçalho. Ocultar gadgets legados de busca/arquivo/destaque/denúncia que o Blogger preservar após importar. Mover a denúncia de abuso para um rodapé compacto.

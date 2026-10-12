@@ -52,3 +52,13 @@ Antes de publicar, siga a [configuração de SEO](SEO.md).
 O tema exibe todos os posts fornecidos pelo Blogger: os dois primeiros em cards, seguidos de uma lista sem duplicações. Na home, a continuação automática consulta até quatro páginas adicionais para tentar atingir dez posts; fora da home, a paginação continua nativa. Configure **Configurações → Postagens → Máximo de postagens exibidas na página principal** como **10** para começar. É um máximo, não uma garantia: o Blogger pode paginar antes em posts grandes. Se a continuação não carregar, confira a rede e o link de posts anteriores em [HOME.md](HOME.md). Adicione uma **quebra de expansão** nativa após a introdução dos posts longos e confira novamente. Não mude datas de publicação nem duplique posts. [Configurações do Blogger](https://support.google.com/blogger/answer/9691230?hl=pt-BR) · [Editor de posts](https://support.google.com/blogger/answer/154172?hl=pt-BR).
 
 A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no celular. Publique Sobre mim, Contato e Privacidade em **Páginas** e selecione-as em **Layout → Páginas**. O gadget separado **Menu** aceita links extras. As configurações de um `PageList1` existente podem ser preservadas na importação; confira sua posição no Layout. O XML não altera conteúdo de páginas nem configurações do blog.
+
+## Falha ao restaurar
+
+A validação local de XML não executa o compilador nem a migração de gadgets do Blogger.
+O tema conserva `sidebar` e `Label1` numa área oculta, sem conteúdo visível, para manter
+identificadores de instalações anteriores. Essa medida precisa ser confirmada por nova importação.
+Se Restaurar retornar apenas um erro genérico, faça backup e tente **Tema → Editar HTML**:
+cole o XML completo e salve. O editor pode informar linha, coluna ou o gadget rejeitado;
+registre a mensagem exata para diagnóstico. Confirme que o arquivo começa com `<?xml`
+e não é a página HTML do GitHub nem um ZIP de artefatos.

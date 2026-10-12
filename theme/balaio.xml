@@ -851,6 +851,14 @@ a:focus-visible,input:focus-visible {
         </b:section>
       </div>
     </main>
+    <!-- Keep legacy widget identities for Blogger migration; never render their content. -->
+    <div hidden='hidden' aria-hidden='true'>
+      <b:section class='sidebar' id='sidebar' showaddelement='no'>
+        <b:widget id='Label1' locked='false' title='Explore os assuntos' type='Label' version='1' mobile='yes'>
+          <b:includable id='main'><b:if cond='false'><span/></b:if></b:includable>
+        </b:widget>
+      </b:section>
+    </div>
     <footer class='site-footer wrap'><a href='https://www.blogger.com/go/report-abuse' rel='nofollow'>Denunciar abuso</a></footer>
   </body>
 </html>
