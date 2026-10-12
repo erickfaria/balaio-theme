@@ -56,8 +56,9 @@ The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publ
 ## Restore failure
 
 Local XML checks do not execute Blogger's compiler or widget migration. The theme retains
-`sidebar` and `Label1` inside a hidden area without visible content to preserve older installation
-identities. Fresh import must confirm this compatibility measure.
+`sidebar` and `Label1` with complete definitions, hiding the sidebar only through CSS.
+Main widgets explicitly declare visibility. The first empty-includable mitigation restored
+but produced empty published sections; it has been replaced. Fresh import must confirm this version.
 If Restore only returns a generic failure, back up first and try **Theme → Edit HTML** with the
 complete XML. Record the exact line, column or rejected widget reported by the editor.
 Check that the file starts with `<?xml`, not a GitHub HTML page or an artifact ZIP.

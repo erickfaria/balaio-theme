@@ -567,7 +567,7 @@ a:focus-visible,input:focus-visible {
       <div class='wrap'>
         <div class='masthead-top'>
           <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
-            <b:widget id='Header1' locked='true' title='Cabeçalho' type='Header' version='1' mobile='yes'>
+            <b:widget visible='true' id='Header1' locked='true' title='Cabeçalho' type='Header' version='1' mobile='yes'>
               <b:includable id='main'>
                 <a class='brand' expr:href='data:blog.homepageUrl'><data:title/></a>
                 <b:if cond='data:description'><p class='description'><data:description/></p></b:if>
@@ -581,7 +581,7 @@ a:focus-visible,input:focus-visible {
         </div>
         <nav aria-label='Navegação principal' class='navigation'>
           <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
-            <b:widget id='PageList1' locked='false' mobile='yes' title='Páginas' type='PageList' version='1'>
+            <b:widget visible='true' id='PageList1' locked='false' mobile='yes' title='Páginas' type='PageList' version='1'>
               <b:includable id='main'>
                 <ul>
                   <b:if cond='data:links'>
@@ -590,7 +590,7 @@ a:focus-visible,input:focus-visible {
                 </ul>
               </b:includable>
             </b:widget>
-            <b:widget id='LinkList1' locked='false' title='Menu' type='LinkList' version='1' mobile='yes'>
+            <b:widget visible='true' id='LinkList1' locked='false' title='Menu' type='LinkList' version='1' mobile='yes'>
               <b:includable id='main'>
                 <ul>
                   <b:loop values='data:links' var='link'><li><a expr:href='data:link.target' expr:aria-current='data:blog.url == data:link.target ? "page" : "false"'><data:link.name/></a></li></b:loop>
@@ -604,7 +604,7 @@ a:focus-visible,input:focus-visible {
     <main class='wrap' id='content' tabindex='-1'>
       <b:if cond='data:blog.url == data:blog.homepageUrl'>
         <b:section id='introduction' maxwidgets='1' showaddelement='yes'>
-          <b:widget id='HTML1' locked='false' title='Apresentação' type='HTML' version='1' mobile='yes'>
+          <b:widget visible='true' id='HTML1' locked='false' title='Apresentação' type='HTML' version='1' mobile='yes'>
             <b:widget-settings>
               <b:widget-setting name='content'><![CDATA[<div class="eyebrow">Um espaço para a curiosidade</div><h1>Conhecimento começa com uma boa pergunta.</h1><p>Um lugar para reunir descobertas, conectar ideias e compartilhar o que aprendemos.</p>]]></b:widget-setting>
             </b:widget-settings>
@@ -614,7 +614,7 @@ a:focus-visible,input:focus-visible {
       </b:if>
       <div expr:class='data:blog.pageType == "item" or data:blog.pageType == "static_page" ? "content-grid article-grid" : "content-grid"'>
         <b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
-          <b:widget id='Blog1' locked='true' title='Postagens' type='Blog' version='1' mobile='yes'>
+          <b:widget visible='true' id='Blog1' locked='true' title='Postagens' type='Blog' version='1' mobile='yes'>
             <b:includable id='main'>
               <b:if cond='data:blog.pageType == "item" or data:blog.pageType == "static_page"'>
                 <b:loop values='data:posts' var='post'><b:include data='post' name='article'/></b:loop>
@@ -849,16 +849,15 @@ a:focus-visible,input:focus-visible {
             </b:includable>
           </b:widget>
         </b:section>
+          <aside aria-label='Explore o blog' class='sidebar'>
+            <b:section class='sidebar' id='sidebar' showaddelement='no'>
+              <b:widget visible='true' id='Label1' locked='false' title='Explore os assuntos' type='Label' version='1' mobile='yes'>
+                <b:includable id='main'><h2><data:title/></h2><ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/> <span class='topic-count'>(<data:label.count/>)</span></a></li></b:loop></ul></b:includable>
+              </b:widget>
+            </b:section>
+          </aside>
       </div>
     </main>
-    <!-- Keep legacy widget identities for Blogger migration; never render their content. -->
-    <div hidden='hidden' aria-hidden='true'>
-      <b:section class='sidebar' id='sidebar' showaddelement='no'>
-        <b:widget id='Label1' locked='false' title='Explore os assuntos' type='Label' version='1' mobile='yes'>
-          <b:includable id='main'><b:if cond='false'><span/></b:if></b:includable>
-        </b:widget>
-      </b:section>
-    </div>
     <footer class='site-footer wrap'><a href='https://www.blogger.com/go/report-abuse' rel='nofollow'>Denunciar abuso</a></footer>
   </body>
 </html>
