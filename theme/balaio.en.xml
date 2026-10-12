@@ -195,8 +195,7 @@ a:focus-visible,input:focus-visible {
 }
 .content-grid {
   display:grid;
-  grid-template-columns:minmax(0,1fr) 260px;
-  gap:56px;
+  grid-template-columns:minmax(0,1fr);
   padding:36px 0 64px;
 }
 .content-grid>* {
@@ -321,23 +320,14 @@ a:focus-visible,input:focus-visible {
   text-transform:uppercase;
   letter-spacing:.06em;
 }
-.sidebar .widget {
-  margin-bottom:32px;
-}
-.sidebar ul {
-  list-style:none;
-  padding:0;
-}
-.sidebar li {
-  margin:8px 0;
-}
-.topic-count {
-  color:var(--muted);
+.site-footer {
+  padding:20px 0;
+  border-top:1px solid var(--line);
   font-size:13px;
-  white-space:nowrap;
+  color:var(--muted);
 }
-.topic-list a {
-  overflow-wrap:anywhere;
+.site-footer a {
+  color:inherit;
 }
 .pager {
   display:flex;
@@ -456,7 +446,7 @@ a:focus-visible,input:focus-visible {
 .article-grid {
   grid-template-columns:minmax(0,1fr);
 }
-.article-grid .sidebar,.widget.Profile,.widget.Attribution {
+#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.FeaturedPost,.widget.ReportAbuse,.widget.Profile,.widget.Attribution {
   display:none;
 }
 @media(min-width:801px) and (max-width:1050px) {
@@ -513,30 +503,6 @@ a:focus-visible,input:focus-visible {
     grid-template-columns:minmax(0,1fr) 160px;
     gap:20px;
   }
-  .content-grid > .sidebar {
-    border-top:1px solid var(--line);
-    padding-top:20px;
-  }
-  .sidebar .widget {
-    margin-bottom:24px;
-  }
-  .sidebar .topic-list {
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:4px 16px;
-    margin:0;
-    font-size:14px;
-    line-height:1.45;
-  }
-  .sidebar .topic-list li {
-    min-width:0;
-    margin:0;
-  }
-  .topic-list a {
-    display:block;
-    min-height:44px;
-    padding:10px 0;
-  }
   .article {
     padding:20px 0;
   }
@@ -574,7 +540,7 @@ a:focus-visible,input:focus-visible {
   }
 }
 @media print {
-  .masthead,.sidebar,.pager,.comments,.skip {
+  .masthead,.site-footer,.pager,.comments,.skip {
     display:none;
   }
   .content-grid {
@@ -883,16 +849,8 @@ a:focus-visible,input:focus-visible {
             </b:includable>
           </b:widget>
         </b:section>
-        <b:if cond='data:blog.pageType != "item" and data:blog.pageType != "static_page"'>
-          <aside aria-label='Explore the blog' class='sidebar'>
-            <b:section class='sidebar' id='sidebar' showaddelement='yes'>
-              <b:widget id='Label1' locked='false' title='Explore topics' type='Label' version='1' mobile='yes'>
-                <b:includable id='main'><h2><data:title/></h2><ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/> <span class='topic-count'>(<data:label.count/>)</span></a></li></b:loop></ul></b:includable>
-              </b:widget>
-            </b:section>
-          </aside>
-        </b:if>
       </div>
     </main>
+    <footer class='site-footer wrap'><a href='https://www.blogger.com/go/report-abuse' rel='nofollow'>Report abuse</a></footer>
   </body>
 </html>

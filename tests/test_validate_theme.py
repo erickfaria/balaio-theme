@@ -26,14 +26,14 @@ class ThemeValidationTests(unittest.TestCase):
         VALIDATOR.validate(ROOT / "theme/balaio.xml")
 
     def test_duplicate_section_id(self):
-        self.assert_rejected(self.source.replace("id='sidebar'", "id='main'"), "Duplicate ID")
+        self.assert_rejected(self.source.replace("id='navigation'", "id='main'"), "Duplicate ID")
 
     def test_missing_include(self):
         self.assert_rejected(self.source.replace("name='card'", "name='absent'"), "Missing local include")
 
     def test_html_inside_section(self):
         root = ET.fromstring(self.source)
-        sidebar = root.find(".//{http://www.google.com/2005/gml/b}section[@id='sidebar']")
+        sidebar = root.find(".//{http://www.google.com/2005/gml/b}section[@id='main']")
         ET.SubElement(sidebar, '{http://www.w3.org/1999/xhtml}p').text = 'invalid'
         self.assert_rejected(ET.tostring(root, encoding='unicode'), 'non-widget')
 
