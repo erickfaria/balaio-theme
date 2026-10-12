@@ -4,7 +4,7 @@
 
 ## Antes de instalar
 
-Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. O último pacote publicado é v0.2.0-rc.4; a branch de desenvolvimento remove a lateral e acrescenta denúncia no rodapé. A v0.1.0 estável anterior tem importação confirmada pelo proprietário; a candidata alterada ainda precisa de nova importação no Blogger.
+Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. A rc.6 em desenvolvimento recupera a continuação da rc.3 e mantém a lateral oculta; o último pacote de release publicado ainda é rc.4. A v0.1.0 estável anterior tem importação confirmada pelo proprietário; a candidata alterada ainda precisa de nova importação no Blogger.
 
 ## Passo a passo
 
@@ -55,12 +55,4 @@ A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no ce
 
 ## Falha ao restaurar
 
-A validação local de XML não executa o compilador nem a migração de gadgets do Blogger.
-O tema conserva as definições completas de `sidebar` e `Label1` para manter identificadores
-antigos, ocultando a lateral apenas por CSS. O atributo de visibilidade foi descartado
-pelo Blogger e não é usado como correção. A primeira tentativa com um includable vazio restaurou, mas gerou seções vazias
-no blog; foi substituída. A nova versão precisa ser confirmada por importação.
-Se Restaurar retornar apenas um erro genérico, faça backup e tente **Tema → Editar HTML**:
-cole o XML completo e salve. O editor pode informar linha, coluna ou o gadget rejeitado;
-registre a mensagem exata para diagnóstico. Confirme que o arquivo começa com `<?xml`
-e não é a página HTML do GitHub nem um ZIP de artefatos.
+A validação local não executa o compilador nem a migração de gadgets do Blogger. Esta candidata recupera os gadgets completos da rc.3; a lateral legada permanece oculta por CSS. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.6` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.

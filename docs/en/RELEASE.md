@@ -1,43 +1,33 @@
-# Install and upgrade — v0.2.0-rc.4
+# Install and upgrade — v0.2.0-rc.6
 
 [English](RELEASE.md) · [Português](../RELEASE.md)
 
-[Download candidate on GitHub](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.4).
+rc.6 is a **development recovery candidate**, without a published release. Actions artifacts identify their exact commit; the last published package is [rc.4](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.4). These are different files. [Stable v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0) has confirmed import but lacks home continuation. rc.3 is the last confirmed ten-post baseline. [Validation](VALIDATION.md).
 
-This is a **performance release candidate**. Twenty-four local checks pass without GitHub Actions. The owner confirmed rc.3 continuation; rc.4 needs a fresh import, including the conditional sidebar and native controls/widgets. [v0.1.0 remains the stable fallback](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0). See [validation evidence](VALIDATION.md).
+## What recovery preserves
 
-## What changed
+- Two highlights followed by older posts, with rc.3 widget bodies and script. Ten-post target, up to four extra pages, deduplication and native pagination fallback. [Home](HOME.md).
+- Pages navigation, extra menu links, header search, 22px reading text and color/font controls.
+- Open SIL OFL Inter/Newsreader fonts, sidebar-free pastel layout and compact report-abuse footer.
+- Active CI checks and install artifacts. Fresh import verification is pending; previews do not compile Blogger XML.
 
-- Smaller variable-font CSS, covering intermediate interface weights; Inter/Newsreader remain SIL OFL.
-- Home continuation after initial loading and an idle opportunity, with a low-priority hint.
-- Sidebar omitted from articles/pages, avoiding HTML previously sent and hidden by CSS.
-- Appended links without `m`, preserving other parameters; parsing scoped to `Blog1`.
-- Bilingual [performance guide](PERFORMANCE.md), measurements and limits. Actions is enabled for checks and install artifacts.
-
-- Hotfix for rc.2: Blogger retained raw CDATA markers in the home script, causing `Unexpected token '<'` and preventing the extra post list. The markers are now JavaScript comments; previews retain them and local checks test both serializations.
-
-- 22px post/page text, 1.75 line height, clearer H2/H3 sizes and the same open Inter/Newsreader fonts.
-- Compact mobile header and topic list, native Pages at the top and corrected mobile search.
-- Native pastel color/font controls; no visible footer, Profile or Attribution blocks.
-- Two opening cards followed by a list supplemented through native pagination: a ten-post target, up to four extra requests and no duplicates. [Home behavior and settings](HOME.md).
-
-## Assets
+## Candidate build assets
 
 | File | Use |
 | --- | --- |
-| `balaio-0.2.0-rc.4.zip` | Install package: templates, bilingual guides, page/post examples, version, changelog and MIT/OFL notices |
+| `balaio-0.2.0-rc.6.zip` | Install package: templates, bilingual guides, page/post examples, version, changelog and MIT/OFL notices |
 | `balaio.xml` | Portuguese interface |
 | `balaio.en.xml` | English interface |
 | `SHA256SUMS.txt` | SHA-256 checksums for the three assets above |
 
-The ZIP extracts into `balaio-0.2.0-rc.4/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
+The ZIP extracts into `balaio-0.2.0-rc.6/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
 
 ## Upgrade from v0.1.0
 
 1. Back up your current Blogger XML and record custom gadgets, links and Designer values. Use a separate test blog first.
-2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.4`.
+2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.6`.
 3. In **Layout → Pages**, select published About me, Contact and Privacy pages and check gadget placement. **Menu** is for extra links. Create page content through Pages; XML does not create or replace those records.
-4. Review Introduction and sidebar gadgets. Footer links are no longer rendered: move necessary links to Pages/Menu before updating. Inherited Profile/Attribution blocks are hidden.
+4. Review Introduction and menu links. The legacy sidebar is hidden through CSS. Footer links are no longer rendered: move necessary links to Pages/Menu before updating. Inherited Profile/Attribution blocks are hidden.
 5. In **Theme → Customize → Advanced**, check colors and **Post and page font**. Saved settings may retain an old size; choose 22px if needed. Reading width and pastel defaults remain documented in [CUSTOMIZATION.md](CUSTOMIZATION.md).
 6. If a separate legacy mobile theme appears, choose **Desktop** under Mobile settings. The theme itself adapts to phone width. Start with ten posts under **Settings → Posts**; Blogger may paginate earlier. See [INSTALLATION.md](INSTALLATION.md).
 7. Check that home continuation fills the list and that the older-posts link resumes correctly. Test home, full articles, static pages, search, pagination and comments before updating your main blog. Restore your backup to roll back presentation if necessary.
