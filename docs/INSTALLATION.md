@@ -4,14 +4,14 @@
 
 ## Antes de instalar
 
-Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. Este guia corresponde à v0.2.0-rc.4. A v0.1.0 estável anterior tem importação confirmada pelo proprietário; a candidata alterada ainda precisa de nova importação no Blogger.
+Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. O último pacote publicado é v0.2.0-rc.4; a branch de desenvolvimento remove a lateral e acrescenta denúncia no rodapé. A v0.1.0 estável anterior tem importação confirmada pelo proprietário; a candidata alterada ainda precisa de nova importação no Blogger.
 
 ## Passo a passo
 
 1. Baixe `theme/balaio.xml` para português ou `theme/balaio.en.xml` para inglês. Baixe o arquivo raw, sem copiar a página HTML do GitHub.
 2. No Blogger, selecione o blog correto e vá a **Tema → menu → Fazer backup**.
 3. Em **Tema → menu → Editar HTML**, substitua o conteúdo pelo XML completo, desde a declaração inicial até o fechamento de `html`, e salve.
-4. Configure título, descrição e idioma em **Configurações**. Em **Layout**, ajuste Páginas, Menu, Apresentação, marcadores e lateral. Os gadgets têm nomes ingleses no XML inglês.
+4. Configure título, descrição e idioma em **Configurações**. Em **Layout**, ajuste Páginas, Menu, Apresentação e links de assuntos no Menu. Não há lateral neste layout; gadgets antigos de busca, arquivo e destaque ficam ocultos. Os gadgets têm nomes ingleses no XML inglês.
 5. Publique posts fictícios com e sem imagem para testar os cards. A home destaca os dois posts mais recentes e mostra os seguintes em lista. A continuação automática complementa páginas curtas; veja [HOME.md](HOME.md).
 6. Abra artigos, páginas, busca, marcadores e outras páginas de posts. Confira comentários e celular. Veja [ROADMAP.md](ROADMAP.md).
 

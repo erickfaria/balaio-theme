@@ -5,6 +5,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 TRANSLATIONS = {
+    "Denunciar abuso": "Report abuse",
     "Controles do Designer do Blogger.": "Blogger Designer controls.",
     "Fundo da página": "Page background",
     "Texto principal": "Main text",
@@ -39,8 +40,6 @@ TRANSLATIONS = {
     "Paginação": "Pagination",
     "Publicações mais recentes": "Newer posts",
     "Publicações anteriores": "Older posts",
-    "Explore o blog": "Explore the blog",
-    "Explore os assuntos": "Explore topics",
     "código original": "original code",
     "Edite as variáveis abaixo para personalizar a identidade do blog.": "Edit the variables below to customize your blog identity.",
 }

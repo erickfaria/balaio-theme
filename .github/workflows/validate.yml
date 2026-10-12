@@ -1,8 +1,16 @@
 name: Validate theme
 
 on:
-  # Repository Actions are paused. Run manually only after the owner re-enables them.
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
+
+concurrency:
+  group: theme-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -32,3 +40,17 @@ jobs:
         run: python scripts/build_release.py --output /tmp/balaio-release
       - name: Check whitespace
         run: git diff --check
+      - name: Upload install packages and checksums
+        uses: actions/upload-artifact@v4
+        with:
+          name: balaio-install-${{ github.sha }}
+          path: /tmp/balaio-release/*
+          retention-days: 14
+          if-no-files-found: error
+      - name: Upload preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: balaio-preview-${{ github.sha }}
+          path: preview/
+          retention-days: 7
+          if-no-files-found: error

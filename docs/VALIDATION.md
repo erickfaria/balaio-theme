@@ -6,7 +6,7 @@
 
 Candidata preparada em 11/10/2026. O proprietário confirmou a importação da v0.1.0 e a continuação da home da rc.3. Nova inspeção da rc.3 mostrou dez posts distintos e console sem erros. A rc.4 otimizada precisa de nova importação no Blogger. Ambos os idiomas, Designer e todos os gadgets nativos ainda não foram conferidos independentemente na plataforma.
 
-**Pausa do Actions:** as execuções de CI registradas abaixo passaram antes da pausa. O Actions do repositório agora está desativado; as validações podem ser executadas localmente e o workflow salvo é apenas manual para retomada futura autorizada.
+**Retomada do Actions:** CI está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
 
 ## Checks automatizados
 
@@ -60,3 +60,7 @@ São checks locais de execução/DOM e bytes; não houve Lighthouse, Core Web Vi
 Importe a candidata num blog de teste; salve cores/fontes no Designer; confira posição de Páginas/Menu, ambos os idiomas, busca, marcadores, listas vazias, miniaturas, paginação e comentários. Confira teclado, zoom a 200% e impressão. Registre o idioma e os resultados antes de promover esta candidata a estável. Core Web Vitals, indexação e posição em buscas/IA não são comprovados por estes checks.
 
 [Checklist de plataforma](ROADMAP.md) · [Auditoria de SEO](SEO.md) · [Atualização e arquivos da versão](RELEASE.md)
+
+## Layout sem lateral — desenvolvimento
+
+24 testes locais passaram. A prévia da home foi conferida a 320, 360, 768 e 1440px: 10 cards únicos, uma busca, nenhuma lateral e link de denúncia no rodapé. Sem rolagem horizontal nesses quadros. Nova importação real no Blogger continua pendente.

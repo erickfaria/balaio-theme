@@ -6,7 +6,7 @@
 
 Release candidate prepared on October 11, 2026. The owner confirmed v0.1.0 import and rc.3 home continuation. A fresh rc.3 browser inspection displayed ten distinct posts without console errors. Optimized rc.4 needs a fresh Blogger import. Both languages, Designer and every native widget have not been independently verified on the platform.
 
-**Actions pause:** the CI runs recorded below passed before the pause. Repository Actions is now disabled; checks can run locally, and the saved workflow is manual-only for an explicitly authorized future resumption.
+**Actions resumed:** CI runs for PRs, main, tags and manual dispatch. Historical records below preserve the conditions under which they were collected.
 
 ## Automated checks
 
@@ -60,3 +60,7 @@ These are local runtime/DOM and byte checks; no Lighthouse, Core Web Vitals, thr
 Import the candidate in a test blog; save colors/fonts in Designer; verify Pages/Menu placement, both languages, search, labels, empty lists, thumbnails, pagination and comments. Check keyboard navigation, 200% zoom and printing. Record the chosen language and observed results before promoting this candidate to stable. Core Web Vitals, indexing and search/AI ranking are not established by these checks.
 
 [Platform checklist](ROADMAP.md) · [SEO audit](SEO.md) · [Upgrade and release assets](RELEASE.md)
+
+## Sidebar-free development layout
+
+24 local tests passed. Home preview checked at 320, 360, 768 and 1440px: 10 unique cards, one search, no sidebar and a report-abuse footer. No horizontal overflow in these frames. Fresh Blogger import remains pending.

@@ -4,7 +4,7 @@
 
 ## English
 
-GitHub Actions is temporarily disabled. Run the checks below locally; pushes, pull requests and release tags do not start jobs. The saved workflow is manual-only for a future owner-approved resumption.
+GitHub Actions validates pull requests, main pushes and version tags, and builds install artifacts. Run the checks below locally before pushing.
 
 Bug fixes, accessibility improvements and suggestions are welcome. Original project code is MIT; fonts and third-party resources keep their own licenses. By contributing original code, you agree to distribute it under the project's MIT license.
 
@@ -29,7 +29,7 @@ Follow [docs/en/DESIGN.md](docs/en/DESIGN.md). Document third-party resources, a
 
 ## Português
 
-O GitHub Actions está temporariamente desativado. Rode os checks abaixo localmente; pushes, pull requests e tags de versão não iniciam jobs. O workflow salvo é apenas manual para uma retomada futura autorizada pelo proprietário.
+O GitHub Actions valida PRs, pushes na main e tags, e gera os arquivos de instalação. Rode os checks abaixo localmente antes do push.
 
 
 Correções, melhorias de acessibilidade e sugestões são bem-vindas. O código do projeto está sob MIT; fontes e eventuais recursos de terceiros preservam suas próprias licenças.
@@ -64,7 +64,7 @@ Não acrescente dependências ou serviços externos sem explicar sua utilidade. 
 
 ## Review and merge / Revisão e integração
 
-Open a PR from your fork or working branch; do not push to `main`. The `validate` check must pass, discussions must be resolved and the branch must be current. `@erickfaria` is the sole required code owner and integrates approved changes by squash merge. New reviewable commits dismiss previous approvals. During the Actions pause, the owner integrates locally validated changes using the existing bypass; otherwise the configured `validate` check remains blocking. See the [maintenance policy](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md).
+Open a PR from your fork or working branch; do not push to `main`. The `validate` check must pass, discussions must be resolved and the branch must be current. `@erickfaria` is the sole required code owner and integrates approved changes by squash merge. New reviewable commits dismiss previous approvals. The configured `validate` check runs on pull requests; the owner retains the existing bypass. See the [maintenance policy](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md).
 
 Abra PR de um fork ou branch de trabalho; não envie diretamente para `main`. O check `validate` precisa passar, as conversas devem estar resolvidas e a branch atualizada. `@erickfaria` é o único CODEOWNER obrigatório e integra mudanças por squash merge. Novos commits revisáveis invalidam aprovações anteriores. Durante a pausa do Actions, o proprietário integra mudanças validadas localmente com o bypass existente; a exigência configurada de `validate` continua bloqueando outras integrações.
 

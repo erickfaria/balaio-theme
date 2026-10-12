@@ -38,14 +38,11 @@ HEADER = '''<a class="skip" href="#content">Pular para o conteúdo</a>
 <div><a class="brand" href="index.html">Balaio Científico</a><p class="description">Ciência, cultura e outras boas perguntas.</p></div>
 <form class="search" action="empty.html" role="search"><input aria-label="Buscar no blog" name="q" placeholder="Buscar no blog" type="search"><button>Buscar</button></form></div>
 <nav class="navigation" aria-label="Navegação principal"><ul><li><a href="index.html">Início</a></li><li><a href="article.html">Leitura</a></li><li><a href="about.html">Sobre mim</a></li><li><a href="contact.html">Contato</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="empty.html">Busca sem resultados</a></li></ul></nav></div></header>'''
-TOPICS = ["Artigo", "Balaio da Ciência", "boolean python", "cnes", "estatística", "exercício de python", "exercícios", "GEE", "geografia da saúde", "google earth engine", "integer python", "Jamovi", "julia", "Livros", "membros", "pandas", "pesquisas", "PSPP", "Python", "python float", "R", "resenha", "SPSS", "UmAssuntoMuitoLongoSemEspaçosParaConferirQuebras"]
-TOPIC_LINKS = ''.join(f'<li><a href="empty.html">{escape(name)} <span class="topic-count">({index + 1})</span></a></li>' for index, name in enumerate(TOPICS))
-SIDEBAR = '<aside class="sidebar" aria-label="Explore o blog"><section class="sidebar"><div class="widget"><h2>Explore os assuntos</h2><ul class="topic-list">' + TOPIC_LINKS + '</ul></div><div class="widget"><h2>Sobre este espaço</h2><p class="post-summary">Um caderno aberto para conectar perguntas, descobertas e pessoas.</p></div></section></aside>'
 
 
 def page(title, content, home=False):
     script = HOME_SCRIPT if home else ""
-    return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main>{script}</body></html>'
+    return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main><footer class="site-footer wrap"><a href="https://www.blogger.com/go/report-abuse" rel="nofollow">Denunciar abuso</a></footer>{script}</body></html>'
 
 
 def build():
@@ -63,7 +60,7 @@ def build():
         title = '<h2 class="section-title more-title">Mais leituras</h2>' if home and remaining else ''
         attrs = ' id="postlist" data-home-posts="10" data-page-limit="4" data-list-title="Mais leituras"'
         pager = '<nav class="pager" aria-label="Paginação"><span></span><span><a href="' + next_page + '" rel="next">Publicações anteriores</a></span></nav>' if next_page else ''
-        return '<div class="content-grid"><div class="main section"><div class="widget Blog" id="Blog1">' + opening + title + '<div class="posts"' + attrs + '>' + ''.join(remaining) + '</div>' + pager + '</div></div>' + SIDEBAR + '</div>'
+        return '<div class="content-grid"><div class="main section"><div class="widget Blog" id="Blog1">' + opening + title + '<div class="posts"' + attrs + '>' + ''.join(remaining) + '</div>' + pager + '</div></div>' + '</div>'
     (OUT / "index.html").write_text(page("Início", intro + listing(cards, home=True), home=True))
     # Reproduce Blogger delivering only two posts despite a higher configured maximum.
     (OUT / "short-home.html").write_text(page("Home paginada", intro + listing(cards[:2], "older-1.html", home=True), home=True))
@@ -104,7 +101,7 @@ def build():
     (OUT / "article.html").write_text(page("Leitura", article))
     for index in range(len(cards)):
         (OUT / f"post-{index + 1}.html").write_text(page(POSTS[index][1], article))
-    (OUT / "empty.html").write_text(page("Busca", '<div class="content-grid"><div><h1>Busca</h1><p class="empty">Nenhuma publicação encontrada. <a href="index.html">Voltar ao início</a>.</p></div>' + SIDEBAR + '</div>'))
+    (OUT / "empty.html").write_text(page("Busca", '<div class="content-grid"><div><h1>Busca</h1><p class="empty">Nenhuma publicação encontrada. <a href="index.html">Voltar ao início</a>.</p></div>' + '</div>'))
     for slug, title in [('about', 'Sobre'), ('contact', 'Contato'), ('privacy', 'Privacidade')]:
         body = (ROOT / f'examples/pages/{slug}.pt-BR.html').read_text(encoding='utf-8')
         rendered = page(title, '<div class="content-grid article-grid"><article class="article" itemscope itemtype="https://schema.org/WebPage"><h1 itemprop="name">' + title + '</h1><div class="post-body" itemprop="text">' + body + '</div></article></div>')
