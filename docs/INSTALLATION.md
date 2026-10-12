@@ -4,7 +4,7 @@
 
 ## Antes de instalar
 
-Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. O último pacote publicado é v0.2.0-rc.4; a branch de desenvolvimento remove a lateral e acrescenta denúncia no rodapé. A v0.1.0 estável anterior tem importação confirmada pelo proprietário; a candidata alterada ainda precisa de nova importação no Blogger.
+Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. A rc.6 em desenvolvimento recupera a continuação da rc.3 e mantém a lateral oculta; o último pacote de release publicado ainda é rc.4. A v0.1.0 estável anterior tem importação confirmada pelo proprietário; a candidata alterada ainda precisa de nova importação no Blogger.
 
 ## Passo a passo
 
@@ -52,3 +52,7 @@ Antes de publicar, siga a [configuração de SEO](SEO.md).
 O tema exibe todos os posts fornecidos pelo Blogger: os dois primeiros em cards, seguidos de uma lista sem duplicações. Na home, a continuação automática consulta até quatro páginas adicionais para tentar atingir dez posts; fora da home, a paginação continua nativa. Configure **Configurações → Postagens → Máximo de postagens exibidas na página principal** como **10** para começar. É um máximo, não uma garantia: o Blogger pode paginar antes em posts grandes. Se a continuação não carregar, confira a rede e o link de posts anteriores em [HOME.md](HOME.md). Adicione uma **quebra de expansão** nativa após a introdução dos posts longos e confira novamente. Não mude datas de publicação nem duplique posts. [Configurações do Blogger](https://support.google.com/blogger/answer/9691230?hl=pt-BR) · [Editor de posts](https://support.google.com/blogger/answer/154172?hl=pt-BR).
 
 A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no celular. Publique Sobre mim, Contato e Privacidade em **Páginas** e selecione-as em **Layout → Páginas**. O gadget separado **Menu** aceita links extras. As configurações de um `PageList1` existente podem ser preservadas na importação; confira sua posição no Layout. O XML não altera conteúdo de páginas nem configurações do blog.
+
+## Falha ao restaurar
+
+A validação local não executa o compilador nem a migração de gadgets do Blogger. Esta candidata recupera os gadgets completos da rc.3; a lateral legada permanece oculta por CSS. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.6` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.

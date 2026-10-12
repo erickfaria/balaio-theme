@@ -22,6 +22,14 @@ class RenderedSEOTests(unittest.TestCase):
         self.assertEqual(report['h1'], ['A useful post'])
         self.assertEqual(report['title'], ['A & B'])
 
+    def test_registered_blog_without_rendered_element_is_error(self):
+        registration = "<script>_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', document.getElementById('Blog1'), {}, 'displayModeFull'));</script>"
+        report = module.audit(HTML.replace('</body>', "<div id='main' class='no-items section'></div>" + registration + '</body>'))
+        self.assertEqual(report['missing_core_widgets'], ['Blog1'])
+        self.assertTrue(any('Registered core' in error for error in report['errors']))
+        rendered = HTML.replace('</body>', "<div id='Blog1'>Content</div>" + registration + '</body>')
+        self.assertEqual(module.audit(rendered)['missing_core_widgets'], [])
+
     def test_duplicate_canonical_is_an_error(self):
         self.assertTrue(module.audit(HTML.replace('</head>', '<link rel="canonical" href="https://example.com/other"></head>'))['errors'])
 

@@ -1,16 +1,23 @@
-# Validação — v0.2.0-rc.4
+# Validação — v0.2.0-rc.6
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
 ## Status
 
-Candidata preparada em 11/10/2026. O proprietário confirmou a importação da v0.1.0 e a continuação da home da rc.3. Nova inspeção da rc.3 mostrou dez posts distintos e console sem erros. A rc.4 otimizada precisa de nova importação no Blogger. Ambos os idiomas, Designer e todos os gadgets nativos ainda não foram conferidos independentemente na plataforma.
+A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. A importação desta recuperação ainda precisa de conferência no Blogger.
 
-**Retomada do Actions:** CI está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
+Actions está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
 
 ## Checks automatizados
 
-Vinte e quatro testes locais passam: estrutura XML/gadgets, equivalência de idiomas, metadados nativos/auditoria HTML, resolução/contraste do Designer e navegação/busca móvel. Quatro checks Node verificam sintaxe com CDATA preservado/removido, falha da rc.2 e agendamento adiado (antes de load, execução tardia e sem API ociosa) nos dois idiomas. Sem Node, os quatro são pulados localmente. XMLs, geração inglesa, links Markdown, whitespace e geração da prévia passam. O workflow manual pode repetir checks/pacote somente após retomada autorizada; não houve CI para rc.4. Links externos e âncoras de títulos não são conferidos automaticamente.
+26 testes locais passaram: estrutura XML/gadgets, idiomas, metadados/auditoria HTML, Designer, contraste, navegação/busca móvel, sintaxe nas duas serializações CDATA e início da continuação numa home com dois posts. O limite zero não faz requisições; o limite padrão consulta o link nativo com a quantidade restante e timeout de oito segundos. Sem Node, os quatro checks JavaScript são pulados localmente; o CI inclui Node. Links Markdown, geração inglesa, XMLs, whitespace e prévia passam.
+
+## Recuperação verificada localmente — rc.6
+
+- Todos os corpos dos gadgets foram recuperados da rc.3. O script fica novamente no include `homeContinuation` de Blog1; não há alterações em conteúdo ou datas dos posts.
+- A prévia começa com somente dois posts. Em 320, 360, 768 e 1440px, o navegador exibiu dois destaques e oito entradas distintas abaixo. A paginação avançou para `older-5.html`, após os trechos já mostrados.
+- Uma busca por quadro, nenhuma lateral visível e nenhuma rolagem horizontal do documento: larguras cliente/rolagem 305, 345, 753 e 1425px. Console sem erros ou avisos.
+- Estes são checks locais do script e CSS. Não executam o compilador ou a restauração dos gadgets do Blogger. A rc.6 não foi promovida a versão estável.
 
 ## Evidências anteriores da prévia responsiva — v0.2.0-rc.1
 
@@ -64,3 +71,18 @@ Importe a candidata num blog de teste; salve cores/fontes no Designer; confira p
 ## Layout sem lateral — desenvolvimento
 
 24 testes locais passaram. A prévia da home foi conferida a 320, 360, 768 e 1440px: 10 cards únicos, uma busca, nenhuma lateral e link de denúncia no rodapé. Sem rolagem horizontal nesses quadros. Nova importação real no Blogger continua pendente.
+
+## Falha real após restauração — 12 de outubro de 2026
+
+O proprietário confirmou restauração das duas candidatas do PR #14, mas a página continuou vazia.
+Inspeção pública confirmou seções `header`, `navigation`, `introduction`, `main` e `sidebar`
+com `no-items`, sem elementos Header1/Blog1, embora os gadgets fossem registrados pelo JavaScript.
+O feed público continua com 144 posts. A falha ocorre na renderização de gadgets, não na remoção de posts.
+A comparação local não confirma o conteúdo efetivamente salvo pelo Blogger: é necessário analisar
+o backup XML exportado após restaurar. A causa permanece aberta e não houve merge dessas candidatas.
+
+`audit_seo.py` agora trata como erro um Header/Blog registrado sem elemento correspondente no HTML.
+Os checks de XML, traduções e prévia não compilam nem executam a migração do Blogger;
+CI aprovado não implica que a importação ou renderização real esteja aprovada.
+
+O backup enviado pelo proprietário confirmou que todos os includables próprios foram preservados; os atributos `visible` foram descartados pelo Blogger. As tentativas de preservar IDs e definir visibilidade não corrigiram a página. A tentativa rc.5 separou o JavaScript do gadget Blog1. O proprietário depois informou que a página apareceu, mas continuou só com dois posts. A consulta pública anônima ainda respondeu com seções vazias na rc.5, portanto o resultado publicado permanece sem reconciliação. A rc.6 recupera a base confirmada rc.3 e precisa de conferência após importar.

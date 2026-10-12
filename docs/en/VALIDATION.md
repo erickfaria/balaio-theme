@@ -1,16 +1,23 @@
-# Validation — v0.2.0-rc.4
+# Validation — v0.2.0-rc.6
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
 ## Status
 
-Release candidate prepared on October 11, 2026. The owner confirmed v0.1.0 import and rc.3 home continuation. A fresh rc.3 browser inspection displayed ten distinct posts without console errors. Optimized rc.4 needs a fresh Blogger import. Both languages, Designer and every native widget have not been independently verified on the platform.
+rc.6 recovers the widget definitions and home continuation script from rc.3, confirmed by the owner and observed with ten posts live on October 11, 2026. It retains the sidebar-free layout, compact footer, open variable fonts, mobile navigation and 22px reading text. This recovery still needs fresh Blogger import verification.
 
-**Actions resumed:** CI runs for PRs, main, tags and manual dispatch. Historical records below preserve the conditions under which they were collected.
+Actions runs for PRs, main, tags and manual dispatch. Historical records below retain the original verification conditions.
 
 ## Automated checks
 
-Twenty-four local tests pass, covering XML/widget structure, locale equivalence, native SEO metadata and HTML auditing, Designer resolution/contrast and mobile navigation/search. Four Node checks cover preserved/stripped CDATA syntax, the rc.2 failure and deferred scheduling (before load, late execution, and no idle API) in both locales. Without Node those four are skipped locally. Both XMLs parse; English generation, Markdown links, whitespace and preview generation pass. The manual workflow can repeat checks/package generation only after an authorized resumption; no CI was run for rc.4. External links and heading anchors are not checked automatically.
+26 local tests pass: XML/widget structure, locales, metadata/rendered HTML audit, Designer, contrast, mobile navigation/search, both CDATA serializations and continuation startup from a two-post home. A zero request budget makes no request; the default follows native pagination with the remaining count and an eight-second timeout. Without Node the four JavaScript checks are skipped locally; CI includes Node. Markdown links, English generation, XML, whitespace and preview generation pass.
+
+## Local recovery verification — rc.6
+
+- Every widget body was recovered from rc.3. The script is again inside Blog1’s `homeContinuation` include; post content and dates are unchanged.
+- The preview starts with only two posts. At 320, 360, 768 and 1440px the browser displayed two highlights and eight distinct entries below. Pagination advanced to `older-5.html`, beyond the displayed pages.
+- One search per frame, no visible sidebar, no horizontal document overflow: matching client/scroll widths of 305, 345, 753 and 1425px. No console errors or warnings.
+- These are local script/CSS checks. They do not run Blogger’s compiler or widget restoration. rc.6 has not been promoted to stable.
 
 ## Earlier responsive preview evidence — v0.2.0-rc.1
 
@@ -64,3 +71,14 @@ Import the candidate in a test blog; save colors/fonts in Designer; verify Pages
 ## Sidebar-free development layout
 
 24 local tests passed. Home preview checked at 320, 360, 768 and 1440px: 10 unique cards, one search, no sidebar and a report-abuse footer. No horizontal overflow in these frames. Fresh Blogger import remains pending.
+
+## Actual restore failure — 12 October 2026
+
+The owner restored both PR #14 candidates, but public sections remain empty with `no-items`.
+Header1/Blog1 elements are absent even though JavaScript registers the gadgets. The public feed
+still lists 144 posts. Root cause remains open; the XML saved/exported by Blogger is needed.
+Neither candidate has been merged. The rendered HTML audit now rejects registered core widgets
+whose elements are missing. XML checks and handmade previews do not compile or migrate Blogger
+widgets; successful CI is not proof of successful live rendering.
+
+The owner-provided exported XML preserves all custom includables and drops the visible attributes. ID preservation and explicit visibility did not fix rendering. The rc.5 attempt moved JavaScript out of Blog1. The owner later reported visible content but only two posts; the anonymous public request still returned empty rc.5 sections, so the published outcome remains unresolved. rc.6 restores confirmed rc.3 widget behavior and requires post-import verification.

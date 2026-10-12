@@ -4,7 +4,7 @@
 
 ## Before installation
 
-Use a test blog with several posts and a static page. Keep a backup of your current theme. This guide covers v0.2.0-rc.4. The previous stable v0.1.0 has owner-confirmed import; the changed candidate still needs a fresh Blogger import.
+Use a test blog with several posts and a static page. Keep a backup of your current theme. The development rc.6 restores rc.3 continuation with the legacy sidebar hidden; the last published release package is still rc.4. The previous stable v0.1.0 has owner-confirmed import; the changed candidate still needs a fresh Blogger import.
 
 ## Steps
 
@@ -52,3 +52,7 @@ Before publishing, complete the [SEO configuration checklist](SEO.md).
 The theme displays all posts supplied by Blogger: the first two in opening cards, followed by a list without duplicates. Home continuation follows up to four additional pages toward ten posts; other listing views keep native pagination. Set **Settings → Posts → Max posts shown on main page** to **10** as a starting point. This is a maximum, not a guarantee: Blogger may paginate earlier for large posts. If continuation does not load, check the network and older-posts link in [HOME.md](HOME.md). Add a native **jump break** after the introduction of long posts, then recheck. Do not change publication dates or duplicate posts. [Blogger settings](https://support.google.com/blogger/answer/9691230?hl=en) · [Post editor](https://support.google.com/blogger/answer/154172?hl=en).
 
 The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publish About me, Contact and Privacy through **Pages**, then select them under **Layout → Pages**. The separate **Menu** gadget accepts extra links. Existing `PageList1` settings may be retained on import; verify its position in Layout. No page content or blog settings are changed by the XML.
+
+## Restore failure
+
+Local checks do not run Blogger’s compiler or widget migration. This candidate recovers the complete rc.3 widget bodies; the legacy sidebar remains hidden through CSS. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.6` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.

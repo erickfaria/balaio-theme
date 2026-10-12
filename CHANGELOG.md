@@ -1,11 +1,13 @@
 # Changelog / Histórico
 
-## Unreleased / Não lançado
+## Unreleased / Não lançado — 0.2.0-rc.6
 
-- Remove the sidebar and use the full content width; keep only the header search. Hide legacy search/archive/featured/report gadgets retained by Blogger after import. Move the report-abuse link to a compact footer.
-- Restore PR/main/tag/manual CI checks and build downloadable XML, install ZIP, checksums and preview artifacts. Read-only workflow permissions and existing owner protections remain.
-- Remover a barra lateral e usar a largura do conteúdo; manter a busca no cabeçalho. Ocultar gadgets legados de busca/arquivo/destaque/denúncia que o Blogger preservar após importar. Mover a denúncia de abuso para um rodapé compacto.
-- Retomar checks de PR/main/tag/manual e gerar XML, ZIP, checksums e preview para download, com token de leitura e proteções existentes.
+- Restore all widget bodies and the home continuation include from owner-confirmed rc.3. Keep two highlights, the older-post list, mobile navigation, 22px reading text and native pagination.
+- Restaurar todos os gadgets e o include de continuação da rc.3 confirmada pelo proprietário. Preservar dois destaques, lista de posts antigos, menu móvel, leitura de 22px e paginação nativa.
+- Keep the full-width layout, CSS-hidden legacy sidebar, one header search, compact report-abuse footer and open variable fonts. Restore migration keeps complete native widget definitions.
+- Manter layout de largura completa, lateral legada oculta por CSS, uma busca no topo, denúncia no rodapé e fontes variáveis abertas. A migração preserva os gadgets completos.
+- Enable PR/main/tag/manual CI and downloadable theme artifacts. Add published-HTML checks for registered but missing Header/Blog widgets; local preview success does not establish Blogger import compatibility.
+- Ativar CI em PR/main/tag/manual com artefatos do tema. Detectar no HTML publicado gadgets Header/Blog registrados mas ausentes; sucesso da prévia não comprova compatibilidade da importação no Blogger.
 
 ## v0.2.0-rc.4 — 2026-10-11
 

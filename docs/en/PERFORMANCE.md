@@ -2,45 +2,36 @@
 
 [English](PERFORMANCE.md) · [Português](../PERFORMANCE.md)
 
-v0.2.0-rc.4 keeps the minimal pastel layout, 22px reading text and open Inter/Newsreader fonts. No analytics, third-party JavaScript library, carousel or new runtime dependency was added. Install the complete XML; this guide does not change your Blogger content or settings.
+Candidate rc.6 restores rc.3 widgets and continuation, retaining the pastel layout, 22px reading text and open Inter/Newsreader fonts. There is no external JavaScript library, analytics or carousel. Fresh import verification is pending. [Status and evidence](VALIDATION.md).
 
-## What the theme optimizes
+## How the theme limits work
 
-- Requests Inter weights 400–750 and Newsreader weights 400–700 as variable ranges, including the existing 650/750 interface weights. One Google Fonts stylesheet, two preconnections, `display=swap` and local fallbacks remain. [Google Fonts CSS2 ranges](https://developers.google.com/fonts/docs/css2).
-- Omits the sidebar section from article/static-page HTML instead of only hiding it. Home, search, label and date listings retain the sidebar. Profile/Attribution CSS remains a migration safeguard.
-- Starts home continuation after `load`, then an idle opportunity with a one-second timeout, or a yielded timer cycle if `requestIdleCallback` is absent. The first two posts and native navigation remain usable while extra posts arrive. The timeout starts after `load`; a slow initial resource can delay continuation. [Idle scheduling](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
-- Sends a low-priority fetch hint; browsers decide how to apply it. Keeps sequential requests, a ten-post target, four-page budget, eight-second request timeouts, duplicate filtering and native pagination on failure. No prefetching of the entire archive. [Request options](https://developer.mozilla.org/en-US/docs/Web/API/RequestInit#priority).
-- Reads cards and pagination only inside `Blog1`. Rebuilds safe text/link/thumbnail nodes; fetched scripts, styles and event handlers remain inert. Appended post/label links lose only the mobile `m` parameter; other query parameters and fragments survive.
-- Preserves Blogger's native title/canonical/metadata and visible-content microdata. It adds no crawler-specific scripts or duplicate metadata.
+- One Google Fonts stylesheet, two preconnections, `display=swap` and local fallbacks. Inter 400–750 and Newsreader 400–700 use variable ranges. [Google Fonts CSS2](https://developers.google.com/fonts/docs/css2).
+- Two HTML highlights and a continuation list targeting ten posts. The restored script starts inside Blog1 after the post markup, fetching at most four sequential pages. Requests have eight-second timeouts; it does not download the entire archive. [Home settings](HOME.md).
+- Inert template parsing; entries are rebuilt with text, links and thumbnails. Fetched scripts, event handlers and styles are never inserted into the active document. Native pagination remains on failure.
+- Decorative thumbnails have dimensions, lazy loading and asynchronous decoding. Entries without thumbnails remain readable.
+- Native title, canonical and metadata, with visible-content microdata. No special crawler scripts or duplicated metadata.
+- The legacy sidebar is hidden through CSS to retain the importable structure. This does not remove its HTML: remove unused optional gadgets in Layout, such as duplicate search, date archives or Featured Post. Header, Pages, Menu and Posts remain core gadgets.
 
-## Measured evidence and limits
+The experimental rc.4 script optimizations — load/idle scheduling, low priority, Blog1 scope and mobile-parameter cleanup — are not part of the recovered script. This candidate prioritizes confirmed behavior; future changes must preserve the post list in actual Blogger import tests.
 
-Measurements taken on October 11, 2026 from the public Portuguese rc.3 blog and official font responses, before importing rc.4:
+## Earlier measurements
 
-| Observation | Baseline | Optimized or avoidable |
-| --- | --- | --- |
-| Google Fonts decoded CSS, Chrome 130 user agent | 13,667 bytes / 37 font-face blocks | 3,772 bytes / 10 blocks: about 72% less CSS |
-| Same stylesheet, gzip response | 847 bytes | 689 bytes in this sample |
-| Hidden sidebar in the inspected article HTML | 10,086 bytes / 192 opening tags | Candidate condition omits this block; final compiled output needs a fresh import |
-| Distinct home posts in local replay of public HTML | 10 in working rc.3 | 10 with candidate script: two highlights and eight list entries |
+On October 11, 2026 official font responses measured 13,667 → 3,772 decoded CSS bytes using variable ranges. Both referenced the same ten font-file URLs: less stylesheet CSS, without proof of fewer font downloads. Responses vary with browser and cache.
 
-The two font responses referenced the **same ten unique font file URLs**. This is a stylesheet reduction, not evidence of fewer downloaded font files. Responses vary with user agent, caching and the font provider. Sidebar size depends on saved gadgets; Blogger may retain gadgets from an earlier theme.
-
-The inspected initial home HTML was 37,049 bytes decoded (9,744-byte gzip response); the article was 44,477 bytes (11,048-byte gzip response). The native Blogger widget CSS and JavaScript responses were 36,892 and 152,070 bytes decoded. They support platform gadgets and remain enabled. Additional native pages include their own markup; inert parsing does not insert their styles/scripts into the active document, but their HTML still costs bandwidth.
-
-These are byte/DOM/runtime observations, **not** Lighthouse scores, Core Web Vitals or proof of ranking improvements. No mobile throttling or before/after production loading-time comparison was performed. The optimized XML has not yet been imported; English output and every native gadget have not been independently verified in Blogger. [Validation scope](VALIDATION.md).
+The inspected rc.3 home HTML measured 37,049 decoded bytes (9,744 gzip). One article measured 44,477 bytes (11,048 gzip), including 10,086 bytes of hidden sidebar. Native Blogger widget CSS/JavaScript measured 36,892/152,070 decoded bytes and remains enabled. These are not Lighthouse scores, Core Web Vitals or proof of better rankings. No production speed comparison was performed with this recovery.
 
 ## Keep your installation fast
 
-1. Start with ten posts in Blogger Settings and keep the default continuation budget. Raising the target can increase traffic. Set `data-page-limit='0'` to disable automatic continuation while retaining native older-post links. [Home settings](HOME.md).
-2. Under Layout, review optional sidebar gadgets. A second search, repeated Featured Post or a large archive adds markup to listings. Remove only gadgets you do not use. Reimporting a template does not guarantee removal of saved gadgets.
-3. Resize/compress post images before upload; give them dimensions and descriptive alt text. Keep above-the-fold article images eager; use native lazy loading for later images and embeds. Decorative listing thumbnails already have dimensions and lazy loading/asynchronous decoding. [Browser image loading](https://web.dev/articles/browser-level-image-lazy-loading).
-4. Avoid pasted fixed widths, oversized inline styles and scripts in post bodies. Use the [post sample](POSTS.md) and Blogger jump breaks after long introductions.
-5. For installed-font fallbacks only, remove the three Google Fonts links from the XML head. This stops those external requests; available fonts vary by reader device. When self-hosting fonts, retain their OFL notices and update CSS/URLs yourself. [Font licensing](PROVENANCE.md).
-6. Enable and fill Blogger search descriptions, including per-post descriptions. The audited home and article lacked `meta name="description"`; the theme intentionally relies on the native head rather than inventing summaries. [SEO setup](SEO.md).
+1. Start with ten posts in Settings and retain the default continuation budget. Set `data-page-limit='0'` to disable extra requests. Higher targets increase traffic.
+2. Review inherited optional gadgets in Layout. Blogger can retain them when installing a theme.
+3. Resize/compress images before upload; include dimensions and descriptive alt text. Keep initial article images eager; use lazy loading for later images. [Browser image loading](https://web.dev/articles/browser-level-image-lazy-loading).
+4. Avoid fixed widths and excessive post styles/scripts. Use the [post sample](POSTS.md) and a native jump break after long introductions.
+5. For device fonts, remove the three Google Fonts links from the XML head. Preserve OFL notices when self-hosting fonts. [Licenses](PROVENANCE.md).
+6. Fill blog and post search descriptions. The theme uses native metadata rather than inventing summaries. [SEO](SEO.md).
 
-## Validate on your published blog
+## Verify on the public blog
 
-After importing, test the first load on a phone and a slow connection, then open an article, a static page, search and older posts. Check ten distinct entries, correct next-page destination, native navigation without JavaScript, no console errors and no horizontal page overflow. Save actual results from PageSpeed Insights/Search Console before claiming a Core Web Vitals improvement; initial resources, content, ads, gadgets and Blogger itself affect the result.
+After import, check two highlights plus the list below, correct pagination, an article, a static page, search, mobile layout, no horizontal overflow and no console errors. Test a slow connection and disabled JavaScript. Use actual PageSpeed Insights/Search Console observations for speed and indexing; content, images, ads, gadgets and the platform affect results.
 
-Developers should run `make check` and `make preview` locally. Four Node checks include both CDATA serializations and deferred scheduling with/without idle support. `responsive-reading.html` checks article/privacy/stress layouts; `responsive-home.html` exercises 320, 360, 768 and 1440px frames; `short-mobile-links.html`, `short-mixed.html` and `short-missing-blog.html` exercise the new link/scope cases. These fixtures do not compile Blogger XML. GitHub Actions is enabled and runs the same checks and builds on pull requests.
+`make check` validates XML, locales, documentation and code. `make preview` generates visual/continuation cases, including a home starting with only two posts. The preview does not compile Blogger XML. Actions runs checks and creates artifacts identified by commit.

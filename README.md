@@ -1,12 +1,14 @@
 # Balaio — Free minimal Blogger theme
 
+**Recovery candidate rc.6:** restores the widget bodies and home continuation from owner-confirmed rc.3, with the sidebar-free layout. Live import verification is pending.
+
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
 A **free Blogger XML template**: minimal, responsive, open source and easy to customize. Original editorial design with pastel green, sand and blue, readable typography and a technical SEO foundation for personal blogs and science communication.
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Current version:** `v0.2.0-rc.4` (release candidate). Prioritizes initial content, reduces font CSS and omits hidden article/page sidebars. Twenty-four local checks passed; rc.3 home continuation was confirmed by the owner and observed live. The optimized candidate needs a fresh Blogger import. [Download candidate](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.4) · [Performance evidence](docs/en/PERFORMANCE.md) · [Upgrade guide](docs/en/RELEASE.md) · [Validation scope](docs/en/VALIDATION.md).
+> **Development version:** `v0.2.0-rc.6`. Two highlights plus older posts below; mobile navigation and 22px reading text retained. [Home behavior](docs/en/HOME.md) · [Validation status](docs/en/VALIDATION.md). The last published release is [rc.4](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.4); it is not this recovery candidate.
 >
 > **Stable fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with owner-confirmed Blogger import. Its templates differ from the current candidate.
 
@@ -46,11 +48,11 @@ No build tools are needed to install the theme.
 - **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Post/page text defaults to 22px with a 1.75 line height. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
 - No third-party JavaScript libraries or Python package dependencies. The home continuation is original MIT code; native pagination works without JavaScript.
 
-Native color/font controls are included in v0.2.0-rc.4; live Designer verification remains pending. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
+Native color/font controls are included in the candidate; live Designer verification remains pending. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
 
 ## Develop locally
 
-Requires Python 3.10+; `make` is optional. Node.js 22+ runs the four JavaScript syntax/lifecycle regressions; without Node, those four checks are skipped locally. The workflow includes them when Actions is enabled. Installation needs neither Python nor Node.
+Requires Python 3.10+; `make` is optional. Node.js 22+ runs JavaScript syntax and continuation startup checks; they are skipped locally without Node. CI includes Node. Installation needs neither Python nor Node.
 
 ```sh
 python3 scripts/validate_docs.py
@@ -88,7 +90,7 @@ The theme preserves Blogger metadata and adds visible-content article microdata.
 
 **Is this Blogger template really free?** Yes. MIT permits personal and commercial use, modification and redistribution with license notices preserved. No purchase or visible attribution is required.
 
-**Can I change colors and layout?** Yes. Start with Layout gadgets and the native color/font controls in v0.2.0-rc.4. Reading width remains an advanced CSS option. [Customization guide](docs/en/CUSTOMIZATION.md).
+**Can I change colors and layout?** Yes. Start with Layout gadgets and the native color/font controls. Reading width remains an advanced CSS option. [Customization guide](docs/en/CUSTOMIZATION.md).
 
 **Is it built for SEO?** It provides native Blogger metadata, semantic headings, ordinary crawlable links and article microdata. The [search guide](docs/en/SEO.md) covers Google, Bing, DuckDuckGo, SearXNG and AI discovery. Published indexing and compatibility still need verification.
 
