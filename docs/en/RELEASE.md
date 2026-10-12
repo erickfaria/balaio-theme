@@ -2,14 +2,14 @@
 
 [English](RELEASE.md) · [Português](../RELEASE.md)
 
-rc.6 is a **development recovery candidate**, without a published release. Actions artifacts identify their exact commit; the last published package is [rc.4](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.4). These are different files. [Stable v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0) has confirmed import but lacks home continuation. rc.3 is the last confirmed ten-post baseline. [Validation](VALIDATION.md).
+rc.6 is the **recommended main-branch version**, with owner-confirmed Portuguese import and ten posts checked on the public blog. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). The rc.6 version number is retained; no new stable release tag is published. Actions artifacts identify their exact commit. Older packages, such as rc.4 and v0.1.0, contain different versions. [Evidence and scope](VALIDATION.md).
 
 ## What recovery preserves
 
 - Two highlights followed by older posts, with rc.3 widget bodies and script. Ten-post target, up to four extra pages, deduplication and native pagination fallback. [Home](HOME.md).
 - Pages navigation, extra menu links, header search, 22px reading text and color/font controls.
 - Open SIL OFL Inter/Newsreader fonts, sidebar-free pastel layout and compact report-abuse footer.
-- Active CI checks and install artifacts. Fresh import verification is pending; previews do not compile Blogger XML.
+- Active CI checks and install artifacts. Portuguese import and continuation are confirmed; previews do not compile Blogger XML.
 
 ## Candidate build assets
 

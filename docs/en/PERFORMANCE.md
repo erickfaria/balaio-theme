@@ -2,7 +2,7 @@
 
 [English](PERFORMANCE.md) · [Português](../PERFORMANCE.md)
 
-Candidate rc.6 restores rc.3 widgets and continuation, retaining the pastel layout, 22px reading text and open Inter/Newsreader fonts. There is no external JavaScript library, analytics or carousel. Fresh import verification is pending. [Status and evidence](VALIDATION.md).
+Recommended rc.6 restores rc.3 widgets and continuation, retaining the pastel layout, 22px reading text and open Inter/Newsreader fonts. There is no external JavaScript library, analytics or carousel. Portuguese import and home continuation were confirmed by the owner and checked on the public blog. [Status and evidence](VALIDATION.md).
 
 ## How the theme limits work
 

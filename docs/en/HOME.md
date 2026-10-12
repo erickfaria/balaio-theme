@@ -12,7 +12,7 @@ v0.2.0-rc.2 was observed published on the same blog with `max-results=50`, but c
 
 The configured count is a maximum. Start with **10** under **Settings → Posts**. A native **jump break** after the introduction of long posts can also help native pagination while preserving the full article at its permalink. [Settings help](https://support.google.com/blogger/answer/9691230?hl=en) · [Post editor](https://support.google.com/blogger/answer/154172?hl=en).
 
-The owner confirmed rc.3, and it was observed working live on October 11, 2026 with ten distinct posts and no console errors. rc.6 restores that version’s widget structure and script. Its fresh import still needs verification. [Performance and measurements](PERFORMANCE.md).
+The owner confirmed rc.3, and it was observed working live on October 11, 2026 with ten distinct posts and no console errors. rc.6 restores that version’s widget structure and script. The owner confirmed rc.6 import on October 12, 2026; public inspection found two highlights plus eight older posts and no console errors. [Performance and measurements](PERFORMANCE.md).
 
 ## How continuation works
 

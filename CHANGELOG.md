@@ -1,6 +1,9 @@
 # Changelog / Histórico
 
-## Unreleased / Não lançado — 0.2.0-rc.6
+## 0.2.0-rc.6 — main recomendada / recommended main — 2026-10-12
+
+- Owner confirmed successful Portuguese import and requested sidebar removal. Public browser inspection verified two highlights plus eight older posts, ten distinct permalinks and no console errors. rc.6 is the recommended main-branch template; its version number is retained.
+- Proprietário confirmou a importação portuguesa e a remoção da lateral. A inspeção pública verificou dois destaques e oito posts antigos, dez permalinks distintos e console sem erros. A rc.6 passa a ser o template recomendado da main; a numeração foi preservada.
 
 - Restore all widget bodies and the home continuation include from owner-confirmed rc.3. Keep two highlights, the older-post list, mobile navigation, 22px reading text and native pagination.
 - Restaurar todos os gadgets e o include de continuação da rc.3 confirmada pelo proprietário. Preservar dois destaques, lista de posts antigos, menu móvel, leitura de 22px e paginação nativa.

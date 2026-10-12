@@ -4,13 +4,14 @@
 
 ## Base entregue
 
-A v0.2.0-rc.4 adiciona espaçamento móvel, navegação de Páginas, controles nativos do Designer e leitura de 22px à base minimalista própria. A v0.1.0 anterior tem importação confirmada pelo proprietário. A candidata mantém dois cards e complementa a lista pela paginação nativa quando o Blogger entrega poucos posts; as novas ligações nativas ainda precisam de conferência no Blogger.
+A v0.2.0-rc.6 adiciona espaçamento móvel, navegação de Páginas, controles nativos do Designer e leitura de 22px à base minimalista própria. A v0.1.0 anterior tem importação confirmada pelo proprietário. A candidata mantém dois cards e complementa a lista pela paginação nativa quando o Blogger entrega poucos posts; a importação portuguesa da rc.6 e sua home com dez posts foram confirmadas em 12/10/2026.
 
 ## Próxima etapa: validar no Blogger
 
 - [x] Importação da v0.1.0 anterior confirmada pelo proprietário.
 - [x] Continuação da rc.3 confirmada pelo proprietário e observada em português; dez posts distintos.
-- [ ] Importar v0.2.0-rc.4 e salvar cores/fontes no Designer.
+- [x] Importação portuguesa da rc.6 e remoção da lateral confirmadas pelo proprietário; dez posts verificados no blog público.
+- [ ] Salvar cores/fontes no Designer e conferir os valores persistidos.
 - [ ] Conferir posição de Páginas/Menu e valores salvos após a migração.
 - [ ] Registrar o idioma importado e testar explicitamente as duas variantes.
 - [ ] Conferir home com zero, um e vários posts; títulos ausentes e posts sem imagem.

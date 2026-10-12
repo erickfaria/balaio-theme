@@ -1,6 +1,6 @@
 # Balaio — Free minimal Blogger theme
 
-**Recovery candidate rc.6:** restores the widget bodies and home continuation from owner-confirmed rc.3, with the sidebar-free layout. Live import verification is pending.
+**Recommended version: rc.6 on main.** Blogger import confirmed by the owner; public verification found two highlights, eight older posts, a hidden sidebar and no console errors.
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,9 +8,9 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Development version:** `v0.2.0-rc.6`. Two highlights plus older posts below; mobile navigation and 22px reading text retained. [Home behavior](docs/en/HOME.md) · [Validation status](docs/en/VALIDATION.md). The last published release is [rc.4](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.4); it is not this recovery candidate.
+> **Default template:** `v0.2.0-rc.6`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
 >
-> **Stable fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with owner-confirmed Blogger import. Its templates differ from the current candidate.
+> **Earlier fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with confirmed import but without the current home continuation and layout.
 
 **GitHub Actions is enabled.** Pull requests, pushes to main and version tags validate the theme and build downloadable XML, install ZIP, checksums and preview artifacts. Local checks remain available. [Maintenance policy](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md).
 
@@ -27,12 +27,12 @@ Set your Blogger blog language to match your chosen interface. Post content is y
 
 No build tools are needed to install the theme.
 
-1. Download and extract the install package from the release above, or choose a standalone XML asset. The repository source ZIP is also available from **Code → Download ZIP**.
+1. Download the main-branch XML for your chosen language using the links above. No ZIP extraction or build is required.
 2. Choose a **test blog** in Blogger. Back up the current theme from **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
 4. Configure your title, description and language in **Settings**.
 5. In **Layout → Pages**, select published About me, Contact and Privacy pages for the top navigation. Use **Menu** for extra links, such as labels.
-6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use Menu links for topics; this development layout has no sidebar.
+6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use Menu links for topics; this layout has no sidebar.
 7. Start with 10 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
 [Performance guide](docs/en/PERFORMANCE.md) · [Home-page posts and pagination](docs/en/HOME.md) · [Detailed setup and troubleshooting](docs/en/INSTALLATION.md) · [Customization](docs/en/CUSTOMIZATION.md)

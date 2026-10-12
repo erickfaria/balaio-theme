@@ -4,7 +4,7 @@
 
 ## Status
 
-A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. A importação desta recuperação ainda precisa de conferência no Blogger.
+A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. O proprietário confirmou a importação da rc.6 e a remoção da lateral em 12/10/2026. Ela é a versão recomendada da main.
 
 Actions está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
 
@@ -12,12 +12,18 @@ Actions está ativo para PRs, main, tags e execução manual. Os registros hist�
 
 26 testes locais passaram: estrutura XML/gadgets, idiomas, metadados/auditoria HTML, Designer, contraste, navegação/busca móvel, sintaxe nas duas serializações CDATA e início da continuação numa home com dois posts. O limite zero não faz requisições; o limite padrão consulta o link nativo com a quantidade restante e timeout de oito segundos. Sem Node, os quatro checks JavaScript são pulados localmente; o CI inclui Node. Links Markdown, geração inglesa, XMLs, whitespace e prévia passam.
 
+## Conferência pública — rc.6, 12/10/2026
+
+O proprietário confirmou que a restauração funcionou e que a lateral saiu como desejado. Uma consulta anônima confirmou `balaio-version=0.2.0-rc.6`, Header1/Blog1 renderizados e nenhuma seção `no-items`. O navegador no endereço público exibiu **dois destaques e oito entradas antigas**, dez permalinks distintos, lateral com `display:none` e console sem erros/avisos. A paginação avançou para um trecho de novembro de 2024 depois das entradas mostradas.
+
+Esta evidência confirma a instalação em português e a continuação da home no blog observado. Designer, importação inglesa, todas as configurações de gadgets e métricas de velocidade continuam com seu próprio escopo de validação pendente; não são presumidos a partir desta confirmação.
+
 ## Recuperação verificada localmente — rc.6
 
 - Todos os corpos dos gadgets foram recuperados da rc.3. O script fica novamente no include `homeContinuation` de Blog1; não há alterações em conteúdo ou datas dos posts.
 - A prévia começa com somente dois posts. Em 320, 360, 768 e 1440px, o navegador exibiu dois destaques e oito entradas distintas abaixo. A paginação avançou para `older-5.html`, após os trechos já mostrados.
 - Uma busca por quadro, nenhuma lateral visível e nenhuma rolagem horizontal do documento: larguras cliente/rolagem 305, 345, 753 e 1425px. Console sem erros ou avisos.
-- Estes são checks locais do script e CSS. Não executam o compilador ou a restauração dos gadgets do Blogger. A rc.6 não foi promovida a versão estável.
+- Estes são checks locais do script e CSS. Não executam o compilador ou a restauração dos gadgets do Blogger. A recomendação da rc.6 baseia-se também na conferência pública registrada acima; a numeração rc.6 foi preservada.
 
 ## Evidências anteriores da prévia responsiva — v0.2.0-rc.1
 
@@ -64,7 +70,7 @@ São checks locais de execução/DOM e bytes; não houve Lighthouse, Core Web Vi
 
 ## Checks de plataforma pendentes
 
-Importe a candidata num blog de teste; salve cores/fontes no Designer; confira posição de Páginas/Menu, ambos os idiomas, busca, marcadores, listas vazias, miniaturas, paginação e comentários. Confira teclado, zoom a 200% e impressão. Registre o idioma e os resultados antes de promover esta candidata a estável. Core Web Vitals, indexação e posição em buscas/IA não são comprovados por estes checks.
+A importação portuguesa e a home da rc.6 foram confirmadas. Num blog de teste, salve cores/fontes no Designer; confira posição de Páginas/Menu, ambos os idiomas, busca, marcadores, listas vazias, miniaturas, paginação e comentários. Confira teclado, zoom a 200% e impressão. Registre o idioma e os resultados antes de promover esta candidata a estável. Core Web Vitals, indexação e posição em buscas/IA não são comprovados por estes checks.
 
 [Checklist de plataforma](ROADMAP.md) · [Auditoria de SEO](SEO.md) · [Atualização e arquivos da versão](RELEASE.md)
 
@@ -85,4 +91,4 @@ o backup XML exportado após restaurar. A causa permanece aberta e não houve me
 Os checks de XML, traduções e prévia não compilam nem executam a migração do Blogger;
 CI aprovado não implica que a importação ou renderização real esteja aprovada.
 
-O backup enviado pelo proprietário confirmou que todos os includables próprios foram preservados; os atributos `visible` foram descartados pelo Blogger. As tentativas de preservar IDs e definir visibilidade não corrigiram a página. A tentativa rc.5 separou o JavaScript do gadget Blog1. O proprietário depois informou que a página apareceu, mas continuou só com dois posts. A consulta pública anônima ainda respondeu com seções vazias na rc.5, portanto o resultado publicado permanece sem reconciliação. A rc.6 recupera a base confirmada rc.3 e precisa de conferência após importar.
+O backup enviado pelo proprietário confirmou que todos os includables próprios foram preservados; os atributos `visible` foram descartados pelo Blogger. As tentativas de preservar IDs e definir visibilidade não corrigiram a página. A tentativa rc.5 separou o JavaScript do gadget Blog1. O proprietário depois informou que a página apareceu, mas continuou só com dois posts. A consulta pública anônima ainda respondeu com seções vazias na rc.5, portanto o resultado publicado permanece sem reconciliação. A rc.6 recuperou a base rc.3 e depois teve a instalação confirmada, conforme o registro público acima.
