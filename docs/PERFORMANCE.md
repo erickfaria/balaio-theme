@@ -2,7 +2,7 @@
 
 [English](en/PERFORMANCE.md) · [Português](PERFORMANCE.md)
 
-A candidata rc.6 recupera os gadgets e a continuação da rc.3, mantendo o layout pastel, leitura de 22px e Inter/Newsreader abertas. Não há biblioteca JavaScript externa, analytics ou carrossel. A nova importação ainda precisa de conferência. [Status e evidências](VALIDATION.md).
+A rc.6 recomendada recupera os gadgets e a continuação da rc.3, mantendo o layout pastel, leitura de 22px e Inter/Newsreader abertas. Não há biblioteca JavaScript externa, analytics ou carrossel. A importação portuguesa e a continuação da home foram confirmadas pelo proprietário e verificadas no blog público. [Status e evidências](VALIDATION.md).
 
 ## Como o tema limita o trabalho
 

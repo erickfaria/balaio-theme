@@ -2,14 +2,14 @@
 
 [English](en/RELEASE.md) · [Português](RELEASE.md)
 
-A rc.6 é uma **candidata de recuperação em desenvolvimento**, ainda sem release publicado. Os artefatos do Actions identificam o commit exato; o último pacote publicado é [rc.4](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.4). Não confunda esses arquivos. A [v0.1.0 estável](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0) tem importação confirmada, mas não inclui a continuação da home. A rc.3 foi a última base confirmada com dez posts. [Validação](VALIDATION.md).
+A rc.6 é a **versão recomendada da main**, com importação portuguesa confirmada pelo proprietário e dez posts verificados no blog público. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). A numeração rc.6 foi preservada; não há nova tag de release estável. Os artefatos do Actions identificam o commit exato. Pacotes antigos, como rc.4 e v0.1.0, contêm versões diferentes. [Evidências e escopo](VALIDATION.md).
 
 ## O que a recuperação preserva
 
 - Dois destaques e posts antigos abaixo, com script e gadgets da rc.3. Meta de dez posts e até quatro páginas adicionais, sem duplicações; paginação nativa de fallback. [Home](HOME.md).
 - Menu de Páginas e links extras, busca no topo, leitura de 22px e controles de cores/fontes.
 - Fontes abertas Inter/Newsreader SIL OFL, layout pastel sem lateral visível e denúncia de abuso no rodapé compacto.
-- CI ativo com checks e artefatos de instalação. A nova importação continua pendente; prévias não compilam Blogger XML.
+- CI ativo com checks e artefatos de instalação. Importação portuguesa e continuação confirmadas; prévias não compilam Blogger XML.
 
 ## Arquivos de build da candidata
 

@@ -12,7 +12,7 @@ A v0.2.0-rc.2 foi observada publicada no mesmo blog com `max-results=50`, mas su
 
 A configuração de quantidade é um máximo. Em **Configurações → Postagens**, comece com **10**. Em posts longos, uma **quebra de expansão** após a introdução também pode ajudar a paginação nativa. Ela preserva o artigo completo no permalink. [Ajuda de configurações](https://support.google.com/blogger/answer/9691230?hl=pt-BR) · [Editor de posts](https://support.google.com/blogger/answer/154172?hl=pt-BR).
 
-A rc.3 foi confirmada pelo proprietário e observada funcionando no blog em 11/10/2026, com dez posts distintos e console sem erros. A rc.6 recupera a estrutura e o script dessa versão. A nova importação ainda precisa de conferência. [Performance e medições](PERFORMANCE.md).
+A rc.3 foi confirmada pelo proprietário e observada funcionando no blog em 11/10/2026, com dez posts distintos e console sem erros. A rc.6 recupera a estrutura e o script dessa versão. A importação da rc.6 foi confirmada pelo proprietário em 12/10/2026; a inspeção do blog público mostrou dois destaques e oito posts antigos, sem erros no console. [Performance e medições](PERFORMANCE.md).
 
 ## Como a continuação funciona
 

@@ -4,7 +4,7 @@
 
 ## Antes de instalar
 
-Use um blog de teste com alguns posts e uma página. Guarde o backup do tema atual. A rc.6 em desenvolvimento recupera a continuação da rc.3 e mantém a lateral oculta; o último pacote de release publicado ainda é rc.4. A v0.1.0 estável anterior tem importação confirmada pelo proprietário; a candidata alterada ainda precisa de nova importação no Blogger.
+Use o XML da rc.6 na main, versão recomendada com importação portuguesa confirmada pelo proprietário. A inspeção pública mostrou dez posts e a lateral oculta. Antes de instalar em outro blog, guarde seu backup e confira num blog de teste. Os pacotes de releases antigos não contêm esta versão.
 
 ## Passo a passo
 
@@ -55,4 +55,4 @@ A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no ce
 
 ## Falha ao restaurar
 
-A validação local não executa o compilador nem a migração de gadgets do Blogger. Esta candidata recupera os gadgets completos da rc.3; a lateral legada permanece oculta por CSS. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.6` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.
+A validação local não executa o compilador nem a migração de gadgets do Blogger. A rc.6 recupera os gadgets completos da rc.3; a lateral legada permanece oculta por CSS. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.6` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.
