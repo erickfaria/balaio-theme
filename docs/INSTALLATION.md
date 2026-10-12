@@ -57,8 +57,8 @@ A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no ce
 
 A validação local de XML não executa o compilador nem a migração de gadgets do Blogger.
 O tema conserva as definições completas de `sidebar` e `Label1` para manter identificadores
-antigos, ocultando a lateral apenas por CSS. Todos os gadgets principais declaram visibilidade
-explícita. A primeira tentativa com um includable vazio restaurou, mas gerou seções vazias
+antigos, ocultando a lateral apenas por CSS. O atributo de visibilidade foi descartado
+pelo Blogger e não é usado como correção. A primeira tentativa com um includable vazio restaurou, mas gerou seções vazias
 no blog; foi substituída. A nova versão precisa ser confirmada por importação.
 Se Restaurar retornar apenas um erro genérico, faça backup e tente **Tema → Editar HTML**:
 cole o XML completo e salve. O editor pode informar linha, coluna ou o gadget rejeitado;

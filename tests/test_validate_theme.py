@@ -28,18 +28,30 @@ class ThemeValidationTests(unittest.TestCase):
     def test_duplicate_section_id(self):
         self.assert_rejected(self.source.replace("id='navigation'", "id='main'"), "Duplicate ID")
 
-    def test_migration_keeps_complete_widgets_and_explicit_visibility(self):
+    def test_migration_keeps_complete_widgets(self):
         root = ET.fromstring(self.source)
         namespace = '{http://www.google.com/2005/gml/b}'
         widgets = {w.get('id'): w for w in root.iter(namespace + 'widget')}
         for identifier in ['Header1', 'PageList1', 'LinkList1', 'HTML1', 'Blog1', 'Label1']:
-            self.assertEqual(widgets[identifier].get('visible'), 'true')
             self.assertIsNotNone(widgets[identifier].find(namespace + "includable[@id='main']"))
         labels = widgets['Label1']
         self.assertIsNotNone(labels.find('.//' + namespace + 'loop'))
         self.assertIsNone(root.find('.//' + namespace + "if[@cond='false']"))
         self.assertIn('#sidebar,', self.source)
         self.assertIsNone(root.find(".//{http://www.w3.org/1999/xhtml}div[@hidden='hidden']"))
+
+    def test_continuation_script_is_separate_from_widget_rendering(self):
+        root = ET.fromstring(self.source)
+        namespace = '{http://www.google.com/2005/gml/b}'
+        html = '{http://www.w3.org/1999/xhtml}'
+        for widget in root.iter(namespace + 'widget'):
+            self.assertEqual(list(widget.iter(html + 'script')), [])
+        script = root.find(".//" + html + "script[@id='home-continuation']")
+        self.assertIsNotNone(script)
+        body = root.find(html + 'body')
+        parent = next(node for node in body if script in list(node))
+        self.assertEqual(parent.tag, namespace + 'if')
+        self.assertEqual(parent.get('cond'), 'data:blog.url == data:blog.homepageUrl')
 
     def test_missing_include(self):
         self.assert_rejected(self.source.replace("name='card'", "name='absent'"), "Missing local include")

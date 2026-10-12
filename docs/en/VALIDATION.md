@@ -73,3 +73,5 @@ still lists 144 posts. Root cause remains open; the XML saved/exported by Blogge
 Neither candidate has been merged. The rendered HTML audit now rejects registered core widgets
 whose elements are missing. XML checks and handmade previews do not compile or migrate Blogger
 widgets; successful CI is not proof of successful live rendering.
+
+The owner-provided exported XML preserves all custom includables and drops the visible attributes. ID preservation and explicit visibility did not fix rendering. Candidate rc.5 removes those assumptions and moves JavaScript out of Blog1. Exact cause and successful platform rendering remain unconfirmed.

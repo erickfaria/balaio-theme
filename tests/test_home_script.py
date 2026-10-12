@@ -36,7 +36,7 @@ class HomeScriptTests(unittest.TestCase):
     def scripts(self):
         for path in sorted((ROOT / "theme").glob("*.xml")):
             xml = path.read_text(encoding="utf-8")
-            block = re.search(r"<b:includable id='homeContinuation'>\s*(<script\b.*?</script>)", xml, re.S).group(1)
+            block = re.search(r"(<script id='home-continuation'\s.*?</script>)", xml, re.S).group(1)
             parser = ScriptHTML()
             parser.feed(block)
             yield path.name, xml, parser.script
@@ -54,7 +54,7 @@ class HomeScriptTests(unittest.TestCase):
         for name, xml, _ in self.scripts():
             with self.subTest(locale=name):
                 script = ET.fromstring(xml).find(
-                    ".//{http://www.google.com/2005/gml/b}includable[@id='homeContinuation']/{http://www.w3.org/1999/xhtml}script"
+                    ".//{http://www.w3.org/1999/xhtml}script[@id='home-continuation']"
                 ).text
                 result = self.syntax(script)
                 self.assertEqual(result.returncode, 0, result.stderr)

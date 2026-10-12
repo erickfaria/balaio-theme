@@ -1,5 +1,7 @@
 # Balaio — Free minimal Blogger theme
 
+**Development candidate rc.5:** the continuation script now lives outside widget includables. Actual Blogger rendering is under investigation; local checks do not validate the platform compiler.
+
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
 A **free Blogger XML template**: minimal, responsive, open source and easy to customize. Original editorial design with pastel green, sand and blue, readable typography and a technical SEO foundation for personal blogs and science communication.

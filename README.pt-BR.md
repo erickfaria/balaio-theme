@@ -1,5 +1,7 @@
 # Balaio — Tema Blogger gratuito e minimalista
 
+**Candidata rc.5 em desenvolvimento:** o script de continuação fica fora dos includables dos gadgets. A renderização real no Blogger está em investigação; checks locais não validam o compilador da plataforma.
+
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
 Um **template XML gratuito para Blogger**: minimalista, responsivo, open source e fácil de personalizar. Design editorial próprio, com verde, areia e azul pastel, tipografia confortável e uma base técnica preparada para SEO em blogs pessoais e científicos.

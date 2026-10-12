@@ -1,9 +1,12 @@
 # Changelog / Histórico
 
-## Unreleased / Não lançado
+## Unreleased / Não lançado — 0.2.0-rc.5
 
-- Keep complete legacy widget definitions, declare visibility explicitly and hide the sidebar only through CSS. The first empty-includable mitigation restored but yielded empty published sections; the replacement needs fresh import.
-- Preservar definições completas dos gadgets, declarar visibilidade e ocultar a lateral apenas por CSS. A primeira tentativa com includable vazio restaurou, mas gerou seções vazias; a substituição precisa de nova importação.
+- Separate home continuation JavaScript from native widget includables; keep server-rendered post/card data in Blog1. Owner-exported XML confirmed the previous widget bodies were intact, so visibility/ID guesses are not considered validated fixes.
+- Separar JavaScript de continuação dos includables nativos; manter posts/cards renderizados no Blog1. O backup confirmou corpos intactos, portanto tentativas com IDs/visibilidade não são correções validadas.
+
+- Keep complete legacy widget definitions and hide the sidebar only through CSS. Explicit visibility was ignored by the platform. The first empty-includable mitigation restored but yielded empty published sections; the replacement needs fresh import.
+- Preservar definições completas dos gadgets e ocultar a lateral apenas por CSS. A visibilidade explícita foi ignorada pela plataforma. A primeira tentativa com includable vazio restaurou, mas gerou seções vazias; a substituição precisa de nova importação.
 
 - Remove the sidebar and use the full content width; keep only the header search. Hide legacy search/archive/featured/report gadgets retained by Blogger after import. Move the report-abuse link to a compact footer.
 - Restore PR/main/tag/manual CI checks and build downloadable XML, install ZIP, checksums and preview artifacts. Read-only workflow permissions and existing owner protections remain.

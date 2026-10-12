@@ -77,3 +77,5 @@ o backup XML exportado após restaurar. A causa permanece aberta e não houve me
 `audit_seo.py` agora trata como erro um Header/Blog registrado sem elemento correspondente no HTML.
 Os checks de XML, traduções e prévia não compilam nem executam a migração do Blogger;
 CI aprovado não implica que a importação ou renderização real esteja aprovada.
+
+O backup enviado pelo proprietário confirmou que todos os includables próprios foram preservados; os atributos `visible` foram descartados pelo Blogger. As tentativas de preservar IDs e definir visibilidade não corrigiram a página. A candidata rc.5 remove essas suposições e separa o JavaScript do gadget Blog1. A causa exata e a renderização correta continuam pendentes de teste na plataforma.

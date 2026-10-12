@@ -12,7 +12,7 @@ SOURCE = (ROOT / "theme/balaio.xml").read_text(encoding="utf-8")
 TREE = ET.fromstring(SOURCE)
 # Blogger preserves CDATA delimiters in published HTML; do not strip them here.
 HOME_SCRIPT = re.search(
-    r"<b:includable id='homeContinuation'>\s*(<script\b.*?</script>)",
+    r"(<script id='home-continuation'\s.*?</script>)",
     SOURCE, flags=re.S
 ).group(1)
 FONT_LINKS = "".join(ET.tostring(link, encoding="unicode").replace("html:", "").replace("ns0:", "") for link in TREE.findall(".//{http://www.w3.org/1999/xhtml}head/{http://www.w3.org/1999/xhtml}link"))
