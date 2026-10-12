@@ -4,7 +4,7 @@
 
 ## Before installation
 
-Use the rc.6 XML on main, the recommended version with owner-confirmed Portuguese import. Public verification displayed ten posts and a hidden sidebar. Before installing on another blog, retain a backup and check a test blog. Older release packages do not contain this version.
+Use the rc.7 XML on main: magnifier search and compact introductory spacing, based on rc.6 with confirmed Portuguese import and ten posts. Fresh rc.7 import verification is pending. Before installing on another blog, retain a backup and check a test blog. Older release packages do not contain this version.
 
 ## Steps
 
@@ -55,4 +55,4 @@ The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publ
 
 ## Restore failure
 
-Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar remains hidden through CSS. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.6` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.
+Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar remains hidden through CSS. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.7` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.

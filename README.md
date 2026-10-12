@@ -1,6 +1,6 @@
 # Balaio — Free minimal Blogger theme
 
-**Recommended version: rc.6 on main.** Blogger import confirmed by the owner; public verification found two highlights, eight older posts, a hidden sidebar and no console errors.
+**Recommended version: rc.7 on main.** A compact rounded search with an original magnifier icon and tighter introductory spacing, based on owner-validated rc.6. Widget definitions and home continuation remain the same; fresh rc.7 import verification is pending.
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Default template:** `v0.2.0-rc.6`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
+> **Default template:** `v0.2.0-rc.7`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
 >
 > **Earlier fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with confirmed import but without the current home continuation and layout.
 

@@ -1,8 +1,8 @@
-# Install and upgrade — v0.2.0-rc.6
+# Install and upgrade — v0.2.0-rc.7
 
 [English](RELEASE.md) · [Português](../RELEASE.md)
 
-rc.6 is the **recommended main-branch version**, with owner-confirmed Portuguese import and ten posts checked on the public blog. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). The rc.6 version number is retained; no new stable release tag is published. Actions artifacts identify their exact commit. Older packages, such as rc.4 and v0.1.0, contain different versions. [Evidence and scope](VALIDATION.md).
+rc.7 is the recommended main-branch version, with a rounded search, original magnifier and tighter introductory spacing. It uses the same widgets and script as owner-confirmed rc.6. Fresh rc.7 import verification is pending. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). Use the current main XML; older release packages contain other versions. [Evidence and scope](VALIDATION.md).
 
 ## What recovery preserves
 
@@ -15,17 +15,17 @@ rc.6 is the **recommended main-branch version**, with owner-confirmed Portuguese
 
 | File | Use |
 | --- | --- |
-| `balaio-0.2.0-rc.6.zip` | Install package: templates, bilingual guides, page/post examples, version, changelog and MIT/OFL notices |
+| `balaio-0.2.0-rc.7.zip` | Install package: templates, bilingual guides, page/post examples, version, changelog and MIT/OFL notices |
 | `balaio.xml` | Portuguese interface |
 | `balaio.en.xml` | English interface |
 | `SHA256SUMS.txt` | SHA-256 checksums for the three assets above |
 
-The ZIP extracts into `balaio-0.2.0-rc.6/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
+The ZIP extracts into `balaio-0.2.0-rc.7/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
 
 ## Upgrade from v0.1.0
 
 1. Back up your current Blogger XML and record custom gadgets, links and Designer values. Use a separate test blog first.
-2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.6`.
+2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.7`.
 3. In **Layout → Pages**, select published About me, Contact and Privacy pages and check gadget placement. **Menu** is for extra links. Create page content through Pages; XML does not create or replace those records.
 4. Review Introduction and menu links. The legacy sidebar is hidden through CSS. Footer links are no longer rendered: move necessary links to Pages/Menu before updating. Inherited Profile/Attribution blocks are hidden.
 5. In **Theme → Customize → Advanced**, check colors and **Post and page font**. Saved settings may retain an old size; choose 22px if needed. Reading width and pastel defaults remain documented in [CUSTOMIZATION.md](CUSTOMIZATION.md).

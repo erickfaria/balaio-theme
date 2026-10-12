@@ -22,7 +22,6 @@ TRANSLATIONS = {
     "Pular para o conteúdo": "Skip to content",
     "Cabeçalho": "Header",
     "Buscar no blog": "Search this blog",
-    "Buscar": "Search",
     "Navegação principal": "Main navigation",
     "Páginas": "Pages",
     "Início": "Home",

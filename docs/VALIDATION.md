@@ -1,16 +1,24 @@
-# Validação — v0.2.0-rc.6
+# Validação — v0.2.0-rc.7
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
 ## Status
 
-A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. O proprietário confirmou a importação da rc.6 e a remoção da lateral em 12/10/2026. Ela é a versão recomendada da main.
+A rc.7 ajusta somente a busca e o espaçamento visual sobre a rc.6 confirmada. Todos os corpos dos gadgets e o script de continuação são iguais nos dois idiomas. A nova importação da rc.7 ainda precisa de conferência no Blogger.
+
+A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. O proprietário confirmou a importação da rc.6 e a remoção da lateral em 12/10/2026. Ela é a base validada da rc.7.
 
 Actions está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
 
 ## Checks automatizados
 
 26 testes locais passaram: estrutura XML/gadgets, idiomas, metadados/auditoria HTML, Designer, contraste, navegação/busca móvel, sintaxe nas duas serializações CDATA e início da continuação numa home com dois posts. O limite zero não faz requisições; o limite padrão consulta o link nativo com a quantidade restante e timeout de oito segundos. Sem Node, os quatro checks JavaScript são pulados localmente; o CI inclui Node. Links Markdown, geração inglesa, XMLs, whitespace e prévia passam.
+
+## Ajuste visual local — rc.7
+
+26 checks passaram. Em quadros de 320, 360, 768 e 1440px, a prévia continua com dois destaques e oito entradas distintas, paginação correta e nenhuma rolagem horizontal. O botão tem nome acessível, foco de teclado, alvo de 44×44px e lupa própria em CSS, sem requisição de ícone. A busca de “ciência dados” enviou o parâmetro `q` corretamente.
+
+No exemplo de 360px com seis links no menu, o título das publicações subiu de 583 para 488px; em 1440px, de 521 para 405px. São medidas da prévia com as mesmas fontes e conteúdo, não da nova versão publicada. Console sem erros/avisos. A importação portuguesa comprovada abaixo corresponde à rc.6.
 
 ## Conferência pública — rc.6, 12/10/2026
 

@@ -2,7 +2,7 @@
 
 [English](en/HOME.md) · [Português](HOME.md)
 
-A v0.2.0-rc.6 preserva até **dois destaques** e mostra os demais posts numa lista sóbria abaixo. Quando o Blogger entrega poucos posts, o tema segue as próximas páginas do próprio blog para tentar completar **dez posts no total**. Não usa feed público, biblioteca externa, carrossel ou rolagem infinita.
+A v0.2.0-rc.7 preserva até **dois destaques** e mostra os demais posts numa lista sóbria abaixo. Quando o Blogger entrega poucos posts, o tema segue as próximas páginas do próprio blog para tentar completar **dez posts no total**. Não usa feed público, biblioteca externa, carrossel ou rolagem infinita.
 
 ## Por que apareciam apenas dois posts?
 
@@ -40,6 +40,6 @@ Meta alta pode aumentar tráfego e tempo de carregamento. Dez posts e quatro pá
 
 ## Conferir após importar
 
-Confira dois destaques, a lista abaixo, ausência de posts repetidos e o destino de **Publicações anteriores**. Abra um post da lista, uma busca e uma página fixa. Teste também uma rede lenta ou JavaScript desligado. Se só houver dois posts, confirme que o XML identifica `v0.2.0-rc.6` e que o link nativo seguinte funciona. Em uma instalação antiga da rc.2, importe o XML completo da candidata atual; aumentar a quantidade de posts não corrige o erro de sintaxe. O console do navegador não deve apresentar `Unexpected token '<'` no script do tema.
+Confira dois destaques, a lista abaixo, ausência de posts repetidos e o destino de **Publicações anteriores**. Abra um post da lista, uma busca e uma página fixa. Teste também uma rede lenta ou JavaScript desligado. Se só houver dois posts, confirme que o XML identifica `v0.2.0-rc.7` e que o link nativo seguinte funciona. Em uma instalação antiga da rc.2, importe o XML completo da candidata atual; aumentar a quantidade de posts não corrige o erro de sintaxe. O console do navegador não deve apresentar `Unexpected token '<'` no script do tema.
 
 Os artigos e links nativos continuam acessíveis aos rastreadores. A continuação por JavaScript é um complemento para leitores; sua execução por mecanismos de busca não é garantida. [SEO e rastreadores](SEO.md) · [Validação e limitações](VALIDATION.md) · [Instalação](INSTALLATION.md).

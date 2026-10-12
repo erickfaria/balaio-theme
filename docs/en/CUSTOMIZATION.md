@@ -19,7 +19,7 @@ With fewer than two posts, cards show only the available entries. Without a thum
 
 ## Native color and font controls
 
-Version v0.2.0-rc.6 includes controls under **Theme → Customize → Advanced** using [Blogger's documented color/font variables](https://support.google.com/blogger/answer/46871?hl=en). Import the updated XML in a test blog first. These controls still need confirmation in the live Designer. They are absent from the previous stable v0.1.0.
+Version v0.2.0-rc.7 includes controls under **Theme → Customize → Advanced** using [Blogger's documented color/font variables](https://support.google.com/blogger/answer/46871?hl=en). Import the updated XML in a test blog first. These controls still need confirmation in the live Designer. They are absent from the previous stable v0.1.0.
 
 The controls cover page background, main and secondary text, links/buttons, dividers, green/sand/blue pastel surfaces, interface font and post/page font. Choose pale backgrounds and dark text. The default palette passes a 4.5:1 contrast check for normal text on its four reading/card surfaces. Custom colors need a new contrast check.
 
@@ -57,6 +57,6 @@ On screens up to 800px, the header and introduction use shorter spacing. There i
 
 ## End of posts and pages
 
-Recommended rc.6 hides the sidebar on every page and keeps only Report abuse in a compact footer. The last published v0.2.0-rc.4 package still retains the listing sidebar. Inherited Profile, Attribution, BlogSearch, BlogArchive, FeaturedPost and ReportAbuse gadgets are hidden by CSS. Remove old gadgets in Layout if Blogger retains them on import, to eliminate their HTML too. Select Contact and Privacy in the top Pages gadget. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.
+Recommended rc.7 hides the sidebar on every page and keeps only Report abuse in a compact footer. The last published v0.2.0-rc.4 package still retains the listing sidebar. Inherited Profile, Attribution, BlogSearch, BlogArchive, FeaturedPost and ReportAbuse gadgets are hidden by CSS. Remove old gadgets in Layout if Blogger retains them on import, to eliminate their HTML too. Select Contact and Privacy in the top Pages gadget. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.
 
 The reading default is 22px with a 1.75 line height. Installed Designer settings may preserve a previous size: choose 22px in **Post and page font** after importing if needed.

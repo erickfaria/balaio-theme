@@ -40,6 +40,12 @@ HEADER = '''<a class="skip" href="#content">Pular para o conteúdo</a>
 <nav class="navigation" aria-label="Navegação principal"><ul><li><a href="index.html">Início</a></li><li><a href="article.html">Leitura</a></li><li><a href="about.html">Sobre mim</a></li><li><a href="contact.html">Contato</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="empty.html">Busca sem resultados</a></li></ul></nav></div></header>'''
 
 
+# Use the actual theme form so visual fixtures track its icon and accessible label.
+SEARCH_FORM = re.search(r"<form class='search'.*?</form>", SOURCE, flags=re.S).group(0)
+HEADER = re.sub(r'<form class="search".*?</form>',
+                SEARCH_FORM.replace("action='/search'", "action='empty.html'"), HEADER, flags=re.S)
+
+
 def page(title, content, home=False):
     script = HOME_SCRIPT if home else ""
     return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main><footer class="site-footer wrap"><a href="https://www.blogger.com/go/report-abuse" rel="nofollow">Denunciar abuso</a></footer>{script}</body></html>'

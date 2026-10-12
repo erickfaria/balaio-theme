@@ -2,7 +2,7 @@
 
 [English](HOME.md) · [Português](../HOME.md)
 
-v0.2.0-rc.6 preserves up to **two highlights** and lists the other posts below. When Blogger supplies a short page, the theme follows the blog’s native older-page links toward **ten posts in total**. It does not use public feeds, external libraries, carousels or infinite scrolling.
+v0.2.0-rc.7 preserves up to **two highlights** and lists the other posts below. When Blogger supplies a short page, the theme follows the blog’s native older-page links toward **ten posts in total**. It does not use public feeds, external libraries, carousels or infinite scrolling.
 
 ## Why were only two posts visible?
 
@@ -40,6 +40,6 @@ Higher targets can increase traffic and loading time. Ten posts and four pages a
 
 ## Verify after importing
 
-Check two highlights, the list below, unique entries and the destination of **Older posts**. Open a list article, search and a static page. Test a slow network or JavaScript disabled. If only two posts remain, confirm the XML identifies `v0.2.0-rc.6` and the native next-page link works. If rc.2 is installed, import the complete current candidate XML; raising the post count cannot fix the syntax error. The browser console should not report `Unexpected token '<'` in the theme script.
+Check two highlights, the list below, unique entries and the destination of **Older posts**. Open a list article, search and a static page. Test a slow network or JavaScript disabled. If only two posts remain, confirm the XML identifies `v0.2.0-rc.7` and the native next-page link works. If rc.2 is installed, import the complete current candidate XML; raising the post count cannot fix the syntax error. The browser console should not report `Unexpected token '<'` in the theme script.
 
 Native posts and pagination links remain available to crawlers. JavaScript continuation supplements the reader experience; execution by search engines is not guaranteed. [SEO and crawlers](SEO.md) · [Validation and limits](VALIDATION.md) · [Installation](INSTALLATION.md).
