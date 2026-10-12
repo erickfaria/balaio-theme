@@ -8,8 +8,8 @@
 - **Abertura:** gadget **Apresentação** no Layout. Edite o texto, preservando uma única tag `<h1>`. Se remover o gadget, mantenha um único H1 descritivo na home.
 - **Páginas:** selecione páginas publicadas no Layout e ordene sua navegação no topo.
 - **Menu:** adicione links extras de marcadores ou sites externos; evite duplicar Início.
-- **Assuntos:** gadget de marcadores na lateral.
-- **Lateral:** aceita gadgets no Layout. Confira sempre o resultado em celular.
+- **Assuntos:** adicione links de marcadores no Menu.
+- **Lateral:** removida no layout em desenvolvimento; a busca permanece no cabeçalho.
 
 ## Cards de abertura
 
@@ -55,10 +55,10 @@ A MIT não exige crédito visível no site. Preserve os avisos de licença no c�
 
 ## Layout compacto no celular
 
-Em telas de até 800px, cabeçalho e apresentação usam espaçamento menor. Os assuntos da lateral ficam em duas colunas simples, com nomes que quebram linha e contagens clicáveis; todos continuam visíveis. Cada link de assunto tem altura mínima de 44px. Apenas o painel externo recebe uma divisória superior. Posts e páginas estáticas preservam a estrutura de leitura e a paleta pastel.
+Em telas de até 800px, cabeçalho e apresentação usam espaçamento menor. Não há painel lateral ou arquivo mensal. As publicações usam a largura disponível do conteúdo. Posts e páginas estáticas preservam a estrutura de leitura e a paleta pastel.
 
 ## Fim dos posts e páginas
 
-A v0.2.0-rc.4 não exibe rodapé nem créditos. Artigos e páginas estáticas não renderizam a lateral em nenhuma largura. As listagens a mantêm. Gadgets de Perfil e Atribuição herdados de uma instalação anterior ficam ocultos pelo CSS do tema. Selecione Contato e Privacidade no gadget Páginas do topo. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.
+A branch em desenvolvimento remove a lateral de todas as páginas e mostra apenas Denunciar abuso num rodapé compacto. O último pacote publicado v0.2.0-rc.4 ainda mantém a lateral nas listagens. Gadgets herdados de Perfil, Atribuição, BlogSearch, BlogArchive, FeaturedPost e ReportAbuse ficam ocultos pelo CSS. Remova os gadgets antigos no Layout se o Blogger os preservar após importar, para eliminar também seu HTML. Selecione Contato e Privacidade no gadget Páginas do topo. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.
 
 O padrão de leitura é 22px com entrelinha de 1,75. Configurações salvas no Designer podem preservar um tamanho anterior: selecione 22px em **Fonte de posts e páginas** após importar, se necessário.

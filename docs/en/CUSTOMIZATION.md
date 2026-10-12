@@ -8,8 +8,8 @@
 - **Opening text:** Introduction gadget in Layout (Apresentação in Portuguese). Keep one `h1`; if removing the gadget, keep a single descriptive home H1 elsewhere.
 - **Pages:** select published pages in Layout and arrange their top-navigation order.
 - **Menu:** add extra label or external links; avoid duplicating Home.
-- **Topics:** the sidebar Labels gadget.
-- **Sidebar:** accepts gadgets through Layout. Check every change on mobile.
+- **Topics:** add label links in Menu.
+- **Sidebar:** removed in the development layout; search remains in the header.
 
 ## Opening cards
 
@@ -53,10 +53,10 @@ Regenerate the preview after XML changes. Check contrast, long titles, posts wit
 
 ## Compact mobile layout
 
-On screens up to 800px, the header and introduction use shorter spacing. Sidebar topics form two plain columns with wrapping labels and clickable counts; all topics remain visible. Each topic link has a minimum 44px height. Only the outer sidebar gets a top divider. Posts and static pages retain their reading layout and pastel palette.
+On screens up to 800px, the header and introduction use shorter spacing. There is no sidebar or monthly archive. Listings use the available content width. Posts and static pages retain their reading layout and pastel palette.
 
 ## End of posts and pages
 
-Version v0.2.0-rc.4 has no visible footer or credits. Articles and static pages omit the sidebar from rendered HTML at every screen width. Listing pages retain it. Profile and Attribution widgets inherited from a previous installation are hidden by theme CSS. Select Contact and Privacy in the top Pages gadget. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.
+The development branch removes the sidebar on every page and keeps only Report abuse in a compact footer. The last published v0.2.0-rc.4 package still retains the listing sidebar. Inherited Profile, Attribution, BlogSearch, BlogArchive, FeaturedPost and ReportAbuse gadgets are hidden by CSS. Remove old gadgets in Layout if Blogger retains them on import, to eliminate their HTML too. Select Contact and Privacy in the top Pages gadget. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.
 
 The reading default is 22px with a 1.75 line height. Installed Designer settings may preserve a previous size: choose 22px in **Post and page font** after importing if needed.

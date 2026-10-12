@@ -30,7 +30,7 @@ No build tools are needed to install the theme.
 3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
 4. Configure your title, description and language in **Settings**.
 5. In **Layout → Pages**, select published About me, Contact and Privacy pages for the top navigation. Use **Menu** for extra links, such as labels.
-6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Configure labels and sidebar gadgets.
+6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use Menu links for topics; this development layout has no sidebar.
 7. Start with 10 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
 [Performance guide](docs/en/PERFORMANCE.md) · [Home-page posts and pagination](docs/en/HOME.md) · [Detailed setup and troubleshooting](docs/en/INSTALLATION.md) · [Customization](docs/en/CUSTOMIZATION.md)
@@ -41,7 +41,7 @@ No build tools are needed to install the theme.
 - Responsive layouts for phones, tablets and desktop; optional thumbnails and full-width entries when no image is available.
 - Native Blogger search, label links, pagination, article and static-page layouts.
 - Basic comment display and a link to add a comment; embedded forms and threaded replies remain pending.
-- Editable introduction, Pages navigation, extra Menu links and sidebar gadgets.
+- Editable introduction, Pages navigation and extra Menu links; no sidebar and one header search.
 - Keyboard focus, skip link, contained code/table scrolling and print styles.
 - **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Post/page text defaults to 22px with a 1.75 line height. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
 - No third-party JavaScript libraries or Python package dependencies. The home continuation is original MIT code; native pagination works without JavaScript.

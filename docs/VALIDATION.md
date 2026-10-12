@@ -60,3 +60,7 @@ São checks locais de execução/DOM e bytes; não houve Lighthouse, Core Web Vi
 Importe a candidata num blog de teste; salve cores/fontes no Designer; confira posição de Páginas/Menu, ambos os idiomas, busca, marcadores, listas vazias, miniaturas, paginação e comentários. Confira teclado, zoom a 200% e impressão. Registre o idioma e os resultados antes de promover esta candidata a estável. Core Web Vitals, indexação e posição em buscas/IA não são comprovados por estes checks.
 
 [Checklist de plataforma](ROADMAP.md) · [Auditoria de SEO](SEO.md) · [Atualização e arquivos da versão](RELEASE.md)
+
+## Layout sem lateral — desenvolvimento
+
+24 testes locais passaram. A prévia da home foi conferida a 320, 360, 768 e 1440px: 10 cards únicos, uma busca, nenhuma lateral e link de denúncia no rodapé. Sem rolagem horizontal nesses quadros. Nova importação real no Blogger continua pendente.

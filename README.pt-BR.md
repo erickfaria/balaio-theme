@@ -30,7 +30,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 3. Abra **Tema → menu → Editar HTML**. Substitua o conteúdo do editor pelo XML completo e salve.
 4. Configure título, descrição e idioma em **Configurações**.
 5. Em **Layout → Páginas**, selecione Sobre mim, Contato e Privacidade publicados para o topo. Use **Menu** para links extras, como marcadores.
-6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Configure os gadgets de marcadores e lateral.
+6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Use o Menu para links de assuntos; este layout em desenvolvimento não tem lateral.
 7. Comece com 10 posts por página em **Configurações → Postagens**; o Blogger pode paginar antes. Confira artigos, páginas, busca, paginação e comentários no celular e no computador antes de usar no blog principal.
 
 [Guia de performance](docs/PERFORMANCE.md) · [Posts da home e paginação](docs/HOME.md) · [Instalação e solução de problemas](docs/INSTALLATION.md) · [Personalização](docs/CUSTOMIZATION.md)
@@ -41,7 +41,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 - Layout responsivo para celulares, tablets e computadores; miniaturas opcionais e entradas com largura completa quando não há imagem.
 - Busca nativa, marcadores, paginação, artigos e páginas estáticas.
 - Comentários básicos e link para comentar; formulário incorporado e respostas encadeadas ainda pendentes.
-- Apresentação, navegação de Páginas, Menu de links extras e lateral editáveis por gadgets.
+- Apresentação, navegação de Páginas e Menu de links extras editáveis; sem lateral e com uma busca no cabeçalho.
 - Foco de teclado, link para pular ao conteúdo, rolagem contida em código/tabelas e estilos para impressão.
 - **Inter** para interface e **Newsreader** para títulos e leitura, via Google Fonts com fallback local e `display=swap`. Posts/páginas usam 22px e entrelinha de 1,75 por padrão. Ambas usam SIL OFL 1.1; suas licenças são separadas da MIT.
 - Sem bibliotecas JavaScript de terceiros ou dependências externas de pacotes Python. A continuação da home é código próprio MIT; a paginação nativa funciona sem JavaScript.
