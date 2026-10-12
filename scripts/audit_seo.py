@@ -17,6 +17,7 @@ class Page(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.in_head = False
+        self.element_ids = set()
         self.capture = None
         self.titles = []
         self.headings = []
@@ -30,6 +31,8 @@ class Page(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         attrs = {key: value or '' for key, value in attrs}
+        if attrs.get('id'):
+            self.element_ids.add(attrs['id'])
         if tag == 'html':
             self.lang = attrs.get('lang', '')
         if tag == 'head':
@@ -68,6 +71,13 @@ def audit(html, x_robots=()):
     page = Page()
     page.feed(html)
     errors, warnings = [], []
+    # Blogger can register a gadget whose server-rendered element is missing.
+    # Detect this real failure independently of source XML and handmade previews.
+    registered_core = set(re.findall(
+        r"_RegisterWidget\(['\"]_(?:Header|Blog)View['\"],\s*new\s+_WidgetInfo\(['\"]([^'\"]+)", html))
+    missing_core = sorted(registered_core - page.element_ids)
+    if missing_core:
+        errors.append('Registered core Blogger widgets missing from rendered HTML: ' + ', '.join(missing_core))
     if len(page.titles) != 1 or not page.titles[0]:
         errors.append('Expected one nonempty document title.')
     if len(page.canonicals) != 1:
@@ -95,7 +105,7 @@ def audit(html, x_robots=()):
             warnings.append(f"Review search restriction ({control['agent']}): {control['content']}")
     return {'title': page.titles, 'canonical': page.canonicals, 'description': page.descriptions,
             'h1': page.headings, 'language': page.lang, 'microdata_types': page.schemas,
-            'json_ld_blocks': len(page.json_ld), 'robots': controls, 'errors': errors, 'warnings': warnings}
+            'json_ld_blocks': len(page.json_ld), 'missing_core_widgets': missing_core, 'robots': controls, 'errors': errors, 'warnings': warnings}
 
 
 def main():

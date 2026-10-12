@@ -64,3 +64,16 @@ Importe a candidata num blog de teste; salve cores/fontes no Designer; confira p
 ## Layout sem lateral — desenvolvimento
 
 24 testes locais passaram. A prévia da home foi conferida a 320, 360, 768 e 1440px: 10 cards únicos, uma busca, nenhuma lateral e link de denúncia no rodapé. Sem rolagem horizontal nesses quadros. Nova importação real no Blogger continua pendente.
+
+## Falha real após restauração — 12 de outubro de 2026
+
+O proprietário confirmou restauração das duas candidatas do PR #14, mas a página continuou vazia.
+Inspeção pública confirmou seções `header`, `navigation`, `introduction`, `main` e `sidebar`
+com `no-items`, sem elementos Header1/Blog1, embora os gadgets fossem registrados pelo JavaScript.
+O feed público continua com 144 posts. A falha ocorre na renderização de gadgets, não na remoção de posts.
+A comparação local não confirma o conteúdo efetivamente salvo pelo Blogger: é necessário analisar
+o backup XML exportado após restaurar. A causa permanece aberta e não houve merge dessas candidatas.
+
+`audit_seo.py` agora trata como erro um Header/Blog registrado sem elemento correspondente no HTML.
+Os checks de XML, traduções e prévia não compilam nem executam a migração do Blogger;
+CI aprovado não implica que a importação ou renderização real esteja aprovada.

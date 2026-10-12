@@ -64,3 +64,12 @@ Import the candidate in a test blog; save colors/fonts in Designer; verify Pages
 ## Sidebar-free development layout
 
 24 local tests passed. Home preview checked at 320, 360, 768 and 1440px: 10 unique cards, one search, no sidebar and a report-abuse footer. No horizontal overflow in these frames. Fresh Blogger import remains pending.
+
+## Actual restore failure — 12 October 2026
+
+The owner restored both PR #14 candidates, but public sections remain empty with `no-items`.
+Header1/Blog1 elements are absent even though JavaScript registers the gadgets. The public feed
+still lists 144 posts. Root cause remains open; the XML saved/exported by Blogger is needed.
+Neither candidate has been merged. The rendered HTML audit now rejects registered core widgets
+whose elements are missing. XML checks and handmade previews do not compile or migrate Blogger
+widgets; successful CI is not proof of successful live rendering.
