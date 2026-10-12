@@ -12,7 +12,7 @@ This is a **performance release candidate**. Twenty-four local checks pass witho
 - Home continuation after initial loading and an idle opportunity, with a low-priority hint.
 - Sidebar omitted from articles/pages, avoiding HTML previously sent and hidden by CSS.
 - Appended links without `m`, preserving other parameters; parsing scoped to `Blog1`.
-- Bilingual [performance guide](PERFORMANCE.md), measurements and limits. Actions remains disabled; checks run locally.
+- Bilingual [performance guide](PERFORMANCE.md), measurements and limits. Actions is enabled for checks and install artifacts.
 
 - Hotfix for rc.2: Blogger retained raw CDATA markers in the home script, causing `Unexpected token '<'` and preventing the extra post list. The markers are now JavaScript comments; previews retain them and local checks test both serializations.
 

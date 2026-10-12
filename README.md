@@ -10,7 +10,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 >
 > **Stable fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with owner-confirmed Blogger import. Its templates differ from the current candidate.
 
-**GitHub Actions is temporarily disabled at the maintainer’s request.** Pushes, PRs and release tags do not start jobs. Run checks locally. The saved workflow is manual-only and cannot run until repository Actions is re-enabled. [Maintenance policy](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md).
+**GitHub Actions is enabled.** Pull requests, pushes to main and version tags validate the theme and build downloadable XML, install ZIP, checksums and preview artifacts. Local checks remain available. [Maintenance policy](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md).
 
 ## Choose your language
 

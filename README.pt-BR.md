@@ -10,7 +10,7 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 >
 > **Alternativa estável:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada pelo proprietário. Seus templates diferem da candidata atual.
 
-**O GitHub Actions está temporariamente desativado a pedido do mantenedor.** Pushes, PRs e tags de versão não iniciam jobs. Rode os checks localmente. O workflow salvo é apenas manual e não executa até o Actions do repositório ser reativado. [Política de manutenção](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md).
+**O GitHub Actions está ativo.** PRs, pushes na main e tags de versão validam o tema e geram XML, ZIP de instalação, checksums e preview para download. Os checks locais continuam disponíveis. [Política de manutenção](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md).
 
 ## Escolha o idioma
 

@@ -6,7 +6,7 @@
 
 Release candidate prepared on October 11, 2026. The owner confirmed v0.1.0 import and rc.3 home continuation. A fresh rc.3 browser inspection displayed ten distinct posts without console errors. Optimized rc.4 needs a fresh Blogger import. Both languages, Designer and every native widget have not been independently verified on the platform.
 
-**Actions pause:** the CI runs recorded below passed before the pause. Repository Actions is now disabled; checks can run locally, and the saved workflow is manual-only for an explicitly authorized future resumption.
+**Actions resumed:** CI runs for PRs, main, tags and manual dispatch. Historical records below preserve the conditions under which they were collected.
 
 ## Automated checks
 

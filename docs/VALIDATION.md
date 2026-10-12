@@ -6,7 +6,7 @@
 
 Candidata preparada em 11/10/2026. O proprietário confirmou a importação da v0.1.0 e a continuação da home da rc.3. Nova inspeção da rc.3 mostrou dez posts distintos e console sem erros. A rc.4 otimizada precisa de nova importação no Blogger. Ambos os idiomas, Designer e todos os gadgets nativos ainda não foram conferidos independentemente na plataforma.
 
-**Pausa do Actions:** as execuções de CI registradas abaixo passaram antes da pausa. O Actions do repositório agora está desativado; as validações podem ser executadas localmente e o workflow salvo é apenas manual para retomada futura autorizada.
+**Retomada do Actions:** CI está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
 
 ## Checks automatizados
 

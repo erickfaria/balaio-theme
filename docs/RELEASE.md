@@ -12,7 +12,7 @@ Esta é uma **versão candidata** de otimização. Vinte e quatro checks locais 
 - Continuação da home após o carregamento inicial e uma oportunidade ociosa, com indicação de prioridade baixa.
 - Lateral não renderizada em posts/páginas, evitando HTML antes enviado e oculto por CSS.
 - Links adicionais sem `m`, preservando outros parâmetros; seleção restrita a `Blog1`.
-- [Guia de performance](PERFORMANCE.md), medições e limitações bilíngues. Actions permanece desativado; os checks são locais.
+- [Guia de performance](PERFORMANCE.md), medições e limitações bilíngues. Actions ativo para checks e geração dos arquivos de instalação.
 
 - Correção da rc.2: o Blogger preservava marcadores CDATA no script da home, causando `Unexpected token '<'` e impedindo a lista extra de posts. Os marcadores agora são comentários JavaScript; as prévias os preservam e os checks locais testam as duas serializações.
 
