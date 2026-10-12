@@ -1,5 +1,13 @@
 # Changelog / Histórico
 
+## 0.2.0-rc.7 — visual refinement / ajuste visual — 2026-10-12
+
+- Replace the large text search button with an original CSS magnifier in a rounded field. Keep an accessible button label, keyboard focus and a 44px tap target; no icon library or new asset request.
+- Substituir o botão grande de busca por uma lupa própria em CSS numa caixa arredondada, com nome acessível, foco de teclado e área de toque de 44px; sem biblioteca de ícones ou nova requisição de recurso.
+- Reduce header/menu/introduction/list spacing on desktop and mobile. Preserve rc.6 widget definitions, continuation, pastel palette, open fonts and 22px post/page text.
+- Reduzir espaços entre cabeçalho/menu/apresentação/listagem no computador e celular. Preservar gadgets, continuação, paleta pastel, fontes abertas e leitura de 22px da rc.6.
+
+
 ## 0.2.0-rc.6 — main recomendada / recommended main — 2026-10-12
 
 - Owner confirmed successful Portuguese import and requested sidebar removal. Public browser inspection verified two highlights plus eight older posts, ten distinct permalinks and no console errors. rc.6 is the recommended main-branch template; its version number is retained.

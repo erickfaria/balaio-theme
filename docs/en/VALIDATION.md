@@ -1,16 +1,24 @@
-# Validation — v0.2.0-rc.6
+# Validation — v0.2.0-rc.7
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
 ## Status
 
-rc.6 recovers the widget definitions and home continuation script from rc.3, confirmed by the owner and observed with ten posts live on October 11, 2026. It retains the sidebar-free layout, compact footer, open variable fonts, mobile navigation and 22px reading text. The owner confirmed rc.6 import and sidebar removal on October 12, 2026. It is the recommended main-branch version.
+rc.7 adjusts only search and visual spacing on the confirmed rc.6 baseline. All widget bodies and the continuation script match in both languages. Fresh rc.7 Blogger import verification is pending.
+
+rc.6 recovers the widget definitions and home continuation script from rc.3, confirmed by the owner and observed with ten posts live on October 11, 2026. It retains the sidebar-free layout, compact footer, open variable fonts, mobile navigation and 22px reading text. The owner confirmed rc.6 import and sidebar removal on October 12, 2026. It is the validated baseline for rc.7.
 
 Actions runs for PRs, main, tags and manual dispatch. Historical records below retain the original verification conditions.
 
 ## Automated checks
 
 26 local tests pass: XML/widget structure, locales, metadata/rendered HTML audit, Designer, contrast, mobile navigation/search, both CDATA serializations and continuation startup from a two-post home. A zero request budget makes no request; the default follows native pagination with the remaining count and an eight-second timeout. Without Node the four JavaScript checks are skipped locally; CI includes Node. Markdown links, English generation, XML, whitespace and preview generation pass.
+
+## Local visual refinement — rc.7
+
+26 checks pass. At 320, 360, 768 and 1440px the preview retains two highlights and eight distinct entries, correct pagination and no horizontal overflow. The button has an accessible name, keyboard focus, a 44×44px target and an original CSS magnifier with no icon request. Searching “ciência dados” correctly submitted the `q` parameter.
+
+In the 360px sample with six menu links, the posts heading moved from 583 to 488px; at 1440px from 521 to 405px. These are preview measurements using the same fonts and content, not a newly published version. No console errors/warnings. Confirmed Portuguese import below concerns rc.6.
 
 ## Public verification — rc.6, October 12, 2026
 
