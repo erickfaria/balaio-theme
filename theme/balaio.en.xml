@@ -3,7 +3,7 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
   <head>
     <meta charset='UTF-8'/>
-    <meta content='0.2.0-rc.5' name='balaio-version'/>
+    <meta content='0.2.0-rc.6' name='balaio-version'/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:blog.pageTitle/></title>
     <b:include data='blog' name='all-head-content'/>
@@ -11,7 +11,7 @@
     <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
     <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400..750&amp;family=Newsreader:opsz,wght@6..72,400..700&amp;display=swap' rel='stylesheet'/>
     <b:skin><![CDATA[
-/* Balaio v0.2.0-rc.5 — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
+/* Balaio v0.2.0-rc.6 — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
    Edit the variables below to customize your blog identity. */
 /* Blogger Designer controls.
 <Variable name="papercolor" description="Page background" type="color" default="#fffefb" value="#fffefb"/>
@@ -639,70 +639,11 @@ a:focus-visible,input:focus-visible {
                   </b:loop>
                 </div>
                 <b:include name='pagination'/>
+                <b:if cond='data:blog.url == data:blog.homepageUrl'><b:include name='homeContinuation'/></b:if>
               </b:if>
             </b:includable>
-            <b:includable id='metadata' var='post'>
-              <div class='meta'>
-                <b:if cond='data:blog.pageType == "item"'>
-                  <span itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'><span itemprop='name'><data:post.author/></span></span>
-                <b:else/><span><data:post.author/></span></b:if>
-                <span><data:post.timestamp/></span>
-              </div>
-            </b:includable>
-            <b:includable id='labels' var='post'>
-              <b:if cond='data:post.labels'><div class='labels'><b:loop values='data:post.labels' var='label'><a expr:href='data:label.url' rel='tag'><data:label.name/></a></b:loop></div></b:if>
-            </b:includable>
-            <b:includable id='card' var='post'>
-              <article class='post-card'>
-                <div class='post-copy'>
-                  <b:include data='post' name='labels'/>
-                  <h2><a expr:href='data:post.url'><b:if cond='data:post.title'><data:post.title/><b:else/>Untitled post</b:if></a></h2>
-                  <p class='post-summary'><data:post.snippet/></p>
-                  <b:include data='post' name='metadata'/>
-                </div>
-                <b:if cond='data:post.thumbnailUrl'><a class='post-image-link' expr:href='data:post.url' tabindex='-1' aria-hidden='true'><img alt='' class='post-image' expr:src='data:post.thumbnailUrl' loading='lazy' decoding='async' width='640' height='480'/></a></b:if>
-              </article>
-            </b:includable>
-            <b:includable id='article' var='post'>
-              <article class='article' itemscope='itemscope' expr:itemtype='data:blog.pageType == "item" ? "https://schema.org/BlogPosting" : "https://schema.org/WebPage"'>
-                <link itemprop='url' expr:href='data:post.url'/>
-                <b:if cond='data:blog.pageType == "item"'><link itemprop='mainEntityOfPage' expr:href='data:post.url'/></b:if>
-                <b:include data='post' name='labels'/>
-                <h1 expr:itemprop='data:blog.pageType == "item" ? "headline" : "name"'><b:if cond='data:post.title'><data:post.title/><b:else/>Untitled post</b:if></h1>
-                <b:if cond='data:blog.pageType == "item"'><b:include data='post' name='metadata'/></b:if>
-                <div class='post-body' expr:itemprop='data:blog.pageType == "item" ? "articleBody" : "text"'><data:post.body/></div>
-                <nav aria-label='Back to posts' class='pager'><a expr:href='data:blog.homepageUrl'>Back to home</a></nav>
-                <b:if cond='data:blog.pageType == "item" and data:post.allowComments'>
-                  <section class='comments' id='comments' aria-label='Comments'>
-                    <h2>Comments (<data:post.numComments/>)</h2>
-                    <b:loop values='data:post.comments' var='comment'>
-                      <article class='comment'><strong><data:comment.author/></strong><div class='meta'><data:comment.timestamp/></div><div class='comment-body'><data:comment.body/></div></article>
-                    </b:loop>
-                    <p><a expr:href='data:post.addCommentUrl'>Write a comment</a></p>
-                  </section>
-                </b:if>
-              </article>
-            </b:includable>
-            <b:includable id='pagination'>
-              <nav aria-label='Pagination' class='pager'>
-                <span><b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl' rel='prev'>Newer posts</a></b:if></span>
-                <span><b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl' rel='next'>Older posts</a></b:if></span>
-              </nav>
-            </b:includable>
-          </b:widget>
-        </b:section>
-          <aside aria-label='Explore the blog' class='sidebar'>
-            <b:section class='sidebar' id='sidebar' showaddelement='no'>
-              <b:widget id='Label1' locked='false' title='Explore topics' type='Label' version='1' mobile='yes'>
-                <b:includable id='main'><h2><data:title/></h2><ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/> <span class='topic-count'>(<data:label.count/>)</span></a></li></b:loop></ul></b:includable>
-              </b:widget>
-            </b:section>
-          </aside>
-      </div>
-    </main>
-    <footer class='site-footer wrap'><a href='https://www.blogger.com/go/report-abuse' rel='nofollow'>Report abuse</a></footer>
-    <b:if cond='data:blog.url == data:blog.homepageUrl'>
-      <script id='home-continuation' type='text/javascript'>//<![CDATA[
+            <b:includable id='homeContinuation'>
+              <script id='home-continuation' type='text/javascript'>//<![CDATA[
 (() => {
   'use strict';
   const list = document.getElementById('postlist');
@@ -722,14 +663,9 @@ a:focus-visible,input:focus-visible {
       return url.origin === location.origin && /^https?:$/.test(url.protocol) ? url : null;
     } catch (_) { return null; }
   }
-  function contentURL(value, base) {
-    const url = localURL(value, base);
-    if (url) url.searchParams.delete('m');
-    return url;
-  }
   function postURL(card, base) {
     const link = card.querySelector('h2 a');
-    return link && contentURL(link.getAttribute('href'), base);
+    return link && localURL(link.getAttribute('href'), base);
   }
   function key(url) { return url.origin + url.pathname; }
   for (const card of blog.querySelectorAll('.post-card')) {
@@ -752,7 +688,7 @@ a:focus-visible,input:focus-visible {
     if (sourceLabels.length) {
       const labels = node('div', 'labels');
       for (const sourceLink of sourceLabels) {
-        const labelURL = contentURL(sourceLink.getAttribute('href'), base);
+        const labelURL = localURL(sourceLink.getAttribute('href'), base);
         if (!labelURL) continue;
         const link = node('a', '', sourceLink.textContent);
         link.href = labelURL.href;
@@ -811,15 +747,14 @@ a:focus-visible,input:focus-visible {
         const timer = setTimeout(() => controller.abort(), 8000);
         let markup;
         try {
-          const response = await fetch(next.href, {signal: controller.signal, credentials: 'omit', redirect: 'error', priority: 'low'});
+          const response = await fetch(next.href, {signal: controller.signal, credentials: 'omit', redirect: 'error'});
           if (!response.ok) throw new Error('Page unavailable');
           markup = await response.text();
         } finally { clearTimeout(timer); }
         // A template keeps fetched styles, images and scripts inert.
         const template = document.createElement('template');
         template.innerHTML = markup;
-        const source = template.content.querySelector('#Blog1');
-        if (!source) break;
+        const source = template.content;
         const cards = [...source.querySelectorAll('.posts > .post-card, .opening-cards > .post-card')];
         if (!cards.length) break;
         const following = source.querySelector('.pager a[rel="next"]');
@@ -849,15 +784,69 @@ a:focus-visible,input:focus-visible {
       // The last working native pagination link remains available on failure.
     } finally { list.removeAttribute('aria-busy'); }
   }
-  // Let the initial page resources finish before fetching extra posts.
-  function scheduleHome() {
-    if (window.requestIdleCallback) window.requestIdleCallback(fillHome, {timeout: 1000});
-    else setTimeout(fillHome, 0);
-  }
-  if (document.readyState === 'complete') scheduleHome();
-  else window.addEventListener('load', scheduleHome, {once: true});
+  fillHome();
 })();
               //]]></script>
-    </b:if>
+            </b:includable>
+            <b:includable id='metadata' var='post'>
+              <div class='meta'>
+                <b:if cond='data:blog.pageType == "item"'>
+                  <span itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'><span itemprop='name'><data:post.author/></span></span>
+                <b:else/><span><data:post.author/></span></b:if>
+                <span><data:post.timestamp/></span>
+              </div>
+            </b:includable>
+            <b:includable id='labels' var='post'>
+              <b:if cond='data:post.labels'><div class='labels'><b:loop values='data:post.labels' var='label'><a expr:href='data:label.url' rel='tag'><data:label.name/></a></b:loop></div></b:if>
+            </b:includable>
+            <b:includable id='card' var='post'>
+              <article class='post-card'>
+                <div class='post-copy'>
+                  <b:include data='post' name='labels'/>
+                  <h2><a expr:href='data:post.url'><b:if cond='data:post.title'><data:post.title/><b:else/>Untitled post</b:if></a></h2>
+                  <p class='post-summary'><data:post.snippet/></p>
+                  <b:include data='post' name='metadata'/>
+                </div>
+                <b:if cond='data:post.thumbnailUrl'><a class='post-image-link' expr:href='data:post.url' tabindex='-1' aria-hidden='true'><img alt='' class='post-image' expr:src='data:post.thumbnailUrl' loading='lazy' decoding='async' width='640' height='480'/></a></b:if>
+              </article>
+            </b:includable>
+            <b:includable id='article' var='post'>
+              <article class='article' itemscope='itemscope' expr:itemtype='data:blog.pageType == "item" ? "https://schema.org/BlogPosting" : "https://schema.org/WebPage"'>
+                <link itemprop='url' expr:href='data:post.url'/>
+                <b:if cond='data:blog.pageType == "item"'><link itemprop='mainEntityOfPage' expr:href='data:post.url'/></b:if>
+                <b:include data='post' name='labels'/>
+                <h1 expr:itemprop='data:blog.pageType == "item" ? "headline" : "name"'><b:if cond='data:post.title'><data:post.title/><b:else/>Untitled post</b:if></h1>
+                <b:if cond='data:blog.pageType == "item"'><b:include data='post' name='metadata'/></b:if>
+                <div class='post-body' expr:itemprop='data:blog.pageType == "item" ? "articleBody" : "text"'><data:post.body/></div>
+                <nav aria-label='Back to posts' class='pager'><a expr:href='data:blog.homepageUrl'>Back to home</a></nav>
+                <b:if cond='data:blog.pageType == "item" and data:post.allowComments'>
+                  <section class='comments' id='comments' aria-label='Comments'>
+                    <h2>Comments (<data:post.numComments/>)</h2>
+                    <b:loop values='data:post.comments' var='comment'>
+                      <article class='comment'><strong><data:comment.author/></strong><div class='meta'><data:comment.timestamp/></div><div class='comment-body'><data:comment.body/></div></article>
+                    </b:loop>
+                    <p><a expr:href='data:post.addCommentUrl'>Write a comment</a></p>
+                  </section>
+                </b:if>
+              </article>
+            </b:includable>
+            <b:includable id='pagination'>
+              <nav aria-label='Pagination' class='pager'>
+                <span><b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl' rel='prev'>Newer posts</a></b:if></span>
+                <span><b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl' rel='next'>Older posts</a></b:if></span>
+              </nav>
+            </b:includable>
+          </b:widget>
+        </b:section>
+        <aside aria-label='Explore the blog' class='sidebar'>
+          <b:section class='sidebar' id='sidebar' showaddelement='yes'>
+            <b:widget id='Label1' locked='false' title='Explore topics' type='Label' version='1' mobile='yes'>
+              <b:includable id='main'><h2><data:title/></h2><ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/> <span class='topic-count'>(<data:label.count/>)</span></a></li></b:loop></ul></b:includable>
+            </b:widget>
+          </b:section>
+        </aside>
+      </div>
+    </main>
+    <footer class='site-footer wrap'><a href='https://www.blogger.com/go/report-abuse' rel='nofollow'>Report abuse</a></footer>
   </body>
 </html>

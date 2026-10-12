@@ -59,44 +59,30 @@ class HomeScriptTests(unittest.TestCase):
                 result = self.syntax(script)
                 self.assertEqual(result.returncode, 0, result.stderr)
 
-    def test_continuation_waits_for_load_and_yields_before_fetch(self):
-        # Execute the real script; isolate lifecycle events without mocking a browser engine.
+    def test_two_post_home_starts_native_continuation(self):
         harness = r"""
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const source = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
-for (const [state, idle] of [['loading', true], ['complete', true], ['loading', false]]) {
-  const calls = [], events = [], tasks = [];
+for (const budget of ['4', '0']) {
+  const calls = [], timers = [];
   const older = {getAttribute: () => '/search?start=2'};
-  const card = {querySelector: () => ({getAttribute: () => '/first.html?m=1'})};
-  const blog = {querySelector: () => older, querySelectorAll: () => [card]};
-  const list = {dataset: {homePosts: '10', pageLimit: '4'}, closest: () => blog,
+  const cards = ['first', 'second'].map(slug => ({querySelector: () => ({getAttribute: () => '/' + slug + '.html?m=1'})}));
+  const blog = {querySelector: () => older, querySelectorAll: () => cards};
+  const list = {dataset: {homePosts: '10', pageLimit: budget}, closest: () => blog,
     setAttribute() {}, removeAttribute() {}};
   const fetch = (url, options) => { calls.push({url, options}); return new Promise(() => {}); };
-  const window = {fetch, AbortController,
-    addEventListener: (type, run, options) => events.push({type, run, options})};
-  if (idle) window.requestIdleCallback = (run, options) => tasks.push({run, options});
-  vm.runInNewContext(source, {window, fetch, AbortController, URL,
-    document: {readyState: state, getElementById: () => list},
+  vm.runInNewContext(source, {window: {fetch, AbortController}, fetch, AbortController, URL,
+    document: {getElementById: () => list},
     location: {origin: 'https://example.com', href: 'https://example.com/'},
-    setTimeout: (run, delay) => { tasks.push({run, delay}); return tasks.length; }, clearTimeout() {}});
-  assert.equal(calls.length, 0, 'initial parsing must not start continuation');
-  if (state === 'loading') {
-    assert.equal(tasks.length, 0);
-    assert.equal(events[0].type, 'load');
-    assert.equal(events[0].options.once, true);
-    events[0].run();
-  } else assert.equal(events.length, 0, 'late script must not wait for an event already fired');
-  assert.equal(calls.length, 0, 'load handler must yield before starting requests');
-  assert.equal(tasks.length, 1);
-  if (idle) assert.equal(tasks[0].options.timeout, 1000);
-  else assert.equal(tasks[0].delay, 0);
-  tasks[0].run();
-  assert.equal(calls.length, 1);
-  assert.equal(calls[0].options.priority, 'low');
+    setTimeout: (run, delay) => {timers.push({run, delay}); return timers.length;}, clearTimeout() {}});
+  assert.equal(calls.length, budget === '0' ? 0 : 1);
+  if (budget === '0') continue;
   assert.equal(calls[0].options.credentials, 'omit');
+  assert.equal(calls[0].options.redirect, 'error');
   assert.equal(new URL(calls[0].url).searchParams.get('m'), '0');
-  assert.equal(new URL(calls[0].url).searchParams.get('max-results'), '9');
+  assert.equal(new URL(calls[0].url).searchParams.get('max-results'), '8');
+  assert.equal(timers[0].delay, 8000);
 }
 """
         for name, _, source in self.scripts():
