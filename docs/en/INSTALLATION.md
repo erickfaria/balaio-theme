@@ -4,7 +4,7 @@
 
 ## Before installation
 
-Use the rc.8 XML on main: aligned automatic page navigation and magnifier search, based on rc.6 with confirmed Portuguese import and ten posts. Fresh rc.8 import verification is pending. Before installing on another blog, retain a backup and check a test blog. Older release packages do not contain this version.
+Use the rc.9 XML on main: collapsible search beside the title, tighter spacing and revalidated published-page navigation, based on the imported rc.8 widget bodies. Fresh rc.9 import verification is pending. Before installing on another blog, retain a backup and check a test blog. Older release packages do not contain this version.
 
 ## Steps
 
@@ -32,7 +32,7 @@ The project owner's screenshots showed the legacy mobile presentation at `?m=1` 
 | The editor rejects the file | Make sure the XML is complete, without Markdown fences or GitHub HTML. Include the exact editor message in an issue. |
 | A card has no image | Try a post containing an image. Thumbnails depend on Blogger data; entries remain readable without an image. |
 | Fonts look different | Check access to Google Fonts. Local fallback fonts are used when remote fonts are unavailable. |
-| My pages are missing from the menu | Confirm rc.8, published pages, JavaScript and an enabled public page feed. Allow up to one minute of session caching and reload. In manual mode, add links under **Layout → Pages**. [Menu modes](PAGES.md). |
+| My pages are missing from the menu | Confirm rc.9, published pages, JavaScript and an enabled public page feed. Open or reload after publishing; drafts are excluded from the feed. Remove manually configured links in the gadget. In manual mode, add links under **Layout → Pages**. [Menu modes](PAGES.md). |
 | The introduction has not changed | Edit Introduction/Apresentação in Layout and save. Keep a single `h1`. |
 | Comments are missing | Check blog settings and post permissions. Embedded forms and threaded replies are not implemented yet. |
 | I want the previous theme back | Restore the XML you backed up before installation from the theme menu. |
@@ -55,4 +55,4 @@ The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publ
 
 ## Restore failure
 
-Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar remains hidden through CSS. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.8` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.
+Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar remains hidden through CSS. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.9` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.

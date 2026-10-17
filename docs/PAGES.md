@@ -32,7 +32,7 @@ Teste cada página e o menu superior em celular após importar. As prévias usam
 
 O elemento de navegação inclui `data-auto-pages='true'` por padrão. Um script próprio consulta o **feed público resumido de páginas do próprio blog**, sem chave de API ou login, e acrescenta até 150 páginas publicadas. Os links já configurados aparecem primeiro; os novos vêm em ordem alfabética. URLs repetidas, inclusive variantes móveis, são ignoradas. Rascunhos não fazem parte do feed público.
 
-Uma resposta pode levar alguns instantes para chegar. O navegador guarda somente títulos e URLs por **60 segundos na sessão**, evitando repetir a consulta ao navegar entre páginas. Após publicar, abra ou atualize o blog; o menu pode usar a cópia anterior durante esse minuto, além do cache do próprio Blogger. O recurso não faz consultas periódicas em segundo plano.
+Na rc.9, o menu faz uma consulta ao abrir ou atualizar a página, revalidando o cache HTTP (`cache: no-cache`), sem guardar uma lista na sessão. **Publicar adiciona a página; voltar para rascunho remove o link automático na próxima atualização**, assim que o feed do Blogger refletir a mudança. Criar ou salvar somente um rascunho não o inclui no menu. Uma aba já aberta não muda sozinha: atualize-a; não há polling. Links adicionados manualmente no gadget continuam sob seu controle e devem ser removidos ali quando necessário.
 
 O carregamento tem timeout de seis segundos e prioridade baixa. Falha de rede, feed indisponível ou JavaScript desligado preservam os links nativos configurados no gadget Páginas. O tema não fixa nomes, domínio ou endereços das páginas do Balaio Científico para outras instalações.
 

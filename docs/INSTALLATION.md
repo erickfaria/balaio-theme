@@ -4,7 +4,7 @@
 
 ## Antes de instalar
 
-Use o XML da rc.8 na main: menu automático alinhado e busca com lupa, sobre a base rc.6 com importação portuguesa e dez posts confirmados. A nova importação visual da rc.8 ainda precisa de conferência. Antes de instalar em outro blog, guarde seu backup e confira num blog de teste. Os pacotes de releases antigos não contêm esta versão.
+Use o XML da rc.9 na main: lupa recolhível ao lado do título, espaços menores e menu que revalida páginas publicadas, sobre os gadgets da rc.8 já importada. A nova importação da rc.9 ainda precisa de conferência. Antes de instalar em outro blog, guarde seu backup e confira num blog de teste. Os pacotes de releases antigos não contêm esta versão.
 
 ## Passo a passo
 
@@ -32,7 +32,7 @@ As capturas do proprietário mostraram a apresentação móvel antiga em `?m=1` 
 | O editor rejeita o arquivo | Confira se copiou o XML completo, sem cercas de Markdown ou HTML do GitHub. Registre a mensagem exata para uma issue. |
 | Não há imagem no card | Use um post com imagem. A miniatura depende dos dados fornecidos pelo Blogger; sem imagem, a entrada continua legível. |
 | As fontes parecem diferentes | Confira acesso ao Google Fonts. O fallback usa fontes do dispositivo quando as fontes remotas não carregam. |
-| O menu não tem minhas páginas | Confirme a rc.8, páginas publicadas, JavaScript e o feed público habilitado. Aguarde até um minuto de cache e atualize. No modo manual, adicione links em **Layout → Páginas**. [Modos do menu](PAGES.md). |
+| O menu não tem minhas páginas | Confirme a rc.9, páginas publicadas, JavaScript e o feed público habilitado. Abra ou atualize o blog após publicar; rascunhos ficam fora do feed. Links manuais precisam ser removidos no gadget. No modo manual, adicione links em **Layout → Páginas**. [Modos do menu](PAGES.md). |
 | A abertura continua igual | Edite Apresentação/Introduction no Layout e salve. Preserve um único `h1`. |
 | Comentários não aparecem | Confira as configurações e permissões do post. O formulário incorporado e as respostas encadeadas ainda não estão prontos. |
 | Quero voltar ao tema anterior | Restaure o XML que você salvou antes da instalação pelo menu do tema. |
@@ -55,4 +55,4 @@ A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no ce
 
 ## Falha ao restaurar
 
-A validação local não executa o compilador nem a migração de gadgets do Blogger. A rc.6 recupera os gadgets completos da rc.3; a lateral legada permanece oculta por CSS. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.8` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.
+A validação local não executa o compilador nem a migração de gadgets do Blogger. A rc.6 recupera os gadgets completos da rc.3; a lateral legada permanece oculta por CSS. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.9` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.

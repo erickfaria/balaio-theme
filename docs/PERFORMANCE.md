@@ -36,8 +36,8 @@ Após importar, confira dois destaques e posts abaixo, paginação correta, arti
 
 `make check` valida XML, idiomas, documentação e código. `make preview` gera casos visuais e de continuação, incluindo uma home que começa com apenas dois posts. A prévia não compila o XML no Blogger. O Actions executa checks e gera artefatos identificados pelo commit.
 
-## Menu automático — rc.8
+## Menu automático — rc.9
 
-O menu consulta o feed público resumido de páginas, uma vez por carregamento sem cache, com prioridade baixa e timeout de seis segundos. Guarda somente títulos/URLs por 60 segundos na sessão; sem armazenamento disponível, continua funcionando pela rede. A resposta observada do blog com quatro páginas foi de 6.659 bytes, variando com o conteúdo. Não há biblioteca externa, API key ou polling.
+Na rc.9, o menu consulta o feed público resumido uma vez por carregamento, com prioridade baixa e timeout de seis segundos. Revalida o cache HTTP, permitindo respostas condicionais, e não acessa armazenamento de sessão. Isso troca a economia de consultas da rc.8 pela atualização de páginas publicadas/rascunhos ao recarregar. A resposta observada do blog com quatro páginas foi de 6.659 bytes, variando com o conteúdo. Não há biblioteca externa, API key ou polling.
 
 O modo automático acrescenta links por JavaScript; mantenha links essenciais também no gadget nativo para funcionamento sem script e HTML inicial. Use `data-auto-pages='false'` para um menu totalmente manual sem essa consulta. [Modos e limites](PAGES.md).

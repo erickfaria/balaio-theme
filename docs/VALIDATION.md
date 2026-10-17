@@ -1,14 +1,24 @@
-# Validação — v0.2.0-rc.8
+# Validação — v0.2.0-rc.9
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
 ## Status
 
-A rc.8 completa o menu com páginas públicas por JavaScript, preservando os links nativos, e corrige a altura da navegação. Os corpos dos gadgets e a continuação são iguais aos da rc.7 instalada. A nova importação da rc.8 ainda precisa de conferência no Blogger.
+A rc.9 mantém os corpos dos gadgets e a continuação da rc.8 importada. Acrescenta busca recolhível nativa ao lado do título, espaços menores e revalidação das páginas publicadas sem cache de sessão. A nova importação da rc.9 ainda precisa de conferência no Blogger.
 
 A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. O proprietário confirmou a importação da rc.6 e a remoção da lateral em 12/10/2026. Ela é a base validada da rc.7.
 
 Actions está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
+
+## Busca recolhível e atualização do menu — rc.9, 17/10/2026
+
+A página pública foi observada com a rc.8 instalada e gadgets preenchidos. Seu menu nativo tinha apenas Início. O feed público passou a conter somente Privacidade e Sobre; Membros retornou HTTP 404 após voltar a rascunho. Uma nova abertura mostrou os três links corretos. A lista anterior podia persistir por um minuto no cache de sessão da rc.8.
+
+A rc.9 elimina essa lista: uma consulta de baixa prioridade ao feed resumido, timeout de seis segundos e revalidação HTTP por carregamento. As regressões executam o script real nos dois idiomas e confirmam publicação, alteração de título, retorno a rascunho, lista vazia, falha de rede e ausência de acesso a sessionStorage. Links manuais e os gadgets permanecem preservados.
+
+28 testes locais passaram. A prévia usa o controle details/summary e o formulário reais do XML, além de reproduzir margens nativas do Blogger. A busca abriu por toque/clique e Enter, enviou termos com acentos por GET e continuou sem JavaScript em quadro isolado. Foram conferidas larguras de 320, 360, 768 e 1440px: lupa de 44px ao lado do nome, campo aberto contido, dois destaques e oito entradas, sem transbordamento horizontal. O intervalo entre a descrição da apresentação e Últimas publicações é 16px no celular e 20px no desktop, sem a margem extra de 30px do gadget. Capturas locais foram inspecionadas.
+
+Estes checks não compilam o XML no Blogger nem confirmam uma nova importação da rc.9. Todos os corpos de gadgets e a continuação foram comparados à main rc.8, sem diferenças.
 
 ## Checks automatizados
 

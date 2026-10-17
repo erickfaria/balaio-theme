@@ -1,31 +1,31 @@
-# Instalar e atualizar — v0.2.0-rc.8
+# Instalar e atualizar — v0.2.0-rc.9
 
 [English](en/RELEASE.md) · [Português](RELEASE.md)
 
-A rc.8 acrescenta páginas publicadas automaticamente ao menu pelo feed resumido do próprio blog. Corrige a altura da navegação e troca o destaque verde por sublinhado discreto. Mantém gadgets, continuação dos posts e busca da base anterior. A nova importação da rc.8 ainda precisa de conferência. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). Use o XML atual da main; pacotes antigos contêm outras versões. [Validação](VALIDATION.md) · [Modo automático/manual](PAGES.md).
+A rc.9 coloca a lupa ao lado do nome no celular e mostra o campo somente ao abrir a busca. Usa `details/summary` nativos, sem biblioteca nem script adicional. Remove as margens extras da apresentação e o cache de sessão que podia manter páginas em rascunho no menu. Preserva todos os gadgets e a continuação dos posts da rc.8 importada. A nova importação da rc.9 ainda precisa de conferência. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). Use o XML atual da main; pacotes antigos contêm outras versões. [Validação](VALIDATION.md) · [Modo automático/manual](PAGES.md).
 
 ## O que a versão preserva
 
 - Dois destaques e posts antigos abaixo, com script e gadgets da rc.3. Meta de dez posts e até quatro páginas adicionais, sem duplicações; paginação nativa de fallback. [Home](HOME.md).
 - Menu de Páginas e links extras, busca no topo, leitura de 22px e controles de cores/fontes.
 - Fontes abertas Inter/Newsreader SIL OFL, layout pastel sem lateral visível e denúncia de abuso no rodapé compacto.
-- CI ativo com checks e artefatos de instalação. Importação portuguesa e continuação confirmadas; prévias não compilam Blogger XML.
+- CI ativo com checks e artefatos de instalação. Base rc.8 instalada em português; nova importação da rc.9 pendente. Prévias não compilam Blogger XML.
 
 ## Arquivos de build da candidata
 
 | Arquivo | Uso |
 | --- | --- |
-| `balaio-0.2.0-rc.8.zip` | Pacote de instalação: templates, guias bilíngues, exemplos de páginas/posts, versão, changelog e avisos MIT/OFL |
+| `balaio-0.2.0-rc.9.zip` | Pacote de instalação: templates, guias bilíngues, exemplos de páginas/posts, versão, changelog e avisos MIT/OFL |
 | `balaio.xml` | Interface em português |
 | `balaio.en.xml` | Interface em inglês |
 | `SHA256SUMS.txt` | Checksums SHA-256 dos três arquivos acima |
 
-O ZIP extrai para `balaio-0.2.0-rc.8/`. Escolha um XML em `theme/`; não envie o ZIP como tema Blogger. O pacote não inclui scripts de desenvolvimento, testes de desenvolvimento, backups nem prévias geradas. Os arquivos de código automáticos do GitHub incluem os arquivos de desenvolvimento rastreados.
+O ZIP extrai para `balaio-0.2.0-rc.9/`. Escolha um XML em `theme/`; não envie o ZIP como tema Blogger. O pacote não inclui scripts de desenvolvimento, testes de desenvolvimento, backups nem prévias geradas. Os arquivos de código automáticos do GitHub incluem os arquivos de desenvolvimento rastreados.
 
 ## Atualizar a partir da v0.1.0
 
 1. Faça backup do XML atual do Blogger e registre gadgets, links e valores do Designer personalizados. Use primeiro um blog de teste separado.
-2. Em **Tema → menu → Editar HTML**, cole o XML completo da candidata no idioma escolhido e salve. O comentário do CSS identifica `v0.2.0-rc.8`.
+2. Em **Tema → menu → Editar HTML**, cole o XML completo da candidata no idioma escolhido e salve. O comentário do CSS identifica `v0.2.0-rc.9`.
 3. Confira as páginas publicadas no menu automático. **Layout → Páginas** define os links iniciais e sua ordem; para escolher somente algumas páginas, use o [modo manual](PAGES.md). **Menu** recebe links extras. Crie o conteúdo em Páginas; o XML não cria nem substitui esses registros.
 4. Confira Apresentação e os links do menu. A lateral fica oculta por CSS. Os links de rodapé não são mais exibidos: mova links necessários para Páginas/Menu antes de atualizar. Blocos herdados de Perfil/Atribuição ficam ocultos.
 5. Em **Tema → Personalizar → Avançado**, confira cores e **Fonte de posts e páginas**. Valores salvos podem preservar um tamanho anterior; escolha 22px se necessário. Largura de leitura e padrões pastel estão em [CUSTOMIZATION.md](CUSTOMIZATION.md).

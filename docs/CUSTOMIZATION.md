@@ -6,7 +6,7 @@
 
 - **Título e descrição:** configurações do blog. O cabeçalho usa o texto configurado.
 - **Abertura:** gadget **Apresentação** no Layout. Edite o texto, preservando uma única tag `<h1>`. Se remover o gadget, mantenha um único H1 descritivo na home.
-- **Páginas:** selecione páginas publicadas no Layout e ordene sua navegação no topo.
+- **Páginas:** o menu descobre páginas publicadas ao atualizar; o Layout define links iniciais e sua ordem. [Modo automático/manual](PAGES.md).
 - **Menu:** adicione links extras de marcadores ou sites externos; evite duplicar Início.
 - **Assuntos:** adicione links de marcadores no Menu.
 - **Lateral:** removida no layout em desenvolvimento; a busca permanece no cabeçalho.
@@ -62,3 +62,7 @@ Em telas de até 800px, cabeçalho e apresentação usam espaçamento menor. Nã
 A rc.7 recomendada oculta a lateral de todas as páginas e mostra apenas Denunciar abuso num rodapé compacto. O último pacote publicado v0.2.0-rc.4 ainda mantém a lateral nas listagens. Gadgets herdados de Perfil, Atribuição, BlogSearch, BlogArchive, FeaturedPost e ReportAbuse ficam ocultos pelo CSS. Remova os gadgets antigos no Layout se o Blogger os preservar após importar, para eliminar também seu HTML. Selecione Contato e Privacidade no gadget Páginas do topo. Os avisos de licença permanecem no código e na distribuição. Importe novamente o XML atualizado para aplicar estas mudanças; o pacote estável v0.1.0 mantém o rodapé original.
 
 O padrão de leitura é 22px com entrelinha de 1,75. Configurações salvas no Designer podem preservar um tamanho anterior: selecione 22px em **Fonte de posts e páginas** após importar, se necessário.
+
+## Busca e espaços
+
+A lupa fica ao lado do título em todas as larguras. Toque/clique nela ou use Enter/Espaço para abrir; Tab alcança o campo e Enter envia a busca nativa. Acione a lupa novamente para fechar. O controle usa `details/summary`, sem JavaScript adicional. `.search` define a largura máxima do campo aberto; `.intro` e `.content-grid` controlam o intervalo antes das publicações. As margens nativas de `#introduction` e do gadget são zeradas para evitar espaço duplicado.
