@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gera fixtures visuais com o CSS real. Não compila as tags do Blogger."""
 from html import escape
+from copy import deepcopy
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import re
@@ -46,6 +47,39 @@ HEADER = '''<a class="skip" href="#content">Pular para o conteúdo</a>
 SEARCH_FORM = re.search(r"<details class='search-disclosure'.*?</details>", SOURCE, flags=re.S).group(0)
 HEADER = re.sub(r'<form class="search".*?</form>',
                 SEARCH_FORM.replace("action='/search'", "action='empty.html'"), HEADER, flags=re.S)
+
+
+def contact_markup(english=False, feedback=None):
+    """Resolve only contact-widget attributes for a non-sending visual fixture."""
+    filename = "balaio.en.xml" if english else "balaio.xml"
+    root = ET.fromstring((ROOT / "theme" / filename).read_text(encoding="utf-8"))
+    b = "{http://www.google.com/2005/gml/b}"
+    h = "{http://www.w3.org/1999/xhtml}"
+    expr = "{http://www.google.com/2005/gml/expr}"
+    widget = root.find(".//" + b + "widget[@id='ContactForm1']")
+    section = deepcopy(widget.find(b + "includable/" + h + "section"))
+    for node in section.iter():
+        node.tag = node.tag.removeprefix(h)
+        for attr, value in list(node.attrib.items()):
+            if not attr.startswith(expr):
+                continue
+            del node.attrib[attr]
+            name = attr.removeprefix(expr)
+            if value == "data:blog.homepageUrl":
+                node.set(name, "index.html")
+            else:
+                suffix = re.fullmatch(r'data:widget.instanceId \+ "([a-z_-]+)"', value)
+                if not suffix:
+                    raise ValueError("Unsupported contact fixture expression: " + value)
+                node.set(name, "ContactForm1" + suffix[1])
+        if node.get("id") == "ContactForm1_contact-form-submit":
+            node.set("disabled", "disabled")
+            node.set("title", "Preview only: no messages are sent" if english else "Prévia: nenhuma mensagem é enviada")
+    if feedback:
+        status = section.find(".//p[@role='alert']" if feedback == "error" else ".//p[@role='status']")
+        status.set("class", status.get("class") + "-with-border")
+        status.text = "Example error: please try again." if feedback == "error" else "Example only: no message was sent."
+    return '<div class="contact-section section" id="contactpage"><div class="widget ContactForm" id="ContactForm1">' + ET.tostring(section, encoding="unicode", method="html") + '</div></div>'
 
 
 def page(title, content, home=False):
@@ -154,11 +188,32 @@ def build():
     for index in range(len(cards)):
         (OUT / f"post-{index + 1}.html").write_text(page(POSTS[index][1], article))
     (OUT / "empty.html").write_text(page("Busca", '<div class="content-grid"><div><h1>Busca</h1><p class="empty">Nenhuma publicação encontrada. <a href="index.html">Voltar ao início</a>.</p></div>' + '</div>'))
+    def static_page(title, body, english=False, feedback=None):
+        content = '<div class="content-grid article-grid"><div class="main section" id="main"><div class="widget Blog" id="Blog1"><article class="article" itemscope itemtype="https://schema.org/WebPage"><h1 itemprop="name">' + escape(title) + '</h1><div class="post-body" itemprop="text">' + body + '</div><nav class="pager"><a href="index.html">Voltar ao início</a></nav></article></div></div></div>'
+        return page(title, content + contact_markup(english=english, feedback=feedback))
     for slug, title in [('about', 'Sobre'), ('contact', 'Contato'), ('privacy', 'Privacidade')]:
         body = (ROOT / f'examples/pages/{slug}.pt-BR.html').read_text(encoding='utf-8')
-        rendered = page(title, '<div class="content-grid article-grid"><article class="article" itemscope itemtype="https://schema.org/WebPage"><h1 itemprop="name">' + title + '</h1><div class="post-body" itemprop="text">' + body + '</div></article></div>')
+        rendered = static_page(title, body)
         rendered = rendered.replace(f'href="{slug}.html"', f'href="{slug}.html" aria-current="page"')
         (OUT / f'{slug}.html').write_text(rendered)
+    contact_body = (ROOT / 'examples/pages/contact.en.html').read_text(encoding='utf-8')
+    english_contact = static_page('Contact', contact_body, english=True)
+    from build_locales import TRANSLATIONS
+    for original, translated in TRANSLATIONS.items():
+        english_contact = english_contact.replace(original, translated)
+    for original, translated in [('Sobre mim','About'),('Contato','Contact'),('Privacidade','Privacy'),('Leitura','Reading'),('Busca sem resultados','Empty search'),('Ciência, cultura e outras boas perguntas.','Science, culture and good questions.')]:
+        english_contact = english_contact.replace(original, translated)
+    (OUT / 'contact.en.html').write_text(english_contact.replace('lang="pt-BR"', 'lang="en"'))
+    for filename in ('contact_1234567890.html', 'contato_987654321.html', 'write-to-us.html'):
+        fixture = (OUT / 'contact.html').read_text().replace('href="index.html"', 'href="../index.html"')
+        (pages_dir / filename).write_text(fixture)
+    disabled_body = contact_body.replace(' class="balaio-contact-page"', '')
+    (OUT / 'contact-disabled.html').write_text(static_page('Contact disabled', disabled_body))
+    for kind in ('error', 'success'):
+        (OUT / f'contact-{kind}.html').write_text(static_page('Contact feedback', contact_body, english=True, feedback=kind))
+    contact_frames = ''.join(f'<iframe id="{name}-{width}" src="{name}.html" width="{width}" height="1200" title="{name} {width}px" style="display:block;border:0"></iframe>' for name in ('contact','contact.en') for width in (320,360,768,1440))
+    (OUT / 'responsive-contact.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><title>Contact forms</title><body>'+contact_frames+'</body></html>')
+    (OUT / 'contact-nojs.html').write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Contact without scripts</title><iframe id="nojs" sandbox="allow-same-origin allow-forms" src="contact.html" width="360" height="1200" title="Contact without JavaScript"></iframe></html>')
     sample = (ROOT / 'examples/post.pt-BR.html').read_text(encoding='utf-8')
     media = '<figure><img src="observation.svg" alt="Ilustração geométrica de órbitas" width="480" height="360"><figcaption>Imagem original para teste de layout.</figcaption></figure><div class="video"><iframe src="about:blank" title="Contêiner de vídeo de teste"></iframe></div>'
     (OUT / 'media.html').write_text(page('Post sample', '<div class="content-grid article-grid"><article class="article"><h1>Modelo de postagem responsiva</h1><div class="post-body">' + sample + media + '</div></article></div>'))
