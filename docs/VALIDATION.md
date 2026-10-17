@@ -1,14 +1,22 @@
-# Validação — v0.2.0-rc.12
+# Validação — v0.2.0-rc.13
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
 ## Status
 
-A rc.12 remove a integração automática de contato da rc.11. O XML é igual ao da rc.10 importada, alterando somente os metadados de versão. Contato fica como referência textual e configuração manual, sem criar páginas, instalar formulário ou escolher endereço por título.
+A rc.13 inclui o formulário nativo em seção própria, fora da lateral oculta. Uma classe no conteúdo da página estática ativa sua apresentação por CSS, com qualquer nome/endereço. Não há detecção por URL, novo JavaScript ou criação automática de páginas. Importação e entrega desta candidata ainda precisam de confirmação no Blogger.
 
 A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. O proprietário confirmou a importação da rc.6 e a remoção da lateral em 12/10/2026. Ela é a base validada da rc.7.
 
 Actions está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
+
+## Contato por conteúdo — rc.13, 17/10/2026
+
+A cópia exportada pelo proprietário continha ContactForm1 na lateral oculta e com condição de URL antiga. A rc.13 declara o gadget completo na seção contactpage, fora de sidebar, com escopo de páginas estáticas. O modelo HTML acrescenta a classe balaio-contact-page; não é mais necessário editar linhas do XML ou fixar um endereço. Os gadgets anteriores e os dois scripts foram preservados. As prévias desativam envio e não carregam o transporte Google. 31 testes locais passaram, além de links da documentação, geração de idiomas, XML e whitespace. Os seis gadgets anteriores e os scripts home-continuation/page-navigation foram comparados à main anterior, sem diferenças.
+
+As prévias dos dois idiomas foram conferidas em 320, 360, 768 e 1440px: um H1, campos de 16px, controles acima de 44px, alinhamento com a coluna de leitura, intervalo de 24px após o texto e nenhuma rolagem horizontal. Três URLs diferentes (duas com sufixo numérico) exibiram o formulário; Sobre, Privacidade e a página sem classe o mantiveram oculto. O aviso sem JavaScript apareceu no quadro isolado. E-mail inválido foi reconhecido; dados fictícios com nome vazio foram aceitos pela validação HTML. Retornos de erro/sucesso são apenas estados ilustrativos, sem mensagem enviada.
+
+Nenhum conteúdo, configuração ou mensagem foi enviado ao Blogger. Os checks locais não executam o compilador/migração da plataforma nem confirmam entrega de e-mail. A nova importação e o recebimento real continuam pendentes.
 
 ## Contato manual e remoção da integração — rc.12, 17/10/2026
 

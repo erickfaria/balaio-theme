@@ -47,6 +47,6 @@ Não distribuímos fontes compradas, fotos de banco proprietário, ícones propr
 
 Todos os recursos incluídos permitem reutilização e modificação sob suas respectivas licenças. Preserve avisos MIT e OFL ao redistribuir os códigos ou fontes correspondentes. O [guia de personalização](CUSTOMIZATION.md) explica como remover requisições externas de fontes.
 
-## Contato — rc.12
+## Contato — rc.13
 
-A rc.12 distribui apenas o modelo textual de Contato e guias de configuração manual, sob MIT. A integração nativa experimental da rc.11 e seus estilos foram removidos. Nenhuma biblioteca de envio é copiada ou distribuída. Serviços usados por quem configurar um formulário ficam sob seus próprios termos. [Referência](CONTACT.md).
+Markup, estilos e modelos próprios do formulário são MIT. O widget usa a interface nativa ContactForm do Blogger, sem copiar o JavaScript Google nem distribuir um transporte de e-mail. A ativação por conteúdo usa apenas CSS, sem domínio ou URL do proprietário. O serviço externo de processamento mantém seus próprios termos, assim como a própria hospedagem Blogger. [Ativação e dados](CONTACT.md).

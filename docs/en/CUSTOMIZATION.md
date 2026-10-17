@@ -49,7 +49,7 @@ Regenerate the preview after XML changes. Check contrast, long titles, posts wit
 
 ## Basic pages
 
-[About, Contact and Privacy samples](PAGES.md): About/Privacy use Lorem ipsum; Contact is an editable text reference; any form is configured manually. [Manual contact setup](CONTACT.md). XML does not create pages or replace their content. Original code is MIT; Inter/Newsreader are SIL OFL.
+[About, Contact and Privacy samples](PAGES.md): About/Privacy use Lorem ipsum; Contact enables the included native form with a page-content marker, regardless of its URL. [Simple setup](CONTACT.md). XML does not create pages or replace their content. Original code is MIT; Inter/Newsreader are SIL OFL.
 
 ## Compact mobile layout
 

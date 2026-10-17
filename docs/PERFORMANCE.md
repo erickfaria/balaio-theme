@@ -42,6 +42,6 @@ Na rc.9, o menu consulta o feed público resumido uma vez por carregamento, com 
 
 O modo automático acrescenta links por JavaScript; mantenha links essenciais também no gadget nativo para funcionamento sem script e HTML inicial. Use `data-auto-pages='false'` para um menu totalmente manual sem essa consulta. [Modos e limites](PAGES.md).
 
-## Contato manual — rc.12
+## Contato opcional — rc.13
 
-Contato é uma referência textual na rc.12. O tema não instala widget, CSS, biblioteca ou transporte de contato, nem faz correspondência por endereço. O XML e os scripts retomam a base rc.10, com a versão atualizada. O custo de qualquer formulário configurado manualmente depende da solução escolhida. [Configuração](CONTACT.md).
+O widget nativo é declarado apenas para páginas estáticas, em seção própria. Um marcador no conteúdo ativa sua apresentação por CSS `:has()`, sem detecção de URL, JavaScript adicional, consulta de feed ou biblioteca nova. O markup do formulário também existe, oculto, nas demais páginas estáticas; não é renderizado na home nem nos posts. O envio depende do runtime nativo do Blogger, que o tema não copia nem substitui. [Configuração](CONTACT.md).

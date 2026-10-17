@@ -2,7 +2,7 @@
 
 [English](en/PAGES.md) · [Português](PAGES.md)
 
-O Balaio inclui modelos editáveis de corpo das páginas **Sobre**, **Contato** e **Privacidade**. Sobre e Privacidade contêm Lorem ipsum para desenvolver o layout. O exemplo de privacidade não é uma política de privacidade. Contato é apenas uma referência textual editável: a página e qualquer formulário são configurados manualmente. Use o endereço real gerado pelo Blogger, inclusive com sufixo. [Guia de contato](CONTACT.md).
+O Balaio inclui modelos editáveis de corpo das páginas **Sobre**, **Contato** e **Privacidade**. Sobre/Privacidade usam Lorem ipsum; o exemplo de privacidade não é uma política de privacidade. O exemplo de Contato contém `class="balaio-contact-page"`, que exibe o formulário nativo incluído no tema, com qualquer endereço gerado pelo Blogger. [Ativação simples](CONTACT.md).
 
 | Título da página | Corpo para copiar no Blogger |
 | --- | --- |

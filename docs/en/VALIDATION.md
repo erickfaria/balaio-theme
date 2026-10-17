@@ -1,14 +1,22 @@
-# Validation — v0.2.0-rc.12
+# Validation — v0.2.0-rc.13
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
 ## Status
 
-rc.12 removes rc.11’s automatic contact integration. XML matches imported rc.10 apart from version metadata. Contact is a text reference with manual setup; the theme does not create pages, install a form or choose a contact path from its title.
+rc.13 includes the native form in its own section outside the hidden sidebar. A class in static-page content enables presentation through CSS, regardless of title/URL. It adds no URL detection, new JavaScript or automatic page creation. Fresh import and delivery still need confirmation on Blogger.
 
 rc.6 recovers the widget definitions and home continuation script from rc.3, confirmed by the owner and observed with ten posts live on October 11, 2026. It retains the sidebar-free layout, compact footer, open variable fonts, mobile navigation and 22px reading text. The owner confirmed rc.6 import and sidebar removal on October 12, 2026. It is the validated baseline for rc.7.
 
 Actions runs for PRs, main, tags and manual dispatch. Historical records below retain the original verification conditions.
+
+## Content opt-in contact — rc.13, October 17, 2026
+
+The owner’s exported copy contained ContactForm1 in the hidden sidebar with an old URL condition. rc.13 declares the complete gadget in contactpage, outside sidebar, limited to static pages. The HTML sample adds balaio-contact-page; no template-line editing or fixed address is needed. Existing widgets and both scripts are preserved. Previews disable sending and do not load Google transport. 31 local tests pass, alongside documentation links, generated locales, XML and whitespace checks. The six previous widgets and home-continuation/page-navigation scripts were compared against the previous main without differences.
+
+Both language previews were checked at 320, 360, 768 and 1440px: one H1, 16px fields, controls above 44px, alignment with the reading column, a 24px text-to-form gap and no horizontal overflow. Three different URLs (two with numeric suffixes) displayed the form; About, Privacy and the page without the class kept it hidden. The script-free notice appeared in an isolated frame. Invalid email was recognized; fictitious values with a blank name passed HTML validity. Error/success feedback is illustrative only, without sending a message.
+
+No Blogger content, settings or messages were submitted. Local checks do not run platform compilation/migration or confirm email delivery. Fresh import and inbox receipt remain pending.
 
 ## Manual contact and integration removal — rc.12, October 17, 2026
 
