@@ -1,13 +1,24 @@
 # Changelog / Histórico
 
+## 0.2.0-rc.9 — compact search / busca compacta — 2026-10-17
+
+- Keep only a magnifier beside the title on phones and desktop. A native details/summary disclosure opens the rounded search field by touch or keyboard, including without JavaScript; no new assets or libraries.
+- Manter apenas a lupa ao lado do nome no celular e desktop. O controle nativo details/summary abre a busca arredondada por toque ou teclado, inclusive sem JavaScript; sem novos recursos ou bibliotecas.
+- Remove Blogger’s extra 30px introduction-widget margin; the gap before posts is 16px on phones / 20px on desktop. Preserve all widget bodies and older-post continuation from imported rc.8.
+- Remover a margem extra de 30px do gadget de apresentação do Blogger; o intervalo antes dos posts fica em 16px no celular / 20px no desktop. Preservar todos os gadgets e a continuação dos posts da rc.8 importada.
+- Revalidate the summary page feed once per page load instead of using a one-minute session list, reflecting publication, title changes and returns to draft after reload. Manually configured links remain unchanged; no polling.
+- Revalidar o feed resumido uma vez por carregamento, em vez da lista de sessão de um minuto, refletindo publicação, mudança de nome e retorno a rascunho ao atualizar. Links manuais continuam sob controle do usuário; sem polling.
+- Update bilingual documentation and runtime checks. Fresh rc.9 Blogger import remains pending.
+- Atualizar documentação bilíngue e regressões. Nova importação da rc.9 ainda pendente.
+
 ## 0.2.0-rc.8 — automatic page navigation / navegação automática — 2026-10-17
 
 - Discover published pages through the same-origin public summary feed; preserve configured link order/labels, deduplicate pages and alphabetize additional links. Cache only titles/URLs for 60 seconds; allow fully manual navigation.
 - Descobrir páginas publicadas pelo feed público resumido do próprio blog; preservar ordem/nomes configurados, evitar duplicações e ordenar links adicionais alfabeticamente. Guardar somente títulos/URLs por 60 segundos; permitir navegação totalmente manual.
 - Override Blogger’s 30px navbar height, align links with the brand and replace the active green pill with a subtle underline. Keep native widget definitions and working home continuation.
 - Corrigir a altura nativa de 30px da navbar, alinhar links com a marca e trocar o destaque verde por sublinhado discreto. Preservar gadgets nativos e continuação da home.
-- Add runtime cases for failures, cache, duplicate/unsafe URLs, manual mode and current-page state. Fresh rc.8 Blogger import remains pending.
-- Adicionar regressões de falha, cache, URLs duplicadas/inseguras, modo manual e página atual. Nova importação da rc.8 ainda pendente.
+- Add runtime cases for failures, cache, duplicate/unsafe URLs, manual mode and current-page state. rc.8 was subsequently observed installed on October 17; see validation records.
+- Adicionar regressões de falha, cache, URLs duplicadas/inseguras, modo manual e página atual. A rc.8 foi posteriormente observada instalada em 17 de outubro; consulte os registros de validação.
 
 
 ## 0.2.0-rc.7 — visual refinement / ajuste visual — 2026-10-12

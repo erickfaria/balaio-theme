@@ -36,8 +36,8 @@ After import, check two highlights plus the list below, correct pagination, an a
 
 `make check` validates XML, locales, documentation and code. `make preview` generates visual/continuation cases, including a home starting with only two posts. The preview does not compile Blogger XML. Actions runs checks and creates artifacts identified by commit.
 
-## Automatic navigation — rc.8
+## Automatic navigation — rc.9
 
-Navigation requests the public summary page feed once per uncached load, with low priority and a six-second timeout. Only titles/URLs are stored for 60 seconds in session storage; blocked storage falls back to network loading. The observed four-page feed response measured 6,659 bytes and varies with content. There is no external library, API key or polling.
+In rc.9, navigation requests the summary page feed once per page load, at low priority with a six-second timeout. It revalidates the HTTP cache, allowing conditional responses, and does not access session storage. This trades rc.8’s avoided requests for refreshed published/draft links on reload. The observed four-page feed response measured 6,659 bytes and varies with content. There is no external library, API key or polling.
 
 Automatic links are added by JavaScript; keep essential links in the native gadget for script-free access and initial HTML. Use `data-auto-pages='false'` for a fully manual menu without this request. [Modes and limits](PAGES.md).

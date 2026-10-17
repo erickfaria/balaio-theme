@@ -1,6 +1,6 @@
 # Balaio — Free minimal Blogger theme
 
-**Recommended version: rc.8 on main.** Published pages now supplement the header menu automatically. Current-page links use a subtle underline, and the navigation height adapts to wrapped links. Based on the validated rc.6 widgets and rc.7 search; fresh rc.8 Blogger import remains pending.
+**Recommended version: rc.9 on main.** A compact magnifier stays beside the blog title on phones and opens the search field on demand, including without JavaScript. Introductory spacing is tighter. Automatic page navigation revalidates the public feed on reload, so pages returned to drafts do not linger in the theme cache. Based on the imported rc.8 widgets; fresh rc.9 Blogger import remains pending.
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Default template:** `v0.2.0-rc.8`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
+> **Default template:** `v0.2.0-rc.9`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
 >
 > **Earlier fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with confirmed import but without the current home continuation and layout.
 
@@ -41,7 +41,7 @@ No build tools are needed to install the theme.
 
 - Two opening cards for the latest home-page posts, followed by an editorial list. When Blogger returns a short page, a small built-in script follows native pagination toward 10 posts, without duplicate entries.
 - Responsive layouts for phones, tablets and desktop; optional thumbnails and full-width entries when no image is available.
-- Native Blogger search, label links, pagination, article and static-page layouts.
+- Native Blogger search in an icon-only disclosure, label links, pagination, article and static-page layouts. Click/tap the magnifier or press Enter/Space, then Tab to the field; toggle it again to close.
 - Basic comment display and a link to add a comment; embedded forms and threaded replies remain pending.
 - Editable introduction, automatic published-page navigation and extra Menu links; no sidebar and one header search.
 - Keyboard focus, skip link, contained code/table scrolling and print styles.
@@ -98,7 +98,7 @@ The theme preserves Blogger metadata and adds visible-content article microdata.
 
 ## Basic pages
 
-[About, Contact and Privacy samples](docs/en/PAGES.md) use Lorem ipsum. Create and publish the pages in Blogger, then select them under **Layout → Pages**. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+[About, Contact and Privacy samples](docs/en/PAGES.md) use Lorem ipsum. Create and publish the pages in Blogger; automatic navigation discovers them on reload. **Layout → Pages** also configures native fallback links. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
 
 ## Contribute through pull requests
 

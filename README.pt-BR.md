@@ -1,6 +1,6 @@
 # Balaio — Tema Blogger gratuito e minimalista
 
-**Versão recomendada: rc.8 na main.** Páginas publicadas passam a completar o menu automaticamente. O item atual usa sublinhado discreto, e a altura da navegação acompanha os links em várias linhas. Baseada nos gadgets validados da rc.6 e na busca da rc.7; a nova importação da rc.8 ainda precisa de conferência.
+**Versão recomendada: rc.9 na main.** A lupa fica ao lado do nome no celular e abre o campo de busca sob demanda, inclusive sem JavaScript. A apresentação tem menos espaço em branco. O menu automático revalida o feed público ao atualizar, evitando manter páginas que voltaram a rascunho no cache do tema. Baseada nos gadgets da rc.8 importada; nova importação da rc.9 ainda pendente.
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Tema padrão:** `v0.2.0-rc.8`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). Use estes templates da main; os pacotes de releases anteriores contêm outras versões.
+> **Tema padrão:** `v0.2.0-rc.9`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). Use estes templates da main; os pacotes de releases anteriores contêm outras versões.
 >
 > **Alternativa anterior:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada, mas sem a continuação e o layout atuais.
 

@@ -37,20 +37,20 @@ POSTS = [
 
 HEADER = '''<a class="skip" href="#content">Pular para o conteúdo</a>
 <header class="masthead"><div class="wrap"><div class="masthead-top">
-<div><a class="brand" href="index.html">Balaio Científico</a><p class="description">Ciência, cultura e outras boas perguntas.</p></div>
+<div class="header section"><div class="widget"><a class="brand" href="index.html">Balaio Científico</a><p class="description">Ciência, cultura e outras boas perguntas.</p></div></div>
 <form class="search" action="empty.html" role="search"><input aria-label="Buscar no blog" name="q" placeholder="Buscar no blog" type="search"><button>Buscar</button></form></div>
 <nav class="navigation" aria-label="Navegação principal" data-auto-pages="false"><div class="navbar section" id="navigation"><div class="widget PageList" id="PageList1"><ul><li><a href="index.html">Início</a></li><li><a href="article.html">Leitura</a></li><li><a href="about.html">Sobre mim</a></li><li><a href="contact.html">Contato</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="empty.html">Busca sem resultados</a></li></ul></div></div></nav></div></header>'''
 
 
-# Use the actual theme form so visual fixtures track its icon and accessible label.
-SEARCH_FORM = re.search(r"<form class='search'.*?</form>", SOURCE, flags=re.S).group(0)
+# Use the actual native disclosure and form, including their accessible labels.
+SEARCH_FORM = re.search(r"<details class='search-disclosure'.*?</details>", SOURCE, flags=re.S).group(0)
 HEADER = re.sub(r'<form class="search".*?</form>',
                 SEARCH_FORM.replace("action='/search'", "action='empty.html'"), HEADER, flags=re.S)
 
 
 def page(title, content, home=False):
     script = (HOME_SCRIPT if home else "") + PAGES_SCRIPT
-    return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>.navbar{{height:30px}}</style><style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main><footer class="site-footer wrap"><a href="https://www.blogger.com/go/report-abuse" rel="nofollow">Denunciar abuso</a></footer>{script}</body></html>'
+    return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>.section{{margin:0 15px}}.widget{{margin:0 0 30px}}.navbar{{height:30px}}</style><style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main><footer class="site-footer wrap"><a href="https://www.blogger.com/go/report-abuse" rel="nofollow">Denunciar abuso</a></footer>{script}</body></html>'
 
 
 def build():
@@ -61,7 +61,7 @@ def build():
     for index, (label, title, summary, picture) in enumerate(POSTS):
         image = '<a class="post-image-link" href="article.html" tabindex="-1" aria-hidden="true"><img class="post-image" src="observation.svg" alt="" width="480" height="360"></a>' if picture else ''
         cards.append(f'<article class="post-card"><div class="post-copy"><div class="labels">{escape(label)}</div><h2><a href="article.html">{escape(title)}</a></h2><p class="post-summary">{escape(summary)}</p><div class="meta"><span>Equipe Balaio</span><span>11 de outubro de 2026</span></div></div>{image}</article>'.replace('href="article.html"', f'href="post-{index + 1}.html"'))
-    intro = '<div class="intro"><div class="eyebrow">Um espaço para a curiosidade</div><h1>Conhecimento começa com uma boa pergunta.</h1><p>Um lugar para reunir descobertas, conectar ideias e compartilhar o que aprendemos.</p></div>'
+    intro = '<div class="section" id="introduction"><div class="widget HTML" id="HTML1"><div class="intro"><div class="eyebrow">Um espaço para a curiosidade</div><h1>Conhecimento começa com uma boa pergunta.</h1><p>Um lugar para reunir descobertas, conectar ideias e compartilhar o que aprendemos.</p></div></div></div>'
     def listing(entries, next_page=None, home=False):
         opening = '<h2 class="section-title">Últimas publicações</h2><div class="opening-cards">' + ''.join(entries[:2]) + '</div>' if home else ''
         remaining = entries[2:] if home else entries
@@ -147,6 +147,8 @@ def build():
         (pages_dir / f'{slug}.html').write_text(content.replace('Menu automático', title))
     frames = ''.join(f'<iframe id="width-{width}" src="menu-auto.html" width="{width}" height="900" title="Menu {width}px" style="display:block;border:0"></iframe>' for width in (320,360,768,1440))
     (OUT / "responsive-menu.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Menu responsivo</title><body>'+frames+'</body></html>')
+    (OUT / "search-nojs.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Busca sem JavaScript</title><iframe id="nojs" sandbox="allow-same-origin allow-forms" src="short-nojs.html" width="360" height="900" title="Busca sem JavaScript"></iframe></html>')
+    (OUT / "header-mobile.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Cabeçalho móvel</title><body style="margin:0"><iframe id="mobile" src="menu-auto.html" width="360" height="900" title="Celular 360px" style="border:0"></iframe></body></html>')
     article = '''<div class="content-grid article-grid"><div><article class="article"><div class="labels">Ciência</div><h1>O que uma pergunta pode mudar?</h1><div class="meta"><span>Equipe Balaio</span><span>11 de outubro de 2026</span></div><div class="post-body"><p>Às vezes, aprender começa com uma pausa. Olhamos para algo familiar e percebemos que ainda há uma pergunta a fazer.</p><h2>O espaço entre observar e entender</h2><p>A curiosidade aproxima ideias distantes. Podemos começar com um detalhe cotidiano, reunir observações e comparar explicações.</p><blockquote>Uma boa pergunta abre espaço para continuar pensando.</blockquote><p>Este texto é fictício e serve para avaliar a tipografia do tema.</p><h2>Um pequeno registro</h2><table><thead><tr><th>Etapa</th><th>Pergunta</th></tr></thead><tbody><tr><td>Observação</td><td>O que aconteceu?</td></tr><tr><td>Investigação</td><td>Como podemos conferir?</td></tr></tbody></table><pre><code>perguntas = ["Como?", "Por quê?", "Como conferir?"]</code></pre><h2>Para continuar</h2><ul><li>Registrar o que sabemos.</li><li>Identificar o que ainda falta descobrir.</li><li>Revisitar as primeiras hipóteses.</li></ul><p><a href="index.html">Voltar às publicações</a></p></div></article></div></div>'''
     (OUT / "article.html").write_text(page("Leitura", article))
     for index in range(len(cards)):

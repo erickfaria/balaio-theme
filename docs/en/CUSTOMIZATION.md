@@ -60,3 +60,7 @@ On screens up to 800px, the header and introduction use shorter spacing. There i
 Recommended rc.7 hides the sidebar on every page and keeps only Report abuse in a compact footer. The last published v0.2.0-rc.4 package still retains the listing sidebar. Inherited Profile, Attribution, BlogSearch, BlogArchive, FeaturedPost and ReportAbuse gadgets are hidden by CSS. Remove old gadgets in Layout if Blogger retains them on import, to eliminate their HTML too. Select Contact and Privacy in the top Pages gadget. License notices remain in the source and distribution. Reimport the updated XML to apply these changes; the stable v0.1.0 package retains its original footer.
 
 The reading default is 22px with a 1.75 line height. Installed Designer settings may preserve a previous size: choose 22px in **Post and page font** after importing if needed.
+
+## Search and spacing
+
+The magnifier stays beside the title at every width. Tap/click it or use Enter/Space to open; Tab reaches the field and Enter submits native search. Toggle the magnifier again to close. Native `details/summary` needs no additional JavaScript. `.search` sets the open field’s maximum width; `.intro` and `.content-grid` control the gap before posts. Native introduction-section/widget margins are reset to avoid doubled spacing.

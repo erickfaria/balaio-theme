@@ -27,7 +27,7 @@ async function run(options = {}) {
     addEventListener(type, run, config) {events.push({type,run,config});},
     documentElement: {lang:'pt-BR'}, createElement: node,
     querySelector: () => options.manual ? null : nav};
-  const calls = [], timers = [], stored = [];
+  const calls = [], timers = [], storageAccess = [];
   const fetch = async (url, config) => {
     calls.push({url, config});
     if (options.error) throw Error('offline');
@@ -36,14 +36,14 @@ async function run(options = {}) {
       return options.data !== undefined ? options.data : {feed:{entry:standard}};
     }};
   };
-  const storage = {getItem() {if (options.noStorage) throw Error('blocked'); return options.cache ?? null;},
-    setItem(key, data) {if (options.noStorage) throw Error('blocked'); stored.push({key, data});}};
+  const storage = {getItem() {storageAccess.push('read'); throw Error('Session cache must not be used');},
+    setItem() {storageAccess.push('write'); throw Error('Session cache must not be used');}};
   const pathname = options.path || '/';
   vm.runInNewContext(source, {window:{fetch, AbortController}, fetch, AbortController, URL, document,
     sessionStorage:storage, location:{origin:'https://example.com', href:'https://example.com'+pathname, pathname},
     setTimeout(run, delay) {timers.push({run, delay}); return timers.length;}, clearTimeout() {}});
   await new Promise(setImmediate);
-  return {links:links(), getLinks:links, calls, timers, stored, events};
+  return {links:links(), getLinks:links, calls, timers, storageAccess, events};
 }
 (async () => {
   const waiting = await run({loading:true});
@@ -62,8 +62,8 @@ async function run(options = {}) {
   assert.equal(success.calls[0].config.redirect, 'error');
   assert.equal(success.calls[0].config.priority, 'low');
   assert.equal(success.timers[0].delay, 6000);
-  const saved = JSON.parse(success.stored[0].data);
-  assert.ok(saved.pages.every(page=>Object.keys(page).sort().join(',')==='href,title'));
+  assert.equal(success.calls[0].config.cache, 'no-cache');
+  assert.equal(success.storageAccess.length, 0);
   for (const options of [{manual:true},{noWidget:true},{feedURL:'https://external.org/feed'}]) {
     assert.equal((await run(options)).calls.length, 0);
   }
@@ -83,16 +83,19 @@ async function run(options = {}) {
   const current = await run({path:'/p/privacy.html'});
   assert.equal(current.links.find(a=>a.textContent==='Privacidade').getAttribute('aria-current'), 'page');
   assert.equal(current.links.filter(a=>a.getAttribute('aria-current')==='page').length, 1);
-  const cached = await run({cache:success.stored[0].data});
-  assert.equal(cached.calls.length, 0);
-  assert.deepEqual(cached.links.map(a=>a.textContent), success.links.map(a=>a.textContent));
-  for (const cache of ['bad JSON', JSON.stringify({time:Date.now()-61000,pages:[]}),
-                       JSON.stringify({time:Date.now()+5000,pages:[]})]) {
-    assert.equal((await run({cache})).calls.length, 1);
-  }
-  assert.equal((await run({noStorage:true})).links.length, 4);
-  const unsafeCache = await run({cache:JSON.stringify({time:Date.now(), pages:[
-    {title:'Injected',href:'javascript:alert(1)'}, {title:'External',href:'https://external.org/p/unsafe.html'},
-    {title:'Cached',href:'/p/cached.html'}]})});
-  assert.deepEqual(unsafeCache.links.map(a=>a.textContent), ['Home','Cached']);
+  // Publishing, renaming and returning a page to draft must reflect the latest
+  // feed on the very next page load, regardless of rc.8's old session cache.
+  const oldCache = JSON.stringify({time:Date.now(), pages:[
+    {title:'Contato',href:'/p/contact.html'}, {title:'Membros',href:'/p/members.html'}]});
+  const changed = await run({cache:oldCache, data:{feed:{entry:[
+    entry('Sobre atualizado','/p/about.html'), entry('Nova página','/p/new.html')
+  ]}}});
+  assert.deepEqual(changed.links.map(a=>a.textContent), ['Home','Nova página','Sobre atualizado']);
+  assert.equal(changed.calls.length, 1);
+  assert.equal(changed.storageAccess.length, 0);
+  const unpublished = await run({cache:oldCache, data:{feed:{}}});
+  assert.deepEqual(unpublished.links.map(a=>a.textContent), ['Home']);
+  const failedRefresh = await run({cache:oldCache, error:true});
+  assert.deepEqual(failedRefresh.links.map(a=>a.textContent), ['Home']);
+
 })().catch(error=>{console.error(error);process.exitCode=1;});

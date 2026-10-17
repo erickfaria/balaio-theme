@@ -32,7 +32,7 @@ Test each page and the top navigation on a phone after import. Local previews us
 
 Navigation includes `data-auto-pages='true'` by default. Original code requests the blog’s own **public summary page feed**, without an API key or login, and adds up to 150 published pages. Configured links stay first; additional pages are sorted alphabetically. Duplicate URLs, including mobile variants, are skipped. Drafts are not part of the public feed.
 
-Loading may take a moment. Only titles and URLs are cached in the browser session for **60 seconds**, avoiding repeat requests during navigation. After publishing, open or reload the blog; the menu can retain its previous list for that minute, plus Blogger’s own caching. There is no periodic background polling.
+In rc.9, navigation requests the feed when a page opens or reloads, revalidating the HTTP cache (`cache: no-cache`) without storing a session list. **Publishing adds a page; returning it to draft removes its automatic link on the next reload**, once Blogger’s feed reflects the change. Creating or saving a draft alone does not add it. An already-open tab does not update itself: reload it; there is no polling. Manually configured gadget links remain under your control and must be removed there when needed.
 
 Requests have a six-second timeout and low priority. Network/feed failure or disabled JavaScript preserves native Pages-widget links. Page names, domain and URLs are not hardcoded for Balaio Científico or another blog.
 

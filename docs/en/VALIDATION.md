@@ -1,14 +1,24 @@
-# Validation — v0.2.0-rc.8
+# Validation — v0.2.0-rc.9
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
 ## Status
 
-rc.8 supplements navigation with public pages through JavaScript, preserves native links and fixes navigation height. Widget bodies and home continuation match installed rc.7. Fresh rc.8 Blogger import remains pending.
+rc.9 preserves widget bodies and post continuation from imported rc.8. It adds native collapsible search beside the title, tighter spacing and published-page revalidation without a session cache. Fresh rc.9 Blogger import remains pending.
 
 rc.6 recovers the widget definitions and home continuation script from rc.3, confirmed by the owner and observed with ten posts live on October 11, 2026. It retains the sidebar-free layout, compact footer, open variable fonts, mobile navigation and 22px reading text. The owner confirmed rc.6 import and sidebar removal on October 12, 2026. It is the validated baseline for rc.7.
 
 Actions runs for PRs, main, tags and manual dispatch. Historical records below retain the original verification conditions.
+
+## Collapsible search and menu updates — rc.9, October 17, 2026
+
+The public blog was observed running rc.8 with populated widgets. Native navigation contained only Home. The public feed now listed only Privacy and About; Members returned HTTP 404 after being returned to draft. A fresh page load displayed the correct three links. rc.8’s session list could retain the previous menu for one minute.
+
+rc.9 removes that list: one low-priority summary-feed request with a six-second timeout and HTTP revalidation per page load. Runtime regressions execute the actual script in both languages and cover publication, title changes, returns to draft, empty feeds, network failure and no sessionStorage access. Manual links and widget definitions remain intact.
+
+28 local tests pass. The preview uses the actual XML details/summary control and search form, and reproduces Blogger’s native margins. Search opened by pointer and Enter, submitted accented terms through GET and worked without JavaScript in a sandboxed frame. At 320, 360, 768 and 1440px, checks covered a 44px magnifier beside the title, a contained open field, two highlights and eight older entries, and no horizontal overflow. The gap between introduction description and Latest posts is 16px on phones and 20px on desktop, without the extra 30px native widget margin. Local screenshots were inspected.
+
+These checks do not compile Blogger XML or confirm fresh rc.9 import. All widget bodies and the continuation script were compared with main rc.8 with no differences.
 
 ## Automated checks
 
