@@ -16,14 +16,38 @@ O Balaio inclui modelos editáveis de corpo das páginas **Sobre**, **Contato** 
 2. No modo HTML do editor, cole o conteúdo do exemplo. Não cole um documento HTML inteiro: o tema fornece o contêiner da página e o H1.
 3. Visualize e salve como rascunho enquanto estiver usando placeholders. Substitua o texto antes de publicar no blog público.
 4. Depois de publicar, copie a URL real fornecida pelo Blogger. O endereço depende da plataforma e dos títulos; o tema não presume caminhos `/p/` fixos.
-5. Em **Layout → Páginas**, selecione as páginas publicadas e ordene Sobre mim, Contato e Privacidade. Use o gadget **Menu** apenas para links extras, como marcadores ou sites externos; evite repetir Início.
+5. Com a rc.8, as páginas publicadas aparecem automaticamente no menu após o carregamento do feed público. Em **Layout → Páginas**, você também pode definir links iniciais, nomes e ordem. Use **Menu** para links extras; evite repetir Início.
 
-O XML instala layouts e gadgets, não registros de páginas. Os exemplos separados permitem importar o tema sem sobrescrever o conteúdo das páginas. Renomeie, reordene, remova links e adicione páginas pelo Layout sem editar o XML. [Instruções do Blogger](https://support.google.com/blogger/answer/165955?hl=pt-BR).
+O XML instala layouts e gadgets, não registros de páginas. Os exemplos separados permitem importar o tema sem sobrescrever o conteúdo das páginas. Os links configurados no Layout mantêm seus nomes e sua ordem; o modo automático completa as demais páginas públicas. Para escolher exatamente quais páginas exibir, desligue o modo automático conforme abaixo. [Instruções do Blogger](https://support.google.com/blogger/answer/165955?hl=pt-BR).
 
 ## Formato das páginas
 
 Páginas estáticas usam a mesma coluna responsiva dos artigos, sem autor/data de postagem nem comentários. Seus dados estruturados usam `WebPage`, em vez de `BlogPosting`. O corpo começa em H2; o título fornece o H1. Imagens, figuras, tabelas e contêineres de vídeo compartilham os [estilos de posts](POSTS.md).
 
-O menu superior usa links comuns, quebra linhas em telas pequenas e destaca o link atual quando sua URL corresponde exatamente à URL da página no Blogger. Não há dependência de script de dropdown ou menu hambúrguer. Prefira nomes curtos e URLs corretas; aliases, parâmetros e diferenças de barra final podem impedir o destaque de página atual.
+O menu superior usa links comuns, quebra linhas em telas pequenas e destaca a página atual com sublinhado e peso de fonte, sem fundo colorido. A altura acompanha as linhas, inclusive quando o CSS nativo do Blogger define 30px para a classe navbar. Não há dependência de script de dropdown ou menu hambúrguer. Prefira nomes curtos e URLs corretas; aliases, parâmetros e diferenças de barra final podem impedir o destaque de página atual.
 
 Teste cada página e o menu superior em celular após importar. As prévias usam conteúdo fictício e não verificam o comportamento real no Blogger.
+
+## Páginas automáticas — rc.8
+
+O elemento de navegação inclui `data-auto-pages='true'` por padrão. Um script próprio consulta o **feed público resumido de páginas do próprio blog**, sem chave de API ou login, e acrescenta até 150 páginas publicadas. Os links já configurados aparecem primeiro; os novos vêm em ordem alfabética. URLs repetidas, inclusive variantes móveis, são ignoradas. Rascunhos não fazem parte do feed público.
+
+Uma resposta pode levar alguns instantes para chegar. O navegador guarda somente títulos e URLs por **60 segundos na sessão**, evitando repetir a consulta ao navegar entre páginas. Após publicar, abra ou atualize o blog; o menu pode usar a cópia anterior durante esse minuto, além do cache do próprio Blogger. O recurso não faz consultas periódicas em segundo plano.
+
+O carregamento tem timeout de seis segundos e prioridade baixa. Falha de rede, feed indisponível ou JavaScript desligado preservam os links nativos configurados no gadget Páginas. O tema não fixa nomes, domínio ou endereços das páginas do Balaio Científico para outras instalações.
+
+## Escolher somente algumas páginas ou ordenar todo o menu
+
+No XML, altere **apenas** o atributo da navegação:
+
+```xml
+<nav aria-label='Navegação principal' class='navigation' data-auto-pages='false'>
+```
+
+Depois, em **Layout → Páginas → Editar**, adicione os itens com o título e a URL real da página publicada e ordene-os. Algumas interfaces mostram seleção de páginas; outras usam **Adicionar novo item**. Salve o gadget e o Layout. Esse modo respeita exatamente a lista configurada e não consulta o feed.
+
+No modo automático, desmarcar uma página apenas no gadget não a exclui da descoberta do feed público. Use o modo manual para controlar quais páginas públicas aparecem no menu.
+
+## Links importantes para buscas e funcionamento sem JavaScript
+
+Os itens configurados no gadget são renderizados no HTML inicial. Os itens descobertos automaticamente dependem de JavaScript. Para Sobre, Contato e Privacidade sempre estarem disponíveis também sem script, configure esses links no gadget; o modo automático evita duplicá-los. Isso não garante indexação ou posição em buscas.

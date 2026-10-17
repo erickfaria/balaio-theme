@@ -1,10 +1,10 @@
-# Validação — v0.2.0-rc.7
+# Validação — v0.2.0-rc.8
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
 ## Status
 
-A rc.7 ajusta somente a busca e o espaçamento visual sobre a rc.6 confirmada. Todos os corpos dos gadgets e o script de continuação são iguais nos dois idiomas. A nova importação da rc.7 ainda precisa de conferência no Blogger.
+A rc.8 completa o menu com páginas públicas por JavaScript, preservando os links nativos, e corrige a altura da navegação. Os corpos dos gadgets e a continuação são iguais aos da rc.7 instalada. A nova importação da rc.8 ainda precisa de conferência no Blogger.
 
 A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. O proprietário confirmou a importação da rc.6 e a remoção da lateral em 12/10/2026. Ela é a base validada da rc.7.
 
@@ -12,7 +12,19 @@ Actions está ativo para PRs, main, tags e execução manual. Os registros hist�
 
 ## Checks automatizados
 
-26 testes locais passaram: estrutura XML/gadgets, idiomas, metadados/auditoria HTML, Designer, contraste, navegação/busca móvel, sintaxe nas duas serializações CDATA e início da continuação numa home com dois posts. O limite zero não faz requisições; o limite padrão consulta o link nativo com a quantidade restante e timeout de oito segundos. Sem Node, os quatro checks JavaScript são pulados localmente; o CI inclui Node. Links Markdown, geração inglesa, XMLs, whitespace e prévia passam.
+28 testes locais passaram: estrutura XML/gadgets, idiomas, metadados/auditoria HTML, Designer, contraste, navegação/busca móvel, sintaxe nas duas serializações CDATA e início da continuação numa home com dois posts. O limite zero não faz requisições; o limite padrão consulta o link nativo com a quantidade restante e timeout de oito segundos. Sem Node, os seis checks JavaScript são pulados localmente; o CI inclui Node. Links Markdown, geração inglesa, XMLs, whitespace e prévia passam.
+
+## Páginas automáticas e alinhamento — rc.8, 17/10/2026
+
+A inspeção pública encontrou rc.7 com quatro páginas publicadas no sitemap, mas só Início na lista nativa de PageList1. Os quatro URLs responderam HTTP 200 com título e layout WebPage. A altura calculada da seção navbar era 30px, enquanto o link tinha 44px e passava da borda do cabeçalho.
+
+O feed público resumido retornou as quatro páginas e 6.659 bytes na resposta observada, contra 17.308 bytes do feed completo; tamanhos variam conforme o conteúdo. O menu usa o resumido, uma consulta por carregamento sem cache, timeout de seis segundos e cache de títulos/URLs na sessão por um minuto. Não depende de API key nem de domínios fixos.
+
+28 testes locais passaram, incluindo as duas serializações CDATA nos dois idiomas e cenários de cache válido/expirado, falta de armazenamento, modo manual, feed inválido/indisponível, duplicações, URLs externas/inseguras e item atual.
+
+A prévia reproduz o CSS nativo `.navbar{height:30px}`. Em 320/360/768/1440px, uma reprodução local dos títulos/caminhos públicos mostrou os cinco links (Início e quatro páginas), alinhados com a marca e dentro do cabeçalho, sem fundo verde nem rolagem horizontal. A seção cresceu para 94px nas duas larguras menores e 44px nas maiores. Os dez posts continuaram carregando. A revisão visual por captura confirmou o alinhamento no computador.
+
+Falhas de feed, JSON inválido e lista vazia preservaram Início; modo manual preservou apenas a lista configurada; um link Sobre existente manteve o nome personalizado sem duplicação; o caso de conteúdo malicioso criou texto literal, não imagens/eventos. A página Privacidade recebeu `aria-current='page'`. São verificações locais de código/DOM e uma leitura pública do feed, não uma importação da rc.8 no Blogger.
 
 ## Ajuste visual local — rc.7
 

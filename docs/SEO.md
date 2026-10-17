@@ -61,3 +61,7 @@ python3 scripts/audit_seo.py --file /tmp/pagina-salva.html
 O relatório JSON verifica título, canonical, descrição, H1, idioma, ausência de alt, sintaxe JSON-LD e restrições de pesquisa. Código de saída 1 indica erro estrutural; avisos precisam de contexto e não alteram o código. O escopo de cada robô permanece no relatório. A auditoria **não** comprova indexação, completude de schema, acesso via robots.txt ou desempenho. Não execute sobre XML de template não compilado. Falhas HTTP são erros; redirecionamentos são seguidos e o HTML final é inspecionado.
 
 [Performance e controles de carregamento](PERFORMANCE.md).
+
+## Menu automático e HTML inicial
+
+Na rc.8, páginas publicadas podem completar o menu por JavaScript a partir do feed público. Os links configurados no gadget Páginas continuam no HTML inicial e não são duplicados pelo carregamento automático. Configure links essenciais no gadget para navegação sem script e para rastreadores que não executam JavaScript. O modo manual desliga a descoberta automática. [Configuração e limites](PAGES.md).

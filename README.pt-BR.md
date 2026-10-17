@@ -1,6 +1,6 @@
 # Balaio — Tema Blogger gratuito e minimalista
 
-**Versão recomendada: rc.7 na main.** Busca arredondada com lupa própria e abertura mais compacta, baseada na rc.6 validada pelo proprietário. Gadgets e continuação são os mesmos; a nova importação da rc.7 ainda precisa de conferência.
+**Versão recomendada: rc.8 na main.** Páginas publicadas passam a completar o menu automaticamente. O item atual usa sublinhado discreto, e a altura da navegação acompanha os links em várias linhas. Baseada nos gadgets validados da rc.6 e na busca da rc.7; a nova importação da rc.8 ainda precisa de conferência.
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Tema padrão:** `v0.2.0-rc.7`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). Use estes templates da main; os pacotes de releases anteriores contêm outras versões.
+> **Tema padrão:** `v0.2.0-rc.8`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). Use estes templates da main; os pacotes de releases anteriores contêm outras versões.
 >
 > **Alternativa anterior:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada, mas sem a continuação e o layout atuais.
 
@@ -31,7 +31,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 2. Escolha um **blog de teste** no Blogger. Faça backup do tema atual em **Tema → menu → Fazer backup**.
 3. Abra **Tema → menu → Editar HTML**. Substitua o conteúdo do editor pelo XML completo e salve.
 4. Configure título, descrição e idioma em **Configurações**.
-5. Em **Layout → Páginas**, selecione Sobre mim, Contato e Privacidade publicados para o topo. Use **Menu** para links extras, como marcadores.
+5. As páginas publicadas completam o menu do topo automaticamente. **Layout → Páginas** define links iniciais, nomes e ordem; **Menu** adiciona links extras. Para um menu totalmente manual, use `data-auto-pages='false'` no elemento de navegação. [Páginas e menu](docs/PAGES.md).
 6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Use o Menu para links de assuntos; este layout não tem lateral.
 7. Comece com 10 posts por página em **Configurações → Postagens**; o Blogger pode paginar antes. Confira artigos, páginas, busca, paginação e comentários no celular e no computador antes de usar no blog principal.
 
@@ -43,10 +43,10 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 - Layout responsivo para celulares, tablets e computadores; miniaturas opcionais e entradas com largura completa quando não há imagem.
 - Busca nativa, marcadores, paginação, artigos e páginas estáticas.
 - Comentários básicos e link para comentar; formulário incorporado e respostas encadeadas ainda pendentes.
-- Apresentação, navegação de Páginas e Menu de links extras editáveis; sem lateral e com uma busca no cabeçalho.
+- Apresentação editável, menu automático de páginas publicadas e links extras; sem lateral e com uma busca no cabeçalho.
 - Foco de teclado, link para pular ao conteúdo, rolagem contida em código/tabelas e estilos para impressão.
 - **Inter** para interface e **Newsreader** para títulos e leitura, via Google Fonts com fallback local e `display=swap`. Posts/páginas usam 22px e entrelinha de 1,75 por padrão. Ambas usam SIL OFL 1.1; suas licenças são separadas da MIT.
-- Sem bibliotecas JavaScript de terceiros ou dependências externas de pacotes Python. A continuação da home é código próprio MIT; a paginação nativa funciona sem JavaScript.
+- Sem bibliotecas JavaScript de terceiros ou dependências externas de pacotes Python. A continuação da home e o menu automático são código próprio MIT; a paginação nativa funciona sem JavaScript.
 
 A candidata inclui controles nativos de cores/fontes; a conferência no Designer publicado permanece pendente. Logo em imagem e layout específico de 404 ainda não estão implementados. A prévia usa o CSS real com conteúdo de exemplo; não compila expressões do Blogger.
 

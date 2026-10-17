@@ -1,5 +1,15 @@
 # Changelog / Histórico
 
+## 0.2.0-rc.8 — automatic page navigation / navegação automática — 2026-10-17
+
+- Discover published pages through the same-origin public summary feed; preserve configured link order/labels, deduplicate pages and alphabetize additional links. Cache only titles/URLs for 60 seconds; allow fully manual navigation.
+- Descobrir páginas publicadas pelo feed público resumido do próprio blog; preservar ordem/nomes configurados, evitar duplicações e ordenar links adicionais alfabeticamente. Guardar somente títulos/URLs por 60 segundos; permitir navegação totalmente manual.
+- Override Blogger’s 30px navbar height, align links with the brand and replace the active green pill with a subtle underline. Keep native widget definitions and working home continuation.
+- Corrigir a altura nativa de 30px da navbar, alinhar links com a marca e trocar o destaque verde por sublinhado discreto. Preservar gadgets nativos e continuação da home.
+- Add runtime cases for failures, cache, duplicate/unsafe URLs, manual mode and current-page state. Fresh rc.8 Blogger import remains pending.
+- Adicionar regressões de falha, cache, URLs duplicadas/inseguras, modo manual e página atual. Nova importação da rc.8 ainda pendente.
+
+
 ## 0.2.0-rc.7 — visual refinement / ajuste visual — 2026-10-12
 
 - Replace the large text search button with an original CSS magnifier in a rounded field. Keep an accessible button label, keyboard focus and a 44px tap target; no icon library or new asset request.

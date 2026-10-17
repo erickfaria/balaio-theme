@@ -4,6 +4,7 @@ from html import escape
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import re
+import json
 from validate_theme import preview_css
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,7 @@ HOME_SCRIPT = re.search(
     r"(<script id='home-continuation'\s.*?</script>)",
     SOURCE, flags=re.S
 ).group(1)
+PAGES_SCRIPT = re.search(r"(<script id='page-navigation'\s.*?</script>)", SOURCE, flags=re.S).group(1)
 FONT_LINKS = "".join(ET.tostring(link, encoding="unicode").replace("html:", "").replace("ns0:", "") for link in TREE.findall(".//{http://www.w3.org/1999/xhtml}head/{http://www.w3.org/1999/xhtml}link"))
 CSS = preview_css(TREE.find(
     ".//{http://www.google.com/2005/gml/b}skin"
@@ -37,7 +39,7 @@ HEADER = '''<a class="skip" href="#content">Pular para o conteúdo</a>
 <header class="masthead"><div class="wrap"><div class="masthead-top">
 <div><a class="brand" href="index.html">Balaio Científico</a><p class="description">Ciência, cultura e outras boas perguntas.</p></div>
 <form class="search" action="empty.html" role="search"><input aria-label="Buscar no blog" name="q" placeholder="Buscar no blog" type="search"><button>Buscar</button></form></div>
-<nav class="navigation" aria-label="Navegação principal"><ul><li><a href="index.html">Início</a></li><li><a href="article.html">Leitura</a></li><li><a href="about.html">Sobre mim</a></li><li><a href="contact.html">Contato</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="empty.html">Busca sem resultados</a></li></ul></nav></div></header>'''
+<nav class="navigation" aria-label="Navegação principal" data-auto-pages="false"><div class="navbar section" id="navigation"><div class="widget PageList" id="PageList1"><ul><li><a href="index.html">Início</a></li><li><a href="article.html">Leitura</a></li><li><a href="about.html">Sobre mim</a></li><li><a href="contact.html">Contato</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="empty.html">Busca sem resultados</a></li></ul></div></div></nav></div></header>'''
 
 
 # Use the actual theme form so visual fixtures track its icon and accessible label.
@@ -47,8 +49,8 @@ HEADER = re.sub(r'<form class="search".*?</form>',
 
 
 def page(title, content, home=False):
-    script = HOME_SCRIPT if home else ""
-    return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main><footer class="site-footer wrap"><a href="https://www.blogger.com/go/report-abuse" rel="nofollow">Denunciar abuso</a></footer>{script}</body></html>'
+    script = (HOME_SCRIPT if home else "") + PAGES_SCRIPT
+    return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>.navbar{{height:30px}}</style><style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main><footer class="site-footer wrap"><a href="https://www.blogger.com/go/report-abuse" rel="nofollow">Denunciar abuso</a></footer>{script}</body></html>'
 
 
 def build():
@@ -103,6 +105,48 @@ def build():
     (OUT / "short-mixed.html").write_text(page("Gadgets fora do Blog1", intro + listing(cards[:2], "mixed-page.html", home=True), home=True))
     (OUT / "missing-blog-page.html").write_text(page("Página sem Blog1", decoy))
     (OUT / "short-missing-blog.html").write_text(page("Resposta incompleta", intro + listing(cards[:2], "missing-blog-page.html", home=True), home=True))
+    # Native Blogger applies a 30px navbar height. The theme must contain full-height
+    # wrapped navigation, including when feed entries augment a home-only widget.
+    page_entries = [
+        {"title": {"$t": title}, "link": [{"rel": "alternate", "href": href}]}
+        for title, href in [("Sobre mim", "/p/about.html"), ("Contato", "/p/contact.html"),
+                            ("Privacidade", "/p/privacy.html"), ("Membros", "/p/members.html")]
+    ]
+    (OUT / "pages-feed.json").write_text(json.dumps({"feed": {"entry": page_entries}}, ensure_ascii=False))
+    (OUT / "pages-empty.json").write_text('{"feed":{}}')
+    (OUT / "pages-invalid.json").write_text('{broken')
+    unsafe_entries = page_entries + [
+        {"title": {"$t": "Duplicate"}, "link": [{"rel": "alternate", "href": "/p/contact.html?m=1"}]},
+        {"title": {"$t": "External"}, "link": [{"rel": "alternate", "href": "https://example.org/p/external.html"}]},
+        {"title": {"$t": "Unsafe"}, "link": [{"rel": "alternate", "href": "javascript:alert(1)"}]},
+        {"title": {"$t": '<img src=x onerror="alert(1)">'}, "link": [{"rel": "alternate", "href": "/p/text.html"}]}
+    ]
+    (OUT / "pages-unsafe.json").write_text(json.dumps({"feed": {"entry": unsafe_entries}}))
+    def menu_fixture(feed, manual=False, automatic=True):
+        content = page("Menu automático", intro + listing(cards[:2], "older-1.html", home=True), home=True)
+        home = '<li><a aria-current="page" href="menu-auto.html">Início</a></li>'
+        links = home + ('<li><a href="/p/about.html">Quem sou</a></li>' if manual else '')
+        content = re.sub(r'(<div class="widget PageList" id="PageList1">)<ul>.*?</ul>',
+                         r'\g<1><ul>' + links + '</ul>', content, count=1, flags=re.S)
+        mode = 'true' if automatic else 'false'
+        return content.replace('data-auto-pages="false"', f'data-auto-pages="{mode}" data-pages-feed="{escape(feed)}"', 1)
+    for slug, feed in [('auto', 'pages-feed.json'), ('empty', 'pages-empty.json'),
+                       ('failure', 'pages-missing.json'), ('invalid', 'pages-invalid.json'),
+                       ('unsafe', 'pages-unsafe.json')]:
+        (OUT / f"menu-{slug}.html").write_text(menu_fixture(feed))
+    (OUT / "menu-manual.html").write_text(menu_fixture('pages-feed.json', manual=True, automatic=False))
+    (OUT / "menu-selected.html").write_text(menu_fixture('pages-feed.json', manual=True))
+    pages_dir = OUT / "p"
+    pages_dir.mkdir(exist_ok=True)
+    for slug, title in [('about','Sobre mim'), ('contact','Contato'), ('privacy','Privacidade'), ('members','Membros')]:
+        content = menu_fixture('../pages-feed.json').replace('aria-current="page" href="menu-auto.html"', 'href="../menu-auto.html"')
+        body = '<main class="wrap" id="content" tabindex="-1"><div class="content-grid article-grid"><article class="article" itemscope itemtype="https://schema.org/WebPage"><h1>' + escape(title) + '</h1><div class="post-body"><p>Lorem ipsum dolor sit amet.</p></div></article></div></main>'
+        content = re.sub(r'<main class="wrap".*?</main>', lambda _: body, content, count=1, flags=re.S)
+        content = content.replace(HOME_SCRIPT, '').replace('href="index.html"', 'href="../index.html"')
+        content = content.replace("action='empty.html'", "action='../empty.html'")
+        (pages_dir / f'{slug}.html').write_text(content.replace('Menu automático', title))
+    frames = ''.join(f'<iframe id="width-{width}" src="menu-auto.html" width="{width}" height="900" title="Menu {width}px" style="display:block;border:0"></iframe>' for width in (320,360,768,1440))
+    (OUT / "responsive-menu.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Menu responsivo</title><body>'+frames+'</body></html>')
     article = '''<div class="content-grid article-grid"><div><article class="article"><div class="labels">Ciência</div><h1>O que uma pergunta pode mudar?</h1><div class="meta"><span>Equipe Balaio</span><span>11 de outubro de 2026</span></div><div class="post-body"><p>Às vezes, aprender começa com uma pausa. Olhamos para algo familiar e percebemos que ainda há uma pergunta a fazer.</p><h2>O espaço entre observar e entender</h2><p>A curiosidade aproxima ideias distantes. Podemos começar com um detalhe cotidiano, reunir observações e comparar explicações.</p><blockquote>Uma boa pergunta abre espaço para continuar pensando.</blockquote><p>Este texto é fictício e serve para avaliar a tipografia do tema.</p><h2>Um pequeno registro</h2><table><thead><tr><th>Etapa</th><th>Pergunta</th></tr></thead><tbody><tr><td>Observação</td><td>O que aconteceu?</td></tr><tr><td>Investigação</td><td>Como podemos conferir?</td></tr></tbody></table><pre><code>perguntas = ["Como?", "Por quê?", "Como conferir?"]</code></pre><h2>Para continuar</h2><ul><li>Registrar o que sabemos.</li><li>Identificar o que ainda falta descobrir.</li><li>Revisitar as primeiras hipóteses.</li></ul><p><a href="index.html">Voltar às publicações</a></p></div></article></div></div>'''
     (OUT / "article.html").write_text(page("Leitura", article))
     for index in range(len(cards)):

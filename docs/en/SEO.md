@@ -61,3 +61,7 @@ python3 scripts/audit_seo.py --file /tmp/saved-page.html
 The JSON report checks title, canonical, description, H1, language, missing image alt attributes, JSON-LD syntax and search restrictions. Exit code 1 means a structural error; warnings require context and do not change the exit code. Robot restrictions retain their agent scope. The audit does **not** prove indexing, schema completeness, robots.txt access or performance. Never run it on uncompiled template XML. HTTP failures propagate as errors; it follows redirects and checks their final HTML.
 
 [Performance and loading controls](PERFORMANCE.md).
+
+## Automatic navigation and initial HTML
+
+In rc.8, published pages can supplement navigation through JavaScript using the public feed. Configured Pages-widget links remain in the initial HTML and are not duplicated by automatic loading. Configure essential links in the gadget for script-free navigation and crawlers that do not execute JavaScript. Manual mode disables discovery. [Settings and limits](PAGES.md).
