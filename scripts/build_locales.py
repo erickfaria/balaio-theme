@@ -5,14 +5,6 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 TRANSLATIONS = {
-    "Formulário de contato": "Contact form",
-    "Envie uma mensagem": "Send a message",
-    "Nome (opcional)": "Name (optional)",
-    "E-mail (obrigatório)": "Email (required)",
-    "Mensagem (obrigatória)": "Message (required)",
-    "Não é preciso fazer login. A mensagem e seu e-mail são processados pelo Blogger e enviados aos responsáveis pelo blog para responder ao contato.": "No sign-in is required. Blogger processes your message and email address and sends them to the people responsible for this blog to reply to your enquiry.",
-    "Enviar mensagem": "Send message",
-    "Ative o JavaScript para usar o formulário de contato do Blogger.": "Enable JavaScript to use Blogger's contact form.",
     "Explore o blog": "Explore the blog",
     "Explore os assuntos": "Explore topics",
     "Denunciar abuso": "Report abuse",
