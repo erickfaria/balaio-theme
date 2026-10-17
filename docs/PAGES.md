@@ -2,7 +2,7 @@
 
 [English](en/PAGES.md) · [Português](PAGES.md)
 
-O Balaio inclui modelos editáveis de corpo das páginas **Sobre**, **Contato** e **Privacidade**. Eles contêm Lorem ipsum para desenvolver o layout, sem conteúdo final. O exemplo de privacidade não é uma política de privacidade. O contato não inclui formulário, destinatário nem coleta de dados.
+O Balaio inclui modelos editáveis de corpo das páginas **Sobre**, **Contato** e **Privacidade**. Sobre e Privacidade contêm Lorem ipsum para desenvolver o layout. O exemplo de privacidade não é uma política de privacidade. Contato tem texto genérico pronto para editar e, na rc.11, um widget nativo separado, sem login do visitante. [Ativar o formulário](CONTACT.md).
 
 | Título da página | Corpo para copiar no Blogger |
 | --- | --- |

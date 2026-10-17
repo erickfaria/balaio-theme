@@ -51,7 +51,7 @@ A MIT não exige crédito visível no site. Preserve os avisos de licença no c�
 
 ## Páginas básicas
 
-[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Publique as páginas no Blogger e selecione-as em **Layout → Páginas**. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+[Modelos de Sobre, Contato e Privacidade](PAGES.md): Sobre/Privacidade usam Lorem ipsum; Contato inclui texto editável para o widget nativo. [Ativar o formulário](CONTACT.md). O XML não cria páginas nem substitui seu conteúdo. Código próprio MIT; fontes Inter/Newsreader SIL OFL.
 
 ## Layout compacto no celular
 

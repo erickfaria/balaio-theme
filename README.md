@@ -1,6 +1,6 @@
 # Balaio — Free minimal Blogger theme
 
-**Recommended version: rc.10 on main.** The search field opens to the left of a single magnifier, on the same header row. A small arrow submits the query; native details/summary still works without JavaScript. The remaining rc.9 layout, widgets and navigation are preserved. Fresh rc.10 Blogger import remains pending.
+**Recommended version: rc.11 on main.** A native Blogger contact widget now provides optional name, required email/message and no visitor sign-in. Minimal styling and ready-to-copy Contact page bodies are available in English and Portuguese. Import the theme and publish the page once. Existing rc.10 widgets, search and post continuation are preserved; fresh rc.11 import and delivery remain pending.
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Default template:** `v0.2.0-rc.10`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
+> **Default template:** `v0.2.0-rc.11`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
 >
 > **Earlier fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with confirmed import but without the current home continuation and layout.
 
@@ -34,6 +34,8 @@ No build tools are needed to install the theme.
 5. Published pages automatically supplement the top menu. **Layout → Pages** sets leading links, their labels and order; **Menu** adds extra links. For a fully manual menu, set `data-auto-pages='false'` on the navigation element. [Page navigation](docs/en/PAGES.md).
 6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use Menu links for topics; this layout has no sidebar.
 7. Start with 10 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
+
+**Contact page:** after importing, publish Contact once at `/p/contact.html` (or Contato at `/p/contato.html`). The theme supplies the native form. [One-time setup](docs/en/CONTACT.md).
 
 [Performance guide](docs/en/PERFORMANCE.md) · [Home-page posts and pagination](docs/en/HOME.md) · [Detailed setup and troubleshooting](docs/en/INSTALLATION.md) · [Customization](docs/en/CUSTOMIZATION.md)
 
@@ -98,7 +100,7 @@ The theme preserves Blogger metadata and adds visible-content article microdata.
 
 ## Basic pages
 
-[About, Contact and Privacy samples](docs/en/PAGES.md) use Lorem ipsum. Create and publish the pages in Blogger; automatic navigation discovers them on reload. **Layout → Pages** also configures native fallback links. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+[About, Contact and Privacy samples](docs/en/PAGES.md): About/Privacy use Lorem ipsum; Contact includes editable text for the native widget. [Enable contact](docs/en/CONTACT.md). XML does not create pages or replace their content. Original code is MIT; Inter/Newsreader are SIL OFL.
 
 ## Contribute through pull requests
 

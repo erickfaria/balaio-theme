@@ -4,7 +4,7 @@
 
 ## Before installation
 
-Use the rc.10 XML on main: collapsible search beside the title, tighter spacing and revalidated published-page navigation, based on the imported rc.8 widget bodies. Fresh rc.10 import verification is pending. Before installing on another blog, retain a backup and check a test blog. Older release packages do not contain this version.
+Use the rc.11 XML on main: collapsible search beside the title, tighter spacing and revalidated published-page navigation, based on the imported rc.8 widget bodies. Fresh rc.11 import verification is pending. Before installing on another blog, retain a backup and check a test blog. Older release packages do not contain this version.
 
 ## Steps
 
@@ -32,7 +32,7 @@ The project owner's screenshots showed the legacy mobile presentation at `?m=1` 
 | The editor rejects the file | Make sure the XML is complete, without Markdown fences or GitHub HTML. Include the exact editor message in an issue. |
 | A card has no image | Try a post containing an image. Thumbnails depend on Blogger data; entries remain readable without an image. |
 | Fonts look different | Check access to Google Fonts. Local fallback fonts are used when remote fonts are unavailable. |
-| My pages are missing from the menu | Confirm rc.10, published pages, JavaScript and an enabled public page feed. Open or reload after publishing; drafts are excluded from the feed. Remove manually configured links in the gadget. In manual mode, add links under **Layout → Pages**. [Menu modes](PAGES.md). |
+| My pages are missing from the menu | Confirm rc.11, published pages, JavaScript and an enabled public page feed. Open or reload after publishing; drafts are excluded from the feed. Remove manually configured links in the gadget. In manual mode, add links under **Layout → Pages**. [Menu modes](PAGES.md). |
 | The introduction has not changed | Edit Introduction/Apresentação in Layout and save. Keep a single `h1`. |
 | Comments are missing | Check blog settings and post permissions. Embedded forms and threaded replies are not implemented yet. |
 | I want the previous theme back | Restore the XML you backed up before installation from the theme menu. |
@@ -45,7 +45,7 @@ Before publishing, complete the [SEO configuration checklist](SEO.md).
 
 ## Basic pages
 
-[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Create and publish the pages in Blogger, then select them in **Layout → Pages**. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+[About, Contact and Privacy samples](PAGES.md): About/Privacy use Lorem ipsum; Contact includes editable text for the native widget. [Enable contact](CONTACT.md). XML does not create pages or replace their content. Original code is MIT; Inter/Newsreader are SIL OFL.
 
 ## Show more posts and fixed pages
 
@@ -55,4 +55,8 @@ The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publ
 
 ## Restore failure
 
-Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar remains hidden through CSS. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.10` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.
+Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar remains hidden through CSS. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.11` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.
+
+## Contact form
+
+rc.11 includes ContactForm1. Publish Contact at `/p/contact.html` or Contato at `/p/contato.html` using the sample body; do not paste a second form. No embedded API key or visitor sign-in is needed. Confirm delivery after importing. [Full guide](CONTACT.md).

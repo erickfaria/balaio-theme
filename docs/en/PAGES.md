@@ -2,7 +2,7 @@
 
 [English](PAGES.md) · [Português](../PAGES.md)
 
-Balaio includes editable **About**, **Contact** and **Privacy** page-body samples. They contain Lorem ipsum for layout development, not finished site content. The privacy sample is not a privacy policy. The contact sample has no form, recipient or data collection.
+Balaio includes editable page-body samples for About, Contact and Privacy. About/Privacy use Lorem ipsum; the privacy sample is not a privacy policy. Contact includes editable generic text for rc.11’s native widget, without visitor sign-in. [Enable contact](CONTACT.md).
 
 | Page title | Copy this body into Blogger |
 | --- | --- |

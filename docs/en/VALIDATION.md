@@ -1,14 +1,24 @@
-# Validation — v0.2.0-rc.10
+# Validation — v0.2.0-rc.11
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
 ## Status
 
-rc.10 changes only search: the field opens on the same row to the left of a single magnifier, with a small submit arrow. Widget bodies, scripts, spacing and typography match rc.9. The owner confirmed rc.9 search working; fresh rc.10 Blogger import remains pending.
+rc.11 adds ContactForm1 with original styling and English/Portuguese text. The six existing widget bodies and both scripts match rc.10. Previews do not send messages: importing the new widget, native JavaScript integration and real rc.11 delivery still require Blogger confirmation.
 
 rc.6 recovers the widget definitions and home continuation script from rc.3, confirmed by the owner and observed with ten posts live on October 11, 2026. It retains the sidebar-free layout, compact footer, open variable fonts, mobile navigation and 22px reading text. The owner confirmed rc.6 import and sidebar removal on October 12, 2026. It is the validated baseline for rc.7.
 
 Actions runs for PRs, main, tags and manual dispatch. Historical records below retain the original verification conditions.
+
+## Native contact — rc.11, October 17, 2026
+
+30 local tests pass, including regressions for the six IDs consumed by the native runtime, associated labels, optional name, required email/message, accessible feedback and page scope. The integration contract was checked by reading Blogger’s public widget resource; the library is not copied into the repository.
+
+Public rc.10 pages confirmed the `canonicalUrl` and `canonicalHomepageUrl` fields. Mobile `homepageUrl` includes `?m=1` while both canonical URLs stay clean. The new widget compares canonical URLs, preserving mobile contact-page matching without a fixed domain.
+
+Previews use each XML’s actual form, with Send disabled and no Google transport. At 320, 360, 768 and 1440px in both languages, fields stayed contained with one H1, three associated labels, 16px Inter fields and buttons above 44px. Client/scroll widths matched (305, 345, 753 and 1425px). Introduction-to-form spacing measured 24px with one visible back link. Local screenshots were inspected.
+
+HTML validity rejected malformed email and empty required fields, and accepted fictitious values with an empty name. Error/success examples were checked as **illustrative states**, without claiming delivery. No message or user data was sent. Check layout, inbox delivery, mobile mode, native feedback language and form absence on other pages after importing. [Setup](CONTACT.md).
 
 ## Search opening to the left — rc.10, October 17, 2026
 

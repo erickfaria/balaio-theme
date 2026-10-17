@@ -49,7 +49,7 @@ Regenerate the preview after XML changes. Check contrast, long titles, posts wit
 
 ## Basic pages
 
-[About, Contact and Privacy samples](PAGES.md) use Lorem ipsum. Publish the pages in Blogger, then select them in **Layout → Pages**. No page URLs or contact data are hardcoded in the theme. All included code and design assets are MIT; Inter and Newsreader are open fonts under SIL OFL.
+[About, Contact and Privacy samples](PAGES.md): About/Privacy use Lorem ipsum; Contact includes editable text for the native widget. [Enable contact](CONTACT.md). XML does not create pages or replace their content. Original code is MIT; Inter/Newsreader are SIL OFL.
 
 ## Compact mobile layout
 

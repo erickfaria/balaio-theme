@@ -1,5 +1,14 @@
 # Changelog / Histórico
 
+## 0.2.0-rc.11 — native contact / contato nativo — 2026-10-17
+
+- Include ContactForm1 with original minimal styling and accessible labels/status: optional name, required email/message, no visitor sign-in. Use Blogger’s native delivery without embedded secrets or another service/library.
+- Incluir ContactForm1 com visual próprio minimalista, rótulos e status acessíveis: nome opcional, e-mail/mensagem obrigatórios, sem login do visitante. Usar o envio nativo do Blogger, sem segredos no XML ou outro serviço/biblioteca.
+- Restrict presentation to `/p/contato.html` and `/p/contact.html`. Include editable page bodies and bilingual one-time setup instructions; XML does not create page records. Existing widget bodies and both scripts remain unchanged.
+- Restringir apresentação a `/p/contato.html` e `/p/contact.html`. Incluir corpos de página editáveis e instruções bilíngues de ativação; o XML não cria registros de páginas. Gadgets existentes e ambos os scripts preservados.
+- Add non-sending responsive/feedback fixtures and native-contract regression checks. Google transport remains external; fresh rc.11 import and delivery remain pending.
+- Adicionar prévias responsivas/retornos sem envio e regressões do contrato nativo. O transporte Google é externo; importação e entrega da rc.11 ainda pendentes.
+
 ## 0.2.0-rc.10 — inline search / busca na mesma linha — 2026-10-17
 
 - Open the rounded field to the left of one magnifier, on the same header row. Replace the duplicate search icon with a small submit arrow; retain native keyboard and script-free operation.
