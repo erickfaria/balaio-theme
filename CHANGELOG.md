@@ -1,5 +1,16 @@
 # Changelog / Histórico
 
+## 0.2.0-rc.13 — portable contact page / contato portátil — 2026-10-17
+
+- Include the complete native ContactForm1 in a dedicated section outside the hidden sidebar; limit rendering to static pages.
+- Incluir o ContactForm1 completo em seção própria fora da lateral oculta, com renderização restrita a páginas estáticas.
+- Enable the form with a simple page-content class, regardless of language, title, domain or numeric URL suffix. No per-blog XML edits, extra JavaScript or new library.
+- Ativar por uma classe simples no conteúdo da página, sem depender de idioma, título, domínio ou sufixo numérico. Sem editar o XML por blog, JavaScript extra ou biblioteca nova.
+- Ship bilingual ready-to-paste page samples and setup/migration instructions; preserve existing widgets, home continuation and search.
+- Distribuir modelos prontos nos dois idiomas e instruções de ativação/atualização; preservar gadgets existentes, continuação da home e busca.
+- Add native-contract regressions and non-sending responsive/URL opt-in previews. Fresh Blogger import and inbox delivery remain pending.
+- Adicionar regressões do contrato nativo e prévias responsivas/de URL sem envio. Nova importação e entrega no Blogger ainda pendentes.
+
 ## 0.2.0-rc.12 — manual contact reference / referência de contato manual — 2026-10-17
 
 - Remove rc.11’s fixed-path ContactForm1 integration and form styles. Blogger may generate a suffixed page URL, so a title is not a reliable way to select the contact page.

@@ -51,7 +51,7 @@ A MIT não exige crédito visível no site. Preserve os avisos de licença no c�
 
 ## Páginas básicas
 
-[Modelos de Sobre, Contato e Privacidade](PAGES.md): Sobre/Privacidade usam Lorem ipsum; Contato é uma referência textual editável; qualquer formulário é configurado manualmente. [Configuração manual do contato](CONTACT.md). O XML não cria páginas nem substitui seu conteúdo. Código próprio MIT; fontes Inter/Newsreader SIL OFL.
+[Modelos de Sobre, Contato e Privacidade](PAGES.md): Sobre/Privacidade usam Lorem ipsum; Contato ativa o formulário nativo por um marcador no conteúdo da página, com qualquer URL. [Ativação simples](CONTACT.md). O XML não cria páginas nem substitui seu conteúdo. Código próprio MIT; fontes Inter/Newsreader SIL OFL.
 
 ## Layout compacto no celular
 

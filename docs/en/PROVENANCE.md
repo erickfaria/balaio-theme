@@ -45,6 +45,6 @@ No purchased fonts, stock photos, proprietary icons or third-party theme code ar
 
 All included resources permit reuse and modification under their respective licenses. Keep MIT and OFL notices when redistributing applicable code or font files. The [customization guide](CUSTOMIZATION.md) explains how to remove external font requests.
 
-## Contact — rc.12
+## Contact — rc.13
 
-rc.12 distributes only the Contact text reference and manual setup guides under MIT. The experimental rc.11 native integration and its styles were removed. No delivery library is copied or distributed. Any manually chosen form service retains its own terms. [Reference](CONTACT.md).
+Original form markup, styles and page samples are MIT. The widget uses Blogger’s native ContactForm interface without copying Google JavaScript or distributing email transport. Content opt-in uses CSS only, without the owner’s domain or URL. The external processing service retains its own terms, as does Blogger hosting itself. [Setup and data](CONTACT.md).

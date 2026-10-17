@@ -1,8 +1,8 @@
-# Install and upgrade — v0.2.0-rc.12
+# Install and upgrade — v0.2.0-rc.13
 
 [English](RELEASE.md) · [Português](../RELEASE.md)
 
-rc.12 removes automatic contact-form integration and its URL rules. Contact is now a text reference, with manual page, contact-channel and form setup. Use Blogger’s actual generated URL, including any suffix. XML restores the imported rc.10 baseline exactly apart from version metadata; guides explain removing the rc.11 gadget if Blogger retains it. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). Use the current main XML; older packages contain other versions. [Validation](VALIDATION.md) · [Automatic/manual modes](PAGES.md).
+rc.13 includes optional native contact in its own section outside the sidebar. Enable it by pasting the HTML sample into your Contact page; `balaio-contact-page` works with any title/URL, without editing template lines. Home, search, navigation and existing widget bodies are preserved. [Contact guide](CONTACT.md). [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). [Validation](VALIDATION.md).
 
 ## What this version preserves
 
@@ -15,17 +15,17 @@ rc.12 removes automatic contact-form integration and its URL rules. Contact is n
 
 | File | Use |
 | --- | --- |
-| `balaio-0.2.0-rc.12.zip` | Install package: templates, bilingual guides, page/post examples, version, changelog and MIT/OFL notices |
+| `balaio-0.2.0-rc.13.zip` | Install package: templates, bilingual guides, page/post examples, version, changelog and MIT/OFL notices |
 | `balaio.xml` | Portuguese interface |
 | `balaio.en.xml` | English interface |
 | `SHA256SUMS.txt` | SHA-256 checksums for the three assets above |
 
-The ZIP extracts into `balaio-0.2.0-rc.12/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
+The ZIP extracts into `balaio-0.2.0-rc.13/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
 
 ## Upgrade from v0.1.0
 
 1. Back up your current Blogger XML and record custom gadgets, links and Designer values. Use a separate test blog first.
-2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.12`.
+2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.13`.
 3. Check published pages in automatic navigation. **Layout → Pages** sets leading links and order; use [manual mode](PAGES.md) to choose only some pages. **Menu** is for extra links. Create page content through Pages; XML does not create or replace those records.
 4. Review Introduction and menu links. The legacy sidebar is hidden through CSS. Footer links are no longer rendered: move necessary links to Pages/Menu before updating. Inherited Profile/Attribution blocks are hidden.
 5. In **Theme → Customize → Advanced**, check colors and **Post and page font**. Saved settings may retain an old size; choose 22px if needed. Reading width and pastel defaults remain documented in [CUSTOMIZATION.md](CUSTOMIZATION.md).

@@ -1,6 +1,6 @@
 # Balaio — Tema Blogger gratuito e minimalista
 
-**Versão recomendada: rc.12 na main.** Contato fica como referência textual editável, com página e formulário configurados manualmente. O widget vinculado a caminhos fixos da rc.11 foi removido; use a URL real gerada pelo Blogger, inclusive com sufixo. Markup, estilos, gadgets existentes e ambos os scripts retomam a base rc.10 importada, com metadados de versão atualizados. [Guia de contato](docs/CONTACT.md).
+**Versão recomendada: rc.13 na main.** Contato nativo opcional incluído: cole um pequeno marcador no conteúdo da página Contato para ativar o formulário, com qualquer URL. Não precisa editar o XML para cada blog. Busca, menu e continuação da home preservados. [Guia de contato](docs/CONTACT.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Tema padrão:** `v0.2.0-rc.12`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). Use estes templates da main; os pacotes de releases anteriores contêm outras versões.
+> **Tema padrão:** `v0.2.0-rc.13`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). Use estes templates da main; os pacotes de releases anteriores contêm outras versões.
 >
 > **Alternativa anterior:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada, mas sem a continuação e o layout atuais.
 
@@ -35,7 +35,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Use o Menu para links de assuntos; este layout não tem lateral.
 7. Comece com 10 posts por página em **Configurações → Postagens**; o Blogger pode paginar antes. Confira artigos, páginas, busca, paginação e comentários no celular e no computador antes de usar no blog principal.
 
-**Referência de contato:** crie a página e configure seu canal de contato. Use a URL real gerada pelo Blogger; o tema não instala formulário de contato. [Configuração manual](docs/CONTACT.md).
+**Formulário de contato opcional:** crie/edite uma página Contato e cole o [modelo HTML pronto](examples/pages/contact.pt-BR.html). Mantenha `class="balaio-contact-page"` para exibir o formulário incluído, sem URL fixa nem edição do tema. [Ativação em três passos](docs/CONTACT.md).
 
 [Guia de performance](docs/PERFORMANCE.md) · [Posts da home e paginação](docs/HOME.md) · [Instalação e solução de problemas](docs/INSTALLATION.md) · [Personalização](docs/CUSTOMIZATION.md)
 
@@ -100,7 +100,7 @@ O tema preserva os metadados do Blogger e adiciona microdados de artigos ligados
 
 ## Páginas básicas
 
-[Modelos de Sobre, Contato e Privacidade](docs/PAGES.md): Sobre/Privacidade usam Lorem ipsum; Contato é uma referência textual editável; qualquer formulário é configurado manualmente. [Configuração manual do contato](docs/CONTACT.md). O XML não cria páginas nem substitui seu conteúdo. Código próprio MIT; fontes Inter/Newsreader SIL OFL.
+[Modelos de Sobre, Contato e Privacidade](docs/PAGES.md): Sobre/Privacidade usam Lorem ipsum; Contato ativa o formulário nativo com um pequeno marcador no conteúdo. [Ativação do contato](docs/CONTACT.md). O XML não cria páginas nem substitui seu conteúdo. Código próprio MIT; fontes Inter/Newsreader SIL OFL.
 
 ## Contribuir por pull requests
 

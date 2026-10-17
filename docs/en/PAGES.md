@@ -2,7 +2,7 @@
 
 [English](PAGES.md) · [Português](../PAGES.md)
 
-Balaio includes editable page-body samples for About, Contact and Privacy. About/Privacy use Lorem ipsum; the privacy sample is not a privacy policy. Contact is only an editable text reference: create the page and configure any form manually. Use Blogger’s actual generated URL, including a suffix. [Contact guide](CONTACT.md).
+Balaio includes editable page-body samples for About, Contact and Privacy. About/Privacy use Lorem ipsum; the privacy sample is not a privacy policy. Contact contains `class="balaio-contact-page"`, which displays the native form included in the theme with any Blogger-generated URL. [Simple setup](CONTACT.md).
 
 | Page title | Copy this body into Blogger |
 | --- | --- |
