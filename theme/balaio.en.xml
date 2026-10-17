@@ -3,7 +3,7 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
   <head>
     <meta charset='UTF-8'/>
-    <meta content='0.2.0-rc.7' name='balaio-version'/>
+    <meta content='0.2.0-rc.8' name='balaio-version'/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:blog.pageTitle/></title>
     <b:include data='blog' name='all-head-content'/>
@@ -11,7 +11,7 @@
     <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
     <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400..750&amp;family=Newsreader:opsz,wght@6..72,400..700&amp;display=swap' rel='stylesheet'/>
     <b:skin><![CDATA[
-/* Balaio v0.2.0-rc.7 — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
+/* Balaio v0.2.0-rc.8 — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
    Edit the variables below to customize your blog identity. */
 /* Blogger Designer controls.
 <Variable name="papercolor" description="Page background" type="color" default="#fffefb" value="#fffefb"/>
@@ -188,6 +188,14 @@ a:focus-visible,input:focus-visible,button:focus-visible {
 .navigation {
   padding-top:8px;
 }
+.navigation .section,.navigation .widget {
+  height:auto;
+  min-height:44px;
+}
+.navigation li {
+  margin:0;
+  padding:0;
+}
 .navigation ul {
   display:flex;
   flex-wrap:wrap;
@@ -200,14 +208,15 @@ a:focus-visible,input:focus-visible,button:focus-visible {
   display:inline-flex;
   align-items:center;
   min-height:44px;
-  padding:6px 8px;
-  border-radius:6px;
+  padding:6px 0;
+  border-radius:0;
   overflow-wrap:anywhere;
   font-size:14px;
   color:var(--ink);
 }
 .navigation a[aria-current='page'] {
-  background:var(--wash);
+  background:transparent;
+  font-weight:600;
   text-decoration:underline;
   text-underline-offset:4px;
 }
@@ -629,7 +638,7 @@ a:focus-visible,input:focus-visible,button:focus-visible {
             <button aria-label='Search this blog' title='Search this blog' type='submit'><span aria-hidden='true' class='search-icon'></span></button>
           </form>
         </div>
-        <nav aria-label='Main navigation' class='navigation'>
+        <nav aria-label='Main navigation' class='navigation' data-auto-pages='true'>
           <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
             <b:widget id='PageList1' locked='false' mobile='yes' title='Pages' type='PageList' version='1'>
               <b:includable id='main'>
@@ -897,5 +906,89 @@ a:focus-visible,input:focus-visible,button:focus-visible {
       </div>
     </main>
     <footer class='site-footer wrap'><a href='https://www.blogger.com/go/report-abuse' rel='nofollow'>Report abuse</a></footer>
+    <script id='page-navigation' type='text/javascript'>//<![CDATA[
+(() => {
+  'use strict';
+  function initializeNavigation() {
+    const nav = document.querySelector('.navigation[data-auto-pages="true"]');
+    const widget = nav && nav.querySelector('#PageList1');
+    const list = widget && widget.querySelector('ul');
+    if (!list || !window.fetch || !window.AbortController) return;
+    function localURL(value) {
+      if (typeof value !== 'string' || !value.trim()) return null;
+      try {
+        const url = new URL(value, location.href);
+        return url.origin === location.origin && /^https?:$/.test(url.protocol) ? url : null;
+      } catch (_) { return null; }
+    }
+    function appendPages(pages) {
+      if (!Array.isArray(pages)) return;
+      const seen = new Set();
+      for (const link of nav.querySelectorAll('a[href]')) {
+        const url = localURL(link.getAttribute('href'));
+        if (url) seen.add(url.pathname);
+      }
+      const entries = [];
+      for (const page of pages.slice(0, 150)) {
+        const url = localURL(page && page.href);
+        const title = page && typeof page.title === 'string' ? page.title.trim() : '';
+        if (!url || !url.pathname.startsWith('/p/') || !title || seen.has(url.pathname)) continue;
+        seen.add(url.pathname);
+        entries.push({title, url});
+      }
+      entries.sort((a, b) => a.title.localeCompare(b.title, document.documentElement.lang || undefined));
+      for (const page of entries) {
+        const item = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = page.url.href;
+        link.textContent = page.title;
+        if (page.url.pathname === location.pathname) link.setAttribute('aria-current', 'page');
+        item.append(link);
+        list.append(item);
+      }
+    }
+    const feed = localURL(nav.dataset.pagesFeed || '/feeds/pages/summary?alt=json&max-results=150');
+    if (!feed) return;
+    const cacheKey = 'balaio-pages-v1:' + feed.pathname + feed.search;
+    try {
+      const cached = JSON.parse(sessionStorage.getItem(cacheKey));
+      const age = cached && Date.now() - cached.time;
+      if (cached && age >= 0 && age < 60000 && Array.isArray(cached.pages)) {
+        appendPages(cached.pages);
+        return;
+      }
+    } catch (_) { /* Storage is optional, including in private browsing. */ }
+    async function loadPages() {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 6000);
+      try {
+        const response = await fetch(feed.href, {
+          signal: controller.signal, credentials: 'omit', redirect: 'error', priority: 'low'
+        });
+        if (!response.ok) return;
+        const data = await response.json();
+        if (!data || !data.feed || typeof data.feed !== 'object') return;
+        const entries = data.feed.entry;
+        if (entries !== undefined && !Array.isArray(entries)) return;
+        const pages = [];
+        for (const entry of (entries || []).slice(0, 150)) {
+          const links = entry && entry.link;
+          const link = Array.isArray(links) && links.find(item => item && item.rel === 'alternate');
+          const title = entry && entry.title && entry.title.$t;
+          if (link && typeof title === 'string') pages.push({title, href: link.href});
+        }
+        appendPages(pages);
+        try { sessionStorage.setItem(cacheKey, JSON.stringify({time: Date.now(), pages})); } catch (_) {}
+      } catch (_) {
+        // Native menu links remain available if the public feed is unavailable.
+      } finally { clearTimeout(timer); }
+    }
+    loadPages();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeNavigation, {once: true});
+  } else initializeNavigation();
+})();
+    //]]></script>
   </body>
 </html>
