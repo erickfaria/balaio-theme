@@ -35,3 +35,9 @@ The inspected rc.3 home HTML measured 37,049 decoded bytes (9,744 gzip). One art
 After import, check two highlights plus the list below, correct pagination, an article, a static page, search, mobile layout, no horizontal overflow and no console errors. Test a slow connection and disabled JavaScript. Use actual PageSpeed Insights/Search Console observations for speed and indexing; content, images, ads, gadgets and the platform affect results.
 
 `make check` validates XML, locales, documentation and code. `make preview` generates visual/continuation cases, including a home starting with only two posts. The preview does not compile Blogger XML. Actions runs checks and creates artifacts identified by commit.
+
+## Automatic navigation — rc.8
+
+Navigation requests the public summary page feed once per uncached load, with low priority and a six-second timeout. Only titles/URLs are stored for 60 seconds in session storage; blocked storage falls back to network loading. The observed four-page feed response measured 6,659 bytes and varies with content. There is no external library, API key or polling.
+
+Automatic links are added by JavaScript; keep essential links in the native gadget for script-free access and initial HTML. Use `data-auto-pages='false'` for a fully manual menu without this request. [Modes and limits](PAGES.md).

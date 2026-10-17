@@ -35,3 +35,9 @@ O HTML inicial da home rc.3 tinha 37.049 bytes descomprimidos (9.744 em gzip). U
 Após importar, confira dois destaques e posts abaixo, paginação correta, artigo, página fixa, busca, celular, ausência de rolagem horizontal e console sem erros. Teste uma conexão lenta e JavaScript desligado. Use resultados reais de PageSpeed Insights/Search Console para avaliar velocidade e indexação; conteúdo, imagens, anúncios, gadgets e a plataforma afetam o resultado.
 
 `make check` valida XML, idiomas, documentação e código. `make preview` gera casos visuais e de continuação, incluindo uma home que começa com apenas dois posts. A prévia não compila o XML no Blogger. O Actions executa checks e gera artefatos identificados pelo commit.
+
+## Menu automático — rc.8
+
+O menu consulta o feed público resumido de páginas, uma vez por carregamento sem cache, com prioridade baixa e timeout de seis segundos. Guarda somente títulos/URLs por 60 segundos na sessão; sem armazenamento disponível, continua funcionando pela rede. A resposta observada do blog com quatro páginas foi de 6.659 bytes, variando com o conteúdo. Não há biblioteca externa, API key ou polling.
+
+O modo automático acrescenta links por JavaScript; mantenha links essenciais também no gadget nativo para funcionamento sem script e HTML inicial. Use `data-auto-pages='false'` para um menu totalmente manual sem essa consulta. [Modos e limites](PAGES.md).

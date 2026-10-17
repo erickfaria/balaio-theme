@@ -4,14 +4,14 @@
 
 ## Before installation
 
-Use the rc.7 XML on main: magnifier search and compact introductory spacing, based on rc.6 with confirmed Portuguese import and ten posts. Fresh rc.7 import verification is pending. Before installing on another blog, retain a backup and check a test blog. Older release packages do not contain this version.
+Use the rc.8 XML on main: aligned automatic page navigation and magnifier search, based on rc.6 with confirmed Portuguese import and ten posts. Fresh rc.8 import verification is pending. Before installing on another blog, retain a backup and check a test blog. Older release packages do not contain this version.
 
 ## Steps
 
 1. Download `theme/balaio.en.xml` for English or `theme/balaio.xml` for Portuguese. Download the raw file, not GitHub's HTML page.
 2. In Blogger, select the correct blog, then open **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the contents with the entire XML, from its declaration to the closing `html` tag, then save.
-4. Set title, description and blog language in **Settings**. In **Layout**, configure Pages, Menu, Introduction and topic links in Menu. This layout has no sidebar; inherited search/archive/featured gadgets are hidden. The Portuguese XML uses Portuguese gadget titles.
+4. Set title, description and blog language in **Settings**. Published pages automatically supplement navigation. In **Layout**, configure leading Pages links, Menu and Introduction; see automatic/manual modes in [PAGES.md](PAGES.md). This layout has no sidebar; inherited search/archive/featured gadgets are hidden. The Portuguese XML uses Portuguese gadget titles.
 5. Add sample posts with and without images. The home page highlights the first two posts and lists the rest. Automatic continuation supplements short pages; see [HOME.md](HOME.md).
 6. Check articles, pages, search, labels, pagination, comments and mobile layout. See [ROADMAP.md](ROADMAP.md).
 
@@ -32,7 +32,7 @@ The project owner's screenshots showed the legacy mobile presentation at `?m=1` 
 | The editor rejects the file | Make sure the XML is complete, without Markdown fences or GitHub HTML. Include the exact editor message in an issue. |
 | A card has no image | Try a post containing an image. Thumbnails depend on Blogger data; entries remain readable without an image. |
 | Fonts look different | Check access to Google Fonts. Local fallback fonts are used when remote fonts are unavailable. |
-| My pages are missing from the menu | Publish them under Pages, then select them in **Layout → Pages**. Use Menu only for extra links. |
+| My pages are missing from the menu | Confirm rc.8, published pages, JavaScript and an enabled public page feed. Allow up to one minute of session caching and reload. In manual mode, add links under **Layout → Pages**. [Menu modes](PAGES.md). |
 | The introduction has not changed | Edit Introduction/Apresentação in Layout and save. Keep a single `h1`. |
 | Comments are missing | Check blog settings and post permissions. Embedded forms and threaded replies are not implemented yet. |
 | I want the previous theme back | Restore the XML you backed up before installation from the theme menu. |
@@ -55,4 +55,4 @@ The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publ
 
 ## Restore failure
 
-Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar remains hidden through CSS. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.7` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.
+Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar remains hidden through CSS. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.8` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.

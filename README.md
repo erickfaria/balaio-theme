@@ -1,6 +1,6 @@
 # Balaio — Free minimal Blogger theme
 
-**Recommended version: rc.7 on main.** A compact rounded search with an original magnifier icon and tighter introductory spacing, based on owner-validated rc.6. Widget definitions and home continuation remain the same; fresh rc.7 import verification is pending.
+**Recommended version: rc.8 on main.** Published pages now supplement the header menu automatically. Current-page links use a subtle underline, and the navigation height adapts to wrapped links. Based on the validated rc.6 widgets and rc.7 search; fresh rc.8 Blogger import remains pending.
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Default template:** `v0.2.0-rc.7`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
+> **Default template:** `v0.2.0-rc.8`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
 >
 > **Earlier fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with confirmed import but without the current home continuation and layout.
 
@@ -31,7 +31,7 @@ No build tools are needed to install the theme.
 2. Choose a **test blog** in Blogger. Back up the current theme from **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
 4. Configure your title, description and language in **Settings**.
-5. In **Layout → Pages**, select published About me, Contact and Privacy pages for the top navigation. Use **Menu** for extra links, such as labels.
+5. Published pages automatically supplement the top menu. **Layout → Pages** sets leading links, their labels and order; **Menu** adds extra links. For a fully manual menu, set `data-auto-pages='false'` on the navigation element. [Page navigation](docs/en/PAGES.md).
 6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use Menu links for topics; this layout has no sidebar.
 7. Start with 10 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
@@ -43,10 +43,10 @@ No build tools are needed to install the theme.
 - Responsive layouts for phones, tablets and desktop; optional thumbnails and full-width entries when no image is available.
 - Native Blogger search, label links, pagination, article and static-page layouts.
 - Basic comment display and a link to add a comment; embedded forms and threaded replies remain pending.
-- Editable introduction, Pages navigation and extra Menu links; no sidebar and one header search.
+- Editable introduction, automatic published-page navigation and extra Menu links; no sidebar and one header search.
 - Keyboard focus, skip link, contained code/table scrolling and print styles.
 - **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Post/page text defaults to 22px with a 1.75 line height. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
-- No third-party JavaScript libraries or Python package dependencies. The home continuation is original MIT code; native pagination works without JavaScript.
+- No third-party JavaScript libraries or Python package dependencies. The home continuation and page-menu enhancement are original MIT code; native pagination works without JavaScript.
 
 Native color/font controls are included in the candidate; live Designer verification remains pending. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
 

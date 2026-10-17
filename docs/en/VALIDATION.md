@@ -1,10 +1,10 @@
-# Validation — v0.2.0-rc.7
+# Validation — v0.2.0-rc.8
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
 ## Status
 
-rc.7 adjusts only search and visual spacing on the confirmed rc.6 baseline. All widget bodies and the continuation script match in both languages. Fresh rc.7 Blogger import verification is pending.
+rc.8 supplements navigation with public pages through JavaScript, preserves native links and fixes navigation height. Widget bodies and home continuation match installed rc.7. Fresh rc.8 Blogger import remains pending.
 
 rc.6 recovers the widget definitions and home continuation script from rc.3, confirmed by the owner and observed with ten posts live on October 11, 2026. It retains the sidebar-free layout, compact footer, open variable fonts, mobile navigation and 22px reading text. The owner confirmed rc.6 import and sidebar removal on October 12, 2026. It is the validated baseline for rc.7.
 
@@ -12,7 +12,19 @@ Actions runs for PRs, main, tags and manual dispatch. Historical records below r
 
 ## Automated checks
 
-26 local tests pass: XML/widget structure, locales, metadata/rendered HTML audit, Designer, contrast, mobile navigation/search, both CDATA serializations and continuation startup from a two-post home. A zero request budget makes no request; the default follows native pagination with the remaining count and an eight-second timeout. Without Node the four JavaScript checks are skipped locally; CI includes Node. Markdown links, English generation, XML, whitespace and preview generation pass.
+28 local tests pass: XML/widget structure, locales, metadata/rendered HTML audit, Designer, contrast, mobile navigation/search, both CDATA serializations and continuation startup from a two-post home. A zero request budget makes no request; the default follows native pagination with the remaining count and an eight-second timeout. Without Node the six JavaScript checks are skipped locally; CI includes Node. Markdown links, English generation, XML, whitespace and preview generation pass.
+
+## Automatic pages and alignment — rc.8, October 17, 2026
+
+Public inspection found rc.7 with four sitemap pages but only Home in PageList1’s native data. All four URLs returned HTTP 200 with a heading and WebPage layout. The navbar section measured 30px while its link measured 44px and crossed the header border.
+
+The public summary feed returned four pages and 6,659 bytes in the observed response, versus 17,308 bytes for the full feed; sizes vary with content. Navigation uses the summary endpoint, one request on an uncached load, a six-second timeout and a one-minute session cache of titles/URLs. No API key or fixed blog domain is required.
+
+28 local tests pass, including both CDATA serializations in both languages and runtime cases for valid/expired cache, unavailable storage, manual mode, invalid/unavailable feeds, duplicates, external/unsafe URLs and the current page.
+
+The preview reproduces native `.navbar{height:30px}` CSS. At 320/360/768/1440px, a local replay of public titles/paths showed five links (Home plus four pages), aligned with the brand and contained inside the header, without a green background or horizontal overflow. The section expanded to 94px at the two smaller widths and 44px at larger widths. All ten posts still loaded. A visual screenshot review confirmed desktop alignment.
+
+Feed failures, invalid JSON and empty lists preserved Home; manual mode retained only configured links; an existing About link retained its custom name without duplication; malicious content became literal text rather than images/events. The Privacy page received `aria-current='page'`. These are local code/DOM checks plus a public feed read, not an rc.8 Blogger import.
 
 ## Local visual refinement — rc.7
 
