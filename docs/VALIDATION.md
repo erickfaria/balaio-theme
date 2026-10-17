@@ -1,14 +1,22 @@
-# Validação — v0.2.0-rc.9
+# Validação — v0.2.0-rc.10
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
 ## Status
 
-A rc.9 mantém os corpos dos gadgets e a continuação da rc.8 importada. Acrescenta busca recolhível nativa ao lado do título, espaços menores e revalidação das páginas publicadas sem cache de sessão. A nova importação da rc.9 ainda precisa de conferência no Blogger.
+A rc.10 ajusta somente a busca: campo na mesma linha e à esquerda de uma única lupa, com seta discreta de envio. Gadgets, scripts, espaçamento e tipografia da rc.9 foram preservados. O proprietário confirmou a busca da rc.9 funcionando; a nova importação da rc.10 ainda precisa de conferência.
 
 A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. O proprietário confirmou a importação da rc.6 e a remoção da lateral em 12/10/2026. Ela é a base validada da rc.7.
 
 Actions está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
+
+## Busca à esquerda — rc.10, 17/10/2026
+
+A prévia usa o formulário e CSS reais do tema. Em 320, 360, 768 e 1440px, o campo aberto ficou à esquerda da lupa com a mesma coordenada vertical, separado por 6px. Há um único elemento de lupa. A altura do cabeçalho não mudou entre abrir e fechar, sem rolagem horizontal; a home manteve dois destaques e oito entradas abaixo.
+
+No modo móvel, o nome fica oculto enquanto a busca ocupa a linha e reaparece ao fechar, mantendo as dimensões do cabeçalho. Enter abriu e Espaço fechou o controle nativo. Tab alcançou o campo; a seta enviou `ciência dados` por GET, por clique no desktop e teclado num quadro sem JavaScript. Foram inspecionadas capturas locais. A transição CSS tem duração de 160ms e é desativada pela preferência por movimento reduzido.
+
+28 testes locais passaram. Os corpos de todos os gadgets e os dois scripts foram comparados à rc.9 sem diferenças. Esses checks de prévia não confirmam uma importação da rc.10 no Blogger.
 
 ## Busca recolhível e atualização do menu — rc.9, 17/10/2026
 

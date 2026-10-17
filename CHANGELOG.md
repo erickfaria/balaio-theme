@@ -1,5 +1,14 @@
 # Changelog / Histórico
 
+## 0.2.0-rc.10 — inline search / busca na mesma linha — 2026-10-17
+
+- Open the rounded field to the left of one magnifier, on the same header row. Replace the duplicate search icon with a small submit arrow; retain native keyboard and script-free operation.
+- Abrir o campo arredondado à esquerda de uma única lupa, na mesma linha do cabeçalho. Trocar o ícone duplicado por uma seta discreta para enviar; manter teclado e funcionamento nativo sem JavaScript.
+- On phones, temporarily hide the title while search occupies that row; closing restores it without shifting the layout. Respect reduced motion. Preserve rc.9 spacing, typography, widgets, page navigation and older-post continuation.
+- No celular, ocultar temporariamente o nome enquanto a busca ocupa a linha; fechar o restaura sem deslocar o layout. Respeitar movimento reduzido. Preservar espaços, tipografia, gadgets, navegação de páginas e continuação dos posts da rc.9.
+- Update both XML locales and bilingual guides. Fresh rc.10 Blogger import remains pending.
+- Atualizar os dois XMLs e guias bilíngues. Nova importação da rc.10 ainda pendente.
+
 ## 0.2.0-rc.9 — compact search / busca compacta — 2026-10-17
 
 - Keep only a magnifier beside the title on phones and desktop. A native details/summary disclosure opens the rounded search field by touch or keyboard, including without JavaScript; no new assets or libraries.

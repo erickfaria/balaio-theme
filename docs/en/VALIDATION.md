@@ -1,14 +1,22 @@
-# Validation — v0.2.0-rc.9
+# Validation — v0.2.0-rc.10
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
 ## Status
 
-rc.9 preserves widget bodies and post continuation from imported rc.8. It adds native collapsible search beside the title, tighter spacing and published-page revalidation without a session cache. Fresh rc.9 Blogger import remains pending.
+rc.10 changes only search: the field opens on the same row to the left of a single magnifier, with a small submit arrow. Widget bodies, scripts, spacing and typography match rc.9. The owner confirmed rc.9 search working; fresh rc.10 Blogger import remains pending.
 
 rc.6 recovers the widget definitions and home continuation script from rc.3, confirmed by the owner and observed with ten posts live on October 11, 2026. It retains the sidebar-free layout, compact footer, open variable fonts, mobile navigation and 22px reading text. The owner confirmed rc.6 import and sidebar removal on October 12, 2026. It is the validated baseline for rc.7.
 
 Actions runs for PRs, main, tags and manual dispatch. Historical records below retain the original verification conditions.
+
+## Search opening to the left — rc.10, October 17, 2026
+
+The preview uses the actual theme form and CSS. At 320, 360, 768 and 1440px, the open field sits to the left of the magnifier at the same vertical coordinate, with a 6px gap. There is one magnifier element. Opening/closing leaves header height unchanged without horizontal overflow; the home retains two highlights and eight older entries.
+
+On phones the title is hidden while search uses the row, then restored on close without changing header dimensions. Enter opened and Space closed the native control. Tab reached the field; the arrow submitted `ciência dados` through GET, by desktop click and keyboard in a script-disabled frame. Local screenshots were inspected. The 160ms CSS transition is disabled by reduced-motion preference.
+
+28 local tests pass. All widget bodies and both scripts were compared with rc.9 without differences. These preview checks do not establish fresh rc.10 Blogger import.
 
 ## Collapsible search and menu updates — rc.9, October 17, 2026
 

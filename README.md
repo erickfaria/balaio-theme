@@ -1,6 +1,6 @@
 # Balaio — Free minimal Blogger theme
 
-**Recommended version: rc.9 on main.** A compact magnifier stays beside the blog title on phones and opens the search field on demand, including without JavaScript. Introductory spacing is tighter. Automatic page navigation revalidates the public feed on reload, so pages returned to drafts do not linger in the theme cache. Based on the imported rc.8 widgets; fresh rc.9 Blogger import remains pending.
+**Recommended version: rc.10 on main.** The search field opens to the left of a single magnifier, on the same header row. A small arrow submits the query; native details/summary still works without JavaScript. The remaining rc.9 layout, widgets and navigation are preserved. Fresh rc.10 Blogger import remains pending.
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Default template:** `v0.2.0-rc.9`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
+> **Default template:** `v0.2.0-rc.10`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
 >
 > **Earlier fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with confirmed import but without the current home continuation and layout.
 
