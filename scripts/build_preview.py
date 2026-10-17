@@ -140,6 +140,10 @@ def build():
     pages_dir.mkdir(exist_ok=True)
     for slug, title in [('about','Sobre mim'), ('contact','Contato'), ('privacy','Privacidade'), ('members','Membros')]:
         content = menu_fixture('../pages-feed.json').replace('aria-current="page" href="menu-auto.html"', 'href="../menu-auto.html"')
+        body = '<main class="wrap" id="content" tabindex="-1"><div class="content-grid article-grid"><article class="article" itemscope itemtype="https://schema.org/WebPage"><h1>' + escape(title) + '</h1><div class="post-body"><p>Lorem ipsum dolor sit amet.</p></div></article></div></main>'
+        content = re.sub(r'<main class="wrap".*?</main>', lambda _: body, content, count=1, flags=re.S)
+        content = content.replace(HOME_SCRIPT, '').replace('href="index.html"', 'href="../index.html"')
+        content = content.replace("action='empty.html'", "action='../empty.html'")
         (pages_dir / f'{slug}.html').write_text(content.replace('Menu automático', title))
     frames = ''.join(f'<iframe id="width-{width}" src="menu-auto.html" width="{width}" height="900" title="Menu {width}px" style="display:block;border:0"></iframe>' for width in (320,360,768,1440))
     (OUT / "responsive-menu.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Menu responsivo</title><body>'+frames+'</body></html>')
