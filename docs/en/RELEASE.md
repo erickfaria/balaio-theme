@@ -1,8 +1,8 @@
-# Install and upgrade — v0.2.0-rc.9
+# Install and upgrade — v0.2.0-rc.10
 
 [English](RELEASE.md) · [Português](../RELEASE.md)
 
-rc.9 places the magnifier beside the title on phones and reveals the field only when search is opened. Native `details/summary` needs no library or additional script. It removes excess introduction margins and the session cache that could retain draft-page links. All widget bodies and post continuation match imported rc.8. Fresh rc.9 import verification is pending. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). Use the current main XML; older packages contain other versions. [Validation](VALIDATION.md) · [Automatic/manual modes](PAGES.md).
+rc.10 changes only search: the field opens to the left of the magnifier on the same row, without a duplicate icon. A small arrow submits. On phones, opening temporarily uses the title space; closing restores it without changing header height. Native script-free disclosure, layout, pages, widgets and continuation from rc.9 are preserved. Fresh rc.10 import verification is pending. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). Use the current main XML; older packages contain other versions. [Validation](VALIDATION.md) · [Automatic/manual modes](PAGES.md).
 
 ## What this version preserves
 
@@ -15,17 +15,17 @@ rc.9 places the magnifier beside the title on phones and reveals the field only 
 
 | File | Use |
 | --- | --- |
-| `balaio-0.2.0-rc.9.zip` | Install package: templates, bilingual guides, page/post examples, version, changelog and MIT/OFL notices |
+| `balaio-0.2.0-rc.10.zip` | Install package: templates, bilingual guides, page/post examples, version, changelog and MIT/OFL notices |
 | `balaio.xml` | Portuguese interface |
 | `balaio.en.xml` | English interface |
 | `SHA256SUMS.txt` | SHA-256 checksums for the three assets above |
 
-The ZIP extracts into `balaio-0.2.0-rc.9/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
+The ZIP extracts into `balaio-0.2.0-rc.10/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
 
 ## Upgrade from v0.1.0
 
 1. Back up your current Blogger XML and record custom gadgets, links and Designer values. Use a separate test blog first.
-2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.9`.
+2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.10`.
 3. Check published pages in automatic navigation. **Layout → Pages** sets leading links and order; use [manual mode](PAGES.md) to choose only some pages. **Menu** is for extra links. Create page content through Pages; XML does not create or replace those records.
 4. Review Introduction and menu links. The legacy sidebar is hidden through CSS. Footer links are no longer rendered: move necessary links to Pages/Menu before updating. Inherited Profile/Attribution blocks are hidden.
 5. In **Theme → Customize → Advanced**, check colors and **Post and page font**. Saved settings may retain an old size; choose 22px if needed. Reading width and pastel defaults remain documented in [CUSTOMIZATION.md](CUSTOMIZATION.md).
