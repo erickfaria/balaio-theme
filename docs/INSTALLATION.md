@@ -4,7 +4,7 @@
 
 ## Antes de instalar
 
-Use o XML da rc.10 na main: lupa recolhível ao lado do título, espaços menores e menu que revalida páginas publicadas, sobre os gadgets da rc.8 já importada. A nova importação da rc.10 ainda precisa de conferência. Antes de instalar em outro blog, guarde seu backup e confira num blog de teste. Os pacotes de releases antigos não contêm esta versão.
+Use o XML da rc.11 na main: lupa recolhível ao lado do título, espaços menores e menu que revalida páginas publicadas, sobre os gadgets da rc.8 já importada. A nova importação da rc.11 ainda precisa de conferência. Antes de instalar em outro blog, guarde seu backup e confira num blog de teste. Os pacotes de releases antigos não contêm esta versão.
 
 ## Passo a passo
 
@@ -32,7 +32,7 @@ As capturas do proprietário mostraram a apresentação móvel antiga em `?m=1` 
 | O editor rejeita o arquivo | Confira se copiou o XML completo, sem cercas de Markdown ou HTML do GitHub. Registre a mensagem exata para uma issue. |
 | Não há imagem no card | Use um post com imagem. A miniatura depende dos dados fornecidos pelo Blogger; sem imagem, a entrada continua legível. |
 | As fontes parecem diferentes | Confira acesso ao Google Fonts. O fallback usa fontes do dispositivo quando as fontes remotas não carregam. |
-| O menu não tem minhas páginas | Confirme a rc.10, páginas publicadas, JavaScript e o feed público habilitado. Abra ou atualize o blog após publicar; rascunhos ficam fora do feed. Links manuais precisam ser removidos no gadget. No modo manual, adicione links em **Layout → Páginas**. [Modos do menu](PAGES.md). |
+| O menu não tem minhas páginas | Confirme a rc.11, páginas publicadas, JavaScript e o feed público habilitado. Abra ou atualize o blog após publicar; rascunhos ficam fora do feed. Links manuais precisam ser removidos no gadget. No modo manual, adicione links em **Layout → Páginas**. [Modos do menu](PAGES.md). |
 | A abertura continua igual | Edite Apresentação/Introduction no Layout e salve. Preserve um único `h1`. |
 | Comentários não aparecem | Confira as configurações e permissões do post. O formulário incorporado e as respostas encadeadas ainda não estão prontos. |
 | Quero voltar ao tema anterior | Restaure o XML que você salvou antes da instalação pelo menu do tema. |
@@ -45,7 +45,7 @@ Antes de publicar, siga a [configuração de SEO](SEO.md).
 
 ## Páginas básicas
 
-[Modelos de Sobre, Contato e Privacidade](PAGES.md) usam Lorem ipsum. Crie e publique as páginas no Blogger e selecione-as em **Layout → Páginas**. O tema não fixa endereços de páginas nem dados de contato. Código e recursos visuais incluídos são MIT; Inter e Newsreader são fontes abertas sob SIL OFL.
+[Modelos de Sobre, Contato e Privacidade](PAGES.md): Sobre/Privacidade usam Lorem ipsum; Contato inclui texto editável para o widget nativo. [Ativar o formulário](CONTACT.md). O XML não cria páginas nem substitui seu conteúdo. Código próprio MIT; fontes Inter/Newsreader SIL OFL.
 
 ## Mostrar mais posts e páginas fixas
 
@@ -55,4 +55,8 @@ A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no ce
 
 ## Falha ao restaurar
 
-A validação local não executa o compilador nem a migração de gadgets do Blogger. A rc.6 recupera os gadgets completos da rc.3; a lateral legada permanece oculta por CSS. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.10` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.
+A validação local não executa o compilador nem a migração de gadgets do Blogger. A rc.6 recupera os gadgets completos da rc.3; a lateral legada permanece oculta por CSS. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.11` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.
+
+## Formulário de contato
+
+A rc.11 inclui o widget ContactForm1. Publique Contato em `/p/contato.html` ou Contact em `/p/contact.html`, usando o corpo de exemplo; não cole outro formulário. Não exige API key nem login do visitante. Confira uma entrega após importar. [Guia completo](CONTACT.md).

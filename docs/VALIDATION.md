@@ -1,14 +1,24 @@
-# Validação — v0.2.0-rc.10
+# Validação — v0.2.0-rc.11
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
 ## Status
 
-A rc.10 ajusta somente a busca: campo na mesma linha e à esquerda de uma única lupa, com seta discreta de envio. Gadgets, scripts, espaçamento e tipografia da rc.9 foram preservados. O proprietário confirmou a busca da rc.9 funcionando; a nova importação da rc.10 ainda precisa de conferência.
+A rc.11 acrescenta ContactForm1 com visual e textos próprios em português e inglês. Preserva os seis gadgets existentes e ambos os scripts da rc.10. A prévia não envia mensagens: importação do novo widget, integração do JavaScript nativo e entrega real da rc.11 ainda precisam de confirmação no Blogger.
 
 A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. O proprietário confirmou a importação da rc.6 e a remoção da lateral em 12/10/2026. Ela é a base validada da rc.7.
 
 Actions está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
+
+## Contato nativo — rc.11, 17/10/2026
+
+30 testes locais passaram, incluindo regressões para os seis IDs que o runtime nativo usa, rótulos associados aos campos, nome opcional, e-mail/mensagem obrigatórios, retornos acessíveis e escopo da página. O contrato foi conferido lendo o recurso público de widgets do Blogger; a biblioteca não foi copiada ao repositório.
+
+As páginas públicas da rc.10 confirmaram os campos `canonicalUrl` e `canonicalHomepageUrl`. No modo móvel, `homepageUrl` inclui `?m=1`, enquanto as duas URLs canônicas ficam limpas. O novo widget compara as URLs canônicas, preservando a seleção da página no celular e sem fixar o domínio.
+
+A prévia usa o formulário real de cada XML, com Enviar desativado e sem transporte Google. Em 320, 360, 768 e 1440px, nos dois idiomas, os campos ficaram contidos, com um H1, três rótulos associados, fontes Inter de 16px e botões acima de 44px. Larguras cliente/rolagem coincidiram (305, 345, 753 e 1425px). O intervalo entre introdução e formulário foi 24px, com um único link de retorno visível. Capturas locais foram inspecionadas.
+
+A validade HTML rejeitou e-mail malformado e campos obrigatórios vazios; aceitou os dados fictícios com nome vazio. Os exemplos de erro/sucesso foram conferidos como **estados ilustrativos**, sem afirmar entrega. Nenhuma mensagem ou dado do usuário foi enviado. Layout, recepção de e-mail, modo móvel, idioma das mensagens nativas e ausência do formulário em outras páginas devem ser conferidos após importar. [Ativação](CONTACT.md).
 
 ## Busca à esquerda — rc.10, 17/10/2026
 

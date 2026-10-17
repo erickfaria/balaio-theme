@@ -46,3 +46,7 @@ Avisos copiados do [repositório oficial Google Fonts](https://github.com/google
 Não distribuímos fontes compradas, fotos de banco proprietário, ícones proprietários ou código de temas terceiros. As requisições padrão carregam fontes OFL via Google Fonts; a hospedagem é opcional e pode ser substituída por hospedagem própria ou fontes genéricas do dispositivo. A disponibilidade e licença das fontes do dispositivo pertencem a ele, não ao repositório. O Blogger é uma plataforma externa, não distribuída ou licenciada pelo projeto.
 
 Todos os recursos incluídos permitem reutilização e modificação sob suas respectivas licenças. Preserve avisos MIT e OFL ao redistribuir os códigos ou fontes correspondentes. O [guia de personalização](CUSTOMIZATION.md) explica como remover requisições externas de fontes.
+
+## Contato — rc.11
+
+Markup, CSS e textos do formulário são implementação própria MIT. Os IDs necessários foram conferidos no contrato público do [runtime nativo do Blogger](https://www.blogger.com/static/v1/widgets/950101909-widgets.js); não copiamos nem distribuímos essa biblioteca. O Blogger injeta seu transporte, token de sessão e mensagens nativas. Google/Blogger é serviço externo, não recurso MIT/OFL do pacote. [Dados e configuração](CONTACT.md).

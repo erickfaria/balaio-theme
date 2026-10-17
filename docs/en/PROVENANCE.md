@@ -44,3 +44,7 @@ These references document Blogger's structure; they are not sources of the theme
 No purchased fonts, stock photos, proprietary icons or third-party theme code are distributed. Default font requests deliver OFL fonts through Google Fonts; this hosting service is optional and can be replaced with self-hosting or generic device fonts. Device font availability and licensing belong to each device, not this repository. Blogger itself is an external platform and is not distributed or licensed by this project.
 
 All included resources permit reuse and modification under their respective licenses. Keep MIT and OFL notices when redistributing applicable code or font files. The [customization guide](CUSTOMIZATION.md) explains how to remove external font requests.
+
+## Contact — rc.11
+
+Form markup, CSS and text are original MIT implementation. Required IDs were checked against the public [native Blogger runtime contract](https://www.blogger.com/static/v1/widgets/950101909-widgets.js); that library is not copied or distributed. Blogger injects its transport, session token and native messages. Google/Blogger is an external service, not an MIT/OFL package asset. [Data and setup](CONTACT.md).
