@@ -42,6 +42,6 @@ In rc.9, navigation requests the summary page feed once per page load, at low pr
 
 Automatic links are added by JavaScript; keep essential links in the native gadget for script-free access and initial HTML. Use `data-auto-pages='false'` for a fully manual menu without this request. [Modes and limits](PAGES.md).
 
-## Native contact — rc.11
+## Manual contact — rc.12
 
-The form uses ContactForm1 and Blogger’s native JavaScript, without an added delivery library or iframe. The widget condition limits presentation to the two contact paths. Its small CSS is shared by the theme. Previews do not load Blogger transport and disable Send; they do not measure its network cost or establish delivery. Check published HTML/network after importing. [Setup](CONTACT.md).
+Contact is a text reference in rc.12. The theme installs no contact widget, CSS, library or transport and performs no contact URL matching. XML and scripts restore rc.10 with updated version metadata. The cost of any manually configured form depends on the chosen solution. [Setup](CONTACT.md).

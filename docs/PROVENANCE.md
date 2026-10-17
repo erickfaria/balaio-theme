@@ -47,6 +47,6 @@ Não distribuímos fontes compradas, fotos de banco proprietário, ícones propr
 
 Todos os recursos incluídos permitem reutilização e modificação sob suas respectivas licenças. Preserve avisos MIT e OFL ao redistribuir os códigos ou fontes correspondentes. O [guia de personalização](CUSTOMIZATION.md) explica como remover requisições externas de fontes.
 
-## Contato — rc.11
+## Contato — rc.12
 
-Markup, CSS e textos do formulário são implementação própria MIT. Os IDs necessários foram conferidos no contrato público do [runtime nativo do Blogger](https://www.blogger.com/static/v1/widgets/950101909-widgets.js); não copiamos nem distribuímos essa biblioteca. O Blogger injeta seu transporte, token de sessão e mensagens nativas. Google/Blogger é serviço externo, não recurso MIT/OFL do pacote. [Dados e configuração](CONTACT.md).
+A rc.12 distribui apenas o modelo textual de Contato e guias de configuração manual, sob MIT. A integração nativa experimental da rc.11 e seus estilos foram removidos. Nenhuma biblioteca de envio é copiada ou distribuída. Serviços usados por quem configurar um formulário ficam sob seus próprios termos. [Referência](CONTACT.md).

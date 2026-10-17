@@ -42,6 +42,6 @@ Na rc.9, o menu consulta o feed público resumido uma vez por carregamento, com 
 
 O modo automático acrescenta links por JavaScript; mantenha links essenciais também no gadget nativo para funcionamento sem script e HTML inicial. Use `data-auto-pages='false'` para um menu totalmente manual sem essa consulta. [Modos e limites](PAGES.md).
 
-## Contato nativo — rc.11
+## Contato manual — rc.12
 
-O formulário usa ContactForm1 e o JavaScript nativo do Blogger; não adiciona biblioteca de envio nem iframe. A condição do widget limita sua apresentação às duas rotas de contato. O CSS é pequeno e compartilhado pelo tema. A prévia não carrega o transporte do Blogger e desativa Enviar; não serve para medir seu custo de rede ou comprovar entrega. Confira o HTML publicado e a rede após importar. [Configuração](CONTACT.md).
+Contato é uma referência textual na rc.12. O tema não instala widget, CSS, biblioteca ou transporte de contato, nem faz correspondência por endereço. O XML e os scripts retomam a base rc.10, com a versão atualizada. O custo de qualquer formulário configurado manualmente depende da solução escolhida. [Configuração](CONTACT.md).

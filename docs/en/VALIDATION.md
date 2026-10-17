@@ -1,14 +1,24 @@
-# Validation — v0.2.0-rc.11
+# Validation — v0.2.0-rc.12
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
 ## Status
 
-rc.11 adds ContactForm1 with original styling and English/Portuguese text. The six existing widget bodies and both scripts match rc.10. Previews do not send messages: importing the new widget, native JavaScript integration and real rc.11 delivery still require Blogger confirmation.
+rc.12 removes rc.11’s automatic contact integration. XML matches imported rc.10 apart from version metadata. Contact is a text reference with manual setup; the theme does not create pages, install a form or choose a contact path from its title.
 
 rc.6 recovers the widget definitions and home continuation script from rc.3, confirmed by the owner and observed with ten posts live on October 11, 2026. It retains the sidebar-free layout, compact footer, open variable fonts, mobile navigation and 22px reading text. The owner confirmed rc.6 import and sidebar removal on October 12, 2026. It is the validated baseline for rc.7.
 
 Actions runs for PRs, main, tags and manual dispatch. Historical records below retain the original verification conditions.
+
+## Manual contact and integration removal — rc.12, October 17, 2026
+
+The owner reported that Blogger generated a page with a numeric suffix. rc.11’s condition accepted only two fixed paths and therefore did not cover that address. At the owner’s request the integration was removed instead of adding more detection rules.
+
+Both XML files were compared with the rc.10 commit: after normalizing version metadata only, they are identical. Existing widgets, CSS, markup and scripts are preserved. Locale/preview builders also restore rc.10; the obsolete native-contract test and generated form fixtures were removed.
+
+28 local tests pass, including bilingual docs, XML, locales and scripts. The Contact preview contains only reference text without send controls. Guides explain using actual generated URLs, including suffixes, separately configuring a form and removing the rc.11 gadget in Layout if Blogger retains it. XML does not modify published page text. [Reference and migration](CONTACT.md).
+
+No Blogger content/settings were changed and no messages were sent. rc.12 restores previously imported rc.10 code; this is not a fresh Blogger compiler/import check.
 
 ## Native contact — rc.11, October 17, 2026
 

@@ -1,14 +1,24 @@
-# Validação — v0.2.0-rc.11
+# Validação — v0.2.0-rc.12
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
 ## Status
 
-A rc.11 acrescenta ContactForm1 com visual e textos próprios em português e inglês. Preserva os seis gadgets existentes e ambos os scripts da rc.10. A prévia não envia mensagens: importação do novo widget, integração do JavaScript nativo e entrega real da rc.11 ainda precisam de confirmação no Blogger.
+A rc.12 remove a integração automática de contato da rc.11. O XML é igual ao da rc.10 importada, alterando somente os metadados de versão. Contato fica como referência textual e configuração manual, sem criar páginas, instalar formulário ou escolher endereço por título.
 
 A rc.6 recupera as definições dos gadgets e o script de continuação da rc.3, confirmada pelo proprietário e observada com dez posts no blog em 11/10/2026. Mantém o layout sem lateral, o rodapé compacto, as fontes variáveis abertas, o menu móvel e a leitura de 22px. O proprietário confirmou a importação da rc.6 e a remoção da lateral em 12/10/2026. Ela é a base validada da rc.7.
 
 Actions está ativo para PRs, main, tags e execução manual. Os registros históricos abaixo preservam as condições em que foram feitos.
+
+## Contato manual e remoção da integração — rc.12, 17/10/2026
+
+O proprietário informou que o Blogger criou uma página com sufixo numérico. A condição da rc.11 aceitava apenas dois caminhos fixos, portanto não cobria esse endereço. A pedido do proprietário, removemos a integração, em vez de acrescentar outras regras de detecção.
+
+Os dois XMLs foram comparados ao commit rc.10: após normalizar somente a versão, são idênticos. Todos os gadgets, CSS, marcação e scripts da base são preservados. Os geradores de idioma e prévia também retomaram a rc.10; o teste de contrato e as prévias de formulário da integração removida foram excluídos.
+
+28 testes locais passaram, com documentação bilíngue, XML, idiomas e scripts validados. A prévia de Contato agora contém apenas o texto de referência, sem controles de envio. Os guias orientam a usar a URL real gerada, inclusive com sufixo, configurar um formulário separadamente e remover o gadget da rc.11 no Layout caso o Blogger o preserve. O XML não modifica textos de páginas já publicadas. [Referência e migração](CONTACT.md).
+
+Não houve alteração de conteúdo/configurações no Blogger nem envio de mensagens. A rc.12 retoma o código já importado da rc.10; não é uma nova conferência de importação pelo compilador do Blogger.
 
 ## Contato nativo — rc.11, 17/10/2026
 
