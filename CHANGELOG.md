@@ -1,5 +1,14 @@
 # Changelog / Histórico
 
+## 0.2.0-rc.12 — manual contact reference / referência de contato manual — 2026-10-17
+
+- Remove rc.11’s fixed-path ContactForm1 integration and form styles. Blogger may generate a suffixed page URL, so a title is not a reliable way to select the contact page.
+- Remover a integração ContactForm1 da rc.11 vinculada a caminhos fixos e seus estilos. O Blogger pode gerar URL com sufixo; o título não determina um endereço fixo de contato.
+- Keep only editable Contact text references and English/Portuguese manual setup guides. Document actual page URLs, independently configured forms and removal of the rc.11 gadget if retained on import.
+- Manter apenas referências textuais editáveis e guias de configuração manual em português/inglês. Documentar URLs reais, formulários configurados separadamente e remoção do gadget da rc.11 se preservado na importação.
+- Restore rc.10 theme XML apart from version metadata; preserve search, page navigation and older-post continuation. Remove obsolete contact runtime tests and form-preview generation.
+- Retomar o XML da rc.10, exceto os metadados de versão; preservar busca, navegação e continuação dos posts. Remover testes da integração e geração de prévias de formulário obsoletos.
+
 ## 0.2.0-rc.11 — native contact / contato nativo — 2026-10-17
 
 - Include ContactForm1 with original minimal styling and accessible labels/status: optional name, required email/message, no visitor sign-in. Use Blogger’s native delivery without embedded secrets or another service/library.

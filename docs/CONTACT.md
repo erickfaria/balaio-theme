@@ -1,40 +1,31 @@
-# Contato nativo do Blogger — rc.11
+# Contato: referência e configuração manual — rc.12
 
 [English](en/CONTACT.md) · [Português](CONTACT.md)
 
-O tema inclui **ContactForm1**, um widget nativo do Blogger com visual próprio, minimalista e responsivo. O visitante não precisa entrar numa conta: nome é opcional, e-mail e mensagem são obrigatórios. Não é anonimato completo: os responsáveis recebem o e-mail informado, e o Blogger processa o envio.
+O Balaio inclui apenas um [modelo de conteúdo de Contato](../examples/pages/contact.pt-BR.html), editável. **O tema não cria a página, não instala formulário de contato e não ativa um formulário pelo endereço.** A criação da página, o canal de contato e qualquer formulário ficam a cargo de quem administra o blog.
 
-## Ativar uma vez em cada blog
+## Criar sua página
 
-1. Faça backup e importe o XML atualizado no idioma desejado. Guarde a rc.10 enquanto confirma a nova instalação.
-2. Em **Configurações**, selecione o idioma do blog. Os rótulos do tema seguem o XML escolhido; as mensagens de envio/erro do widget seguem o idioma do Blogger.
-3. Em **Páginas → Nova página**, crie **Contato** (português) ou **Contact** (inglês). Se a página já existe, reutilize-a.
-4. No modo HTML do editor, copie apenas o corpo de [contact.pt-BR.html](../examples/pages/contact.pt-BR.html) ou [contact.en.html](../examples/pages/contact.en.html). Os textos são genéricos e editáveis. Não cole outro formulário, um documento completo nem o XML do tema.
-5. Publique e confira o endereço: **`/p/contato.html` ou `/p/contact.html`**. O tema mostra o formulário nessas páginas estáticas; não na home, em artigos, busca ou outras páginas. O menu automático encontra a página publicada ao atualizar.
-6. Abra a página pública e confira uma entrega para a sua própria caixa de entrada, incluindo spam. Os testes locais não enviam e-mails e não comprovam entrega pelo Blogger.
+1. Em **Blogger → Páginas → Nova página**, crie Contato. Se já existe uma página, reutilize-a.
+2. No modo HTML do editor, copie o corpo de [contact.pt-BR.html](../examples/pages/contact.pt-BR.html) ou [contact.en.html](../examples/pages/contact.en.html) e substitua o texto de orientação pelos seus canais reais de contato. O tema já fornece o H1.
+3. Publique e **copie a URL que o próprio Blogger gerar**. Não deduza o endereço a partir do título: ele pode conter um sufixo, como `/p/contato_1234567890.html`. Esse endereço é válido; não é necessário recriar a página para tentar obter `/p/contato.html`.
+4. Use a URL real no gadget **Páginas/Menu** se configurar os links manualmente. A navegação automática existente também usa a URL retornada no feed das páginas publicadas, incluindo sufixos. [Modos do menu](PAGES.md).
+5. Abra a URL pública e confira o texto e os links no celular. O XML não publica nem altera o conteúdo dessa página.
 
-A condição compara a URL canônica da página com a URL canônica do blog, mantendo o contato acessível também com parâmetros móveis como `?m=1`.
+[Instruções do Blogger para páginas](https://support.google.com/blogger/answer/165955?hl=pt-BR).
 
-O XML instala o widget e seu layout; **não cria registros de páginas**. Publicar a página no painel é a única etapa de conteúdo necessária. O tema não substitui uma página existente nem altera seus textos. [Criar páginas no Blogger](https://support.google.com/blogger/answer/165955?hl=pt-BR).
+## Se quiser um formulário
 
-## Destino e funcionamento
+Configure o formulário separadamente, com o serviço ou recurso escolhido. Defina destinatário, campos, apresentação e o local de exibição; depois confira uma entrega real. O modelo de conteúdo deste repositório não contém formulário nem botão de envio.
 
-Não há destinatário, chave de API, senha ou token fixo no tema. O Blogger gera os dados da sessão e determina o destino a partir do blog e de suas configurações. Confira a conta e os administradores do blog ao validar o recebimento. O endereço do responsável não é incluído no HTML pelo Balaio.
+O Blogger oferece o gadget **Formulário de contato**. Ele usa o JavaScript e a sessão nativos da plataforma; copiar apenas o HTML de um formulário para uma página não configura o envio. Este tema não reserva uma área visível para esse gadget: a instalação e o posicionamento devem ser configurados manualmente no Layout/XML. A lateral legada está oculta; adicionar o gadget nela não o torna visível. [Orientação do Blogger sobre gadgets](https://support.google.com/blogger/answer/176245?hl=pt-BR) · [Requisitos do widget de contato](https://support.google.com/blogger/thread/252064400/how-to-edit-contact-form-gadget-texts?hl=en).
 
-O envio depende do **JavaScript nativo do Blogger**, inclusive seus dados de sessão. Não copie apenas o HTML do formulário para um post/página e não remova o widget ContactForm1 ou os scripts nativos do tema. Nome e e-mail usam preenchimento automático, os rótulos são associados aos campos, e os retornos de erro/status têm regiões acessíveis. Sem JavaScript, o tema informa que o formulário precisa dele.
+Se desejar envio sem login, confira esse comportamento no formulário que você configurar. Informe aos leitores quais dados são enviados, quem os recebe e qual serviço os processa. A página de privacidade deve refletir a configuração real do blog; o exemplo incluído continua sendo apenas um placeholder.
 
-Não há iframe, formulário de serviço pago nem biblioteca de envio adicionada pelo Balaio. O tema não envia mensagens por conta própria nem registra formulários em serviços externos. [Orientação da comunidade do Blogger sobre widget e sessão](https://support.google.com/blogger/thread/252064400/how-to-edit-contact-form-gadget-texts?hl=en).
+## Atualizar a partir da rc.11
 
-## Outro endereço ou desativação
+A rc.11 tentou vincular ContactForm1 a dois caminhos fixos. Essa integração foi removida na rc.12. Importe o XML atualizado. Se o Blogger preservar o **Formulário de contato / ContactForm1** criado pela rc.11, remova esse gadget no Layout; mantenha a página e qualquer formulário que você tenha configurado por conta própria.
 
-Para um endereço como `/p/fale-comigo.html`, edite somente os caminhos na condição `cond` do widget **ContactForm1**, preservando `data:blog.pageType == "static_page"`. Não altere a condição ou os includes de **Blog1**. Nenhum domínio específico é necessário. Se quiser controlar o menu manualmente, use [PAGES.md](PAGES.md).
+Edite também o conteúdo da página no painel: retire frases como “formulário abaixo” se não houver um formulário configurado. Importar o XML não substitui textos já publicados.
 
-Para desativar, remova **Formulário de contato** no Layout. Se houver um ContactForm antigo no blog, mantenha somente um widget e confira seus IDs após importar, para evitar registros duplicados. Guarde as personalizações antes de reimportar o XML.
-
-## Código, privacidade e validação
-
-O markup, CSS e exemplos próprios são MIT. O envio, a proteção contra abuso, o JavaScript e a infraestrutura do **Blogger/Google são serviços externos**, não código aberto distribuído ou coberto pela licença deste repositório. Nenhuma cópia dessa biblioteca é incluída no pacote. Inter e Newsreader mantêm SIL OFL.
-
-O texto junto ao formulário informa o tratamento pelo Blogger. Adapte a página de privacidade do blog ao uso efetivo do contato; o exemplo de privacidade continua sendo apenas um placeholder. O tema não adiciona um armazenamento próprio de mensagens, analytics ou rastreadores ao formulário.
-
-As prévias locais desativam Enviar e não fazem requisições de contato. Elas verificam layout, idiomas, rótulos, campos e estados ilustrativos. **Importação e entrega da rc.11 ainda precisam de confirmação no Blogger.** [Evidências e limites](VALIDATION.md).
+O código próprio e o modelo textual são MIT; as fontes Inter/Newsreader mantêm SIL OFL. Qualquer serviço de formulário escolhido tem seus próprios termos. A rc.12 não acrescenta transporte, armazenamento, credenciais ou biblioteca de contato ao tema. [Validação](VALIDATION.md).

@@ -45,6 +45,6 @@ No purchased fonts, stock photos, proprietary icons or third-party theme code ar
 
 All included resources permit reuse and modification under their respective licenses. Keep MIT and OFL notices when redistributing applicable code or font files. The [customization guide](CUSTOMIZATION.md) explains how to remove external font requests.
 
-## Contact — rc.11
+## Contact — rc.12
 
-Form markup, CSS and text are original MIT implementation. Required IDs were checked against the public [native Blogger runtime contract](https://www.blogger.com/static/v1/widgets/950101909-widgets.js); that library is not copied or distributed. Blogger injects its transport, session token and native messages. Google/Blogger is an external service, not an MIT/OFL package asset. [Data and setup](CONTACT.md).
+rc.12 distributes only the Contact text reference and manual setup guides under MIT. The experimental rc.11 native integration and its styles were removed. No delivery library is copied or distributed. Any manually chosen form service retains its own terms. [Reference](CONTACT.md).
