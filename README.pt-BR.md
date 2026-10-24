@@ -32,7 +32,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 3. Abra **Tema → menu → Editar HTML**. Substitua o conteúdo do editor pelo XML completo e salve.
 4. Configure título, descrição e idioma em **Configurações**.
 5. As páginas publicadas completam o menu do topo automaticamente. **Layout → Páginas** define links iniciais, nomes e ordem; **Menu** adiciona links extras. Para um menu totalmente manual, use `data-auto-pages='false'` no elemento de navegação. [Páginas e menu](docs/PAGES.md).
-6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Use o Menu para links de assuntos; este layout não tem lateral.
+6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Use **Assuntos** para marcadores e **Guias e projetos** para uma seleção curta de referências; este layout não tem lateral.
 7. Comece com 10 posts por página em **Configurações → Postagens**; o Blogger pode paginar antes. Confira artigos, páginas, busca, paginação e comentários no celular e no computador antes de usar no blog principal.
 
 **Formulário de contato opcional:** crie/edite uma página Contato e cole o [modelo HTML pronto](examples/pages/contact.pt-BR.html). Mantenha `class="balaio-contact-page"` para exibir o formulário incluído, sem URL fixa nem edição do tema. [Ativação em três passos](docs/CONTACT.md).

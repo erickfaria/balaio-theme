@@ -32,7 +32,7 @@ No build tools are needed to install the theme.
 3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
 4. Configure your title, description and language in **Settings**.
 5. Published pages automatically supplement the top menu. **Layout → Pages** sets leading links, their labels and order; **Menu** adds extra links. For a fully manual menu, set `data-auto-pages='false'` on the navigation element. [Page navigation](docs/en/PAGES.md).
-6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use Menu links for topics; this layout has no sidebar.
+6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use **Topics** for labels and **Guides and projects** for a short selection of reference links; this layout has no sidebar.
 7. Start with 10 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
 **Optional contact form:** create/edit a Contact page and paste the [ready-to-use HTML sample](examples/pages/contact.en.html). Keep `class="balaio-contact-page"` to show the built-in form; no fixed URL or template editing. [Three-step setup](docs/en/CONTACT.md).

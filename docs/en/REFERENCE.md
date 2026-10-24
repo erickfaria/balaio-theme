@@ -2,7 +2,7 @@
 
 [English](REFERENCE.md) · [Português](../REFERENCE.md)
 
-The rc.14 candidate is in development on `feat/guides-navigation-authors`. The published main version remains rc.13. Local checks and previews do not replace a Blogger test import.
+rc.14 is the current main version and has its own release. Local checks and previews do not replace a Blogger test import.
 
 ## A small library inside the blog
 
