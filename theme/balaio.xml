@@ -418,6 +418,24 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   font-size:13px;
   color:var(--muted);
 }
+.byline {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  line-height:1.45;
+  overflow-wrap:anywhere;
+}
+.byline-photo {
+  flex:none;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  object-fit:cover;
+}
+.byline a {
+  font-weight:600;
+}
 .labels {
   display:flex;
   flex-wrap:wrap;
@@ -1002,7 +1020,12 @@ body#layout #contactpage {
             <b:includable id='metadata' var='post'>
               <div class='meta'>
                 <b:if cond='data:blog.pageType == "item"'>
-                  <span itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'><span itemprop='name'><data:post.author/></span></span>
+                  <b:if cond='data:post.author'>
+                    <span class='byline' itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'>
+                      <b:if cond='data:post.authorPhoto.url'><img alt='' class='byline-photo' decoding='async' expr:src='data:post.authorPhoto.url' height='32' itemprop='image' loading='lazy' referrerpolicy='no-referrer' width='32'/></b:if>
+                      <span>Escrito por <b:if cond='data:post.authorProfileUrl'><a expr:href='data:post.authorProfileUrl' itemprop='url' rel='author'><span itemprop='name'><data:post.author/></span></a><b:else/><span itemprop='name'><data:post.author/></span></b:if></span>
+                    </span>
+                  </b:if>
                 <b:else/><span><data:post.author/></span></b:if>
                 <span><data:post.timestamp/></span>
               </div>

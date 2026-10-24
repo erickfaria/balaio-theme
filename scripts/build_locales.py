@@ -44,6 +44,7 @@ TRANSLATIONS = {
     "Mais leituras": "More to read",
     "Publicação sem título": "Untitled post",
     "Voltar às publicações": "Back to posts",
+    "Escrito por": "Written by",
     "Comentários": "Comments",
     "Escrever um comentário": "Write a comment",
     "Paginação": "Pagination",
