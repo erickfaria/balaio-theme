@@ -1,5 +1,8 @@
 # Balaio — Tema Blogger gratuito e minimalista
 
+> **Candidata nesta branch: rc.14, ainda sem importação validada.** A versão recomendada na main permanece rc.13. [Proposta de navegação e guias](docs/REFERENCE.md).
+
+
 **Versão recomendada: rc.13 na main.** Contato nativo opcional incluído: cole um pequeno marcador no conteúdo da página Contato para ativar o formulário, com qualquer URL. Não precisa editar o XML para cada blog. Busca, menu e continuação da home preservados. [Guia de contato](docs/CONTACT.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**

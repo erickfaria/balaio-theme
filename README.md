@@ -1,5 +1,8 @@
 # Balaio — Free minimal Blogger theme
 
+> **Candidate on this branch: rc.14, without a validated Blogger import yet.** The recommended main version remains rc.13. [Reference navigation proposal](docs/en/REFERENCE.md).
+
+
 **Recommended version: rc.13 on main.** Optional native contact is included: paste a short content marker into your Contact page to enable it, with any page URL. No per-blog XML editing is required. Search, navigation and home continuation are preserved. [Contact guide](docs/en/CONTACT.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**

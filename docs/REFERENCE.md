@@ -2,7 +2,7 @@
 
 [English](en/REFERENCE.md) · [Português](REFERENCE.md)
 
-Esta melhoria está em desenvolvimento na branch `feat/guides-navigation-authors`. A versão publicada na main continua sendo a rc.13. Os checks locais e as prévias não substituem uma importação de teste no Blogger.
+A candidata rc.14 está em desenvolvimento na branch `feat/guides-navigation-authors`. A versão publicada na main continua sendo a rc.13. Os checks locais e as prévias não substituem uma importação de teste no Blogger.
 
 ## Uma pequena biblioteca dentro do blog
 
