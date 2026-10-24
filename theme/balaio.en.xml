@@ -594,6 +594,29 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   display:inline-block;
   padding:4px 0;
 }
+.post-body :is(.material-meta,.material-license) {
+  font:var(--interface-font);
+  font-size:13px;
+  color:var(--muted);
+}
+.post-body .collection-nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 24px;
+  margin-top:32px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  font:var(--interface-font);
+  font-size:15px;
+}
+.post-body .collection-nav a {
+  flex:1 1 200px;
+  min-width:0;
+}
+.post-body :is(.material-library,.material-index) li > p {
+  margin:4px 0 18px;
+  color:var(--muted);
+}
 .post-body :is(h2,h3,h4)[id] {
   scroll-margin-top:24px;
 }
