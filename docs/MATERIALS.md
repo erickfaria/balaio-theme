@@ -57,3 +57,11 @@ Vídeos podem ser apresentados por um link descritivo comum, carregando o servi�
 ## Validação
 
 Confira Biblioteca, capítulo, apostila e documentação na prévia. A suíte verifica destinos de âncoras e ausência de scripts nos modelos. Importação real, visual em dispositivos e saída compilada do Blogger continuam sendo verificações separadas. Esta entrega não altera estilos de impressão nem adiciona recursos de exportação para PDF.
+
+## Documentação de projetos com capítulos
+
+Um índice de projeto pode usar `kind = "documentation"` e `collection`, sem `order`: [cabeçalho de exemplo](../examples/material-documentation.pt-BR.md). As páginas internas usam `kind = "chapter"`, a mesma coleção e uma ordem positiva. Um publicador compatível gera o índice, o nome da coleção no início e links de anterior/próximo no fim; o tema não descobre essa relação somente pelo título ou marcador do Blogger.
+
+Para documentação, os capítulos podem ser páginas fixas, preservando a home para posts. Escolha uma vez os links principais em modo manual para evitar todos os capítulos no topo. Uma apostila existente pode continuar como post único com índice de seções, sem duplicar ou mudar a URL.
+
+Na prévia local, abra `project.html` e navegue por Instalação, Primeiros passos e Atualização. Os arquivos são exemplos conectados, sem JavaScript de navegação e sem envio de conteúdo. O controle Assuntos nesta branch usa texto com borda discreta, sem o triângulo padrão do navegador. Os estilos novos acrescentam 824 bytes de CSS (122 bytes em gzip isolado), mantendo os dois scripts idênticos à rc.14. A revisão visual por navegador permanece pendente nesta sessão.
