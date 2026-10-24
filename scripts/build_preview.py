@@ -213,6 +213,18 @@ def build():
     for filename, title in [('guide.html', 'Apostila de referência'), ('project.html', 'Documentação do projeto')]:
         guide = '<div class="content-grid article-grid"><article class="article" itemscope itemtype="https://schema.org/WebPage"><h1 itemprop="name">' + title + '</h1><div class="post-body" itemprop="text">' + guide_body + '</div></article></div>'
         (OUT / filename).write_text(page(title, guide))
+    for name, title in [('book', 'Apostila'), ('chapter', 'Primeiro capítulo'), ('project', 'Documentação do projeto'), ('library', 'Biblioteca')]:
+        for locale in ('pt-BR', 'en'):
+            body = (ROOT / f'examples/pages/{name}.{locale}.html').read_text()
+            markup = '<div class="content-grid article-grid"><article class="article"><h1>' + title + '</h1><div class="post-body">' + body + '</div></article></div>'
+            filename = name + ('.en' if locale == 'en' else '') + '.html'
+            rendered = page(title, markup)
+            if locale == 'en':
+                from build_locales import TRANSLATIONS
+                for original, translated in TRANSLATIONS.items():
+                    rendered = rendered.replace(original, translated)
+                rendered = rendered.replace('lang="pt-BR"', 'lang="en"')
+            (OUT / filename).write_text(rendered)
     english_guide = '<div class="content-grid article-grid"><article class="article"><h1>Reference guide</h1><div class="post-body">' + (ROOT / 'examples/pages/guide.en.html').read_text() + '</div></article></div>'
     english_page = page('Reference guide', english_guide)
     from build_locales import TRANSLATIONS
@@ -221,9 +233,7 @@ def build():
     (OUT / 'guide.en.html').write_text(english_page.replace('lang="pt-BR"', 'lang="en"'))
     (OUT / 'topics-empty.html').write_text(page('Sem assuntos publicados', intro + listing(cards[:2], home=True), home=True).replace(TOPICS, ''))
     (OUT / 'reference-nojs.html').write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Referências sem JavaScript</title><iframe sandbox="allow-same-origin allow-forms" src="index.html" width="360" height="1100" title="Guias e assuntos sem scripts"></iframe></html>')
-    library = '<div class="content-grid article-grid"><article class="article"><h1>Biblioteca</h1><div class="post-body"><p>Guias e documentação que você pode consultar a qualquer momento.</p><h2>Guias</h2><ul><li><a href="guide.html">Apostila de referência</a></li></ul><h2>Projetos</h2><ul><li><a href="project.html">Documentação do projeto</a></li></ul></div></article></div>'
-    (OUT / 'library.html').write_text(page('Biblioteca', library))
-    frames = ''.join('<iframe src="' + name + '.html" width="' + str(width) + '" height="1000" title="' + name + ' ' + str(width) + 'px" style="display:block;border:0"></iframe>' for name in ('index', 'guide', 'author-long-name', 'resources-empty') for width in (320, 360, 768, 1440))
+    frames = ''.join('<iframe src="' + name + '.html" width="' + str(width) + '" height="1000" title="' + name + ' ' + str(width) + 'px" style="display:block;border:0"></iframe>' for name in ('index', 'guide', 'book', 'chapter', 'library', 'author-long-name', 'resources-empty') for width in (320, 360, 768, 1440))
     (OUT / 'responsive-reference.html').write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Guias e autoria responsivos</title><body>' + frames + '</body></html>')
     for index in range(len(cards)):
         (OUT / f"post-{index + 1}.html").write_text(page(POSTS[index][1], article))

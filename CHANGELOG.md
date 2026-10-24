@@ -1,6 +1,8 @@
 # Changelog / Histórico
 
-## Unreleased — reference navigation / navegação de referência
+## Unreleased
+
+- Add optional web-only material metadata, library lists and chapter navigation styles, with bilingual HTML/Markdown examples and a publisher integration contract. No new scripts, requests, fonts or print features. — reference navigation / navegação de referência
 
 - Optional native curated home links, header topics and long-guide HTML samples, with no additional JavaScript. / Links nativos opcionais de guias na home, assuntos no cabeçalho e modelos HTML de leitura longa, sem JavaScript adicional.
 - Native post bylines with optional profile photo and text-only fallback. / Assinatura nativa do post com foto de perfil opcional e alternativa somente com nome.

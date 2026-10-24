@@ -112,3 +112,7 @@ Forks públicos e contribuições são bem-vindos. Mudanças de contribuidores n
 ## Conteúdo de referência — em desenvolvimento
 
 A branch `feat/guides-navigation-authors` prepara uma faixa opcional de **Guias e projetos**, assuntos nativos recolhíveis no cabeçalho, modelo de guia longo e assinatura com foto de perfil opcional. Sem JavaScript adicional. [Proposta, configuração e limites de validação](docs/REFERENCE.md). A main continua recomendada até a revisão/importação da candidata.
+
+### Biblioteca e materiais web
+
+[Modelos e automação](docs/MATERIALS.md) para apostilas, capítulos, estudos e documentação: HTML comum, navegação sem scripts extras e exemplos de metadados Markdown. A publicação depende do gerador usado pelo proprietário; o tema cuida da apresentação.

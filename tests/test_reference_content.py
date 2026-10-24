@@ -77,13 +77,16 @@ class ReferenceContentTests(unittest.TestCase):
                 self.assertEqual(len(root.findall(".//" + H + "script")), 2)
 
     def test_guide_examples_have_working_fragment_links_without_extra_h1(self):
-        for path in (ROOT / "examples/pages").glob("guide.*.html"):
+        for path in (ROOT / "examples/pages").glob("*.html"):
+            if path.name.split(".")[0] not in ("guide", "book", "chapter", "library", "project"):
+                continue
             with self.subTest(example=path.name):
                 parser = GuideHTML()
                 parser.feed(path.read_text())
                 self.assertEqual(parser.headings, [])
                 self.assertEqual(len(parser.ids), len(set(parser.ids)))
-                self.assertTrue(parser.targets)
+                if not path.name.startswith("project."):
+                    self.assertTrue(parser.targets)
                 self.assertLessEqual(set(parser.targets), set(parser.ids))
 
 

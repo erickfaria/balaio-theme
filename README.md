@@ -112,3 +112,7 @@ Public forks and contributions are welcome. Contributor changes to `main` requir
 ## Reference content — in development
 
 The `feat/guides-navigation-authors` branch prepares an optional **Guides and projects** strip, native header topic disclosure, a long-guide sample and an author byline with an optional profile photo. No extra JavaScript. [Proposal, setup and validation limits](docs/en/REFERENCE.md). Main remains recommended until the candidate is reviewed and imported.
+
+### Web library and reference materials
+
+[Models and automation](docs/en/MATERIALS.md) for handbooks, chapters, studies and documentation: ordinary HTML, navigation without extra scripts and sample Markdown metadata. Publishing belongs to the owner’s generator; the theme handles presentation.

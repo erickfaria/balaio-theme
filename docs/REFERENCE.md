@@ -51,3 +51,7 @@ Comparação com a rc.13 (`e364e68`): CSS de **14.724 → 17.068 bytes**; gzip i
 **35 testes locais passaram**, incluindo continuidade da home, menu automático, estrutura dos gadgets, traduções, autoria opcional e destinos do índice. O gerador inclui home com e sem destaques, ausência de assuntos/foto, nome longo, guia em português/inglês e quadros de 320, 360, 768 e 1440 px. O avatar de demonstração é um SVG original gerado só na prévia, não uma foto de pessoa.
 
 O navegador de revisão não estava disponível nesta sessão; responsividade visual e importação real permanecem pendentes. A prévia é uma fixture, não um compilador de expressões do Blogger. Não trate esses checks como confirmação de restauração ou exibição dos dados de perfil em produção.
+
+## Biblioteca e publicação por Markdown
+
+Veja os [modelos web e o contrato de automação](MATERIALS.md) para Biblioteca, apostilas, capítulos e documentação. O publicador pode montar os índices durante o envio; o tema não acrescenta consultas no navegador.

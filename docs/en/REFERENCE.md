@@ -51,3 +51,7 @@ Against rc.13 (`e364e68`): CSS grows from **14,724 to 17,068 bytes**; isolated g
 **35 local tests passed**, including home continuation, automatic navigation, widget structure, translations, optional author data and guide fragment targets. Fixtures cover populated/empty resources, missing topics/photo, long author names, Portuguese/English guides and 320, 360, 768 and 1440 px frames. The sample avatar is an original SVG generated only for preview, not a person's photo.
 
 The review browser was unavailable in this session; visual responsiveness and a real Blogger import remain pending. The preview is a fixture, not a Blogger expression compiler. These checks do not confirm restoration or profile-data availability in production.
+
+## Library and Markdown publishing
+
+See the [web models and automation contract](MATERIALS.md) for libraries, handbooks, chapters and documentation. A publisher can compile indexes during delivery; the theme adds no browser requests.
