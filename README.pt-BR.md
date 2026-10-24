@@ -105,3 +105,7 @@ O tema preserva os metadados do Blogger e adiciona microdados de artigos ligados
 ## Contribuir por pull requests
 
 Forks públicos e contribuições são bem-vindos. Mudanças de contribuidores na `main` exigem CI e revisão do mantenedor; somente `@erickfaria` integra alterações. Consulte a [política de manutenção](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md) e o [guia de contribuição](CONTRIBUTING.md).
+
+## Conteúdo de referência — em desenvolvimento
+
+A branch `feat/guides-navigation-authors` prepara uma faixa opcional de **Guias e projetos**, assuntos nativos recolhíveis no cabeçalho, modelo de guia longo e assinatura com foto de perfil opcional. Sem JavaScript adicional. [Proposta, configuração e limites de validação](docs/REFERENCE.md). A main continua recomendada até a revisão/importação da candidata.

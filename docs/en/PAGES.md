@@ -53,3 +53,7 @@ In automatic mode, deselecting a page in the gadget does not exclude it from pub
 Configured gadget links are server-rendered in the initial HTML. Automatically discovered links require JavaScript. Configure About, Contact and Privacy in the gadget for script-free access too; automatic mode will not duplicate them. This does not guarantee indexing or search ranking.
 
 Current-page links use a subtle underline and font weight, without a colored background. Navigation height follows wrapped links, overriding Blogger’s native 30px navbar height.
+
+## Handbooks, projects and small Wikis
+
+The [reference-content guide](REFERENCE.md) covers curated home links and the [long-page sample](../../examples/pages/guide.en.html), with native contents and anchors. Pillar content can remain a post at its current permalink.

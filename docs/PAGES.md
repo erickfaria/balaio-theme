@@ -51,3 +51,7 @@ No modo automático, desmarcar uma página apenas no gadget não a exclui da des
 ## Links importantes para buscas e funcionamento sem JavaScript
 
 Os itens configurados no gadget são renderizados no HTML inicial. Os itens descobertos automaticamente dependem de JavaScript. Para Sobre, Contato e Privacidade sempre estarem disponíveis também sem script, configure esses links no gadget; o modo automático evita duplicá-los. Isso não garante indexação ou posição em buscas.
+
+## Apostilas, projetos e pequenas Wikis
+
+O [guia de conteúdo de referência](REFERENCE.md) descreve a curadoria de links na home e o [modelo de página longa](../examples/pages/guide.pt-BR.html), com índice nativo e âncoras. Um conteúdo pilar pode continuar sendo um post com o permalink atual.

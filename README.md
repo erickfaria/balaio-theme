@@ -105,3 +105,7 @@ The theme preserves Blogger metadata and adds visible-content article microdata.
 ## Contribute through pull requests
 
 Public forks and contributions are welcome. Contributor changes to `main` require CI and maintainer review; only `@erickfaria` integrates changes. See the [maintenance policy](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md) and [contribution guide](CONTRIBUTING.md).
+
+## Reference content — in development
+
+The `feat/guides-navigation-authors` branch prepares an optional **Guides and projects** strip, native header topic disclosure, a long-guide sample and an author byline with an optional profile photo. No extra JavaScript. [Proposal, setup and validation limits](docs/en/REFERENCE.md). Main remains recommended until the candidate is reviewed and imported.
