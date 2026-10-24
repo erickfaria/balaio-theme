@@ -2,7 +2,7 @@
 
 [English](REFERENCE.md) · [Português](../REFERENCE.md)
 
-rc.14 is the current main version and has its own release. Local checks and previews do not replace a Blogger test import.
+rc.14 is published on main. This branch prepares a triangle-free topic control and clearer documentation navigation without changing the published release. Local checks and previews do not replace a Blogger test import.
 
 ## A small library inside the blog
 
@@ -46,7 +46,7 @@ Check the author's public profile photo if it is missing. When Blogger supplies 
 
 ## Weight and validation on this branch
 
-Against rc.13 (`e364e68`): CSS grows from **14,724 to 17,566 bytes**; isolated gzip from **3,704 to 4,184 bytes** (480 extra bytes). These are local-file measurements, not published HTML or page-speed results. Both existing scripts remain byte-for-byte identical: **9,295 bytes**, with no extra JavaScript. No library, font or service was added. The optional author photo is one image on an individual post and is not added to cards.
+Against rc.13 (`e364e68`): CSS grows from **14,724 to 18,390 bytes**; isolated gzip from **3,704 to 4,306 bytes** (602 extra bytes). These are local-file measurements, not published HTML or page-speed results. Both existing scripts remain byte-for-byte identical: **9,295 bytes**, with no extra JavaScript. No library, font or service was added. The optional author photo is one image on an individual post and is not added to cards.
 
 **36 local tests passed**, including home continuation, automatic navigation, widget structure, translations, optional author data and guide fragment targets. Fixtures cover populated/empty resources, missing topics/photo, long author names, Portuguese/English guides and 320, 360, 768 and 1440 px frames. The sample avatar is an original SVG generated only for preview, not a person's photo.
 

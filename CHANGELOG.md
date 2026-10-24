@@ -1,5 +1,10 @@
 # Changelog / Histórico
 
+## Unreleased
+
+- Replace the default topic triangle with a restrained text disclosure and refine chapter-link hierarchy without extra scripts. / Substituir o triângulo padrão de assuntos por um controle discreto e melhorar os links de capítulos sem scripts extras.
+- Add a connected three-page project-documentation preview and document documentation collection indexes. / Adicionar prévia conectada de documentação com três páginas e explicar os índices de projetos.
+
 ## 0.2.0-rc.14 — web library and reference navigation / biblioteca web e navegação — 2026-10-24
 
 - Add optional web-only material metadata, library lists and chapter navigation styles, with bilingual HTML/Markdown examples and a publisher integration contract. No new scripts, requests, fonts or print features. — reference navigation / navegação de referência
