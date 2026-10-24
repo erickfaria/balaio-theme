@@ -43,6 +43,24 @@ HEADER = '''<a class="skip" href="#content">Pular para o conteúdo</a>
 <nav class="navigation" aria-label="Navegação principal" data-auto-pages="false"><div class="navbar section" id="navigation"><div class="widget PageList" id="PageList1"><ul><li><a href="index.html">Início</a></li><li><a href="article.html">Leitura</a></li><li><a href="about.html">Sobre mim</a></li><li><a href="contact.html">Contato</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="empty.html">Busca sem resultados</a></li></ul></div></div></nav></div></header>'''
 
 
+# Visual fixtures only: native widget data is represented by ordinary sample links.
+TOPICS = '<div class="topics section" id="topics"><div class="widget Label" id="Label1"><details class="topic-menu"><summary>Assuntos</summary><ul class="topic-list">' + ''.join(
+    '<li><a href="empty.html"><span>' + escape(name) + '</span><span class="topic-count">' + str(count) + '</span></a></li>'
+    for name, count in [('Jamovi', 19), ('Radioamadorismo', 7), ('Software livre', 12), ('Ciência de dados e métodos de pesquisa', 28)]
+) + '</ul></details></div></div>'
+HEADER = HEADER.replace('<nav class="navigation"', '<div class="navigation-row"><nav class="navigation"', 1)
+HEADER = HEADER.replace('</nav></div></header>', '</nav>' + TOPICS + '</div></div></header>')
+RESOURCES = '<div class="resource-navigation section" id="resources"><div class="widget LinkList" id="LinkList2"><nav class="resources" aria-label="Guias e projetos"><h2>Guias e projetos</h2><ul><li><a href="guide.html">Apostila de Jamovi</a></li><li><a href="project.html">Projeto de exemplo</a></li><li><a href="library.html">Biblioteca</a></li></ul></nav></div></div>'
+
+
+def author_markup(name='Equipe Balaio', photo=True, profile='about.html'):
+    image = '<img class="byline-photo" src="author.svg" alt="" width="32" height="32" decoding="async" loading="lazy" itemprop="image">' if photo else ''
+    person = '<span itemprop="name">' + escape(name) + '</span>'
+    if profile:
+        person = '<a rel="author" itemprop="url" href="' + escape(profile, quote=True) + '">' + person + '</a>'
+    return '<span class="byline" itemprop="author" itemscope itemtype="https://schema.org/Person">' + image + '<span>Escrito por ' + person + '</span></span>'
+
+
 # Use the actual native disclosure and form, including their accessible labels.
 SEARCH_FORM = re.search(r"<details class='search-disclosure'.*?</details>", SOURCE, flags=re.S).group(0)
 HEADER = re.sub(r'<form class="search".*?</form>',
@@ -103,42 +121,42 @@ def build():
         attrs = ' id="postlist" data-home-posts="10" data-page-limit="4" data-list-title="Mais leituras"'
         pager = '<nav class="pager" aria-label="Paginação"><span></span><span><a href="' + next_page + '" rel="next">Publicações anteriores</a></span></nav>' if next_page else ''
         return '<div class="content-grid"><div class="main section"><div class="widget Blog" id="Blog1">' + opening + title + '<div class="posts"' + attrs + '>' + ''.join(remaining) + '</div>' + pager + '</div></div>' + '</div>'
-    (OUT / "index.html").write_text(page("Início", intro + listing(cards, home=True), home=True))
+    (OUT / "index.html").write_text(page("Início", intro + RESOURCES + listing(cards, home=True), home=True))
     # Reproduce Blogger delivering only two posts despite a higher configured maximum.
-    (OUT / "short-home.html").write_text(page("Home paginada", intro + listing(cards[:2], "older-1.html", home=True), home=True))
+    (OUT / "short-home.html").write_text(page("Home paginada", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True), home=True))
     frames = ''.join(f'<iframe id="width-{width}" src="short-home.html" width="{width}" height="900" title="Home {width}px" style="display:block;border:0"></iframe>' for width in (320, 360, 768, 1440))
     (OUT / "responsive-home.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Home responsiva</title><body>' + frames + '</body></html>')
     reading_frames = ''.join(f'<iframe id="{name}-{width}" src="{name}.html" width="{width}" height="900" title="{name} {width}px" style="display:block;border:0"></iframe>' for name in ('article', 'privacy', 'stress') for width in (320, 360, 768, 1440))
     (OUT / "responsive-reading.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Leitura responsiva</title><body>' + reading_frames + '</body></html>')
-    (OUT / "short-nojs.html").write_text(page("Sem JavaScript", intro + listing(cards[:2], "older-1.html", home=True)))
+    (OUT / "short-nojs.html").write_text(page("Sem JavaScript", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True)))
     for index in range(4):
         next_page = f"older-{index + 2}.html"  # Last link stays crawlable after reaching the target.
         (OUT / f"older-{index + 1}.html").write_text(page("Publicações anteriores", listing(cards[2 + index * 2:4 + index * 2], next_page)))
     (OUT / "older-5.html").write_text(page("Fim do arquivo", listing([])))
     for name, next_page in [("failure", "missing-page.html"), ("partial-failure", "partial-page.html"), ("duplicates", "duplicate-page.html"), ("cycle", "cycle-page.html"), ("external", "https://example.org/older")]:
-        (OUT / f"short-{name}.html").write_text(page(name, intro + listing(cards[:2], next_page, home=True), home=True))
+        (OUT / f"short-{name}.html").write_text(page(name, intro + RESOURCES + listing(cards[:2], next_page, home=True), home=True))
     (OUT / "partial-page.html").write_text(page("Falha parcial", listing(cards[2:4], "missing-page.html")))
     (OUT / "duplicate-page.html").write_text(page("Duplicações", listing(cards[:4], "older-2.html")))
     (OUT / "cycle-page.html").write_text(page("Ciclo", listing(cards[2:4], "cycle-page.html")))
-    (OUT / "short-budget.html").write_text(page("Uma página extra", intro + listing(cards[:2], "older-1.html", home=True).replace('data-page-limit="4"', 'data-page-limit="1"'), home=True))
-    (OUT / "short-target.html").write_text(page("Meta sem cortar página", intro + listing(cards[:2], "older-1.html", home=True).replace('data-home-posts="10"', 'data-home-posts="3"'), home=True))
-    (OUT / "short-disabled.html").write_text(page("Carregamento desligado", intro + listing(cards[:2], "older-1.html", home=True).replace('data-page-limit="4"', 'data-page-limit="0"'), home=True))
-    (OUT / "short-end.html").write_text(page("Fim antecipado", intro + listing(cards[:2], "end-page.html", home=True), home=True))
+    (OUT / "short-budget.html").write_text(page("Uma página extra", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True).replace('data-page-limit="4"', 'data-page-limit="1"'), home=True))
+    (OUT / "short-target.html").write_text(page("Meta sem cortar página", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True).replace('data-home-posts="10"', 'data-home-posts="3"'), home=True))
+    (OUT / "short-disabled.html").write_text(page("Carregamento desligado", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True).replace('data-page-limit="4"', 'data-page-limit="0"'), home=True))
+    (OUT / "short-end.html").write_text(page("Fim antecipado", intro + RESOURCES + listing(cards[:2], "end-page.html", home=True), home=True))
     (OUT / "end-page.html").write_text(page("Fim", listing(cards[2:4])))
     unsafe = cards[2].replace('<p class="post-summary">', """<p class="post-summary"><img src="missing.png" onerror="document.body.setAttribute('data-attack','ran')">""")
     (OUT / "unsafe-page.html").write_text(page("Conteúdo inerte", listing([unsafe])) + '<script>document.body.setAttribute("data-attack","ran")</script>')
-    (OUT / "short-unsafe.html").write_text(page("Conteúdo inerte", intro + listing(cards[:2], "unsafe-page.html", home=True), home=True))
+    (OUT / "short-unsafe.html").write_text(page("Conteúdo inerte", intro + RESOURCES + listing(cards[:2], "unsafe-page.html", home=True), home=True))
     # Query cleanup must preserve unrelated parameters and fragments.
     mobile_card = cards[2].replace('post-3.html', 'post-3.html?m=0&amp;ref=fixture#reading').replace(
         '<div class="labels">Método</div>',
         '<div class="labels"><a href="empty.html?m=1&amp;ref=label#topics">Método</a></div>')
     (OUT / "mobile-links-page.html").write_text(page("Links de conteúdo", listing([mobile_card])))
-    (OUT / "short-mobile-links.html").write_text(page("Links móveis", intro + listing(cards[:2], "mobile-links-page.html", home=True), home=True))
+    (OUT / "short-mobile-links.html").write_text(page("Links móveis", intro + RESOURCES + listing(cards[:2], "mobile-links-page.html", home=True), home=True))
     decoy = '<section class="posts">' + cards[9] + '</section><nav class="pager"><a rel="next" href="https://example.org/older">Outro gadget</a></nav>'
     (OUT / "mixed-page.html").write_text(page("Gadgets fora do Blog1", decoy + listing(cards[2:4])))
-    (OUT / "short-mixed.html").write_text(page("Gadgets fora do Blog1", intro + listing(cards[:2], "mixed-page.html", home=True), home=True))
+    (OUT / "short-mixed.html").write_text(page("Gadgets fora do Blog1", intro + RESOURCES + listing(cards[:2], "mixed-page.html", home=True), home=True))
     (OUT / "missing-blog-page.html").write_text(page("Página sem Blog1", decoy))
-    (OUT / "short-missing-blog.html").write_text(page("Resposta incompleta", intro + listing(cards[:2], "missing-blog-page.html", home=True), home=True))
+    (OUT / "short-missing-blog.html").write_text(page("Resposta incompleta", intro + RESOURCES + listing(cards[:2], "missing-blog-page.html", home=True), home=True))
     # Native Blogger applies a 30px navbar height. The theme must contain full-height
     # wrapped navigation, including when feed entries augment a home-only widget.
     page_entries = [
@@ -157,7 +175,7 @@ def build():
     ]
     (OUT / "pages-unsafe.json").write_text(json.dumps({"feed": {"entry": unsafe_entries}}))
     def menu_fixture(feed, manual=False, automatic=True):
-        content = page("Menu automático", intro + listing(cards[:2], "older-1.html", home=True), home=True)
+        content = page("Menu automático", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True), home=True)
         home = '<li><a aria-current="page" href="menu-auto.html">Início</a></li>'
         links = home + ('<li><a href="/p/about.html">Quem sou</a></li>' if manual else '')
         content = re.sub(r'(<div class="widget PageList" id="PageList1">)<ul>.*?</ul>',
@@ -184,7 +202,39 @@ def build():
     (OUT / "search-nojs.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Busca sem JavaScript</title><iframe id="nojs" sandbox="allow-same-origin allow-forms" src="short-nojs.html" width="360" height="900" title="Busca sem JavaScript"></iframe></html>')
     (OUT / "header-mobile.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Cabeçalho móvel</title><body style="margin:0"><iframe id="mobile" src="menu-auto.html" width="360" height="900" title="Celular 360px" style="border:0"></iframe></body></html>')
     article = '''<div class="content-grid article-grid"><div><article class="article"><div class="labels">Ciência</div><h1>O que uma pergunta pode mudar?</h1><div class="meta"><span>Equipe Balaio</span><span>11 de outubro de 2026</span></div><div class="post-body"><p>Às vezes, aprender começa com uma pausa. Olhamos para algo familiar e percebemos que ainda há uma pergunta a fazer.</p><h2>O espaço entre observar e entender</h2><p>A curiosidade aproxima ideias distantes. Podemos começar com um detalhe cotidiano, reunir observações e comparar explicações.</p><blockquote>Uma boa pergunta abre espaço para continuar pensando.</blockquote><p>Este texto é fictício e serve para avaliar a tipografia do tema.</p><h2>Um pequeno registro</h2><table><thead><tr><th>Etapa</th><th>Pergunta</th></tr></thead><tbody><tr><td>Observação</td><td>O que aconteceu?</td></tr><tr><td>Investigação</td><td>Como podemos conferir?</td></tr></tbody></table><pre><code>perguntas = ["Como?", "Por quê?", "Como conferir?"]</code></pre><h2>Para continuar</h2><ul><li>Registrar o que sabemos.</li><li>Identificar o que ainda falta descobrir.</li><li>Revisitar as primeiras hipóteses.</li></ul><p><a href="index.html">Voltar às publicações</a></p></div></article></div></div>'''
+    article = article.replace('<article class="article">', '<article class="article" itemscope itemtype="https://schema.org/BlogPosting">', 1)
+    article = article.replace('<span>Equipe Balaio</span>', author_markup(), 1)
+    (OUT / "author.svg").write_text('<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" fill="#edf5ef"/><circle cx="32" cy="24" r="11" fill="#5d6b64"/><path d="M12 64v-8a20 20 0 0 1 40 0v8" fill="#5d6b64"/></svg>')
     (OUT / "article.html").write_text(page("Leitura", article))
+    (OUT / "author-no-photo.html").write_text(page("Autoria sem foto", article.replace(author_markup(), author_markup(photo=False, profile=''))))
+    (OUT / "author-long-name.html").write_text(page("Autoria longa", article.replace(author_markup(), author_markup('Nome de demonstração muito longo para conferir a quebra de linha na autoria'))))
+    (OUT / "resources-empty.html").write_text(page("Sem destaques configurados", intro + listing(cards[:2], home=True), home=True))
+    guide_body = (ROOT / 'examples/pages/guide.pt-BR.html').read_text()
+    for filename, title in [('guide.html', 'Apostila de referência'), ('project.html', 'Documentação do projeto')]:
+        guide = '<div class="content-grid article-grid"><article class="article" itemscope itemtype="https://schema.org/WebPage"><h1 itemprop="name">' + title + '</h1><div class="post-body" itemprop="text">' + guide_body + '</div></article></div>'
+        (OUT / filename).write_text(page(title, guide))
+    for name, title in [('book', 'Apostila'), ('chapter', 'Primeiro capítulo'), ('project', 'Documentação do projeto'), ('library', 'Biblioteca')]:
+        for locale in ('pt-BR', 'en'):
+            body = (ROOT / f'examples/pages/{name}.{locale}.html').read_text()
+            markup = '<div class="content-grid article-grid"><article class="article"><h1>' + title + '</h1><div class="post-body">' + body + '</div></article></div>'
+            filename = name + ('.en' if locale == 'en' else '') + '.html'
+            rendered = page(title, markup)
+            if locale == 'en':
+                from build_locales import TRANSLATIONS
+                for original, translated in TRANSLATIONS.items():
+                    rendered = rendered.replace(original, translated)
+                rendered = rendered.replace('lang="pt-BR"', 'lang="en"')
+            (OUT / filename).write_text(rendered)
+    english_guide = '<div class="content-grid article-grid"><article class="article"><h1>Reference guide</h1><div class="post-body">' + (ROOT / 'examples/pages/guide.en.html').read_text() + '</div></article></div>'
+    english_page = page('Reference guide', english_guide)
+    from build_locales import TRANSLATIONS
+    for original, translated in TRANSLATIONS.items():
+        english_page = english_page.replace(original, translated)
+    (OUT / 'guide.en.html').write_text(english_page.replace('lang="pt-BR"', 'lang="en"'))
+    (OUT / 'topics-empty.html').write_text(page('Sem assuntos publicados', intro + listing(cards[:2], home=True), home=True).replace(TOPICS, ''))
+    (OUT / 'reference-nojs.html').write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Referências sem JavaScript</title><iframe sandbox="allow-same-origin allow-forms" src="index.html" width="360" height="1100" title="Guias e assuntos sem scripts"></iframe></html>')
+    frames = ''.join('<iframe src="' + name + '.html" width="' + str(width) + '" height="1000" title="' + name + ' ' + str(width) + 'px" style="display:block;border:0"></iframe>' for name in ('index', 'guide', 'book', 'chapter', 'library', 'author-long-name', 'resources-empty') for width in (320, 360, 768, 1440))
+    (OUT / 'responsive-reference.html').write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Guias e autoria responsivos</title><body>' + frames + '</body></html>')
     for index in range(len(cards)):
         (OUT / f"post-{index + 1}.html").write_text(page(POSTS[index][1], article))
     (OUT / "empty.html").write_text(page("Busca", '<div class="content-grid"><div><h1>Busca</h1><p class="empty">Nenhuma publicação encontrada. <a href="index.html">Voltar ao início</a>.</p></div>' + '</div>'))

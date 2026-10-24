@@ -3,7 +3,7 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
   <head>
     <meta charset='UTF-8'/>
-    <meta content='0.2.0-rc.13' name='balaio-version'/>
+    <meta content='0.2.0-rc.14' name='balaio-version'/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:blog.pageTitle/></title>
     <b:include data='blog' name='all-head-content'/>
@@ -11,7 +11,7 @@
     <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
     <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400..750&amp;family=Newsreader:opsz,wght@6..72,400..700&amp;display=swap' rel='stylesheet'/>
     <b:skin><![CDATA[
-/* Balaio v0.2.0-rc.13 — código original, MIT. Inter e Newsreader: SIL OFL 1.1.
+/* Balaio v0.2.0-rc.14 — código original, MIT. Inter e Newsreader: SIL OFL 1.1.
    Edite as variáveis abaixo para personalizar a identidade do blog. */
 /* Controles do Designer do Blogger.
 <Variable name="papercolor" description="Fundo da página" type="color" default="#fffefb" value="#fffefb"/>
@@ -262,12 +262,101 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   text-decoration:underline;
   text-underline-offset:4px;
 }
+.navigation-row {
+  display:flex;
+  align-items:flex-start;
+  gap:8px 24px;
+}
+.navigation-row .navigation {
+  flex:1;
+  min-width:0;
+}
+.topics {
+  position:relative;
+  flex:none;
+  padding-top:8px;
+}
+.topic-menu summary {
+  min-height:44px;
+  padding:6px 0;
+  color:var(--accent);
+  font-size:14px;
+  line-height:32px;
+  cursor:pointer;
+}
+.topic-menu[open] summary {
+  font-weight:600;
+}
+.topic-menu .topic-list {
+  position:absolute;
+  right:0;
+  z-index:4;
+  width:min(300px,calc(100vw - 32px));
+  max-height:min(60vh,420px);
+  overflow:auto;
+  list-style:none;
+  margin:0;
+  padding:8px 16px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--paper);
+}
+.topic-menu a {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  min-height:44px;
+  font-size:14px;
+  overflow-wrap:anywhere;
+}
+.topic-menu .topic-count {
+  flex:none;
+  color:var(--muted);
+  font-size:12px;
+}
 .widget h2 {
   font:var(--reading-font);
   font-weight:700;
   font-size:21px;
   line-height:1.3;
   margin:0 0 16px;
+}
+.resource-navigation,.resource-navigation > .widget {
+  margin:0;
+}
+.resources {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:0 20px;
+  margin-top:20px;
+  padding:6px 0;
+  border-block:1px solid var(--line);
+}
+.resources h2 {
+  flex:none;
+  margin:0;
+  font:var(--interface-font);
+  font-size:12px;
+  font-weight:600;
+  color:var(--muted);
+}
+.resources ul {
+  display:flex;
+  flex:1;
+  flex-wrap:wrap;
+  gap:0 20px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.resources a {
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  font-size:14px;
+  overflow-wrap:anywhere;
 }
 #introduction,#introduction > .widget {
   margin:0;
@@ -414,9 +503,28 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 .meta {
   display:flex;
   flex-wrap:wrap;
+  align-items:center;
   gap:6px 12px;
   font-size:13px;
   color:var(--muted);
+}
+.byline {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  line-height:1.45;
+  overflow-wrap:anywhere;
+}
+.byline-photo {
+  flex:none;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  object-fit:cover;
+}
+.byline a {
+  font-weight:600;
 }
 .labels {
   display:flex;
@@ -464,6 +572,53 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   line-height:1.75;
   overflow-wrap:anywhere;
   margin-top:32px;
+}
+.post-body :is(.guide-index,.post-toc) {
+  margin:24px 0;
+  padding:12px 0;
+  border-block:1px solid var(--line);
+  font:var(--interface-font);
+  font-size:14px;
+  line-height:1.6;
+}
+.post-body :is(.guide-index,.post-toc) summary {
+  min-height:32px;
+  font-weight:600;
+  cursor:pointer;
+}
+.post-body :is(.guide-index,.post-toc) :is(ol,ul) {
+  margin:8px 0 0;
+  padding-left:24px;
+}
+.post-body :is(.guide-index,.post-toc) a {
+  display:inline-block;
+  padding:4px 0;
+}
+.post-body :is(.material-meta,.material-license) {
+  font:var(--interface-font);
+  font-size:13px;
+  color:var(--muted);
+}
+.post-body .collection-nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 24px;
+  margin-top:32px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  font:var(--interface-font);
+  font-size:15px;
+}
+.post-body .collection-nav a {
+  flex:1 1 200px;
+  min-width:0;
+}
+.post-body :is(.material-library,.material-index) li > p {
+  margin:4px 0 18px;
+  color:var(--muted);
+}
+.post-body :is(h2,h3,h4)[id] {
+  scroll-margin-top:24px;
 }
 .post-body h2,.post-body h3 {
   line-height:1.3;
@@ -791,6 +946,7 @@ body#layout #contactpage {
             </form>
           </details>
         </div>
+        <div class='navigation-row'>
         <nav aria-label='Navegação principal' class='navigation' data-auto-pages='true'>
           <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
             <b:widget id='PageList1' locked='false' mobile='yes' title='Páginas' type='PageList' version='1'>
@@ -811,6 +967,19 @@ body#layout #contactpage {
             </b:widget>
           </b:section>
         </nav>
+        <b:section class='topics' id='topics' maxwidgets='1' showaddelement='yes'>
+          <b:widget id='Label1' locked='false' title='Assuntos' type='Label' version='1' mobile='yes'>
+            <b:includable id='main'>
+              <b:if cond='data:labels'>
+                <details class='topic-menu'>
+                  <summary><data:title/></summary>
+                  <ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url' rel='tag'><span><data:label.name/></span><span class='topic-count'><data:label.count/></span></a></li></b:loop></ul>
+                </details>
+              </b:if>
+            </b:includable>
+          </b:widget>
+        </b:section>
+        </div>
       </div>
     </header>
     <main class='wrap' id='content' tabindex='-1'>
@@ -821,6 +990,18 @@ body#layout #contactpage {
               <b:widget-setting name='content'><![CDATA[<div class="eyebrow">Um espaço para a curiosidade</div><h1>Conhecimento começa com uma boa pergunta.</h1><p>Um lugar para reunir descobertas, conectar ideias e compartilhar o que aprendemos.</p>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'><div class='intro'><data:content/></div></b:includable>
+          </b:widget>
+        </b:section>
+        <b:section class='resource-navigation' id='resources' maxwidgets='1' showaddelement='yes'>
+          <b:widget id='LinkList2' locked='false' mobile='yes' title='Guias e projetos' type='LinkList' version='1'>
+            <b:includable id='main'>
+              <b:if cond='data:links'>
+                <nav aria-label='Guias e projetos' class='resources'>
+                  <h2><data:title/></h2>
+                  <ul><b:loop values='data:links' var='link'><li><a expr:href='data:link.target'><data:link.name/></a></li></b:loop></ul>
+                </nav>
+              </b:if>
+            </b:includable>
           </b:widget>
         </b:section>
       </b:if>
@@ -1002,7 +1183,12 @@ body#layout #contactpage {
             <b:includable id='metadata' var='post'>
               <div class='meta'>
                 <b:if cond='data:blog.pageType == "item"'>
-                  <span itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'><span itemprop='name'><data:post.author/></span></span>
+                  <b:if cond='data:post.author'>
+                    <span class='byline' itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'>
+                      <b:if cond='data:post.authorPhoto.url'><img alt='' class='byline-photo' decoding='async' expr:src='data:post.authorPhoto.url' height='32' itemprop='image' loading='lazy' referrerpolicy='no-referrer' width='32'/></b:if>
+                      <span>Escrito por <b:if cond='data:post.authorProfileUrl'><a expr:href='data:post.authorProfileUrl' itemprop='url' rel='author'><span itemprop='name'><data:post.author/></span></a><b:else/><span itemprop='name'><data:post.author/></span></b:if></span>
+                    </span>
+                  </b:if>
                 <b:else/><span><data:post.author/></span></b:if>
                 <span><data:post.timestamp/></span>
               </div>
@@ -1051,9 +1237,7 @@ body#layout #contactpage {
         </b:section>
         <aside aria-label='Explore o blog' class='sidebar'>
           <b:section class='sidebar' id='sidebar' showaddelement='yes'>
-            <b:widget id='Label1' locked='false' title='Explore os assuntos' type='Label' version='1' mobile='yes'>
-              <b:includable id='main'><h2><data:title/></h2><ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url'><data:label.name/> <span class='topic-count'>(<data:label.count/>)</span></a></li></b:loop></ul></b:includable>
-            </b:widget>
+            <!-- Reserved for optional legacy gadgets kept by Blogger during import. -->
           </b:section>
         </aside>
       </div>

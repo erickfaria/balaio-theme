@@ -1,6 +1,6 @@
 # Balaio — Free minimal Blogger theme
 
-**Recommended version: rc.13 on main.** Optional native contact is included: paste a short content marker into your Contact page to enable it, with any page URL. No per-blog XML editing is required. Search, navigation and home continuation are preserved. [Contact guide](docs/en/CONTACT.md).
+> **Current main version: v0.2.0-rc.14.** Web-library models, optional guide links, header topics and a discreet author byline. Local/CI checks pass; a fresh Blogger import is still pending. [Setup and validation](docs/en/REFERENCE.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Default template:** `v0.2.0-rc.13`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). Use these main-branch templates; older release packages contain different versions.
+> **Default template:** `v0.2.0-rc.14`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). [Versioned release and checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.14).
 >
 > **Earlier fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with confirmed import but without the current home continuation and layout.
 
@@ -32,7 +32,7 @@ No build tools are needed to install the theme.
 3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
 4. Configure your title, description and language in **Settings**.
 5. Published pages automatically supplement the top menu. **Layout → Pages** sets leading links, their labels and order; **Menu** adds extra links. For a fully manual menu, set `data-auto-pages='false'` on the navigation element. [Page navigation](docs/en/PAGES.md).
-6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use Menu links for topics; this layout has no sidebar.
+6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use **Topics** for labels and **Guides and projects** for a short selection of reference links; this layout has no sidebar.
 7. Start with 10 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
 **Optional contact form:** create/edit a Contact page and paste the [ready-to-use HTML sample](examples/pages/contact.en.html). Keep `class="balaio-contact-page"` to show the built-in form; no fixed URL or template editing. [Three-step setup](docs/en/CONTACT.md).
@@ -105,3 +105,11 @@ The theme preserves Blogger metadata and adds visible-content article microdata.
 ## Contribute through pull requests
 
 Public forks and contributions are welcome. Contributor changes to `main` require CI and maintainer review; only `@erickfaria` integrates changes. See the [maintenance policy](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md) and [contribution guide](CONTRIBUTING.md).
+
+## Reference content
+
+The theme includes an optional **Guides and projects** strip, native header topic disclosure, a long-guide sample and an author byline with an optional profile photo. No extra JavaScript. [Proposal, setup and validation limits](docs/en/REFERENCE.md). A fresh Blogger import and profile-field availability still need confirmation.
+
+### Web library and reference materials
+
+[Models and automation](docs/en/MATERIALS.md) for handbooks, chapters, studies and documentation: ordinary HTML, navigation without extra scripts and sample Markdown metadata. Publishing belongs to the owner’s generator; the theme handles presentation.

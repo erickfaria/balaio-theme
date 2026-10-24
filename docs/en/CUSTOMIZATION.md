@@ -8,7 +8,8 @@
 - **Opening text:** Introduction gadget in Layout (Apresentação in Portuguese). Keep one `h1`; if removing the gadget, keep a single descriptive home H1 elsewhere.
 - **Pages:** select published pages in Layout and arrange their top-navigation order.
 - **Menu:** add extra label or external links; avoid duplicating Home.
-- **Topics:** add label links in Menu.
+- **Topics:** in the reference-content candidate, select labels in the native header gadget; manual Menu links remain available.
+- **Guides and projects:** select a few lasting home links; the strip disappears when empty. [Candidate guide](REFERENCE.md).
 - **Sidebar:** removed in the development layout; search remains in the header.
 
 ## Opening cards
