@@ -46,7 +46,7 @@ Confira a foto pública no perfil do autor caso ela não apareça. Sem uma foto 
 
 ## Peso e validação da rc.15
 
-Comparação com a rc.14: CSS de **17.566 → 18.200 bytes**; gzip isolado de **4.184 → 4.279 bytes** (95 bytes a mais). São medidas dos arquivos locais. não uma medição de velocidade ou de HTML publicado. Os dois scripts permanecem idênticos: **9.295 bytes**. sem JavaScript adicional. Nenhuma biblioteca. fonte ou serviço foi incluído.
+Comparação com a rc.14: CSS de **17.566 → 18.200 bytes**; gzip isolado de **4.184 → 4.279 bytes** (95 bytes a mais). São medidas dos arquivos locais, não uma medição de velocidade ou de HTML publicado. Os dois scripts permanecem idênticos: **9.295 bytes**. sem JavaScript adicional. Nenhuma biblioteca. fonte ou serviço foi incluído.
 
 **36 testes locais passaram**, incluindo continuidade da home, menu automático, estrutura dos gadgets, traduções, autoria opcional e destinos do índice. O gerador inclui home com e sem destaques, ausência de assuntos/foto, nome longo, guia em português/inglês e quadros de 320, 360, 768 e 1440 px. O avatar de demonstração é um SVG original gerado só na prévia, não uma foto de pessoa.
 
