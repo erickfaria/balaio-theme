@@ -15,6 +15,7 @@ TRANSLATIONS = {
     "Ative o JavaScript para usar o formulário de contato do Blogger.": "Enable JavaScript to use Blogger’s contact form.",
     "Explore o blog": "Explore the blog",
     "Assuntos": "Topics",
+    "Guias e projetos": "Guides and projects",
     "Denunciar abuso": "Report abuse",
     "Controles do Designer do Blogger.": "Blogger Designer controls.",
     "Fundo da página": "Page background",

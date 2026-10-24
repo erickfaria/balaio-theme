@@ -322,6 +322,42 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   line-height:1.3;
   margin:0 0 16px;
 }
+.resource-navigation,.resource-navigation > .widget {
+  margin:0;
+}
+.resources {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:0 20px;
+  margin-top:20px;
+  padding:6px 0;
+  border-block:1px solid var(--line);
+}
+.resources h2 {
+  flex:none;
+  margin:0;
+  font:var(--interface-font);
+  font-size:12px;
+  font-weight:600;
+  color:var(--muted);
+}
+.resources ul {
+  display:flex;
+  flex:1;
+  flex-wrap:wrap;
+  gap:0 20px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.resources a {
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  font-size:14px;
+  overflow-wrap:anywhere;
+}
 #introduction,#introduction > .widget {
   margin:0;
 }
@@ -907,6 +943,18 @@ body#layout #contactpage {
               <b:widget-setting name='content'><![CDATA[<div class="eyebrow">A space for curiosity</div><h1>Knowledge starts with a good question.</h1><p>A place to gather discoveries, connect ideas and share what we learn.</p>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'><div class='intro'><data:content/></div></b:includable>
+          </b:widget>
+        </b:section>
+        <b:section class='resource-navigation' id='resources' maxwidgets='1' showaddelement='yes'>
+          <b:widget id='LinkList2' locked='false' mobile='yes' title='Guides and projects' type='LinkList' version='1'>
+            <b:includable id='main'>
+              <b:if cond='data:links'>
+                <nav aria-label='Guides and projects' class='resources'>
+                  <h2><data:title/></h2>
+                  <ul><b:loop values='data:links' var='link'><li><a expr:href='data:link.target'><data:link.name/></a></li></b:loop></ul>
+                </nav>
+              </b:if>
+            </b:includable>
           </b:widget>
         </b:section>
       </b:if>
