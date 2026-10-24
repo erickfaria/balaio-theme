@@ -2,7 +2,7 @@
 
 [English](en/REFERENCE.md) · [Português](REFERENCE.md)
 
-A rc.14 está publicada na main. Esta branch prepara um controle de assuntos sem triângulo e navegação de documentação mais clara; ainda não altera a release publicada. Os checks locais e as prévias não substituem uma importação de teste no Blogger.
+A rc.15 é a versão atual da main. Assuntos usa a mesma tipografia e o mesmo alinhamento do menu, sem contagens ou marcador visual. Os checks locais não substituem uma importação e conferência visual no Blogger.
 
 ## Uma pequena biblioteca dentro do blog
 
@@ -16,7 +16,7 @@ A composição proposta tem três entradas:
 
 ## Destacar uma apostila ou um projeto
 
-Em **Layout → Guias e projetos → Editar**, adicione o título e a URL real de três a cinco conteúdos importantes. É uma Lista de links nativa (`LinkList2`), aceitando posts, páginas e destinos externos. Sem links, a faixa não aparece nem reserva espaço visual. Não há links de demonstração no XML distribuído.
+Em **Layout → Guias e projetos → Editar**, adicione o título e a URL real de até três conteúdos importantes. É uma Lista de links nativa (`LinkList2`), aceitando posts, páginas e destinos externos. Sem links, a faixa não aparece nem reserva espaço visual. Não há links de demonstração no XML distribuído.
 
 A seleção é manual: não transforma toda postagem com uma categoria em destaque e não depende de data recente. Use títulos curtos e específicos, como o nome da apostila ou do projeto. Não é preciso editar código para trocar os itens.
 
@@ -26,7 +26,7 @@ Se houver muitos conteúdos, crie uma página **Biblioteca** com seções e link
 
 **Layout → Páginas** mantém os links principais. **Menu** continua disponível para links extras. A descoberta automática de páginas permanece como antes; se você publicar muitos capítulos estáticos, considere o [modo manual do menu](PAGES.md#escolher-somente-algumas-páginas-ou-ordenar-todo-o-menu) para selecionar somente as entradas principais. Não há novo limite silencioso de páginas.
 
-**Layout → Assuntos** configura o mesmo `Label1` que existia na área lateral antiga, preservando o ID do gadget. Escolha os marcadores relevantes e um título curto. O marcador do Blogger funciona como categoria; o tema não cria nem reorganiza seus rótulos. A seção lateral antiga continua reservada para compatibilidade, oculta.
+**Layout → Assuntos** configura o mesmo `Label1` que existia na área lateral antiga, preservando o ID do gadget. Escolha cinco a sete marcadores principais e um título curto. As contagens não são exibidas. Siga a [configuração curta do Layout](LAYOUT.md). O marcador do Blogger funciona como categoria; o tema não cria nem reorganiza seus rótulos. A seção lateral antiga continua reservada para compatibilidade, oculta.
 
 ## Estruturar uma leitura longa
 
@@ -44,9 +44,9 @@ O nome e os microdados `Person` permanecem sem foto ou URL de perfil. A assinatu
 
 Confira a foto pública no perfil do autor caso ela não apareça. Sem uma foto exposta pelo Blogger, o resultado previsto é somente o nome, sem avatar genérico imposto pelo tema.
 
-## Peso e validação desta branch
+## Peso e validação da rc.15
 
-Comparação com a rc.13 (`e364e68`): CSS de **14.724 → 18.327 bytes**; gzip isolado de **3.704 → 4.301 bytes** (597 bytes a mais). São medidas dos arquivos locais, não uma medição de velocidade ou de HTML publicado. Os dois scripts existentes permanecem idênticos byte a byte: **9.295 bytes**, sem JavaScript adicional. Nenhuma biblioteca, fonte ou serviço novo foi incluído. A foto, quando existente, acrescenta uma imagem por post individual; não é adicionada aos cards.
+Comparação com a rc.14: CSS de **17.566 → 18.200 bytes**; gzip isolado de **4.184 → 4.279 bytes** (95 bytes a mais). São medidas dos arquivos locais. não uma medição de velocidade ou de HTML publicado. Os dois scripts permanecem idênticos: **9.295 bytes**. sem JavaScript adicional. Nenhuma biblioteca. fonte ou serviço foi incluído.
 
 **36 testes locais passaram**, incluindo continuidade da home, menu automático, estrutura dos gadgets, traduções, autoria opcional e destinos do índice. O gerador inclui home com e sem destaques, ausência de assuntos/foto, nome longo, guia em português/inglês e quadros de 320, 360, 768 e 1440 px. O avatar de demonstração é um SVG original gerado só na prévia, não uma foto de pessoa.
 

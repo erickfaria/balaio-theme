@@ -1,11 +1,13 @@
 # Changelog / Histórico
 
-## Unreleased
+## 0.2.0-rc.15 — restrained navigation / navegação sóbria — 2026-10-24
 
 - Share menu typography and vertical spacing with Topics on desktop/mobile; remove the separate pill treatment. / Unificar tipografia e espaço vertical do menu e de Assuntos no computador/celular; remover o tratamento de cápsula separada.
 
 - Replace the default topic triangle with a restrained text disclosure and refine chapter-link hierarchy without extra scripts. / Substituir o triângulo padrão de assuntos por um controle discreto e melhorar os links de capítulos sem scripts extras.
 - Add a connected three-page project-documentation preview and document documentation collection indexes. / Adicionar prévia conectada de documentação com três páginas e explicar os índices de projetos.
+
+- Remove topic counters and add bilingual Layout curation instructions for five to seven categories, a short menu and up to three highlights. Preserve automatic navigation and owner-configured links. / Remover contagens e documentar a curadoria de cinco a sete categorias, menu curto e até três destaques. Preservar o menu automático e os links configurados.
 
 ## 0.2.0-rc.14 — web library and reference navigation / biblioteca web e navegação — 2026-10-24
 

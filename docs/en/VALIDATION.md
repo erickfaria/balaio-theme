@@ -1,6 +1,14 @@
-# Validation — v0.2.0-rc.14
+# Validation — v0.2.0-rc.15
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
+
+## rc.15 — Uniform header and curation — October 24, 2026
+
+Topics and menu links share font, size, weight, line height, target height and vertical spacing. There is no separate pill, border, highlighted background, triangle or counter. Widgets, scripts and the existing automatic mode are preserved. [Layout setup](LAYOUT.md) covers five to seven topics, a few main links and up to three highlights, without imposed names or silent cutoffs.
+
+36 local tests pass, alongside XML, locales, links, packaging and preview. CSS adds 634 bytes (95 isolated gzip bytes) against rc.14; scripts remain identical. Connected documentation-preview links were checked. No review browser was available; rc.15 visual verification remains pending.
+
+The owner reported installing rc.14, and a public HTTP check confirmed its version marker and Topics control. This does not confirm rc.15 installation or all profile fields.
 
 ## rc.14 — Web library and navigation — October 24, 2026
 
