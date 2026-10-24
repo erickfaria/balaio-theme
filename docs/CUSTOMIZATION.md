@@ -8,7 +8,8 @@
 - **Abertura:** gadget **Apresentação** no Layout. Edite o texto, preservando uma única tag `<h1>`. Se remover o gadget, mantenha um único H1 descritivo na home.
 - **Páginas:** o menu descobre páginas publicadas ao atualizar; o Layout define links iniciais e sua ordem. [Modo automático/manual](PAGES.md).
 - **Menu:** adicione links extras de marcadores ou sites externos; evite duplicar Início.
-- **Assuntos:** adicione links de marcadores no Menu.
+- **Assuntos:** na candidata de conteúdo de referência, selecione marcadores no gadget nativo do cabeçalho; links manuais continuam possíveis no Menu.
+- **Guias e projetos:** selecione poucos links duradouros no gadget da home; a faixa some quando estiver vazia. [Guia da candidata](REFERENCE.md).
 - **Lateral:** removida no layout em desenvolvimento; a busca permanece no cabeçalho.
 
 ## Cards de abertura

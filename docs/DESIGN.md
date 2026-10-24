@@ -12,7 +12,7 @@ Um caderno aberto de ideias: simples de navegar e confortável de ler. O minimal
 - Texto antes da imagem, inclusive na ordem do HTML. Miniaturas opcionais acompanham cada entrada sem comandar a página.
 - Cards com cantos discretos e cores suaves; linhas finas separam a lista. Sem sombras, carrosséis ou animações decorativas.
 - Abertura curta sobre curiosidade e aprendizado; título e descrição do blog continuam personalizáveis.
-- Assuntos na lateral das listagens e leitura concentrada numa coluna nas páginas de artigo.
+- Na candidata de conteúdo de referência, assuntos recolhíveis no cabeçalho e poucos links de guias na home; leitura concentrada numa coluna, sem lateral permanente.
 - No celular, entradas em uma coluna, menu com quebra de linha e busca sempre acessível.
 
 ## Critérios para evoluir

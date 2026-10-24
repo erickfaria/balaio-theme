@@ -12,7 +12,7 @@ An open notebook of ideas: simple to navigate and comfortable to read. Minimalis
 - Text first in HTML order; optional images support the content.
 - Subtle corners and thin separators. No shadows, carousels or decorative animations.
 - A short introduction focused on curiosity and learning; blog title and description remain editable.
-- Topics beside lists and a focused reading column for articles.
+- In the reference-content candidate, collapsible header topics and a few home guide links; a focused reading column without a permanent sidebar.
 - On phones, a single column, wrapping menu and accessible search.
 
 ## Evolution criteria
