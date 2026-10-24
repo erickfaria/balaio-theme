@@ -76,6 +76,17 @@ class ReferenceContentTests(unittest.TestCase):
                 self.assertIsNotNone(person.find(".//" + B + "else"))
                 self.assertEqual(len(root.findall(".//" + H + "script")), 2)
 
+    def test_topic_control_suppresses_native_marker_without_replacing_semantics(self):
+        for name, root, _ in self.themes():
+            with self.subTest(theme=name):
+                css = root.find('.//' + B + 'skin').text
+                self.assertIn('.topic-menu summary::marker', css)
+                self.assertIn('.topic-menu summary::-webkit-details-marker', css)
+                summary = root.find('.//' + B + "widget[@id='Label1']//" + H + 'details/' + H + 'summary')
+                self.assertIsNotNone(summary)
+                self.assertIsNone(summary.get('role'))
+                self.assertEqual(len(root.findall('.//' + H + 'script')), 2)
+
     def test_guide_examples_have_working_fragment_links_without_extra_h1(self):
         for path in (ROOT / "examples/pages").glob("*.html"):
             if path.name.split(".")[0] not in ("guide", "book", "chapter", "library", "project"):

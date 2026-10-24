@@ -225,6 +225,30 @@ def build():
                     rendered = rendered.replace(original, translated)
                 rendered = rendered.replace('lang="pt-BR"', 'lang="en"')
             (OUT / filename).write_text(rendered)
+    # Connected examples show a complete reference journey, with real local
+    # destinations rather than fragment placeholders. They are never published.
+    chapters = [
+        ('docs-install.html', 'Instalação', 'Confira os requisitos e prepare o ambiente.', 'Antes de começar', 'Leia os requisitos do projeto e escolha onde ele será utilizado.'),
+        ('docs-use.html', 'Primeiros passos', 'Conheça o fluxo básico do projeto.', 'Seu primeiro uso', 'Comece pelas tarefas essenciais e avance conforme a sua necessidade.'),
+        ('docs-update.html', 'Atualização', 'Mantenha sua instalação e consulte as mudanças.', 'Antes de atualizar', 'Leia as notas da versão e confira os cuidados recomendados pelo projeto.'),
+    ]
+    def demo_page(title, body):
+        return page(title, '<div class="content-grid article-grid"><article class="article"><h1>' + escape(title) + '</h1><div class="post-body">' + body + '</div></article></div>')
+    contents = '<p class="material-meta">Documentação</p><p>Um guia para instalar, começar a usar e acompanhar um projeto.</p><nav class="material-index" aria-label="Índice da documentação"><h2>Neste guia</h2><ol>'
+    for filename, title, description, _, _ in chapters:
+        contents += '<li><a href="' + filename + '">' + title + '</a><p>' + description + '</p></li>'
+    contents += '</ol></nav><p><a href="library.html">Todos os materiais da Biblioteca</a></p>'
+    (OUT / 'project.html').write_text(demo_page('Documentação do projeto', contents))
+    for i, (filename, title, description, heading, text) in enumerate(chapters):
+        body = '<p class="material-meta">Capítulo · <a href="project.html">Documentação do projeto</a></p><p>' + description + '</p><h2>' + heading + '</h2><p>' + text + '</p><p>Este é um conteúdo de demonstração para visualizar a organização de uma documentação.</p>'
+        body += '<nav class="collection-nav" aria-label="Navegação da coleção"><a href="project.html">Índice: Documentação do projeto</a>'
+        for label, rel, target in [('Anterior', 'prev', chapters[i-1] if i else None), ('Próximo', 'next', chapters[i+1] if i+1 < len(chapters) else None)]:
+            if target:
+                body += '<a rel="' + rel + '" href="' + target[0] + '"><span class="nav-label">' + label + '</span> <span class="nav-title">' + target[1] + '</span></a>'
+        body += '</nav>'
+        (OUT / filename).write_text(demo_page(title, body))
+    library = (OUT / 'library.html').read_text().replace('href="#exemplo-apostila"', 'href="book.html"').replace('href="#exemplo-projeto"', 'href="project.html"')
+    (OUT / 'library.html').write_text(library)
     english_guide = '<div class="content-grid article-grid"><article class="article"><h1>Reference guide</h1><div class="post-body">' + (ROOT / 'examples/pages/guide.en.html').read_text() + '</div></article></div>'
     english_page = page('Reference guide', english_guide)
     from build_locales import TRANSLATIONS
@@ -233,7 +257,7 @@ def build():
     (OUT / 'guide.en.html').write_text(english_page.replace('lang="pt-BR"', 'lang="en"'))
     (OUT / 'topics-empty.html').write_text(page('Sem assuntos publicados', intro + listing(cards[:2], home=True), home=True).replace(TOPICS, ''))
     (OUT / 'reference-nojs.html').write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Referências sem JavaScript</title><iframe sandbox="allow-same-origin allow-forms" src="index.html" width="360" height="1100" title="Guias e assuntos sem scripts"></iframe></html>')
-    frames = ''.join('<iframe src="' + name + '.html" width="' + str(width) + '" height="1000" title="' + name + ' ' + str(width) + 'px" style="display:block;border:0"></iframe>' for name in ('index', 'guide', 'book', 'chapter', 'library', 'author-long-name', 'resources-empty') for width in (320, 360, 768, 1440))
+    frames = ''.join('<iframe src="' + name + '.html" width="' + str(width) + '" height="1000" title="' + name + ' ' + str(width) + 'px" style="display:block;border:0"></iframe>' for name in ('index', 'guide', 'book', 'chapter', 'library', 'docs-use', 'author-long-name', 'resources-empty') for width in (320, 360, 768, 1440))
     (OUT / 'responsive-reference.html').write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Guias e autoria responsivos</title><body>' + frames + '</body></html>')
     for index in range(len(cards)):
         (OUT / f"post-{index + 1}.html").write_text(page(POSTS[index][1], article))
