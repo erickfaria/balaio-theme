@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Share menu typography and vertical spacing with Topics on desktop/mobile; remove the separate pill treatment. / Unificar tipografia e espaço vertical do menu e de Assuntos no computador/celular; remover o tratamento de cápsula separada.
+
 - Replace the default topic triangle with a restrained text disclosure and refine chapter-link hierarchy without extra scripts. / Substituir o triângulo padrão de assuntos por um controle discreto e melhorar os links de capítulos sem scripts extras.
 - Add a connected three-page project-documentation preview and document documentation collection indexes. / Adicionar prévia conectada de documentação com três páginas e explicar os índices de projetos.
 
