@@ -14,7 +14,7 @@ TRANSLATIONS = {
     "Seu nome é opcional. O Blogger processa seu e-mail e sua mensagem para encaminhar o contato aos responsáveis pelo blog.": "Your name is optional. Blogger processes your email and message to forward your inquiry to the blog administrators.",
     "Ative o JavaScript para usar o formulário de contato do Blogger.": "Enable JavaScript to use Blogger’s contact form.",
     "Explore o blog": "Explore the blog",
-    "Explore os assuntos": "Explore topics",
+    "Assuntos": "Topics",
     "Denunciar abuso": "Report abuse",
     "Controles do Designer do Blogger.": "Blogger Designer controls.",
     "Fundo da página": "Page background",
