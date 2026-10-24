@@ -45,8 +45,8 @@ HEADER = '''<a class="skip" href="#content">Pular para o conteúdo</a>
 
 # Visual fixtures only: native widget data is represented by ordinary sample links.
 TOPICS = '<div class="topics section" id="topics"><div class="widget Label" id="Label1"><details class="topic-menu"><summary>Assuntos</summary><ul class="topic-list">' + ''.join(
-    '<li><a href="empty.html"><span>' + escape(name) + '</span><span class="topic-count">' + str(count) + '</span></a></li>'
-    for name, count in [('Jamovi', 19), ('Radioamadorismo', 7), ('Software livre', 12), ('Ciência de dados e métodos de pesquisa', 28)]
+    '<li><a href="empty.html">' + escape(name) + '</a></li>'
+    for name in ['Ciência de dados', 'Educação', 'Jamovi', 'Pesquisa', 'Radioamadorismo', 'Software livre']
 ) + '</ul></details></div></div>'
 HEADER = HEADER.replace('<nav class="navigation"', '<div class="navigation-row"><nav class="navigation"', 1)
 HEADER = HEADER.replace('</nav></div></header>', '</nav>' + TOPICS + '</div></div></header>')
