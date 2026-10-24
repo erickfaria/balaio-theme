@@ -1,8 +1,16 @@
-# Validation — v0.2.0-rc.13
+# Validation — v0.2.0-rc.14
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
 
-## Status
+## rc.14 — Web library and navigation — October 24, 2026
+
+Main includes optional curated links, native header topics, a conditional author photo and web models for libraries, handbooks and chapters. **36 local tests passed**, including install-package completeness. Locales, XML, documentation links and preview pass; Actions repeats checks before merge and on main/tags.
+
+Both scripts remain identical to rc.13. CSS: 14,724 → 17,566 bytes; isolated gzip: 3,704 → 4,184 bytes. No new fonts, services or print features. The install ZIP includes the Markdown models referenced by the guides. These are file measurements, not published speed results.
+
+Fresh Blogger import, profile-photo field availability and visual device review remain pending. rc.14 is a prerelease; local checks do not establish platform validation.
+
+## Earlier status — rc.13
 
 rc.13 includes the native form in its own section outside the hidden sidebar. A class in static-page content enables presentation through CSS, regardless of title/URL. It adds no URL detection, new JavaScript or automatic page creation. Fresh import and delivery still need confirmation on Blogger.
 

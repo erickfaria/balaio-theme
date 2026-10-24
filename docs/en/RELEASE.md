@@ -1,31 +1,31 @@
-# Install and upgrade — v0.2.0-rc.13
+# Install and upgrade — v0.2.0-rc.14
 
 [English](RELEASE.md) · [Português](../RELEASE.md)
 
-rc.13 includes optional native contact in its own section outside the sidebar. Enable it by pasting the HTML sample into your Contact page; `balaio-contact-page` works with any title/URL, without editing template lines. Home, search, navigation and existing widget bodies are preserved. [Contact guide](CONTACT.md). [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). [Validation](VALIDATION.md).
+rc.14 adds Guides and projects, a header topic disclosure, an optional author photo and web models for libraries, handbooks and documentation. It adds no scripts, fonts or services. Optional native contact remains in its own section outside the sidebar. Enable it by pasting the HTML sample into your Contact page; `balaio-contact-page` works with any title/URL, without editing template lines. Home, search, navigation and existing widget bodies are preserved. [Contact guide](CONTACT.md). [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml). [Validation](VALIDATION.md).
 
 ## What this version preserves
 
 - Two highlights followed by older posts, with rc.3 widget bodies and script. Ten-post target, up to four extra pages, deduplication and native pagination fallback. [Home](HOME.md).
 - Pages navigation, extra menu links, header search, 22px reading text and color/font controls.
 - Open SIL OFL Inter/Newsreader fonts, sidebar-free pastel layout and compact report-abuse footer.
-- Active CI checks and install artifacts. Portuguese import and continuation are confirmed; previews do not compile Blogger XML.
+- Active CI checks and install artifacts. Earlier Portuguese import/continuation were confirmed; a fresh rc.14 import remains pending. Previews do not compile Blogger XML.
 
 ## Candidate build assets
 
 | File | Use |
 | --- | --- |
-| `balaio-0.2.0-rc.13.zip` | Install package: templates, bilingual guides, page/post examples, version, changelog and MIT/OFL notices |
+| `balaio-0.2.0-rc.14.zip` | Install package: templates, bilingual guides, HTML/Markdown page and material examples, version, changelog and MIT/OFL notices |
 | `balaio.xml` | Portuguese interface |
 | `balaio.en.xml` | English interface |
 | `SHA256SUMS.txt` | SHA-256 checksums for the three assets above |
 
-The ZIP extracts into `balaio-0.2.0-rc.13/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
+The ZIP extracts into `balaio-0.2.0-rc.14/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
 
-## Upgrade from v0.1.0
+## Upgrade from an earlier version
 
 1. Back up your current Blogger XML and record custom gadgets, links and Designer values. Use a separate test blog first.
-2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.13`.
+2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.14`.
 3. Check published pages in automatic navigation. **Layout → Pages** sets leading links and order; use [manual mode](PAGES.md) to choose only some pages. **Menu** is for extra links. Create page content through Pages; XML does not create or replace those records.
 4. Review Introduction and menu links. The legacy sidebar is hidden through CSS. Footer links are no longer rendered: move necessary links to Pages/Menu before updating. Inherited Profile/Attribution blocks are hidden.
 5. In **Theme → Customize → Advanced**, check colors and **Post and page font**. Saved settings may retain an old size; choose 22px if needed. Reading width and pastel defaults remain documented in [CUSTOMIZATION.md](CUSTOMIZATION.md).
@@ -54,3 +54,7 @@ python3 scripts/build_release.py --output /tmp/balaio-release
 ```
 
 The builder requires a clean committed checkout, uses a tracked-file allowlist and deterministic ZIP entries, and creates SHA-256 checksums. Keep generated assets outside the repository or in ignored `dist/`.
+
+## Configure web materials
+
+In **Layout → Guides and projects**, select three to five published URLs, such as your Library, handbook or project. **Topics** configures header labels. [Models and the publishing contract](MATERIALS.md) cover ordinary HTML and Markdown-generated indexes. Importing the XML does not create content or change schedules. The optional author photo depends on fields exposed by Blogger.

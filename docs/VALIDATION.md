@@ -1,8 +1,16 @@
-# Validação — v0.2.0-rc.13
+# Validação — v0.2.0-rc.14
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
 
-## Status
+## rc.14 — Biblioteca web e navegação — 24/10/2026
+
+A versão da main inclui links editoriais opcionais, assuntos nativos no cabeçalho, assinatura com foto opcional e modelos web de Biblioteca/apostila/capítulos. **36 testes locais passaram**, incluindo completude do pacote. Idiomas, XML, links da documentação e prévia passam; o Actions repete os checks antes da integração e na main/tag.
+
+Os dois scripts permanecem idênticos à rc.13. CSS: 14.724 → 17.566 bytes; gzip isolado: 3.704 → 4.184 bytes. Sem novas fontes, serviços ou recursos de impressão. O pacote inclui os modelos Markdown referenciados pelos guias. São medidas de arquivos, não resultados de velocidade publicados.
+
+Nova importação no Blogger, foto exposta pelo perfil e revisão visual em dispositivos permanecem pendentes. A release rc.14 é uma candidata, sem promover esses testes locais a confirmação da plataforma.
+
+## Status anterior — rc.13
 
 A rc.13 inclui o formulário nativo em seção própria, fora da lateral oculta. Uma classe no conteúdo da página estática ativa sua apresentação por CSS, com qualquer nome/endereço. Não há detecção por URL, novo JavaScript ou criação automática de páginas. Importação e entrega desta candidata ainda precisam de confirmação no Blogger.
 

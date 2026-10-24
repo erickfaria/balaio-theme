@@ -2,7 +2,7 @@
 
 [English](en/REFERENCE.md) · [Português](REFERENCE.md)
 
-A candidata rc.14 está em desenvolvimento na branch `feat/guides-navigation-authors`. A versão publicada na main continua sendo a rc.13. Os checks locais e as prévias não substituem uma importação de teste no Blogger.
+A rc.14 é a versão atual da main e tem release própria. Os checks locais e as prévias não substituem uma importação de teste no Blogger.
 
 ## Uma pequena biblioteca dentro do blog
 
@@ -48,7 +48,7 @@ Confira a foto pública no perfil do autor caso ela não apareça. Sem uma foto 
 
 Comparação com a rc.13 (`e364e68`): CSS de **14.724 → 17.566 bytes**; gzip isolado de **3.704 → 4.184 bytes** (480 bytes a mais). São medidas dos arquivos locais, não uma medição de velocidade ou de HTML publicado. Os dois scripts existentes permanecem idênticos byte a byte: **9.295 bytes**, sem JavaScript adicional. Nenhuma biblioteca, fonte ou serviço novo foi incluído. A foto, quando existente, acrescenta uma imagem por post individual; não é adicionada aos cards.
 
-**35 testes locais passaram**, incluindo continuidade da home, menu automático, estrutura dos gadgets, traduções, autoria opcional e destinos do índice. O gerador inclui home com e sem destaques, ausência de assuntos/foto, nome longo, guia em português/inglês e quadros de 320, 360, 768 e 1440 px. O avatar de demonstração é um SVG original gerado só na prévia, não uma foto de pessoa.
+**36 testes locais passaram**, incluindo continuidade da home, menu automático, estrutura dos gadgets, traduções, autoria opcional e destinos do índice. O gerador inclui home com e sem destaques, ausência de assuntos/foto, nome longo, guia em português/inglês e quadros de 320, 360, 768 e 1440 px. O avatar de demonstração é um SVG original gerado só na prévia, não uma foto de pessoa.
 
 O navegador de revisão não estava disponível nesta sessão; responsividade visual e importação real permanecem pendentes. A prévia é uma fixture, não um compilador de expressões do Blogger. Não trate esses checks como confirmação de restauração ou exibição dos dados de perfil em produção.
 

@@ -9,7 +9,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 ROOT_FILES = {'LICENSE', 'VERSION', 'README.md', 'README.pt-BR.md', 'CHANGELOG.md', 'CONTRIBUTING.md'}
-DIRECTORIES = {'theme': '.xml', 'docs': '.md', 'examples': '.html', 'licenses': '.txt'}
+DIRECTORIES = {'theme': {'.xml'}, 'docs': {'.md'}, 'examples': {'.html', '.md'}, 'licenses': {'.txt'}}
 
 
 def build(output):
@@ -23,7 +23,7 @@ def build(output):
         if not name:
             continue
         path = Path(name)
-        if name in ROOT_FILES or (path.parts[0] in DIRECTORIES and path.suffix == DIRECTORIES[path.parts[0]]):
+        if name in ROOT_FILES or (path.parts[0] in DIRECTORIES and path.suffix in DIRECTORIES[path.parts[0]]):
             if (ROOT / path).is_symlink():
                 raise ValueError(f'Release source must not be a symlink: {name}')
             included.append(name)

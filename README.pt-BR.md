@@ -1,9 +1,6 @@
 # Balaio — Tema Blogger gratuito e minimalista
 
-> **Candidata nesta branch: rc.14, ainda sem importação validada.** A versão recomendada na main permanece rc.13. [Proposta de navegação e guias](docs/REFERENCE.md).
-
-
-**Versão recomendada: rc.13 na main.** Contato nativo opcional incluído: cole um pequeno marcador no conteúdo da página Contato para ativar o formulário, com qualquer URL. Não precisa editar o XML para cada blog. Busca, menu e continuação da home preservados. [Guia de contato](docs/CONTACT.md).
+> **Versão atual da main: v0.2.0-rc.14.** Modelos de Biblioteca web, links opcionais de guias, assuntos no cabeçalho e autoria discreta. Checks locais/CI aprovados; nova importação no Blogger ainda pendente. [Configuração e validação](docs/REFERENCE.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -11,7 +8,7 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Tema padrão:** `v0.2.0-rc.13`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). Use estes templates da main; os pacotes de releases anteriores contêm outras versões.
+> **Tema padrão:** `v0.2.0-rc.14`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). [Release versionada e checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.14).
 >
 > **Alternativa anterior:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada, mas sem a continuação e o layout atuais.
 
@@ -109,9 +106,9 @@ O tema preserva os metadados do Blogger e adiciona microdados de artigos ligados
 
 Forks públicos e contribuições são bem-vindos. Mudanças de contribuidores na `main` exigem CI e revisão do mantenedor; somente `@erickfaria` integra alterações. Consulte a [política de manutenção](https://github.com/erickfaria/balaio-theme/blob/main/MAINTAINERS.md) e o [guia de contribuição](CONTRIBUTING.md).
 
-## Conteúdo de referência — em desenvolvimento
+## Conteúdo de referência
 
-A branch `feat/guides-navigation-authors` prepara uma faixa opcional de **Guias e projetos**, assuntos nativos recolhíveis no cabeçalho, modelo de guia longo e assinatura com foto de perfil opcional. Sem JavaScript adicional. [Proposta, configuração e limites de validação](docs/REFERENCE.md). A main continua recomendada até a revisão/importação da candidata.
+O tema inclui uma faixa opcional de **Guias e projetos**, assuntos nativos recolhíveis no cabeçalho, modelo de guia longo e assinatura com foto de perfil opcional. Sem JavaScript adicional. [Proposta, configuração e limites de validação](docs/REFERENCE.md). Nova importação no Blogger e disponibilidade dos campos de perfil ainda precisam de confirmação.
 
 ### Biblioteca e materiais web
 

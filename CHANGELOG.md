@@ -1,12 +1,14 @@
 # Changelog / Histórico
 
-## Unreleased
+## 0.2.0-rc.14 — web library and reference navigation / biblioteca web e navegação — 2026-10-24
 
 - Add optional web-only material metadata, library lists and chapter navigation styles, with bilingual HTML/Markdown examples and a publisher integration contract. No new scripts, requests, fonts or print features. — reference navigation / navegação de referência
 
 - Optional native curated home links, header topics and long-guide HTML samples, with no additional JavaScript. / Links nativos opcionais de guias na home, assuntos no cabeçalho e modelos HTML de leitura longa, sem JavaScript adicional.
 - Native post bylines with optional profile photo and text-only fallback. / Assinatura nativa do post com foto de perfil opcional e alternativa somente com nome.
 - Existing scripts and core widget IDs retained; Blogger import and visual browser review remain pending. / Scripts existentes e IDs centrais preservados; importação no Blogger e revisão visual no navegador pendentes.
+
+- Include portable Markdown examples in the install ZIP alongside the bilingual HTML models and license notices. / Incluir exemplos Markdown portáteis no ZIP de instalação junto dos modelos HTML bilíngues e avisos de licença.
 
 ## 0.2.0-rc.13 — portable contact page / contato portátil — 2026-10-17
 

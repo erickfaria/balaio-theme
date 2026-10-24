@@ -48,7 +48,7 @@ Check the author's public profile photo if it is missing. When Blogger supplies 
 
 Against rc.13 (`e364e68`): CSS grows from **14,724 to 17,566 bytes**; isolated gzip from **3,704 to 4,184 bytes** (480 extra bytes). These are local-file measurements, not published HTML or page-speed results. Both existing scripts remain byte-for-byte identical: **9,295 bytes**, with no extra JavaScript. No library, font or service was added. The optional author photo is one image on an individual post and is not added to cards.
 
-**35 local tests passed**, including home continuation, automatic navigation, widget structure, translations, optional author data and guide fragment targets. Fixtures cover populated/empty resources, missing topics/photo, long author names, Portuguese/English guides and 320, 360, 768 and 1440 px frames. The sample avatar is an original SVG generated only for preview, not a person's photo.
+**36 local tests passed**, including home continuation, automatic navigation, widget structure, translations, optional author data and guide fragment targets. Fixtures cover populated/empty resources, missing topics/photo, long author names, Portuguese/English guides and 320, 360, 768 and 1440 px frames. The sample avatar is an original SVG generated only for preview, not a person's photo.
 
 The review browser was unavailable in this session; visual responsiveness and a real Blogger import remain pending. The preview is a fixture, not a Blogger expression compiler. These checks do not confirm restoration or profile-data availability in production.
 
