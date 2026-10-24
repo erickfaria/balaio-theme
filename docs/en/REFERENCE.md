@@ -2,7 +2,7 @@
 
 [English](REFERENCE.md) · [Português](../REFERENCE.md)
 
-rc.14 is the current main version and has its own release. Local checks and previews do not replace a Blogger test import.
+rc.15 is the current main version. Topics shares the menu typography and alignment, without counters or a visual marker. Local checks do not replace Blogger import and visual verification.
 
 ## A small library inside the blog
 
@@ -16,7 +16,7 @@ The proposed layout offers three entry points:
 
 ## Highlight a handbook or project
 
-Under **Layout → Guides and projects → Edit**, add the title and real URL of three to five important resources. This is a native Link List (`LinkList2`), accepting posts, pages and external destinations. An empty list shows no strip or reserved visual space. The distributed XML contains no demonstration links.
+Under **Layout → Guides and projects → Edit**, add the title and real URL of up to three important resources. This is a native Link List (`LinkList2`), accepting posts, pages and external destinations. An empty list shows no strip or reserved visual space. The distributed XML contains no demonstration links.
 
 Selection is manual: labels do not automatically promote every matching post, and publication date does not determine the selection. Use short, specific titles. Changing links does not require editing code.
 
@@ -26,7 +26,7 @@ For a larger collection, create a **Library** page with sections and real chapte
 
 **Layout → Pages** keeps the main links. **Menu** remains available for extras. Automatic page discovery is unchanged. If publishing many static chapters, consider the [manual page menu](PAGES.md) to select main entry points. No new silent page limit is introduced.
 
-**Layout → Topics** configures the same `Label1` widget previously in the legacy sidebar, retaining its identity. Select relevant labels and use a short title. Blogger labels serve as categories; the theme does not create or reorganize them. The hidden legacy sidebar section remains reserved for import compatibility.
+**Layout → Topics** configures the same `Label1` widget previously in the legacy sidebar, retaining its identity. Select five to seven main labels and use a short title. Counters are not displayed. Follow the [short Layout setup](LAYOUT.md). Blogger labels serve as categories; the theme does not create or reorganize them. The hidden legacy sidebar section remains reserved for import compatibility.
 
 ## Structure long content
 
@@ -44,9 +44,9 @@ The name and `Person` microdata remain when photo/profile data is missing. Each 
 
 Check the author's public profile photo if it is missing. When Blogger supplies no photo, the expected result is the name alone, without a mandatory generic avatar.
 
-## Weight and validation on this branch
+## Weight and validation of rc.15
 
-Against rc.13 (`e364e68`): CSS grows from **14,724 to 17,566 bytes**; isolated gzip from **3,704 to 4,184 bytes** (480 extra bytes). These are local-file measurements, not published HTML or page-speed results. Both existing scripts remain byte-for-byte identical: **9,295 bytes**, with no extra JavaScript. No library, font or service was added. The optional author photo is one image on an individual post and is not added to cards.
+Against rc.14: CSS changes from **17,566 to 18,200 bytes**; isolated gzip from **4,184 to 4,279 bytes** (95 extra bytes). These are local-file measurements, not live speed scores. Both scripts remain identical: **9,295 bytes**, without extra JavaScript. No library, font or service was added.
 
 **36 local tests passed**, including home continuation, automatic navigation, widget structure, translations, optional author data and guide fragment targets. Fixtures cover populated/empty resources, missing topics/photo, long author names, Portuguese/English guides and 320, 360, 768 and 1440 px frames. The sample avatar is an original SVG generated only for preview, not a person's photo.
 

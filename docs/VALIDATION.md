@@ -1,6 +1,14 @@
-# Validação — v0.2.0-rc.14
+# Validação — v0.2.0-rc.15
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
+
+## rc.15 — Cabeçalho uniforme e curadoria — 24/10/2026
+
+Assuntos e links do menu usam a mesma fonte, tamanho, peso, entrelinha, alvo de toque e espaço vertical. Sem cápsula, borda, fundo destacado, seta ou contagens. Os gadgets, scripts e o modo automático atual foram preservados. A configuração de cinco a sete categorias, poucos links no topo e até três destaques fica documentada no [Layout](LAYOUT.md), sem escolhas impostas ou corte silencioso.
+
+36 testes locais passam. XML, traduções, links, pacote e prévia passam. O CSS acrescenta 634 bytes (95 em gzip isolado) contra a rc.14; os scripts permanecem idênticos. Os links da prévia conectada de documentação foram conferidos. A ausência de navegador nesta sessão mantém a avaliação visual da rc.15 pendente.
+
+O proprietário relatou a instalação da rc.14, e a consulta pública confirmou o marcador dessa versão e o controle Assuntos. Isso não confirma a instalação da rc.15 nem todos os dados de perfil.
 
 ## rc.14 — Biblioteca web e navegação — 24/10/2026
 

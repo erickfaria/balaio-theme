@@ -57,3 +57,11 @@ Videos can use descriptive ordinary links, loading the video service only after 
 ## Validation
 
 Preview the Library, chapter, handbook and project documentation. Tests check fragment targets and script-free examples. Real Blogger import, device visuals and rendered HTML remain separate checks. This work does not change print styles or add PDF export features.
+
+## Project documentation with chapters
+
+A project index can use `kind = "documentation"` and `collection`, without `order`: [front matter example](../../examples/material-documentation.en.md). Inner pages use `kind = "chapter"`, the same collection and a positive order. A compatible publisher generates the index, a collection link near the beginning and previous/next links at the end; the theme cannot infer this relationship from Blogger titles or labels alone.
+
+Documentation chapters can be static pages, keeping the home feed for posts. Select the main links once in manual-navigation mode to avoid listing every chapter in the header. An existing handbook may remain a single post with an internal section index, without duplication or a URL change.
+
+In the local preview, open `project.html` and follow Installation, Getting started and Updates (the connected demonstration currently uses Portuguese labels). These examples use ordinary links, without navigation scripts or content delivery. Topics in rc.15 uses the same typography, line height, target height and alignment as main-menu links, without a pill, border, highlighted background or triangle. The styles add 634 CSS bytes (95 isolated gzip bytes); both scripts remain identical to rc.14. Visual browser review remains pending in this session.

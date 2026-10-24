@@ -3,7 +3,7 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
   <head>
     <meta charset='UTF-8'/>
-    <meta content='0.2.0-rc.14' name='balaio-version'/>
+    <meta content='0.2.0-rc.15' name='balaio-version'/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:blog.pageTitle/></title>
     <b:include data='blog' name='all-head-content'/>
@@ -11,7 +11,7 @@
     <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
     <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400..750&amp;family=Newsreader:opsz,wght@6..72,400..700&amp;display=swap' rel='stylesheet'/>
     <b:skin><![CDATA[
-/* Balaio v0.2.0-rc.14 — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
+/* Balaio v0.2.0-rc.15 — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
    Edit the variables below to customize your blog identity. */
 /* Blogger Designer controls.
 <Variable name="papercolor" description="Page background" type="color" default="#fffefb" value="#fffefb"/>
@@ -228,7 +228,7 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   transform-origin:left center;
 }
 .navigation {
-  padding-top:8px;
+  padding:0;
 }
 .navigation .section,.navigation .widget {
   height:auto;
@@ -246,15 +246,20 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   margin:0;
   padding:0;
 }
-.navigation a {
+.navigation a,.topic-menu summary,.topic-menu a {
   display:inline-flex;
   align-items:center;
   min-height:44px;
   padding:6px 0;
+  border:0;
   border-radius:0;
-  overflow-wrap:anywhere;
+  background:transparent;
+  font:var(--interface-font);
   font-size:14px;
+  font-weight:400;
+  line-height:1.5;
   color:var(--ink);
+  overflow-wrap:anywhere;
 }
 .navigation a[aria-current='page'] {
   background:transparent;
@@ -265,7 +270,8 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 .navigation-row {
   display:flex;
   align-items:flex-start;
-  gap:8px 24px;
+  gap:0 24px;
+  padding-top:8px;
 }
 .navigation-row .navigation {
   flex:1;
@@ -274,18 +280,20 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 .topics {
   position:relative;
   flex:none;
-  padding-top:8px;
 }
 .topic-menu summary {
-  min-height:44px;
-  padding:6px 0;
-  color:var(--accent);
-  font-size:14px;
-  line-height:32px;
+  list-style:none;
   cursor:pointer;
 }
-.topic-menu[open] summary {
-  font-weight:600;
+.topic-menu summary::marker {
+  content:"";
+}
+.topic-menu summary::-webkit-details-marker {
+  display:none;
+}
+.topic-menu summary:hover,.topic-menu[open] summary {
+  text-decoration:underline;
+  text-underline-offset:4px;
 }
 .topic-menu .topic-list {
   position:absolute;
@@ -304,16 +312,9 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 .topic-menu a {
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:16px;
   min-height:44px;
   font-size:14px;
   overflow-wrap:anywhere;
-}
-.topic-menu .topic-count {
-  flex:none;
-  color:var(--muted);
-  font-size:12px;
 }
 .widget h2 {
   font:var(--reading-font);
@@ -613,6 +614,31 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   flex:1 1 200px;
   min-width:0;
 }
+.post-body .collection-nav a:not([rel]) {
+  flex-basis:100%;
+  min-height:44px;
+}
+.post-body .collection-nav a[rel] {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:4px;
+  min-height:64px;
+  padding:12px 16px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  text-decoration:none;
+}
+.post-body .collection-nav a[rel]:hover {
+  background:var(--wash);
+}
+.post-body .collection-nav .nav-label {
+  color:var(--muted);
+  font-size:12px;
+}
+.post-body .collection-nav .nav-title {
+  font-weight:600;
+}
 .post-body :is(.material-library,.material-index) li > p {
   margin:4px 0 18px;
   color:var(--muted);
@@ -845,7 +871,7 @@ body#layout #contactpage {
   .search {
     width:calc(100% - 50px);
   }
-  .navigation {
+  .navigation-row {
     padding-top:6px;
   }
   .intro {
@@ -973,7 +999,7 @@ body#layout #contactpage {
               <b:if cond='data:labels'>
                 <details class='topic-menu'>
                   <summary><data:title/></summary>
-                  <ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url' rel='tag'><span><data:label.name/></span><span class='topic-count'><data:label.count/></span></a></li></b:loop></ul>
+                  <ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url' rel='tag'><data:label.name/></a></li></b:loop></ul>
                 </details>
               </b:if>
             </b:includable>
