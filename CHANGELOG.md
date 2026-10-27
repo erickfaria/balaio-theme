@@ -1,5 +1,10 @@
 # Changelog / Histórico
 
+## 0.2.0-rc.16 — optional native Analytics / Analytics nativo opcional — 2026-10-27
+
+- Connect both language templates to Blogger's native Analytics include, only when the owner has configured an ID in Settings. No embedded tracking ID, copied Google code, new CSS or custom script. / Conectar os dois idiomas ao include nativo de Analytics do Blogger, somente com ID configurado pelo proprietário. Sem ID embutido, código Google copiado, CSS ou script próprio novo.
+- Document GA4 setup, disabling, duplicate-installation checks, external service behavior and the need to verify actual collection after import. / Documentar ativação/desativação do GA4, conferência de instalação duplicada, comportamento do serviço externo e validação da coleta após importar.
+
 ## 0.2.0-rc.15 — restrained navigation / navegação sóbria — 2026-10-24
 
 - Share menu typography and vertical spacing with Topics on desktop/mobile; remove the separate pill treatment. / Unificar tipografia e espaço vertical do menu e de Assuntos no computador/celular; remover o tratamento de cápsula separada.

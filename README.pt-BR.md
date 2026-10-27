@@ -1,6 +1,6 @@
 # Balaio — Tema Blogger gratuito e minimalista
 
-> **Versão atual da main: v0.2.0-rc.15.** Cabeçalho uniforme, Assuntos sem contagens e modelos de Biblioteca/documentação web. Checks locais/CI aprovados; nova importação no Blogger ainda pendente. [Configuração e validação](docs/REFERENCE.md).
+> **Versão atual da main: v0.2.0-rc.16.** Integração opcional com GA4 pelas Configurações do Blogger. Cabeçalho uniforme, Assuntos sem contagens e modelos de Biblioteca/documentação web. A importação e a coleta real de Analytics ainda precisam ser conferidas. [Configuração do GA4](docs/ANALYTICS.md) · [Validação](docs/VALIDATION.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Tema padrão:** `v0.2.0-rc.15`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). [Release versionada e checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.15).
+> **Tema padrão:** `v0.2.0-rc.16`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). [Release anterior rc.15 e checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.15).
 >
 > **Alternativa anterior:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada, mas sem a continuação e o layout atuais.
 
@@ -113,3 +113,7 @@ O tema inclui uma faixa opcional de **Guias e projetos**, assuntos nativos recol
 ### Biblioteca e materiais web
 
 [Modelos e automação](docs/MATERIALS.md) para apostilas, capítulos, estudos e documentação: HTML comum, navegação sem scripts extras e exemplos de metadados Markdown. A publicação depende do gerador usado pelo proprietário; o tema cuida da apresentação.
+
+## Google Analytics
+
+Integração nativa opcional: configure seu ID `G-…` no Blogger depois de instalar o XML atualizado. Sem ID, o tema não chama Analytics. [Ativação e conferência](docs/ANALYTICS.md).

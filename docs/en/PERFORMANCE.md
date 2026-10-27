@@ -2,7 +2,7 @@
 
 [English](PERFORMANCE.md) · [Português](../PERFORMANCE.md)
 
-rc.7 retains the rc.6 baseline and restores rc.3 widgets and continuation, retaining the pastel layout, 22px reading text and open Inter/Newsreader fonts. There is no external JavaScript library, analytics or carousel. Portuguese import and home continuation were confirmed by the owner and checked on the public blog. [Status and evidence](VALIDATION.md).
+rc.7 retains the rc.6 baseline and restores rc.3 widgets and continuation, retaining the pastel layout, 22px reading text and open Inter/Newsreader fonts. The base includes no external JavaScript library or carousel. Analytics is optional starting with rc.16 and is only called with an ID configured in Blogger. [Setup](ANALYTICS.md). Portuguese import and home continuation were confirmed by the owner and checked on the public blog. [Status and evidence](VALIDATION.md).
 
 ## How the theme limits work
 

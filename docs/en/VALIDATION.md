@@ -1,6 +1,12 @@
-# Validation — v0.2.0-rc.15
+# Validation — v0.2.0-rc.16
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
+
+## rc.16 — Optional native Analytics — 2026-10-27
+
+Both XMLs include a single global `google-analytics` call, conditional on `data:blog.analyticsAccountNumber`. The ID belongs to each blog's Settings; no identifier was added to the repository. CSS, custom scripts and widget bodies remain identical to rc.15, apart from the CSS version comment. [Setup](ANALYTICS.md).
+
+Local verification does not execute the platform include. The service was not enabled, blog settings were not changed and no events were sent to a real property. The owner must verify import and collection after configuring the ID; the local preview does not load Analytics.
 
 ## rc.15 — Uniform header and curation — October 24, 2026
 

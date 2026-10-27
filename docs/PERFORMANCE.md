@@ -2,7 +2,7 @@
 
 [English](en/PERFORMANCE.md) · [Português](PERFORMANCE.md)
 
-A rc.7 mantém a base da rc.6 e recupera os gadgets e a continuação da rc.3, mantendo o layout pastel, leitura de 22px e Inter/Newsreader abertas. Não há biblioteca JavaScript externa, analytics ou carrossel. A importação portuguesa e a continuação da home foram confirmadas pelo proprietário e verificadas no blog público. [Status e evidências](VALIDATION.md).
+A rc.7 mantém a base da rc.6 e recupera os gadgets e a continuação da rc.3, mantendo o layout pastel, leitura de 22px e Inter/Newsreader abertas. A base não inclui biblioteca JavaScript externa ou carrossel. O Analytics é opcional desde a rc.16 e só é chamado com ID configurado no Blogger. [Configuração](ANALYTICS.md). A importação portuguesa e a continuação da home foram confirmadas pelo proprietário e verificadas no blog público. [Status e evidências](VALIDATION.md).
 
 ## Como o tema limita o trabalho
 

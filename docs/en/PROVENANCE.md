@@ -48,3 +48,7 @@ All included resources permit reuse and modification under their respective lice
 ## Contact — rc.13
 
 Original form markup, styles and page samples are MIT. The widget uses Blogger’s native ContactForm interface without copying Google JavaScript or distributing email transport. Content opt-in uses CSS only, without the owner’s domain or URL. The external processing service retains its own terms, as does Blogger hosting itself. [Setup and data](CONTACT.md).
+
+## Optional Google Analytics — rc.16
+
+The theme uses the native `google-analytics` include only with an ID configured in Blogger. Google code and service are supplied by the platform, not copied or distributed under MIT in this repository. Enabling it adds tracking and external requests. [Source, setup and limits](ANALYTICS.md).
