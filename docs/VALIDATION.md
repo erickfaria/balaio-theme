@@ -1,6 +1,14 @@
-# Validação — v0.2.0-rc.15
+# Validação — v0.2.0-rc.16
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
+
+## rc.16 — Analytics nativo opcional — 27/10/2026
+
+Os dois XMLs incluem uma única chamada global de `google-analytics`, condicionada a `data:blog.analyticsAccountNumber`. O ID pertence às Configurações de cada blog; nenhum identificador foi incluído no repositório. CSS, scripts próprios e corpos dos gadgets permanecem iguais à rc.15, exceto o comentário de versão do CSS. [Configuração](ANALYTICS.md).
+
+Foram executados 36 testes locais: 30 aprovados e seis dependentes de Node não executados localmente. XML, idiomas, links da documentação, pacote e geração da prévia passaram. A comparação com a rc.15 confirmou scripts, gadgets e regras CSS preservados. O Actions inclui Node para os seis checks restantes.
+
+A verificação local não executa o include da plataforma. Não houve ativação do serviço, mudança de configurações do blog ou envio de eventos a uma propriedade real. A importação e a coleta precisam ser conferidas pelo proprietário após configurar o ID; a prévia local não carrega Analytics.
 
 ## rc.15 — Cabeçalho uniforme e curadoria — 24/10/2026
 

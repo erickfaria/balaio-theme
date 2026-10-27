@@ -1,6 +1,6 @@
 # Balaio — Free minimal Blogger theme
 
-> **Current main version: v0.2.0-rc.15.** Uniform header navigation, Topics without counts and web library/documentation models. Local/CI checks pass; a fresh Blogger import is still pending. [Setup and validation](docs/en/REFERENCE.md).
+> **Current main version: v0.2.0-rc.16.** Optional GA4 integration through Blogger Settings. Uniform header navigation, Topics without counts and web library/documentation models. Blogger import and actual Analytics collection still need verification. [GA4 setup](docs/en/ANALYTICS.md) · [Validation](docs/en/VALIDATION.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Default template:** `v0.2.0-rc.15`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). [Versioned release and checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.15).
+> **Default template:** `v0.2.0-rc.16`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). [Earlier rc.15 release and checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.15).
 >
 > **Earlier fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with confirmed import but without the current home continuation and layout.
 
@@ -113,3 +113,7 @@ The theme includes an optional **Guides and projects** strip, native header topi
 ### Web library and reference materials
 
 [Models and automation](docs/en/MATERIALS.md) for handbooks, chapters, studies and documentation: ordinary HTML, navigation without extra scripts and sample Markdown metadata. Publishing belongs to the owner’s generator; the theme handles presentation.
+
+## Google Analytics
+
+Optional native integration: configure your `G-…` ID in Blogger after installing the updated XML. Without an ID, the theme does not call Analytics. [Setup and verification](docs/en/ANALYTICS.md).

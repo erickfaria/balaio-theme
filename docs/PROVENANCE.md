@@ -50,3 +50,7 @@ Todos os recursos incluídos permitem reutilização e modificação sob suas re
 ## Contato — rc.13
 
 Markup, estilos e modelos próprios do formulário são MIT. O widget usa a interface nativa ContactForm do Blogger, sem copiar o JavaScript Google nem distribuir um transporte de e-mail. A ativação por conteúdo usa apenas CSS, sem domínio ou URL do proprietário. O serviço externo de processamento mantém seus próprios termos, assim como a própria hospedagem Blogger. [Ativação e dados](CONTACT.md).
+
+## Google Analytics opcional — rc.16
+
+O tema usa o include nativo `google-analytics`, somente com ID configurado no Blogger. O código e o serviço Google são fornecidos pela plataforma, não copiados nem distribuídos sob MIT neste repositório. A ativação acrescenta rastreamento e requisições externas. [Origem, configuração e limites](ANALYTICS.md).
