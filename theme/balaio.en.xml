@@ -408,7 +408,7 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 }
 .opening-cards {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
   gap:16px;
   margin-bottom:24px;
 }
@@ -432,7 +432,7 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   margin:0 0 8px;
 }
 .opening-cards .post-image {
-  aspect-ratio:4/3;
+  aspect-ratio:16/9;
   border-radius:7px;
 }
 .opening-cards .post-card h2 {
@@ -441,15 +441,13 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 .opening-cards .post-summary {
   font-size:14px;
 }
-.opening-cards .meta {
-  font-size:11px;
-}
 .opening-cards .post-copy {
   display:flex;
   flex-direction:column;
   flex:1;
 }
 .opening-cards .meta {
+  font-size:11px;
   margin-top:12px;
 }
 .posts {
@@ -841,20 +839,6 @@ body#layout #contactpage {
 #sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.FeaturedPost,.widget.ReportAbuse,.widget.Profile,.widget.Attribution {
   display:none;
 }
-@media(min-width:801px) and (max-width:1050px) {
-  .opening-cards {
-    grid-template-columns:1fr;
-  }
-  .opening-cards .post-card {
-    display:grid;
-    grid-template-columns:minmax(0,1fr) 150px;
-    gap:20px;
-  }
-  .opening-cards .post-image-link {
-    order:0;
-    margin:0;
-  }
-}
 @media(max-width:800px) {
   .wrap {
     width:calc(100% - 32px);
@@ -870,6 +854,9 @@ body#layout #contactpage {
   }
   .search {
     width:calc(100% - 50px);
+  }
+  .search input {
+    font-size:16px;
   }
   .navigation-row {
     padding-top:6px;
@@ -898,14 +885,19 @@ body#layout #contactpage {
   }
 }
 @media(max-width:600px) {
+  .intro {
+    padding-top:12px;
+  }
+  .intro h1 {
+    font-size:clamp(26px,6vw,30px);
+  }
   .opening-cards {
-    grid-template-columns:1fr;
+    grid-template-columns:minmax(0,1fr);
   }
   .opening-cards .post-image-link {
-    max-width:none;
-  }
-  .opening-cards .post-image {
-    aspect-ratio:16/9;
+    order:0;
+    width:min(100%,240px);
+    margin:10px 0 0;
   }
 }
 @media(max-width:480px) {
