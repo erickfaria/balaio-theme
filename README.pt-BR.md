@@ -47,7 +47,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 - Comentários básicos e link para comentar; formulário incorporado e respostas encadeadas ainda pendentes.
 - Apresentação editável, menu automático de páginas publicadas e links extras; sem lateral e com uma busca no cabeçalho.
 - Foco de teclado, link para pular ao conteúdo, rolagem contida em código/tabelas e estilos para impressão.
-- **Inter** para interface e **Newsreader** para títulos e leitura, via Google Fonts com fallback local e `display=swap`. Posts/páginas usam 22px e entrelinha de 1,75 por padrão. Ambas usam SIL OFL 1.1; suas licenças são separadas da MIT.
+- **Inter** para interface e **Newsreader** para títulos e leitura, via Google Fonts com fallback local e `display=swap`. Posts/páginas usam 24px e entrelinha de 1,75 por padrão. Ambas usam SIL OFL 1.1; suas licenças são separadas da MIT.
 - Sem bibliotecas JavaScript de terceiros ou dependências externas de pacotes Python. A continuação da home e o menu automático são código próprio MIT; a paginação nativa funciona sem JavaScript.
 
 A candidata inclui controles nativos de cores/fontes; a conferência no Designer publicado permanece pendente. Logo em imagem e layout específico de 404 ainda não estão implementados. A prévia usa o CSS real com conteúdo de exemplo; não compila expressões do Blogger.

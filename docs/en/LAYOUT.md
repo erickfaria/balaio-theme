@@ -6,7 +6,7 @@ rc.15 keeps the same native widgets and uses ordinary HTML/CSS for the header. I
 
 ## 1. Topics: five to seven categories
 
-In **Layout → Topics → Edit**, use the widget's label selection to show five to seven main categories. Prefer broad subjects and short names. Specific labels can remain on posts without filling the header. This presentation has no counts, triangle, pill or highlighted background, and shares the menu's typography and alignment.
+In **Layout → Topics → Edit**, use the widget's label selection to show five to seven main categories. Prefer broad subjects and short names. Specific labels can remain on posts without filling the header. The Topics control uses the menu typography, follows the Pages and Menu links, and wraps alongside them.
 
 The theme displays the labels configured in the widget. It does not take the first seven alphabetically or hide others through CSS. If the interface initially shows all labels, change the selection in Layout. No Balaio Científico category names or domain are imposed on other installations.
 

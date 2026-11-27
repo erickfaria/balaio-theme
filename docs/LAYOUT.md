@@ -6,7 +6,7 @@ A rc.15 mantém os mesmos gadgets nativos e usa HTML/CSS simples para o cabeçal
 
 ## 1. Assuntos: cinco a sete categorias
 
-Em **Layout → Assuntos → Editar**, use a seleção de marcadores do gadget para mostrar somente cinco a sete categorias principais. Prefira assuntos amplos e nomes curtos. Marcadores específicos podem continuar nos posts sem ocupar o cabeçalho. A apresentação não exibe contagens, seta, cápsula ou fundo destacado; usa a mesma tipografia e o mesmo alinhamento do menu.
+Em **Layout → Assuntos → Editar**, use a seleção de marcadores do gadget para mostrar somente cinco a sete categorias principais. Prefira assuntos amplos e nomes curtos. Marcadores específicos podem continuar nos posts sem ocupar o cabeçalho. O controle Assuntos usa a tipografia do menu, segue os links de Páginas e Menu e quebra linha junto com eles.
 
 O tema apresenta os marcadores configurados no gadget: não escolhe os primeiros sete em ordem alfabética nem esconde outros por CSS. Se a interface iniciar mostrando todos, ajuste a seleção no Layout. Nenhum nome de categoria ou domínio do Balaio Científico é imposto a outras instalações.
 

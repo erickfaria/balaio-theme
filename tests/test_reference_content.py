@@ -39,10 +39,11 @@ class ReferenceContentTests(unittest.TestCase):
                 result.append(node.get("cond"))
         return result
 
-    def test_topics_reuse_native_label_widget_outside_legacy_sidebar(self):
+    def test_main_navigation_contains_the_native_label_widget(self):
         for name, root, _ in self.themes():
             with self.subTest(theme=name):
-                topics = root.find(".//" + B + "section[@id='topics']")
+                nav = root.find(".//" + H + "nav[@class='navigation']")
+                topics = nav.find(B + "section[@id='topics']")
                 labels = topics.find(B + "widget[@id='Label1']")
                 self.assertEqual(labels.get("type"), "Label")
                 self.assertIsNotNone(labels.find(".//" + H + "details/" + H + "summary"))

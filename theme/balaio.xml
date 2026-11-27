@@ -23,7 +23,7 @@
 <Variable name="sandcolor" description="Card areia pastel" type="color" default="#f8f1e7" value="#f8f1e7"/>
 <Variable name="bluecolor" description="Card azul pastel" type="color" default="#eef2f6" value="#eef2f6"/>
 <Variable name="interfacefont" description="Fonte da interface" type="font" default="normal 400 17px Inter, system-ui, sans-serif" value="normal 400 17px Inter, system-ui, sans-serif"/>
-<Variable name="readingfont" description="Fonte de posts e páginas" type="font" default="normal 400 22px Newsreader, serif" value="normal 400 22px Newsreader, serif"/>
+<Variable name="readingfont" description="Fonte de posts e páginas" type="font" default="normal 400 24px Newsreader, serif" value="normal 400 24px Newsreader, serif"/>
 */
 :root {
   --paper:$papercolor;
@@ -228,25 +228,27 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   transform-origin:left center;
 }
 .navigation {
-  padding:0;
-}
-.navigation .section,.navigation .widget {
-  height:auto;
-  min-height:44px;
-}
-.navigation li {
-  margin:0;
-  padding:0;
-}
-.navigation ul {
+  position:relative;
   display:flex;
   flex-wrap:wrap;
+  align-items:flex-start;
   gap:6px 16px;
+  padding-top:8px;
+}
+body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
+  display:contents;
+}
+.navigation .navbar ul {
   list-style:none;
   margin:0;
   padding:0;
 }
-.navigation a,.topic-menu summary,.topic-menu a {
+.navigation li,.topic-menu {
+  min-width:0;
+  margin:0;
+  padding:0;
+}
+.navigation a,.topic-menu summary {
   display:inline-flex;
   align-items:center;
   min-height:44px;
@@ -267,20 +269,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   text-decoration:underline;
   text-underline-offset:4px;
 }
-.navigation-row {
-  display:flex;
-  align-items:flex-start;
-  gap:0 24px;
-  padding-top:8px;
-}
-.navigation-row .navigation {
-  flex:1;
-  min-width:0;
-}
-.topics {
-  position:relative;
-  flex:none;
-}
 .topic-menu summary {
   list-style:none;
   cursor:pointer;
@@ -297,9 +285,10 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 }
 .topic-menu .topic-list {
   position:absolute;
-  right:0;
+  inset-block-start:100%;
+  inset-inline-start:0;
   z-index:4;
-  width:min(300px,calc(100vw - 32px));
+  width:min(300px,100%);
   max-height:min(60vh,420px);
   overflow:auto;
   list-style:none;
@@ -311,10 +300,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 }
 .topic-menu a {
   display:flex;
-  align-items:center;
-  min-height:44px;
-  font-size:14px;
-  overflow-wrap:anywhere;
 }
 .widget h2 {
   font:var(--reading-font);
@@ -858,7 +843,7 @@ body#layout #contactpage {
   .search input {
     font-size:16px;
   }
-  .navigation-row {
+  .navigation {
     padding-top:6px;
   }
   .intro {
@@ -912,8 +897,8 @@ body#layout #contactpage {
   .post-card h2 {
     font-size:25px;
   }
-  .navigation ul {
-    gap:6px 12px;
+  .navigation {
+    column-gap:12px;
   }
 }
 @media(prefers-reduced-motion:reduce) {
@@ -964,12 +949,11 @@ body#layout #contactpage {
             </form>
           </details>
         </div>
-        <div class='navigation-row'>
         <nav aria-label='Navegação principal' class='navigation' data-auto-pages='true'>
           <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
             <b:widget id='PageList1' locked='false' mobile='yes' title='Páginas' type='PageList' version='1'>
               <b:includable id='main'>
-                <ul>
+                <ul role='list'>
                   <b:if cond='data:links'>
                     <b:loop values='data:links' var='link'><li><a expr:href='data:link.href' expr:aria-current='data:link.isCurrentPage ? "page" : "false"'><data:link.title/></a></li></b:loop>
                   <b:else/><li><a expr:href='data:blog.homepageUrl'>Início</a></li></b:if>
@@ -978,26 +962,25 @@ body#layout #contactpage {
             </b:widget>
             <b:widget id='LinkList1' locked='false' title='Menu' type='LinkList' version='1' mobile='yes'>
               <b:includable id='main'>
-                <ul>
+                <ul role='list'>
                   <b:loop values='data:links' var='link'><li><a expr:href='data:link.target' expr:aria-current='data:blog.url == data:link.target ? "page" : "false"'><data:link.name/></a></li></b:loop>
                 </ul>
               </b:includable>
             </b:widget>
           </b:section>
+          <b:section class='topics' id='topics' maxwidgets='1' showaddelement='yes'>
+            <b:widget id='Label1' locked='false' title='Assuntos' type='Label' version='1' mobile='yes'>
+              <b:includable id='main'>
+                <b:if cond='data:labels'>
+                  <details class='topic-menu'>
+                    <summary><data:title/></summary>
+                    <ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url' rel='tag'><data:label.name/></a></li></b:loop></ul>
+                  </details>
+                </b:if>
+              </b:includable>
+            </b:widget>
+          </b:section>
         </nav>
-        <b:section class='topics' id='topics' maxwidgets='1' showaddelement='yes'>
-          <b:widget id='Label1' locked='false' title='Assuntos' type='Label' version='1' mobile='yes'>
-            <b:includable id='main'>
-              <b:if cond='data:labels'>
-                <details class='topic-menu'>
-                  <summary><data:title/></summary>
-                  <ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url' rel='tag'><data:label.name/></a></li></b:loop></ul>
-                </details>
-              </b:if>
-            </b:includable>
-          </b:widget>
-        </b:section>
-        </div>
       </div>
     </header>
     <main class='wrap' id='content' tabindex='-1'>
@@ -1320,7 +1303,7 @@ body#layout #contactpage {
     function appendPages(pages) {
       if (!Array.isArray(pages)) return;
       const seen = new Set();
-      for (const link of nav.querySelectorAll('a[href]')) {
+      for (const link of nav.querySelectorAll('.navbar a[href]')) {
         const url = localURL(link.getAttribute('href'));
         if (url) seen.add(url.pathname);
       }

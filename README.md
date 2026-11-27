@@ -47,7 +47,7 @@ No build tools are needed to install the theme.
 - Basic comment display and a link to add a comment; embedded forms and threaded replies remain pending.
 - Editable introduction, automatic published-page navigation and extra Menu links; no sidebar and one header search.
 - Keyboard focus, skip link, contained code/table scrolling and print styles.
-- **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Post/page text defaults to 22px with a 1.75 line height. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
+- **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Post/page text defaults to 24px with a 1.75 line height. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
 - No third-party JavaScript libraries or Python package dependencies. The home continuation and page-menu enhancement are original MIT code; native pagination works without JavaScript.
 
 Native color/font controls are included in the candidate; live Designer verification remains pending. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.

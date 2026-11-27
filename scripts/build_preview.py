@@ -40,7 +40,7 @@ HEADER = '''<a class="skip" href="#content">Pular para o conteúdo</a>
 <header class="masthead"><div class="wrap"><div class="masthead-top">
 <div class="header section"><div class="widget"><a class="brand" href="index.html">Balaio Científico</a><p class="description">Ciência, cultura e outras boas perguntas.</p></div></div>
 <form class="search" action="empty.html" role="search"><input aria-label="Buscar no blog" name="q" placeholder="Buscar no blog" type="search"><button>Buscar</button></form></div>
-<nav class="navigation" aria-label="Navegação principal" data-auto-pages="false"><div class="navbar section" id="navigation"><div class="widget PageList" id="PageList1"><ul><li><a href="index.html">Início</a></li><li><a href="article.html">Leitura</a></li><li><a href="about.html">Sobre mim</a></li><li><a href="contact.html">Contato</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="empty.html">Busca sem resultados</a></li></ul></div></div></nav></div></header>'''
+<nav class="navigation" aria-label="Navegação principal" data-auto-pages="false"><div class="navbar section" id="navigation"><div class="widget PageList" id="PageList1"><ul role="list"><li><a href="index.html">Início</a></li><li><a href="article.html">Leitura</a></li><li><a href="about.html">Sobre mim</a></li><li><a href="contact.html">Contato</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="empty.html">Busca sem resultados</a></li></ul></div></div></nav></div></header>'''
 
 
 # Visual fixtures only: native widget data is represented by ordinary sample links.
@@ -48,8 +48,7 @@ TOPICS = '<div class="topics section" id="topics"><div class="widget Label" id="
     '<li><a href="empty.html">' + escape(name) + '</a></li>'
     for name in ['Ciência de dados', 'Educação', 'Jamovi', 'Pesquisa', 'Radioamadorismo', 'Software livre']
 ) + '</ul></details></div></div>'
-HEADER = HEADER.replace('<nav class="navigation"', '<div class="navigation-row"><nav class="navigation"', 1)
-HEADER = HEADER.replace('</nav></div></header>', '</nav>' + TOPICS + '</div></div></header>')
+HEADER = HEADER.replace('</nav></div></header>', TOPICS + '</nav></div></header>')
 RESOURCES = '<div class="resource-navigation section" id="resources"><div class="widget LinkList" id="LinkList2"><nav class="resources" aria-label="Guias e projetos"><h2>Guias e projetos</h2><ul><li><a href="guide.html">Apostila de Jamovi</a></li><li><a href="project.html">Projeto de exemplo</a></li><li><a href="library.html">Biblioteca</a></li></ul></nav></div></div>'
 
 
@@ -178,8 +177,8 @@ def build():
         content = page("Menu automático", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True), home=True)
         home = '<li><a aria-current="page" href="menu-auto.html">Início</a></li>'
         links = home + ('<li><a href="/p/about.html">Quem sou</a></li>' if manual else '')
-        content = re.sub(r'(<div class="widget PageList" id="PageList1">)<ul>.*?</ul>',
-                         r'\g<1><ul>' + links + '</ul>', content, count=1, flags=re.S)
+        content = re.sub(r'(<div class="widget PageList" id="PageList1">)<ul role="list">.*?</ul>',
+                         r'\g<1><ul role="list">' + links + '</ul>', content, count=1, flags=re.S)
         mode = 'true' if automatic else 'false'
         return content.replace('data-auto-pages="false"', f'data-auto-pages="{mode}" data-pages-feed="{escape(feed)}"', 1)
     for slug, feed in [('auto', 'pages-feed.json'), ('empty', 'pages-empty.json'),

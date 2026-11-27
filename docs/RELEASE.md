@@ -9,7 +9,7 @@ A rc.16 acrescenta a chamada nativa opcional de Google Analytics, controlada pel
 ## O que a versão preserva
 
 - Dois destaques e posts antigos abaixo, com script e gadgets da rc.3. Meta de dez posts e até quatro páginas adicionais, sem duplicações; paginação nativa de fallback. [Home](HOME.md).
-- Menu de Páginas e links extras, busca no topo, leitura de 22px e controles de cores/fontes.
+- Menu de Páginas e links extras, busca no topo, leitura de 24px e controles de cores/fontes.
 - Fontes abertas Inter/Newsreader SIL OFL, layout pastel sem lateral visível e denúncia de abuso no rodapé compacto.
 - CI ativo com checks e artefatos de instalação. Base rc.8 instalada em português; nova importação da rc.16 pendente. Prévias não compilam Blogger XML.
 
@@ -30,7 +30,7 @@ O ZIP extrai para `balaio-0.2.0-rc.16/`. Escolha um XML em `theme/`; não envie 
 2. Em **Tema → menu → Editar HTML**, cole o XML completo da candidata no idioma escolhido e salve. O comentário do CSS identifica `v0.2.0-rc.16`.
 3. Confira as páginas publicadas no menu automático. **Layout → Páginas** define os links iniciais e sua ordem; para escolher somente algumas páginas, use o [modo manual](PAGES.md). **Menu** recebe links extras. Crie o conteúdo em Páginas; o XML não cria nem substitui esses registros.
 4. Confira Apresentação e os links do menu. A lateral fica oculta por CSS. Os links de rodapé não são mais exibidos: mova links necessários para Páginas/Menu antes de atualizar. Blocos herdados de Perfil/Atribuição ficam ocultos.
-5. Em **Tema → Personalizar → Avançado**, confira cores e **Fonte de posts e páginas**. Valores salvos podem preservar um tamanho anterior; escolha 22px se necessário. Largura de leitura e padrões pastel estão em [CUSTOMIZATION.md](CUSTOMIZATION.md).
+5. Em **Tema → Personalizar → Avançado**, confira cores e **Fonte de posts e páginas**. Valores salvos podem preservar um tamanho anterior; escolha 24px se necessário. Largura de leitura e padrões pastel estão em [CUSTOMIZATION.md](CUSTOMIZATION.md).
 6. Se aparecer o tema móvel antigo separado, escolha **Computador** nas configurações móveis. O próprio tema se adapta ao celular. Comece com dez posts em **Configurações → Postagens**; o Blogger pode paginar antes. Consulte [INSTALLATION.md](INSTALLATION.md).
 7. Confira se a home completa a lista e se o link de posts anteriores continua do ponto correto. Teste home, artigos completos, páginas estáticas, busca, paginação e comentários antes de atualizar o blog principal. Restaure seu backup para reverter a apresentação, se necessário.
 

@@ -9,7 +9,7 @@ rc.16 adds the optional native Google Analytics call, controlled by the ID in Bl
 ## What this version preserves
 
 - Two highlights followed by older posts, with rc.3 widget bodies and script. Ten-post target, up to four extra pages, deduplication and native pagination fallback. [Home](HOME.md).
-- Pages navigation, extra menu links, header search, 22px reading text and color/font controls.
+- Pages navigation, extra menu links, header search, 24px reading text and color/font controls.
 - Open SIL OFL Inter/Newsreader fonts, sidebar-free pastel layout and compact report-abuse footer.
 - Active CI checks and install artifacts. Earlier Portuguese import/continuation were confirmed; a fresh rc.16 import remains pending. Previews do not compile Blogger XML.
 
@@ -30,7 +30,7 @@ The ZIP extracts into `balaio-0.2.0-rc.16/`. Select an XML inside `theme/`; do n
 2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.16`.
 3. Check published pages in automatic navigation. **Layout → Pages** sets leading links and order; use [manual mode](PAGES.md) to choose only some pages. **Menu** is for extra links. Create page content through Pages; XML does not create or replace those records.
 4. Review Introduction and menu links. The legacy sidebar is hidden through CSS. Footer links are no longer rendered: move necessary links to Pages/Menu before updating. Inherited Profile/Attribution blocks are hidden.
-5. In **Theme → Customize → Advanced**, check colors and **Post and page font**. Saved settings may retain an old size; choose 22px if needed. Reading width and pastel defaults remain documented in [CUSTOMIZATION.md](CUSTOMIZATION.md).
+5. In **Theme → Customize → Advanced**, check colors and **Post and page font**. Saved settings may retain an old size; choose 24px if needed. Reading width and pastel defaults remain documented in [CUSTOMIZATION.md](CUSTOMIZATION.md).
 6. If a separate legacy mobile theme appears, choose **Desktop** under Mobile settings. The theme itself adapts to phone width. Start with ten posts under **Settings → Posts**; Blogger may paginate earlier. See [INSTALLATION.md](INSTALLATION.md).
 7. Check that home continuation fills the list and that the older-posts link resumes correctly. Test home, full articles, static pages, search, pagination and comments before updating your main blog. Restore your backup to roll back presentation if necessary.
 
