@@ -28,7 +28,7 @@ The ZIP extracts into `balaio-0.2.0-rc.16/`. Select an XML inside `theme/`; do n
 
 1. Back up your current Blogger XML and record custom gadgets, links and Designer values. Use a separate test blog first.
 2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.16`.
-3. Check published pages in automatic navigation. **Layout → Pages** sets leading links and order; use [manual mode](PAGES.md) to choose only some pages. **Menu** is for extra links. Create page content through Pages; XML does not create or replace those records.
+3. Review the links in **Layout → Pages** and use **Menu** for extra links. If you relied on feed-discovered links, add them to the gadget or [enable automatic mode](PAGES.md#optional-automatic-pages). Create page content through Pages.
 4. Review Introduction and menu links. The legacy sidebar is hidden through CSS. Footer links are no longer rendered: move necessary links to Pages/Menu before updating. Inherited Profile/Attribution blocks are hidden.
 5. In **Theme → Customize → Advanced**, check colors and **Post and page font**. Saved settings may retain an old size; choose 24px if needed. Reading width and pastel defaults remain documented in [CUSTOMIZATION.md](CUSTOMIZATION.md).
 6. If a separate legacy mobile theme appears, choose **Desktop** under Mobile settings. The theme itself adapts to phone width. Start with ten posts under **Settings → Posts**; Blogger may paginate earlier. See [INSTALLATION.md](INSTALLATION.md).

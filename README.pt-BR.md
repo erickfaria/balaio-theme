@@ -31,7 +31,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 2. Escolha um **blog de teste** no Blogger. Faça backup do tema atual em **Tema → menu → Fazer backup**.
 3. Abra **Tema → menu → Editar HTML**. Substitua o conteúdo do editor pelo XML completo e salve.
 4. Configure título, descrição e idioma em **Configurações**.
-5. As páginas publicadas completam o menu do topo automaticamente. **Layout → Páginas** define links iniciais, nomes e ordem; **Menu** adiciona links extras. Para um menu totalmente manual, use `data-auto-pages='false'` no elemento de navegação. [Páginas e menu](docs/PAGES.md).
+5. Em **Layout → Páginas**, escolha os links do menu, os nomes e a ordem. Use **Menu** para links extras. A descoberta automática pode ser [ativada no XML](docs/PAGES.md#páginas-automáticas-opcionais).
 6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Use **Assuntos** para marcadores e **Guias e projetos** para uma seleção curta de referências; este layout não tem lateral.
 7. Comece com 10 posts por página em **Configurações → Postagens**; o Blogger pode paginar antes. Confira artigos, páginas, busca, paginação e comentários no celular e no computador antes de usar no blog principal.
 
@@ -45,7 +45,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 - Layout responsivo para celulares, tablets e computadores; miniaturas opcionais e entradas com largura completa quando não há imagem.
 - Busca nativa, marcadores, paginação, artigos e páginas estáticas.
 - Comentários básicos e link para comentar; formulário incorporado e respostas encadeadas ainda pendentes.
-- Apresentação editável, menu automático de páginas publicadas e links extras; sem lateral e com uma busca no cabeçalho.
+- Apresentação editável com um título curto, menu nativo de Páginas e links extras. A descoberta automática de páginas é opcional.
 - Foco de teclado, link para pular ao conteúdo, rolagem contida em código/tabelas e estilos para impressão.
 - **Inter** para interface e **Newsreader** para títulos e leitura, via Google Fonts com fallback local e `display=swap`. Posts/páginas usam 24px e entrelinha de 1,75 por padrão. Ambas usam SIL OFL 1.1; suas licenças são separadas da MIT.
 - Sem bibliotecas JavaScript de terceiros ou dependências externas de pacotes Python. A continuação da home e o menu automático são código próprio MIT; a paginação nativa funciona sem JavaScript.

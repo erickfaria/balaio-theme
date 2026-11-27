@@ -11,7 +11,7 @@ Use o XML da rc.16 na main: lupa recolhível ao lado do título, espaços menore
 1. Baixe `theme/balaio.xml` para português ou `theme/balaio.en.xml` para inglês. Baixe o arquivo raw, sem copiar a página HTML do GitHub.
 2. No Blogger, selecione o blog correto e vá a **Tema → menu → Fazer backup**.
 3. Em **Tema → menu → Editar HTML**, substitua o conteúdo pelo XML completo, desde a declaração inicial até o fechamento de `html`, e salve.
-4. Configure título, descrição e idioma em **Configurações**. Páginas publicadas completam o menu automaticamente. Em **Layout**, ajuste links iniciais de Páginas, Menu e Apresentação; veja os modos automático/manual em [PAGES.md](PAGES.md). Não há lateral neste layout; gadgets antigos de busca, arquivo e destaque ficam ocultos. Os gadgets têm nomes ingleses no XML inglês.
+4. Configure título, descrição e idioma em **Configurações**. Em **Layout**, ajuste Páginas, Menu e Apresentação. [Configuração da navegação](PAGES.md). A seção lateral legada fica reservada ao editor de Layout. Os gadgets têm nomes ingleses no XML inglês.
 5. Publique posts fictícios com e sem imagem para testar os cards. A home destaca os dois posts mais recentes e mostra os seguintes em lista. A continuação automática complementa páginas curtas; veja [HOME.md](HOME.md).
 6. Abra artigos, páginas, busca, marcadores e outras páginas de posts. Confira comentários e celular. Veja [ROADMAP.md](ROADMAP.md).
 
@@ -32,7 +32,7 @@ As capturas do proprietário mostraram a apresentação móvel antiga em `?m=1` 
 | O editor rejeita o arquivo | Confira se copiou o XML completo, sem cercas de Markdown ou HTML do GitHub. Registre a mensagem exata para uma issue. |
 | Não há imagem no card | Use um post com imagem. A miniatura depende dos dados fornecidos pelo Blogger; sem imagem, a entrada continua legível. |
 | As fontes parecem diferentes | Confira acesso ao Google Fonts. O fallback usa fontes do dispositivo quando as fontes remotas não carregam. |
-| O menu não tem minhas páginas | Confirme a rc.16, páginas publicadas, JavaScript e o feed público habilitado. Abra ou atualize o blog após publicar; rascunhos ficam fora do feed. Links manuais precisam ser removidos no gadget. No modo manual, adicione links em **Layout → Páginas**. [Modos do menu](PAGES.md). |
+| O menu não tem minhas páginas | Publique as páginas e selecione os links em **Layout → Páginas**. Se ativou a descoberta automática no XML, confira o JavaScript e o feed público. [Modos do menu](PAGES.md). |
 | A abertura continua igual | Edite Apresentação/Introduction no Layout e salve. Preserve um único `h1`. |
 | Comentários não aparecem | Confira as configurações e permissões do post. O formulário incorporado e as respostas encadeadas ainda não estão prontos. |
 | Quero voltar ao tema anterior | Restaure o XML que você salvou antes da instalação pelo menu do tema. |

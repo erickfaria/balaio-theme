@@ -24,7 +24,7 @@ For a larger collection, create a **Library** page with sections and real chapte
 
 ## Header pages and categories
 
-**Layout → Pages** keeps the main links. **Menu** remains available for extras. Automatic page discovery is unchanged. If publishing many static chapters, consider the [manual page menu](PAGES.md) to select main entry points. No new silent page limit is introduced.
+**Layout → Pages** holds the main links and **Menu** holds extra links. Automatic discovery is a separate option. [Navigation setup](PAGES.md).
 
 **Layout → Topics** configures the same `Label1` widget previously in the legacy sidebar, retaining its identity. Select five to seven main labels and use a short title. Counters are not displayed. Follow the [short Layout setup](LAYOUT.md). Blogger labels serve as categories; the theme does not create or reorganize them. The hidden legacy sidebar section remains reserved for import compatibility.
 

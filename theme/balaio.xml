@@ -115,12 +115,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   color:var(--ink);
   overflow-wrap:anywhere;
 }
-.description {
-  color:var(--muted);
-  margin:6px 0 0;
-  max-width:60ch;
-  font-size:15px;
-}
 .masthead-top > .header {
   flex:1;
 }
@@ -938,7 +932,6 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
             <b:widget id='Header1' locked='true' title='Cabeçalho' type='Header' version='1' mobile='yes'>
               <b:includable id='main'>
                 <a class='brand' expr:href='data:blog.homepageUrl'><data:title/></a>
-                <b:if cond='data:description'><p class='description'><data:description/></p></b:if>
               </b:includable>
             </b:widget>
           </b:section>
@@ -950,7 +943,7 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
             </form>
           </details>
         </div>
-        <nav aria-label='Navegação principal' class='navigation' data-auto-pages='true'>
+        <nav aria-label='Navegação principal' class='navigation' data-auto-pages='false'>
           <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
             <b:widget id='PageList1' locked='false' mobile='yes' title='Páginas' type='PageList' version='1'>
               <b:includable id='main'>
@@ -989,7 +982,7 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
         <b:section id='introduction' maxwidgets='1' showaddelement='yes'>
           <b:widget id='HTML1' locked='false' title='Apresentação' type='HTML' version='1' mobile='yes'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<div class="eyebrow">Um espaço para a curiosidade</div><h1>Conhecimento começa com uma boa pergunta.</h1><p>Um lugar para reunir descobertas, conectar ideias e compartilhar o que aprendemos.</p>]]></b:widget-setting>
+              <b:widget-setting name='content'><![CDATA[<h1>Artigos sobre ciência, tecnologia e sociedade</h1>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'><div class='intro'><data:content/></div></b:includable>
           </b:widget>

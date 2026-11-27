@@ -12,9 +12,9 @@ O tema apresenta os marcadores configurados no gadget: não escolhe os primeiros
 
 ## 2. Menu: poucos caminhos principais
 
-Biblioteca, Projetos e Sobre são exemplos de entradas principais; use somente páginas publicadas e mantenha títulos curtos. O menu automático permanece ativo por compatibilidade. Para uma documentação com muitos capítulos fixos, configure uma vez o [modo manual](PAGES.md#escolher-somente-algumas-páginas-ou-ordenar-todo-o-menu) e escolha os links em **Layout → Páginas**.
+Biblioteca, Projetos e Sobre são exemplos de entradas principais. Escolha páginas publicadas com títulos curtos em **Layout → Páginas**.
 
-A mudança para o modo manual não é feita silenciosamente na atualização, pois isso poderia remover páginas antes descobertas pelo feed. Links de capítulos ficam dentro dos materiais e índices; não precisam aparecer todos no topo. Os links configurados no gadget fazem parte do HTML inicial, inclusive sem JavaScript.
+Os links escolhidos no gadget fazem parte do HTML inicial, inclusive sem JavaScript. Em atualizações, adicione ali as páginas que antes apareciam pelo feed ou [reative o modo automático](PAGES.md#páginas-automáticas-opcionais).
 
 ## 3. Guias e projetos: até três destaques
 

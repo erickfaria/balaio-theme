@@ -4,9 +4,9 @@
 
 ## Conteúdo e navegação
 
-- **Título e descrição:** configurações do blog. O cabeçalho usa o texto configurado.
+- **Título e descrição:** ajuste o nome do blog e a descrição de pesquisa em Configurações. O cabeçalho mostra o nome do blog.
 - **Abertura:** gadget **Apresentação** no Layout. Edite o texto, preservando uma única tag `<h1>`. Se remover o gadget, mantenha um único H1 descritivo na home.
-- **Páginas:** o menu descobre páginas publicadas ao atualizar; o Layout define links iniciais e sua ordem. [Modo automático/manual](PAGES.md).
+- **Páginas:** escolha os links e a ordem em Layout. A descoberta de páginas publicadas é opcional. [Modos do menu](PAGES.md).
 - **Menu:** adicione links extras de marcadores ou sites externos; evite duplicar Início.
 - **Assuntos:** na candidata de conteúdo de referência, selecione marcadores no gadget nativo do cabeçalho; links manuais continuam possíveis no Menu.
 - **Guias e projetos:** selecione poucos links duradouros no gadget da home; a faixa some quando estiver vazia. [Guia da candidata](REFERENCE.md).

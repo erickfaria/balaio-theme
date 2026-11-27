@@ -31,7 +31,7 @@ No build tools are needed to install the theme.
 2. Choose a **test blog** in Blogger. Back up the current theme from **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
 4. Configure your title, description and language in **Settings**.
-5. Published pages automatically supplement the top menu. **Layout → Pages** sets leading links, their labels and order; **Menu** adds extra links. For a fully manual menu, set `data-auto-pages='false'` on the navigation element. [Page navigation](docs/en/PAGES.md).
+5. In **Layout → Pages**, choose menu links, labels and order. Use **Menu** for extra links. Automatic discovery can be [enabled in the XML](docs/en/PAGES.md#optional-automatic-pages).
 6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use **Topics** for labels and **Guides and projects** for a short selection of reference links; this layout has no sidebar.
 7. Start with 10 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
@@ -45,7 +45,7 @@ No build tools are needed to install the theme.
 - Responsive layouts for phones, tablets and desktop; optional thumbnails and full-width entries when no image is available.
 - Native Blogger search in an icon-only disclosure, label links, pagination, article and static-page layouts. Click/tap the magnifier or press Enter/Space, then Tab to the field; toggle it again to close.
 - Basic comment display and a link to add a comment; embedded forms and threaded replies remain pending.
-- Editable introduction, automatic published-page navigation and extra Menu links; no sidebar and one header search.
+- Editable introduction with a short heading, native Pages navigation and extra Menu links. Automatic page discovery is optional.
 - Keyboard focus, skip link, contained code/table scrolling and print styles.
 - **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Post/page text defaults to 24px with a 1.75 line height. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
 - No third-party JavaScript libraries or Python package dependencies. The home continuation and page-menu enhancement are original MIT code; native pagination works without JavaScript.

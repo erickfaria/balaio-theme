@@ -115,12 +115,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   color:var(--ink);
   overflow-wrap:anywhere;
 }
-.description {
-  color:var(--muted);
-  margin:6px 0 0;
-  max-width:60ch;
-  font-size:15px;
-}
 .masthead-top > .header {
   flex:1;
 }
@@ -938,7 +932,6 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
             <b:widget id='Header1' locked='true' title='Header' type='Header' version='1' mobile='yes'>
               <b:includable id='main'>
                 <a class='brand' expr:href='data:blog.homepageUrl'><data:title/></a>
-                <b:if cond='data:description'><p class='description'><data:description/></p></b:if>
               </b:includable>
             </b:widget>
           </b:section>
@@ -950,7 +943,7 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
             </form>
           </details>
         </div>
-        <nav aria-label='Main navigation' class='navigation' data-auto-pages='true'>
+        <nav aria-label='Main navigation' class='navigation' data-auto-pages='false'>
           <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
             <b:widget id='PageList1' locked='false' mobile='yes' title='Pages' type='PageList' version='1'>
               <b:includable id='main'>
@@ -989,7 +982,7 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
         <b:section id='introduction' maxwidgets='1' showaddelement='yes'>
           <b:widget id='HTML1' locked='false' title='Introduction' type='HTML' version='1' mobile='yes'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<div class="eyebrow">A space for curiosity</div><h1>Knowledge starts with a good question.</h1><p>A place to gather discoveries, connect ideas and share what we learn.</p>]]></b:widget-setting>
+              <b:widget-setting name='content'><![CDATA[<h1>Articles on science, technology and society</h1>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'><div class='intro'><data:content/></div></b:includable>
           </b:widget>

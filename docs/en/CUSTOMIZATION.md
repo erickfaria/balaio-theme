@@ -4,9 +4,9 @@
 
 ## Content and navigation
 
-- **Title, description and language:** Blogger Settings. The header displays your configured text.
+- **Title, description and language:** configure these in Blogger Settings. The header displays the blog name.
 - **Opening text:** Introduction gadget in Layout (Apresentação in Portuguese). Keep one `h1`; if removing the gadget, keep a single descriptive home H1 elsewhere.
-- **Pages:** select published pages in Layout and arrange their top-navigation order.
+- **Pages:** choose the links and order in Layout. Published-page discovery is optional. [Navigation modes](PAGES.md).
 - **Menu:** add extra label or external links; avoid duplicating Home.
 - **Topics:** in the reference-content candidate, select labels in the native header gadget; manual Menu links remain available.
 - **Guides and projects:** select a few lasting home links; the strip disappears when empty. [Candidate guide](REFERENCE.md).

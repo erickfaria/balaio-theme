@@ -28,7 +28,7 @@ O ZIP extrai para `balaio-0.2.0-rc.16/`. Escolha um XML em `theme/`; não envie 
 
 1. Faça backup do XML atual do Blogger e registre gadgets, links e valores do Designer personalizados. Use primeiro um blog de teste separado.
 2. Em **Tema → menu → Editar HTML**, cole o XML completo da candidata no idioma escolhido e salve. O comentário do CSS identifica `v0.2.0-rc.16`.
-3. Confira as páginas publicadas no menu automático. **Layout → Páginas** define os links iniciais e sua ordem; para escolher somente algumas páginas, use o [modo manual](PAGES.md). **Menu** recebe links extras. Crie o conteúdo em Páginas; o XML não cria nem substitui esses registros.
+3. Confira os links em **Layout → Páginas** e use **Menu** para links extras. Se dependia dos links descobertos pelo feed, configure-os no gadget ou [reative o modo automático](PAGES.md#páginas-automáticas-opcionais). Crie o conteúdo em Páginas.
 4. Confira Apresentação e os links do menu. A lateral fica oculta por CSS. Os links de rodapé não são mais exibidos: mova links necessários para Páginas/Menu antes de atualizar. Blocos herdados de Perfil/Atribuição ficam ocultos.
 5. Em **Tema → Personalizar → Avançado**, confira cores e **Fonte de posts e páginas**. Valores salvos podem preservar um tamanho anterior; escolha 24px se necessário. Largura de leitura e padrões pastel estão em [CUSTOMIZATION.md](CUSTOMIZATION.md).
 6. Se aparecer o tema móvel antigo separado, escolha **Computador** nas configurações móveis. O próprio tema se adapta ao celular. Comece com dez posts em **Configurações → Postagens**; o Blogger pode paginar antes. Consulte [INSTALLATION.md](INSTALLATION.md).

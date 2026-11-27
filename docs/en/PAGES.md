@@ -16,9 +16,9 @@ Balaio includes editable page-body samples for About, Contact and Privacy. About
 2. Switch the editor to HTML mode and paste the sample's contents. Do not paste a whole HTML document; the theme supplies the page wrapper and H1.
 3. Preview and save as a draft while using placeholder text. Replace the sample with your own content before publishing on your public blog.
 4. After publishing, copy the actual URL shown by Blogger. Page URLs depend on the platform and your titles; the theme does not assume fixed `/p/` paths.
-5. With rc.8, published pages automatically supplement the menu after the public feed loads. **Layout → Pages** also sets leading links, labels and order. Use **Menu** for extra links; avoid duplicating Home.
+5. In **Layout → Pages**, choose which published pages appear in the menu and arrange their order. Use **Menu** for extra links and keep Home in one place.
 
-The theme XML installs layouts and gadgets, not page records. Samples are separate so importing the theme cannot overwrite your page content. Configured links retain their labels and order; automatic mode supplements the remaining public pages. To choose exactly which public pages appear, disable automatic mode as described below. [Blogger page instructions](https://support.google.com/blogger/answer/165955?hl=en).
+The theme XML installs layouts and gadgets, not page records. Samples are separate so importing the theme cannot overwrite your page content. The default menu follows the gadgets. If you previously relied on feed-discovered links, add them under **Layout → Pages** or enable automatic discovery below. [Blogger page instructions](https://support.google.com/blogger/answer/165955?hl=en).
 
 ## Page layout
 
@@ -28,21 +28,15 @@ The upper menu uses ordinary links, wraps on small screens and highlights the cu
 
 Test each page and the top navigation on a phone after import. Local previews use fictitious content and do not verify live Blogger behavior.
 
-## Automatic pages — rc.8
+## Optional automatic pages
 
-Navigation includes `data-auto-pages='true'` by default. Original code requests the blog’s own **public summary page feed**, without an API key or login, and adds up to 150 published pages. Configured links stay first; additional pages are sorted alphabetically. Duplicate URLs, including mobile variants, are skipped. Drafts are not part of the public feed.
+Change `data-auto-pages='false'` to `data-auto-pages='true'` on the navigation element in the XML to enable discovery. In this mode the theme requests the blog’s own **public summary page feed**, without an API key or login, and adds up to 150 published pages. Configured links stay first; additional pages are sorted alphabetically. Duplicate URLs, including mobile variants, are skipped. Drafts are not part of the public feed.
 
 In rc.9, navigation requests the feed when a page opens or reloads, revalidating the HTTP cache (`cache: no-cache`) without storing a session list. **Publishing adds a page; returning it to draft removes its automatic link on the next reload**, once Blogger’s feed reflects the change. Creating or saving a draft alone does not add it. An already-open tab does not update itself: reload it; there is no polling. Manually configured gadget links remain under your control and must be removed there when needed.
 
 Requests have a six-second timeout and low priority. Network/feed failure or disabled JavaScript preserves native Pages-widget links. Page names, domain and URLs are not hardcoded for Balaio Científico or another blog.
 
 ## Select only some pages or control the complete order
-
-Change only the navigation attribute in the XML:
-
-```xml
-<nav aria-label='Main navigation' class='navigation' data-auto-pages='false'>
-```
 
 Under **Layout → Pages → Edit**, add items using each published page’s actual URL and label, then arrange them. Some interfaces have page selection; others use **Add a new item**. Save the gadget and Layout. Manual mode respects exactly this list and makes no feed request.
 

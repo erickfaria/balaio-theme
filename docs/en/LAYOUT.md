@@ -12,9 +12,9 @@ The theme displays the labels configured in the widget. It does not take the fir
 
 ## 2. Menu: a few main paths
 
-Library, Projects and About are examples of main entry points; use published pages and short titles. Automatic discovery remains active for compatibility. For documentation with many static chapters, configure [manual navigation](PAGES.md) once and select links under **Layout → Pages**.
+Library, Projects and About are examples of main entry points. Choose published pages with short labels in **Layout → Pages**.
 
-The upgrade does not silently switch to manual mode, which could remove previously discovered page links. Chapter links belong inside materials and indexes; they do not all need to be in the header. Configured gadget links are delivered in the initial HTML, including without JavaScript.
+Links configured in the gadget appear in the initial HTML, including without JavaScript. When updating, add any links you previously relied on from the feed or [enable automatic mode](PAGES.md#optional-automatic-pages).
 
 ## 3. Guides and projects: up to three highlights
 
