@@ -22,6 +22,26 @@ class RenderedSEOTests(unittest.TestCase):
         self.assertEqual(report['h1'], ['A useful post'])
         self.assertEqual(report['title'], ['A & B'])
 
+    def test_mobile_mode_preserves_other_query_parameters(self):
+        url = 'https://example.com/search?q=ci%C3%AAncia&tag=&m=0&m=1#content'
+        self.assertEqual(module.with_mobile_mode(url, '1'),
+                         'https://example.com/search?q=ci%C3%AAncia&tag=&m=1')
+
+    def test_compare_mobile_metadata(self):
+        desktop = module.audit(HTML)
+        self.assertEqual(module.compare_mobile(desktop, desktop)['comparison_errors'], [])
+        mobile = module.audit(HTML.replace('/post"', '/post?m=1"')
+                              .replace('<title>A &amp; B', '<title>Mobile')
+                              .replace('content="An example."', 'content="Mobile summary."'))
+        self.assertEqual(module.compare_mobile(desktop, mobile)['comparison_errors'], [
+            'Desktop and mobile canonical URLs differ.',
+            'Desktop and mobile document titles differ.',
+            'Desktop and mobile meta descriptions differ.',
+        ])
+        self.assertEqual(module.compare_mobile(mobile, mobile)['comparison_errors'], [
+            'The desktop canonical URL includes a Blogger mobile mode parameter.',
+        ])
+
     def test_registered_blog_without_rendered_element_is_error(self):
         registration = "<script>_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', document.getElementById('Blog1'), {}, 'displayModeFull'));</script>"
         report = module.audit(HTML.replace('</body>', "<div id='main' class='no-items section'></div>" + registration + '</body>'))

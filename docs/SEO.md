@@ -54,9 +54,11 @@ Sem dependências adicionais:
 
 ```sh
 python3 scripts/audit_seo.py --url https://www.example.com/
-python3 scripts/audit_seo.py --url https://www.example.com/2026/10/example.html
+python3 scripts/audit_seo.py --url https://www.example.com/2026/10/example.html --compare-mobile
 python3 scripts/audit_seo.py --file /tmp/pagina-salva.html
 ```
+
+Após importar, use `--compare-mobile` na home, em um artigo e em uma página estática. O auditor solicita `m=0` e `m=1` e compara título, canonical e descrição. A descrição ausente continua sendo um aviso em cada versão.
 
 O relatório JSON verifica título, canonical, descrição, H1, idioma, ausência de alt, sintaxe JSON-LD e restrições de pesquisa. Código de saída 1 indica erro estrutural; avisos precisam de contexto e não alteram o código. O escopo de cada robô permanece no relatório. A auditoria **não** comprova indexação, completude de schema, acesso via robots.txt ou desempenho. Não execute sobre XML de template não compilado. Falhas HTTP são erros; redirecionamentos são seguidos e o HTML final é inspecionado.
 

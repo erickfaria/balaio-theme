@@ -54,9 +54,11 @@ No dependencies are required:
 
 ```sh
 python3 scripts/audit_seo.py --url https://www.example.com/
-python3 scripts/audit_seo.py --url https://www.example.com/2026/10/example.html
+python3 scripts/audit_seo.py --url https://www.example.com/2026/10/example.html --compare-mobile
 python3 scripts/audit_seo.py --file /tmp/saved-page.html
 ```
+
+After importing, use `--compare-mobile` on the home page, an article and a static page. The auditor requests `m=0` and `m=1` and compares the title, canonical URL and description. A missing description remains a warning for each version.
 
 The JSON report checks title, canonical, description, H1, language, missing image alt attributes, JSON-LD syntax and search restrictions. Exit code 1 means a structural error; warnings require context and do not change the exit code. Robot restrictions retain their agent scope. The audit does **not** prove indexing, schema completeness, robots.txt access or performance. Never run it on uncompiled template XML. HTTP failures propagate as errors; it follows redirects and checks their final HTML.
 

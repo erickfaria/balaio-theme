@@ -9,7 +9,7 @@ from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
-from urllib.parse import urlsplit
+from urllib.parse import parse_qsl, urlencode, urlsplit
 from urllib.request import Request, urlopen
 
 
@@ -108,30 +108,71 @@ def audit(html, x_robots=()):
             'json_ld_blocks': len(page.json_ld), 'missing_core_widgets': missing_core, 'robots': controls, 'errors': errors, 'warnings': warnings}
 
 
+def audit_url(url):
+    request = Request(url, headers={'User-Agent': 'BalaioSEOAudit/1.0'})
+    with urlopen(request, timeout=30) as response:
+        if 'text/html' not in response.headers.get('Content-Type', '').lower():
+            raise ValueError('Expected rendered HTML, not a sitemap or robots.txt.')
+        raw = response.read(5_000_001)
+        if len(raw) > 5_000_000:
+            raise ValueError('HTML exceeds the 5 MB audit limit.')
+        report = audit(raw.decode(response.headers.get_content_charset() or 'utf-8'),
+                       response.headers.get_all('X-Robots-Tag', []))
+        report.update(source=response.url, status=response.status)
+        return report
+
+
+def with_mobile_mode(url, mode):
+    parts = urlsplit(url)
+    params = [(key, value) for key, value in parse_qsl(parts.query, keep_blank_values=True) if key != 'm']
+    params.append(('m', mode))
+    return parts._replace(query=urlencode(params), fragment='').geturl()
+
+
+def compare_mobile(desktop, mobile):
+    errors = []
+    if not desktop['errors'] and not mobile['errors']:
+        desktop_canonical = desktop['canonical'][0]
+        if desktop_canonical != mobile['canonical'][0]:
+            errors.append('Desktop and mobile canonical URLs differ.')
+        if any(key == 'm' for key, _ in parse_qsl(urlsplit(desktop_canonical).query, keep_blank_values=True)):
+            errors.append('The desktop canonical URL includes a Blogger mobile mode parameter.')
+        if desktop['title'] != mobile['title']:
+            errors.append('Desktop and mobile document titles differ.')
+        if desktop['description'] != mobile['description']:
+            errors.append('Desktop and mobile meta descriptions differ.')
+    return {'desktop': desktop, 'mobile': mobile, 'comparison_errors': errors}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     source = parser.add_mutually_exclusive_group(required=True)
     source.add_argument('--file', type=Path)
     source.add_argument('--url')
+    parser.add_argument('--compare-mobile', action='store_true',
+                        help='With --url, compare the Blogger m=0 and m=1 versions.')
     args = parser.parse_args()
-    if args.file:
-        report = audit(args.file.read_text(encoding='utf-8'))
-        report['source'] = str(args.file)
-    else:
-        if urlsplit(args.url).scheme not in ('http', 'https'):
-            parser.error('--url must use HTTP(S)')
-        request = Request(args.url, headers={'User-Agent': 'BalaioSEOAudit/1.0'})
-        with urlopen(request, timeout=30) as response:
-            if 'text/html' not in response.headers.get('Content-Type', '').lower():
-                parser.error('Expected rendered HTML, not a sitemap or robots.txt')
-            raw = response.read(5_000_001)
-            if len(raw) > 5_000_000:
-                parser.error('HTML exceeds the 5 MB audit limit')
-            report = audit(raw.decode(response.headers.get_content_charset() or 'utf-8'),
-                           response.headers.get_all('X-Robots-Tag', []))
-            report.update(source=response.url, status=response.status)
+    if args.compare_mobile and not args.url:
+        parser.error('--compare-mobile requires --url.')
+    if args.url and urlsplit(args.url).scheme not in ('http', 'https'):
+        parser.error('--url must use HTTP(S).')
+    try:
+        if args.compare_mobile:
+            desktop = audit_url(with_mobile_mode(args.url, '0'))
+            mobile = audit_url(with_mobile_mode(args.url, '1'))
+            report = compare_mobile(desktop, mobile)
+            errors = desktop['errors'] or mobile['errors'] or report['comparison_errors']
+        else:
+            if args.file:
+                report = audit(args.file.read_text(encoding='utf-8'))
+                report['source'] = str(args.file)
+            else:
+                report = audit_url(args.url)
+            errors = report['errors']
+    except (OSError, ValueError) as error:
+        parser.exit(1, f'ERROR: {error}\n')
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 1 if report['errors'] else 0
+    return int(bool(errors))
 
 
 if __name__ == '__main__':
