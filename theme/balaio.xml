@@ -22,7 +22,6 @@
 <Variable name="linecolor" description="Divisórias suaves" type="color" default="#dce5df" value="#dce5df"/>
 <Variable name="washcolor" description="Superfície verde pastel" type="color" default="#edf5ef" value="#edf5ef"/>
 <Variable name="sandcolor" description="Card areia pastel" type="color" default="#f8f1e7" value="#f8f1e7"/>
-<Variable name="bluecolor" description="Card azul pastel" type="color" default="#eef2f6" value="#eef2f6"/>
 <Variable name="interfacefont" description="Fonte da interface" type="font" default="normal 400 17px Inter, system-ui, sans-serif" value="normal 400 17px Inter, system-ui, sans-serif"/>
 <Variable name="readingfont" description="Fonte de posts e páginas" type="font" default="normal 400 24px Newsreader, serif" value="normal 400 24px Newsreader, serif"/>
 */
@@ -34,7 +33,6 @@
   --line:$linecolor;
   --wash:$washcolor;
   --card-sand:$sandcolor;
-  --card-blue:$bluecolor;
   --reading-width:760px;
   --interface-font:$interfacefont;
   --reading-font:$readingfont;
@@ -149,7 +147,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   align-items:center;
   width:min(300px,calc(100% - 50px));
   height:44px;
-  max-width:100%;
   padding:0;
   border:1px solid var(--line);
   border-radius:999px;
@@ -191,9 +188,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   from {opacity:0;transform:translateX(6px)}
   to {opacity:1;transform:translateX(0)}
 }
-@media(prefers-reduced-motion:reduce) {
-  .search {animation:none}
-}
 .search-icon {
   display:block;
   position:relative;
@@ -232,6 +226,13 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 }
 body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
   display:contents;
+}
+/* Give Blogger's Layout editor room for the native gadget controls. */
+body#layout .navigation {
+  display:block;
+}
+body#layout .navigation .navbar {
+  height:auto;
 }
 .navigation .navbar ul {
   list-style:none;
@@ -404,9 +405,6 @@ body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
 .opening-cards .post-card:nth-child(2) {
   background:var(--card-sand);
 }
-.opening-cards .post-card:nth-child(3) {
-  background:var(--card-blue);
-}
 .opening-cards .post-image-link {
   order:-1;
   width:100%;
@@ -431,11 +429,6 @@ body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
   font-size:11px;
   margin-top:12px;
 }
-.posts {
-  display:flex;
-  flex-direction:column;
-  gap:0;
-}
 .post-card {
   display:grid;
   grid-template-columns:minmax(0,1fr) 180px;
@@ -444,9 +437,6 @@ body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
   border-top:1px solid var(--line);
   padding:28px 0;
 }
-.post-card h2 {
-  overflow-wrap:anywhere;
-}
 .post-copy {
   min-width:0;
 }
@@ -454,6 +444,7 @@ body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
   grid-column:1/-1;
 }
 .post-card h2 {
+  overflow-wrap:anywhere;
   font:var(--reading-font);
   font-weight:600;
   font-size:28px;
@@ -814,9 +805,6 @@ body#layout #contactpage {
   padding:32px;
   background:var(--wash);
 }
-.article-grid {
-  grid-template-columns:minmax(0,1fr);
-}
 body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.FeaturedPost,.widget.ReportAbuse,.widget.Profile,.widget.Attribution) {
   display:none;
 }
@@ -853,7 +841,6 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
     padding-top:16px;
   }
   .content-grid {
-    grid-template-columns:1fr;
     gap:24px;
     padding:16px 0 32px;
   }
@@ -898,6 +885,7 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
   }
 }
 @media(prefers-reduced-motion:reduce) {
+  .search {animation:none}
   * {
     scroll-behavior:auto!important;
   }

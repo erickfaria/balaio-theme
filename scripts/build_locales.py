@@ -25,7 +25,6 @@ TRANSLATIONS = {
     "Divisórias suaves": "Soft dividers",
     "Superfície verde pastel": "Pastel green surface",
     "Card areia pastel": "Pastel sand card",
-    "Card azul pastel": "Pastel blue card",
     "Fonte da interface": "Interface font",
     "Fonte de posts e páginas": "Post and page font",
     "Pular para o conteúdo": "Skip to content",
