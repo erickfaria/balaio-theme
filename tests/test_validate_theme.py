@@ -38,6 +38,9 @@ class ThemeValidationTests(unittest.TestCase):
         self.assertIsNotNone(labels.find('.//' + namespace + 'loop'))
         self.assertIsNone(root.find('.//' + namespace + "if[@cond='false']"))
         self.assertIn('#sidebar,', self.source)
+        sidebar_layout = root.find(".//" + namespace + "if[@cond='data:view.isLayoutMode']")
+        aside = sidebar_layout.find("{http://www.w3.org/1999/xhtml}aside")
+        self.assertIsNotNone(aside.find(namespace + "section[@id='sidebar']"))
         self.assertIsNone(root.find(".//{http://www.w3.org/1999/xhtml}div[@hidden='hidden']"))
 
     def test_missing_include(self):

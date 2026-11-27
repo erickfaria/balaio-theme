@@ -821,7 +821,7 @@ body#layout #contactpage {
 .article-grid {
   grid-template-columns:minmax(0,1fr);
 }
-#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.FeaturedPost,.widget.ReportAbuse,.widget.Profile,.widget.Attribution {
+body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.FeaturedPost,.widget.ReportAbuse,.widget.Profile,.widget.Attribution) {
   display:none;
 }
 @media(max-width:800px) {
@@ -1073,6 +1073,22 @@ body#layout #contactpage {
     if (text != null) element.textContent = text;
     return element;
   }
+  function imageURL(value, base) {
+    if (!value) return null;
+    try {
+      const url = new URL(value, base);
+      return url.protocol === 'https:' ? url : null;
+    } catch (_) { return null; }
+  }
+  function copyImageCandidates(image, sourceImage, base) {
+    const candidates = (sourceImage.getAttribute('srcset') || '').match(/^([^\s,]+) 320w,\s*([^\s,]+) 640w$/);
+    if (!candidates) return;
+    const small = imageURL(candidates[1], base);
+    const large = imageURL(candidates[2], base);
+    if (!small || !large || small.href.includes(',') || large.href.includes(',') || small.href === large.href) return;
+    image.sizes = sourceImage.getAttribute('sizes') || 'auto, 240px';
+    image.srcset = small.href + ' 320w, ' + large.href + ' 640w';
+  }
   // Rebuild only text, links and the thumbnail; never insert fetched scripts or HTML.
   function copyCard(source, url, base) {
     const card = node('article', 'post-card');
@@ -1104,25 +1120,22 @@ body#layout #contactpage {
     if (meta.childElementCount) copy.append(meta);
     card.append(copy);
     const sourceImage = source.querySelector('img.post-image');
-    if (sourceImage) {
-      try {
-        const imageURL = new URL(sourceImage.getAttribute('src'), base);
-        if (imageURL.protocol === 'https:') {
-          const imageLink = node('a', 'post-image-link');
-          imageLink.href = url.href;
-          imageLink.tabIndex = -1;
-          imageLink.setAttribute('aria-hidden', 'true');
-          const image = node('img', 'post-image');
-          image.alt = '';
-          image.width = 640;
-          image.height = 480;
-          image.loading = 'lazy';
-          image.decoding = 'async';
-          image.src = imageURL.href;
-          imageLink.append(image);
-          card.append(imageLink);
-        }
-      } catch (_) { /* A missing thumbnail never removes the post. */ }
+    const thumbnail = sourceImage && imageURL(sourceImage.getAttribute('src'), base);
+    if (thumbnail) {
+      const imageLink = node('a', 'post-image-link');
+      imageLink.href = url.href;
+      imageLink.tabIndex = -1;
+      imageLink.setAttribute('aria-hidden', 'true');
+      const image = node('img', 'post-image');
+      image.alt = '';
+      image.width = 640;
+      image.height = 480;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      copyImageCandidates(image, sourceImage, base);
+      image.src = thumbnail.href;
+      imageLink.append(image);
+      card.append(imageLink);
     }
     return card;
   }
@@ -1214,7 +1227,20 @@ body#layout #contactpage {
                   <p class='post-summary'><data:post.snippet/></p>
                   <b:include data='post' name='metadata'/>
                 </div>
-                <b:if cond='data:post.thumbnailUrl'><a class='post-image-link' expr:href='data:post.url' tabindex='-1' aria-hidden='true'><img alt='' class='post-image' expr:src='data:post.thumbnailUrl' loading='lazy' decoding='async' width='640' height='480'/></a></b:if>
+                <b:if cond='data:post.thumbnailUrl'>
+                  <b:with value='resizeImage(data:post.thumbnailUrl, 320, "4:3")' var='small'>
+                    <b:with value='resizeImage(data:post.thumbnailUrl, 640, "4:3")' var='large'>
+                      <a class='post-image-link' expr:href='data:post.url' tabindex='-1' aria-hidden='true'>
+                        <img alt='' class='post-image' expr:src='data:post.thumbnailUrl' loading='lazy' decoding='async' width='640' height='480'>
+                          <b:if cond='data:small and data:large and data:small != data:large'>
+                            <b:attr name='srcset' expr:value='data:small + " 320w, " + data:large + " 640w"'/>
+                            <b:attr name='sizes' value='auto, (max-width: 600px) 240px, (max-width: 1144px) 45vw, 515px'/>
+                          </b:if>
+                        </img>
+                      </a>
+                    </b:with>
+                  </b:with>
+                </b:if>
               </article>
             </b:includable>
             <b:includable id='article' var='post'>
@@ -1245,11 +1271,13 @@ body#layout #contactpage {
             </b:includable>
           </b:widget>
         </b:section>
-        <aside aria-label='Explore o blog' class='sidebar'>
-          <b:section class='sidebar' id='sidebar' showaddelement='yes'>
-            <!-- Reserved for optional legacy gadgets kept by Blogger during import. -->
-          </b:section>
-        </aside>
+        <b:if cond='data:view.isLayoutMode'>
+          <aside aria-label='Explore o blog' class='sidebar'>
+            <b:section class='sidebar' id='sidebar' showaddelement='yes'>
+              <!-- Reserved for optional legacy gadgets kept by Blogger during import. -->
+            </b:section>
+          </aside>
+        </b:if>
       </div>
       <b:section class='contact-section' id='contactpage' maxwidgets='1' showaddelement='no'>
         <b:widget cond='data:blog.pageType == "static_page"' id='ContactForm1' locked='false' mobile='yes' title='Formulário de contato' type='ContactForm' version='1'>

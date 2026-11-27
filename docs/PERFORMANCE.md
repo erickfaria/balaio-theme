@@ -9,9 +9,9 @@ A rc.7 mantém a base da rc.6 e recupera os gadgets e a continuação da rc.3, m
 - Uma folha Google Fonts, duas pré-conexões, `display=swap` e alternativas locais. Inter 400–750 e Newsreader 400–700 usam intervalos variáveis. [Google Fonts CSS2](https://developers.google.com/fonts/docs/css2).
 - Dois destaques em HTML e lista de continuação com meta de dez posts. Quando a home precisa de mais posts, a continuação espera o HTML inicial e um período ocioso quando disponível, consultando no máximo quatro páginas sequenciais com prioridade baixa. Cada requisição tem timeout de oito segundos; não baixa o arquivo inteiro. [Configuração da home](HOME.md).
 - Parsing em template inerte; o tema lê somente o widget Blog1 da resposta e reconstrói as entradas com nós de texto, links e miniaturas. Scripts, eventos e estilos recebidos não são inseridos no documento ativo. A paginação nativa permanece disponível em caso de falha.
-- Miniaturas decorativas com dimensões, carregamento lento e decodificação assíncrona. Artigos sem miniatura continuam legíveis.
+- Miniaturas decorativas com dimensões, carregamento lento e decodificação assíncrona. Quando o Blogger oferece dois tamanhos distintos, o navegador escolhe entre 320w e 640w. A URL original continua disponível como alternativa. Artigos sem miniatura continuam legíveis.
 - Título por página, canonical e metadados do Blogger, com microdados do conteúdo visível. Sem scripts especiais para rastreadores ou metadados duplicados.
-- Lateral legada oculta por CSS para preservar a estrutura importável. Isso não elimina seu HTML: remova no Layout gadgets opcionais que não usa, como busca duplicada, arquivo por data ou destaque repetido. Os gadgets centrais de Cabeçalho, Páginas, Menu e Postagens são necessários.
+- A seção lateral legada é reservada ao editor de Layout para manter o local dos gadgets durante a migração. Confira o editor e o HTML público após importar o XML.
 
 Compare a home curta e a paginação nativa após importar o tema. Meça o carregamento em uma conexão móvel para avaliar o efeito do agendamento e da prioridade declarada.
 
@@ -24,7 +24,7 @@ O HTML inicial da home rc.3 tinha 37.049 bytes descomprimidos (9.744 em gzip). U
 ## Manter sua instalação rápida
 
 1. Comece com dez posts nas configurações e mantenha o orçamento padrão de continuação. Defina `data-page-limit='0'` para desligar as requisições adicionais. Metas maiores aumentam tráfego.
-2. Revise no Layout os gadgets opcionais herdados. O Blogger pode preservá-los ao instalar um tema.
+2. Confira os gadgets opcionais herdados no editor de Layout após instalar o tema.
 3. Redimensione/comprima imagens antes do envio, informe dimensões e texto alternativo. Mantenha imagens iniciais do artigo com carregamento imediato; use carregamento lento nas posteriores. [Imagens no navegador](https://web.dev/articles/browser-level-image-lazy-loading).
 4. Evite larguras fixas e excesso de estilos/scripts nos posts. Use o [exemplo de postagem](POSTS.md) e uma quebra de expansão depois de introduções longas.
 5. Para fontes do dispositivo, remova os três links Google Fonts do cabeçalho XML. Ao hospedar fontes, preserve seus avisos OFL. [Licenças](PROVENANCE.md).

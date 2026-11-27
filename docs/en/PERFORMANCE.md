@@ -9,9 +9,9 @@ rc.7 retains the rc.6 baseline and restores rc.3 widgets and continuation, retai
 - One Google Fonts stylesheet, two preconnections, `display=swap` and local fallbacks. Inter 400–750 and Newsreader 400–700 use variable ranges. [Google Fonts CSS2](https://developers.google.com/fonts/docs/css2).
 - Two HTML highlights and a continuation list targeting ten posts. When the homepage needs more posts, continuation waits for the initial HTML and browser idle time when available, fetching at most four sequential pages at low priority. Requests have eight-second timeouts; it does not download the entire archive. [Home settings](HOME.md).
 - Inert template parsing; the theme reads only the response’s Blog1 widget and rebuilds entries with text, links and thumbnails. Fetched scripts, event handlers and styles are never inserted into the active document. Native pagination remains on failure.
-- Decorative thumbnails have dimensions, lazy loading and asynchronous decoding. Entries without thumbnails remain readable.
+- Decorative thumbnails have dimensions, lazy loading and asynchronous decoding. When Blogger offers two distinct sizes, the browser chooses between 320w and 640w. The original URL remains the fallback. Entries without thumbnails remain readable.
 - Page-specific titles, Blogger canonical and metadata, with visible-content microdata. No special crawler scripts or duplicated metadata.
-- The legacy sidebar is hidden through CSS to retain the importable structure. This does not remove its HTML: remove unused optional gadgets in Layout, such as duplicate search, date archives or Featured Post. Header, Pages, Menu and Posts remain core gadgets.
+- The legacy sidebar section is reserved for the Layout editor so widgets have a place during migration. Check the editor and public HTML after importing the XML.
 
 Check a short homepage and native pagination after importing the theme. Measure load on a mobile connection to assess the effects of scheduling and the priority hint.
 
@@ -24,7 +24,7 @@ The inspected rc.3 home HTML measured 37,049 decoded bytes (9,744 gzip). One art
 ## Keep your installation fast
 
 1. Start with ten posts in Settings and retain the default continuation budget. Set `data-page-limit='0'` to disable extra requests. Higher targets increase traffic.
-2. Review inherited optional gadgets in Layout. Blogger can retain them when installing a theme.
+2. Check inherited optional gadgets in the Layout editor after installing the theme.
 3. Resize/compress images before upload; include dimensions and descriptive alt text. Keep initial article images eager; use lazy loading for later images. [Browser image loading](https://web.dev/articles/browser-level-image-lazy-loading).
 4. Avoid fixed widths and excessive post styles/scripts. Use the [post sample](POSTS.md) and a native jump break after long introductions.
 5. For device fonts, remove the three Google Fonts links from the XML head. Preserve OFL notices when self-hosting fonts. [Licenses](PROVENANCE.md).
