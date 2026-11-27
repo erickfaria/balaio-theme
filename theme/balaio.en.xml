@@ -943,7 +943,7 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
             </form>
           </details>
         </div>
-        <nav aria-label='Main navigation' class='navigation' data-auto-pages='false'>
+        <nav aria-label='Main navigation' class='navigation'>
           <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
             <b:widget id='PageList1' locked='false' mobile='yes' title='Pages' type='PageList' version='1'>
               <b:includable id='main'>
@@ -1307,80 +1307,6 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
       </b:section>
     </main>
     <footer class='site-footer wrap'><a href='https://www.blogger.com/go/report-abuse' rel='nofollow'>Report abuse</a></footer>
-    <script id='page-navigation' type='text/javascript'>//<![CDATA[
-(() => {
-  'use strict';
-  function initializeNavigation() {
-    const nav = document.querySelector('.navigation[data-auto-pages="true"]');
-    const widget = nav && nav.querySelector('#PageList1');
-    const list = widget && widget.querySelector('ul');
-    if (!list || !window.fetch || !window.AbortController) return;
-    function localURL(value) {
-      if (typeof value !== 'string' || !value.trim()) return null;
-      try {
-        const url = new URL(value, location.href);
-        return url.origin === location.origin && /^https?:$/.test(url.protocol) ? url : null;
-      } catch (_) { return null; }
-    }
-    function appendPages(pages) {
-      if (!Array.isArray(pages)) return;
-      const seen = new Set();
-      for (const link of nav.querySelectorAll('.navbar a[href]')) {
-        const url = localURL(link.getAttribute('href'));
-        if (url) seen.add(url.pathname);
-      }
-      const entries = [];
-      for (const page of pages.slice(0, 150)) {
-        const url = localURL(page && page.href);
-        const title = page && typeof page.title === 'string' ? page.title.trim() : '';
-        if (!url || !url.pathname.startsWith('/p/') || !title || seen.has(url.pathname)) continue;
-        seen.add(url.pathname);
-        entries.push({title, url});
-      }
-      entries.sort((a, b) => a.title.localeCompare(b.title, document.documentElement.lang || undefined));
-      for (const page of entries) {
-        const item = document.createElement('li');
-        const link = document.createElement('a');
-        link.href = page.url.href;
-        link.textContent = page.title;
-        if (page.url.pathname === location.pathname) link.setAttribute('aria-current', 'page');
-        item.append(link);
-        list.append(item);
-      }
-    }
-    const feed = localURL(nav.dataset.pagesFeed || '/feeds/pages/summary?alt=json&max-results=150');
-    if (!feed) return;
-    async function loadPages() {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 6000);
-      try {
-        const response = await fetch(feed.href, {
-          signal: controller.signal, credentials: 'omit', redirect: 'error', priority: 'low', cache: 'no-cache'
-        });
-        if (!response.ok) return;
-        const data = await response.json();
-        if (!data || !data.feed || typeof data.feed !== 'object') return;
-        const entries = data.feed.entry;
-        if (entries !== undefined && !Array.isArray(entries)) return;
-        const pages = [];
-        for (const entry of (entries || []).slice(0, 150)) {
-          const links = entry && entry.link;
-          const link = Array.isArray(links) && links.find(item => item && item.rel === 'alternate');
-          const title = entry && entry.title && entry.title.$t;
-          if (link && typeof title === 'string') pages.push({title, href: link.href});
-        }
-        appendPages(pages);
-      } catch (_) {
-        // Native menu links remain available if the public feed is unavailable.
-      } finally { clearTimeout(timer); }
-    }
-    loadPages();
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeNavigation, {once: true});
-  } else initializeNavigation();
-})();
-    //]]></script>
     <b:if cond='data:blog.analyticsAccountNumber'>
       <b:include data='blog' name='google-analytics'/>
     </b:if>

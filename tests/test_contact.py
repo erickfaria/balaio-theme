@@ -67,7 +67,7 @@ class ContactTests(unittest.TestCase):
             root = ET.parse(path).getroot()
             widget = root.find(f".//{B}widget[@id='ContactForm1']")
             self.assertEqual(list(widget.iter(H + "script")), [])
-            self.assertEqual(len(list(root.iter(H + "script"))), 2)
+            self.assertEqual(len(list(root.iter(H + "script"))), 1)
             self.assertNotIn("canonicalUrl", widget.get("cond"))
             css = root.find(f".//{B}skin").text
             self.assertIn("body:has(.post-body .balaio-contact-page) #contactpage", css)

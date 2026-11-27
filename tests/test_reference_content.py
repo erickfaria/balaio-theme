@@ -91,7 +91,7 @@ class ReferenceContentTests(unittest.TestCase):
                 person = metadata.find(".//" + H + "span[@itemprop='author']")
                 self.assertEqual(person.get("itemtype"), "https://schema.org/Person")
                 self.assertIsNotNone(person.find(".//" + B + "else"))
-                self.assertEqual(len(root.findall(".//" + H + "script")), 2)
+                self.assertEqual(len(root.findall(".//" + H + "script")), 1)
 
     def test_guide_examples_have_working_fragment_links_without_extra_h1(self):
         for path in (ROOT / "examples/pages").glob("*.html"):
