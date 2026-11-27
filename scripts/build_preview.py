@@ -5,6 +5,7 @@ from copy import deepcopy
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import re
+from build_locales import TRANSLATIONS
 from validate_theme import preview_css
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -97,9 +98,8 @@ def contact_markup(english=False, feedback=None):
     return '<div class="contact-section section" id="contactpage"><div class="widget ContactForm" id="ContactForm1">' + ET.tostring(section, encoding="unicode", method="html") + '</div></div>'
 
 
-def page(title, content, home=False):
-    script = HOME_SCRIPT if home else ""
-    return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>.section{{margin:0 15px}}.widget{{margin:0 0 30px}}.navbar{{height:30px}}</style><style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main><footer class="site-footer wrap"><a href="https://www.blogger.com/go/report-abuse" rel="nofollow">Denunciar abuso</a></footer>{script}</body></html>'
+def page(title, content):
+    return f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Balaio</title>{FONT_LINKS}<style>.section{{margin:0 15px}}.widget{{margin:0 0 30px}}.navbar{{height:30px}}</style><style>{CSS}</style></head><body>{HEADER}<main class="wrap" id="content" tabindex="-1">{content}</main><footer class="site-footer wrap"><a href="https://www.blogger.com/go/report-abuse" rel="nofollow">Denunciar abuso</a></footer></body></html>'
 
 
 def build():
@@ -113,49 +113,54 @@ def build():
     b = "{http://www.google.com/2005/gml/b}"
     introduction = TREE.find(f".//{b}widget[@id='HTML1']/{b}widget-settings/{b}widget-setting[@name='content']").text
     intro = f'<div class="section" id="introduction"><div class="widget HTML" id="HTML1"><div class="intro">{introduction}</div></div></div>'
-    def listing(entries, next_page=None, home=False):
+    home_target = int(TREE.find(f".//{b}with[@var='homePostTarget']").get("value"))
+    home_page_limit = int(TREE.find(f".//{b}with[@var='homePageLimit']").get("value"))
+
+    def listing(entries, next_page=None, home=False, target=home_target, page_limit=home_page_limit):
         opening = '<h2 class="section-title">Últimas publicações</h2><div class="opening-cards">' + ''.join(entries[:2]) + '</div>' if home else ''
         remaining = entries[2:] if home else entries
         title = '<h2 class="section-title more-title">Mais leituras</h2>' if home and remaining else ''
-        attrs = ' id="postlist" data-home-posts="10" data-page-limit="4" data-list-title="Mais leituras"'
+        attrs = f' id="postlist" data-home-posts="{target}" data-page-limit="{page_limit}" data-list-title="Mais leituras"'
         pager = '<nav class="pager" aria-label="Paginação"><span></span><span><a href="' + next_page + '" rel="next">Publicações anteriores</a></span></nav>' if next_page else ''
-        return '<div class="content-grid"><div class="main section"><div class="widget Blog" id="Blog1">' + opening + title + '<div class="posts"' + attrs + '>' + ''.join(remaining) + '</div>' + pager + '</div></div>' + '</div>'
-    (OUT / "index.html").write_text(page("Início", intro + RESOURCES + listing(cards, home=True), home=True))
+        # Mirror the template's homepage gate without evaluating Blogger expressions.
+        script = HOME_SCRIPT if home and next_page and 0 < len(entries) < target and page_limit > 0 else ""
+        return '<div class="content-grid"><div class="main section"><div class="widget Blog" id="Blog1">' + opening + title + '<div class="posts"' + attrs + '>' + ''.join(remaining) + '</div>' + pager + script + '</div></div>' + '</div>'
+    (OUT / "index.html").write_text(page("Início", intro + RESOURCES + listing(cards, "older-5.html", home=True)))
     # Reproduce Blogger delivering only two posts despite a higher configured maximum.
-    (OUT / "short-home.html").write_text(page("Home paginada", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True), home=True))
+    (OUT / "short-home.html").write_text(page("Home paginada", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True)))
     frames = ''.join(f'<iframe id="width-{width}" src="short-home.html" width="{width}" height="900" title="Home {width}px" style="display:block;border:0"></iframe>' for width in (320, 360, 768, 1440))
     (OUT / "responsive-home.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Home responsiva</title><body>' + frames + '</body></html>')
     reading_frames = ''.join(f'<iframe id="{name}-{width}" src="{name}.html" width="{width}" height="900" title="{name} {width}px" style="display:block;border:0"></iframe>' for name in ('article', 'privacy', 'stress') for width in (320, 360, 768, 1440))
     (OUT / "responsive-reading.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Leitura responsiva</title><body>' + reading_frames + '</body></html>')
-    (OUT / "short-nojs.html").write_text(page("Sem JavaScript", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True)))
+    (OUT / "short-nojs.html").write_text(page("Sem JavaScript", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True, page_limit=0)))
     for index in range(4):
         next_page = f"older-{index + 2}.html"  # Last link stays crawlable after reaching the target.
         (OUT / f"older-{index + 1}.html").write_text(page("Publicações anteriores", listing(cards[2 + index * 2:4 + index * 2], next_page)))
     (OUT / "older-5.html").write_text(page("Fim do arquivo", listing([])))
     for name, next_page in [("failure", "missing-page.html"), ("partial-failure", "partial-page.html"), ("duplicates", "duplicate-page.html"), ("cycle", "cycle-page.html"), ("external", "https://example.org/older")]:
-        (OUT / f"short-{name}.html").write_text(page(name, intro + RESOURCES + listing(cards[:2], next_page, home=True), home=True))
+        (OUT / f"short-{name}.html").write_text(page(name, intro + RESOURCES + listing(cards[:2], next_page, home=True)))
     (OUT / "partial-page.html").write_text(page("Falha parcial", listing(cards[2:4], "missing-page.html")))
     (OUT / "duplicate-page.html").write_text(page("Duplicações", listing(cards[:4], "older-2.html")))
     (OUT / "cycle-page.html").write_text(page("Ciclo", listing(cards[2:4], "cycle-page.html")))
-    (OUT / "short-budget.html").write_text(page("Uma página extra", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True).replace('data-page-limit="4"', 'data-page-limit="1"'), home=True))
-    (OUT / "short-target.html").write_text(page("Meta sem cortar página", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True).replace('data-home-posts="10"', 'data-home-posts="3"'), home=True))
-    (OUT / "short-disabled.html").write_text(page("Carregamento desligado", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True).replace('data-page-limit="4"', 'data-page-limit="0"'), home=True))
-    (OUT / "short-end.html").write_text(page("Fim antecipado", intro + RESOURCES + listing(cards[:2], "end-page.html", home=True), home=True))
+    (OUT / "short-budget.html").write_text(page("Uma página extra", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True, page_limit=1)))
+    (OUT / "short-target.html").write_text(page("Meta sem cortar página", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True, target=3)))
+    (OUT / "short-disabled.html").write_text(page("Carregamento desligado", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True, page_limit=0)))
+    (OUT / "short-end.html").write_text(page("Fim antecipado", intro + RESOURCES + listing(cards[:2], "end-page.html", home=True)))
     (OUT / "end-page.html").write_text(page("Fim", listing(cards[2:4])))
     unsafe = cards[2].replace('<p class="post-summary">', """<p class="post-summary"><img src="missing.png" onerror="document.body.setAttribute('data-attack','ran')">""")
     (OUT / "unsafe-page.html").write_text(page("Conteúdo inerte", listing([unsafe])) + '<script>document.body.setAttribute("data-attack","ran")</script>')
-    (OUT / "short-unsafe.html").write_text(page("Conteúdo inerte", intro + RESOURCES + listing(cards[:2], "unsafe-page.html", home=True), home=True))
+    (OUT / "short-unsafe.html").write_text(page("Conteúdo inerte", intro + RESOURCES + listing(cards[:2], "unsafe-page.html", home=True)))
     # Query cleanup must preserve unrelated parameters and fragments.
     mobile_card = cards[2].replace('post-3.html', 'post-3.html?m=0&amp;ref=fixture#reading').replace(
         '<div class="labels">Método</div>',
         '<div class="labels"><a href="empty.html?m=1&amp;ref=label#topics">Método</a></div>')
     (OUT / "mobile-links-page.html").write_text(page("Links de conteúdo", listing([mobile_card])))
-    (OUT / "short-mobile-links.html").write_text(page("Links móveis", intro + RESOURCES + listing(cards[:2], "mobile-links-page.html", home=True), home=True))
+    (OUT / "short-mobile-links.html").write_text(page("Links móveis", intro + RESOURCES + listing(cards[:2], "mobile-links-page.html", home=True)))
     decoy = '<section class="posts">' + cards[9] + '</section><nav class="pager"><a rel="next" href="https://example.org/older">Outro gadget</a></nav>'
     (OUT / "mixed-page.html").write_text(page("Gadgets fora do Blog1", decoy + listing(cards[2:4])))
-    (OUT / "short-mixed.html").write_text(page("Gadgets fora do Blog1", intro + RESOURCES + listing(cards[:2], "mixed-page.html", home=True), home=True))
+    (OUT / "short-mixed.html").write_text(page("Gadgets fora do Blog1", intro + RESOURCES + listing(cards[:2], "mixed-page.html", home=True)))
     (OUT / "missing-blog-page.html").write_text(page("Página sem Blog1", decoy))
-    (OUT / "short-missing-blog.html").write_text(page("Resposta incompleta", intro + RESOURCES + listing(cards[:2], "missing-blog-page.html", home=True), home=True))
+    (OUT / "short-missing-blog.html").write_text(page("Resposta incompleta", intro + RESOURCES + listing(cards[:2], "missing-blog-page.html", home=True)))
     pages_dir = OUT / "p"
     pages_dir.mkdir(exist_ok=True)
     frames = ''.join(f'<iframe id="width-{width}" src="index.html" width="{width}" height="900" title="Menu {width}px" style="display:block;border:0"></iframe>' for width in (320, 360, 768, 1440))
@@ -169,7 +174,7 @@ def build():
     (OUT / "article.html").write_text(page("Leitura", article))
     (OUT / "author-no-photo.html").write_text(page("Autoria sem foto", article.replace(author_markup(), author_markup(photo=False, profile=''))))
     (OUT / "author-long-name.html").write_text(page("Autoria longa", article.replace(author_markup(), author_markup('Nome de demonstração muito longo para conferir a quebra de linha na autoria'))))
-    (OUT / "resources-empty.html").write_text(page("Sem destaques configurados", intro + listing(cards[:2], home=True), home=True))
+    (OUT / "resources-empty.html").write_text(page("Sem destaques configurados", intro + listing(cards[:2], home=True)))
     guide_body = (ROOT / 'examples/pages/guide.pt-BR.html').read_text()
     for filename, title in [('guide.html', 'Apostila de referência'), ('project.html', 'Documentação do projeto')]:
         guide = '<div class="content-grid article-grid"><article class="article" itemscope itemtype="https://schema.org/WebPage"><h1 itemprop="name">' + title + '</h1><div class="post-body" itemprop="text">' + guide_body + '</div></article></div>'
@@ -181,7 +186,6 @@ def build():
             filename = name + ('.en' if locale == 'en' else '') + '.html'
             rendered = page(title, markup)
             if locale == 'en':
-                from build_locales import TRANSLATIONS
                 for original, translated in TRANSLATIONS.items():
                     rendered = rendered.replace(original, translated)
                 rendered = rendered.replace('lang="pt-BR"', 'lang="en"')
@@ -212,11 +216,10 @@ def build():
     (OUT / 'library.html').write_text(library)
     english_guide = '<div class="content-grid article-grid"><article class="article"><h1>Reference guide</h1><div class="post-body">' + (ROOT / 'examples/pages/guide.en.html').read_text() + '</div></article></div>'
     english_page = page('Reference guide', english_guide)
-    from build_locales import TRANSLATIONS
     for original, translated in TRANSLATIONS.items():
         english_page = english_page.replace(original, translated)
     (OUT / 'guide.en.html').write_text(english_page.replace('lang="pt-BR"', 'lang="en"'))
-    (OUT / 'topics-empty.html').write_text(page('Sem assuntos publicados', intro + listing(cards[:2], home=True), home=True).replace(TOPICS, ''))
+    (OUT / 'topics-empty.html').write_text(page('Sem assuntos publicados', intro + listing(cards[:2], home=True)).replace(TOPICS, ''))
     (OUT / 'reference-nojs.html').write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Referências sem JavaScript</title><iframe sandbox="allow-same-origin allow-forms" src="index.html" width="360" height="1100" title="Guias e assuntos sem scripts"></iframe></html>')
     frames = ''.join('<iframe src="' + name + '.html" width="' + str(width) + '" height="1000" title="' + name + ' ' + str(width) + 'px" style="display:block;border:0"></iframe>' for name in ('index', 'guide', 'book', 'chapter', 'library', 'docs-use', 'author-long-name', 'resources-empty') for width in (320, 360, 768, 1440))
     (OUT / 'responsive-reference.html').write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Guias e autoria responsivos</title><body>' + frames + '</body></html>')
@@ -233,7 +236,6 @@ def build():
         (OUT / f'{slug}.html').write_text(rendered)
     contact_body = (ROOT / 'examples/pages/contact.en.html').read_text(encoding='utf-8')
     english_contact = static_page('Contact', contact_body, english=True)
-    from build_locales import TRANSLATIONS
     for original, translated in TRANSLATIONS.items():
         english_contact = english_contact.replace(original, translated)
     for original, translated in [('Sobre mim','About'),('Contato','Contact'),('Privacidade','Privacy'),('Leitura','Reading'),('Busca sem resultados','Empty search')]:

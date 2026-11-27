@@ -5,11 +5,57 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+import sys
+from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 NODE = shutil.which("node")
+
+
+class HomeRenderingTests(unittest.TestCase):
+    def test_template_gates_continuation_on_native_pagination(self):
+        b = "{http://www.google.com/2005/gml/b}"
+        h = "{http://www.w3.org/1999/xhtml}"
+        expr = "{http://www.google.com/2005/gml/expr}"
+        for path in sorted((ROOT / "theme").glob("*.xml")):
+            with self.subTest(locale=path.name):
+                root = ET.parse(path).getroot()
+                widget = root.find(f".//{b}widget[@id='Blog1']")
+                main = widget.find(f"{b}includable[@id='main']")
+                target = main.find(f".//{b}with[@var='homePostTarget']")
+                limit = target.find(f"{b}with[@var='homePageLimit']")
+                postlist = limit.find(f"{h}div[@id='postlist']")
+                self.assertEqual(postlist.get(expr + "data-home-posts"), "data:homePostTarget")
+                self.assertEqual(postlist.get(expr + "data-page-limit"), "data:homePageLimit")
+                self.assertIsNotNone(limit.find(f"{b}include[@name='pagination']"))
+                guard = limit.find(f"{b}if")
+                self.assertIsNotNone(guard.find(f"{b}include[@name='homeContinuation']"))
+                self.assertEqual(guard.get("cond").split(" and "), [
+                    "data:blog.url == data:blog.homepageUrl",
+                    "data:olderPageUrl",
+                    "not data:posts.empty",
+                    "data:posts.size < data:homePostTarget",
+                    "data:homePageLimit > 0",
+                ])
+
+    def test_preview_loads_script_only_for_short_eligible_home(self):
+        sys.path.insert(0, str(ROOT / "scripts"))
+        try:
+            import build_preview
+        finally:
+            sys.path.pop(0)
+        with TemporaryDirectory() as directory, patch.object(build_preview, "OUT", Path(directory)):
+            build_preview.build()
+            for name, has_script in [
+                ("index", False), ("short-disabled", False), ("resources-empty", False),
+                ("older-1", False), ("short-home", True), ("short-budget", True),
+            ]:
+                with self.subTest(preview=name):
+                    html = (Path(directory) / f"{name}.html").read_text(encoding="utf-8")
+                    self.assertEqual("id='home-continuation'" in html, has_script)
 
 
 class ScriptHTML(HTMLParser):

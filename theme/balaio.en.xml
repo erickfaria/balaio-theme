@@ -1016,17 +1016,22 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
                       <b:if cond='data:index &lt; 2'><b:include data='post' name='card'/></b:if>
                     </b:loop>
                   </div>
-                  <b:loop index='index' values='data:posts' var='post'>
-                    <b:if cond='data:index == 2'><h2 class='section-title more-title'>More to read</h2></b:if>
-                  </b:loop>
+                  <b:if cond='data:posts.size &gt; 2'><h2 class='section-title more-title'>More to read</h2></b:if>
                 </b:if>
-                <div class='posts' id='postlist' data-home-posts='10' data-page-limit='4' data-list-title='More to read'>
-                  <b:loop index='index' values='data:posts' var='post'>
-                    <b:if cond='data:blog.url != data:blog.homepageUrl or data:index &gt;= 2'><b:include data='post' name='card'/></b:if>
-                  </b:loop>
-                </div>
-                <b:include name='pagination'/>
-                <b:if cond='data:blog.url == data:blog.homepageUrl'><b:include name='homeContinuation'/></b:if>
+                <!-- Share the continuation settings between Blogger's render condition and the browser. -->
+                <b:with var='homePostTarget' value='10'>
+                  <b:with var='homePageLimit' value='4'>
+                    <div class='posts' id='postlist' expr:data-home-posts='data:homePostTarget' expr:data-page-limit='data:homePageLimit' data-list-title='More to read'>
+                      <b:loop index='index' values='data:posts' var='post'>
+                        <b:if cond='data:blog.url != data:blog.homepageUrl or data:index &gt;= 2'><b:include data='post' name='card'/></b:if>
+                      </b:loop>
+                    </div>
+                    <b:include name='pagination'/>
+                    <b:if cond='data:blog.url == data:blog.homepageUrl and data:olderPageUrl and not data:posts.empty and data:posts.size &lt; data:homePostTarget and data:homePageLimit &gt; 0'>
+                      <b:include name='homeContinuation'/>
+                    </b:if>
+                  </b:with>
+                </b:with>
               </b:if>
             </b:includable>
             <b:includable id='homeContinuation'>
