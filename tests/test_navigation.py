@@ -19,7 +19,9 @@ class NavigationTests(unittest.TestCase):
     def test_pages_and_custom_widgets_available_on_mobile(self):
         for path in (ROOT / "theme").glob("*.xml"):
             root = ET.parse(path).getroot()
-            navigation = root.find(f".//{B}section[@id='navigation']")
+            nav = root.find(f".//{H}nav[@class='navigation']")
+            self.assertEqual(nav.get("data-auto-pages"), "false")
+            navigation = nav.find(f"{B}section[@id='navigation']")
             self.assertEqual(navigation.find(f"{B}widget[@id='PageList1']").get("type"), "PageList")
             for widget in root.iter(f"{B}widget"):
                 self.assertEqual(widget.get("mobile"), "yes", widget.get("id"))

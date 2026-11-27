@@ -38,9 +38,9 @@ POSTS = [
 
 HEADER = '''<a class="skip" href="#content">Pular para o conteúdo</a>
 <header class="masthead"><div class="wrap"><div class="masthead-top">
-<div class="header section"><div class="widget"><a class="brand" href="index.html">Balaio Científico</a><p class="description">Ciência, cultura e outras boas perguntas.</p></div></div>
+<div class="header section"><div class="widget"><a class="brand" href="index.html">Balaio Científico</a></div></div>
 <form class="search" action="empty.html" role="search"><input aria-label="Buscar no blog" name="q" placeholder="Buscar no blog" type="search"><button>Buscar</button></form></div>
-<nav class="navigation" aria-label="Navegação principal" data-auto-pages="false"><div class="navbar section" id="navigation"><div class="widget PageList" id="PageList1"><ul><li><a href="index.html">Início</a></li><li><a href="article.html">Leitura</a></li><li><a href="about.html">Sobre mim</a></li><li><a href="contact.html">Contato</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="empty.html">Busca sem resultados</a></li></ul></div></div></nav></div></header>'''
+<nav class="navigation" aria-label="Navegação principal" data-auto-pages="false"><div class="navbar section" id="navigation"><div class="widget PageList" id="PageList1"><ul role="list"><li><a href="index.html">Início</a></li><li><a href="article.html">Leitura</a></li><li><a href="about.html">Sobre mim</a></li><li><a href="contact.html">Contato</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="empty.html">Busca sem resultados</a></li></ul></div></div></nav></div></header>'''
 
 
 # Visual fixtures only: native widget data is represented by ordinary sample links.
@@ -48,8 +48,7 @@ TOPICS = '<div class="topics section" id="topics"><div class="widget Label" id="
     '<li><a href="empty.html">' + escape(name) + '</a></li>'
     for name in ['Ciência de dados', 'Educação', 'Jamovi', 'Pesquisa', 'Radioamadorismo', 'Software livre']
 ) + '</ul></details></div></div>'
-HEADER = HEADER.replace('<nav class="navigation"', '<div class="navigation-row"><nav class="navigation"', 1)
-HEADER = HEADER.replace('</nav></div></header>', '</nav>' + TOPICS + '</div></div></header>')
+HEADER = HEADER.replace('</nav></div></header>', TOPICS + '</nav></div></header>')
 RESOURCES = '<div class="resource-navigation section" id="resources"><div class="widget LinkList" id="LinkList2"><nav class="resources" aria-label="Guias e projetos"><h2>Guias e projetos</h2><ul><li><a href="guide.html">Apostila de Jamovi</a></li><li><a href="project.html">Projeto de exemplo</a></li><li><a href="library.html">Biblioteca</a></li></ul></nav></div></div>'
 
 
@@ -111,9 +110,11 @@ def build():
     (OUT / "observation.svg").write_text('''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360"><rect width="480" height="360" fill="#e5edf0"/><g stroke="#365b7b" fill="none" stroke-width="2"><circle cx="240" cy="180" r="100"/><ellipse cx="240" cy="180" rx="150" ry="45" transform="rotate(35 240 180)"/><ellipse cx="240" cy="180" rx="150" ry="45" transform="rotate(-35 240 180)"/></g><circle cx="240" cy="180" r="12" fill="#365b7b"/></svg>''')
     cards = []
     for index, (label, title, summary, picture) in enumerate(POSTS):
-        image = '<a class="post-image-link" href="article.html" tabindex="-1" aria-hidden="true"><img class="post-image" src="observation.svg" alt="" width="480" height="360"></a>' if picture else ''
+        image = '<a class="post-image-link" href="article.html" tabindex="-1" aria-hidden="true"><img class="post-image" src="observation.svg" srcset="observation.svg?size=320 320w, observation.svg?size=640 640w" sizes="auto, (max-width: 600px) 240px, (max-width: 1144px) 45vw, 515px" alt="" width="640" height="480" loading="lazy" decoding="async"></a>' if picture else ''
         cards.append(f'<article class="post-card"><div class="post-copy"><div class="labels">{escape(label)}</div><h2><a href="article.html">{escape(title)}</a></h2><p class="post-summary">{escape(summary)}</p><div class="meta"><span>Equipe Balaio</span><span>11 de outubro de 2026</span></div></div>{image}</article>'.replace('href="article.html"', f'href="post-{index + 1}.html"'))
-    intro = '<div class="section" id="introduction"><div class="widget HTML" id="HTML1"><div class="intro"><div class="eyebrow">Um espaço para a curiosidade</div><h1>Conhecimento começa com uma boa pergunta.</h1><p>Um lugar para reunir descobertas, conectar ideias e compartilhar o que aprendemos.</p></div></div></div>'
+    b = "{http://www.google.com/2005/gml/b}"
+    introduction = TREE.find(f".//{b}widget[@id='HTML1']/{b}widget-settings/{b}widget-setting[@name='content']").text
+    intro = f'<div class="section" id="introduction"><div class="widget HTML" id="HTML1"><div class="intro">{introduction}</div></div></div>'
     def listing(entries, next_page=None, home=False):
         opening = '<h2 class="section-title">Últimas publicações</h2><div class="opening-cards">' + ''.join(entries[:2]) + '</div>' if home else ''
         remaining = entries[2:] if home else entries
@@ -178,8 +179,8 @@ def build():
         content = page("Menu automático", intro + RESOURCES + listing(cards[:2], "older-1.html", home=True), home=True)
         home = '<li><a aria-current="page" href="menu-auto.html">Início</a></li>'
         links = home + ('<li><a href="/p/about.html">Quem sou</a></li>' if manual else '')
-        content = re.sub(r'(<div class="widget PageList" id="PageList1">)<ul>.*?</ul>',
-                         r'\g<1><ul>' + links + '</ul>', content, count=1, flags=re.S)
+        content = re.sub(r'(<div class="widget PageList" id="PageList1">)<ul role="list">.*?</ul>',
+                         r'\g<1><ul role="list">' + links + '</ul>', content, count=1, flags=re.S)
         mode = 'true' if automatic else 'false'
         return content.replace('data-auto-pages="false"', f'data-auto-pages="{mode}" data-pages-feed="{escape(feed)}"', 1)
     for slug, feed in [('auto', 'pages-feed.json'), ('empty', 'pages-empty.json'),
@@ -275,7 +276,7 @@ def build():
     from build_locales import TRANSLATIONS
     for original, translated in TRANSLATIONS.items():
         english_contact = english_contact.replace(original, translated)
-    for original, translated in [('Sobre mim','About'),('Contato','Contact'),('Privacidade','Privacy'),('Leitura','Reading'),('Busca sem resultados','Empty search'),('Ciência, cultura e outras boas perguntas.','Science, culture and good questions.')]:
+    for original, translated in [('Sobre mim','About'),('Contato','Contact'),('Privacidade','Privacy'),('Leitura','Reading'),('Busca sem resultados','Empty search')]:
         english_contact = english_contact.replace(original, translated)
     (OUT / 'contact.en.html').write_text(english_contact.replace('lang="pt-BR"', 'lang="en"'))
     for filename in ('contact_1234567890.html', 'contato_987654321.html', 'write-to-us.html'):

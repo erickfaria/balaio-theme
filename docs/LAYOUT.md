@@ -6,15 +6,15 @@ A rc.15 mantém os mesmos gadgets nativos e usa HTML/CSS simples para o cabeçal
 
 ## 1. Assuntos: cinco a sete categorias
 
-Em **Layout → Assuntos → Editar**, use a seleção de marcadores do gadget para mostrar somente cinco a sete categorias principais. Prefira assuntos amplos e nomes curtos. Marcadores específicos podem continuar nos posts sem ocupar o cabeçalho. A apresentação não exibe contagens, seta, cápsula ou fundo destacado; usa a mesma tipografia e o mesmo alinhamento do menu.
+Em **Layout → Assuntos → Editar**, use a seleção de marcadores do gadget para mostrar somente cinco a sete categorias principais. Prefira assuntos amplos e nomes curtos. Marcadores específicos podem continuar nos posts sem ocupar o cabeçalho. O controle Assuntos usa a tipografia do menu, segue os links de Páginas e Menu e quebra linha junto com eles.
 
 O tema apresenta os marcadores configurados no gadget: não escolhe os primeiros sete em ordem alfabética nem esconde outros por CSS. Se a interface iniciar mostrando todos, ajuste a seleção no Layout. Nenhum nome de categoria ou domínio do Balaio Científico é imposto a outras instalações.
 
 ## 2. Menu: poucos caminhos principais
 
-Biblioteca, Projetos e Sobre são exemplos de entradas principais; use somente páginas publicadas e mantenha títulos curtos. O menu automático permanece ativo por compatibilidade. Para uma documentação com muitos capítulos fixos, configure uma vez o [modo manual](PAGES.md#escolher-somente-algumas-páginas-ou-ordenar-todo-o-menu) e escolha os links em **Layout → Páginas**.
+Biblioteca, Projetos e Sobre são exemplos de entradas principais. Escolha páginas publicadas com títulos curtos em **Layout → Páginas**.
 
-A mudança para o modo manual não é feita silenciosamente na atualização, pois isso poderia remover páginas antes descobertas pelo feed. Links de capítulos ficam dentro dos materiais e índices; não precisam aparecer todos no topo. Os links configurados no gadget fazem parte do HTML inicial, inclusive sem JavaScript.
+Os links escolhidos no gadget fazem parte do HTML inicial, inclusive sem JavaScript. Em atualizações, adicione ali as páginas que antes apareciam pelo feed ou [reative o modo automático](PAGES.md#páginas-automáticas-opcionais).
 
 ## 3. Guias e projetos: até três destaques
 

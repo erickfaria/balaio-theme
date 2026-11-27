@@ -1,6 +1,20 @@
-# Validation — v0.2.0-rc.16
+# Validation — v0.2.0-rc.17
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
+
+## rc.17 — Native navigation, reading and SEO — 2026-11-27
+
+| Check | Result |
+| --- | --- |
+| Local checks | 39 tests passed, XML and locale parity checked, internal links valid, preview and package built |
+| Navigation | Native links work without JavaScript. Default mode makes no feed request. Optional discovery still adds published pages |
+| Layout | No horizontal overflow in previews at 320, 360, 768 and 1440 px. With the same fixture at 360 px, the first post title moved from 721 to 545 px below the top compared with the previous branch revision |
+| Reading and images | Preview body text measured 24px. At 1× density, Chromium chose the 320w image at 360 px and 640w at 1440 px. Continuation preserved image fallback and reached ten unique posts on the short homepage |
+| SEO | Both XMLs keep Blogger’s native head metadata and visible microdata. The auditor compares the title, canonical URL and description between `m=0` and `m=1` |
+
+Layout measurements come from the preview with external resources blocked. The earlier public installation passed mobile parity on the home page, an article and About. The article and About still warned about a missing description. This public check serves as a baseline for the upgrade.
+
+**Pending on Blogger:** import both locales, inspect legacy widgets in Layout, verify the published thumbnail URLs and recheck metadata. Actual transfer and loading improvements depend on the HTML and resources served after import. [Installation and upgrade](RELEASE.md) · [SEO audit](SEO.md).
 
 ## rc.16 — Optional native Analytics — 2026-10-27
 

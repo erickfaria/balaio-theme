@@ -6,7 +6,7 @@ O tema fornece uma base técnica. Posição, indexação e citações também de
 
 ## O que o tema faz
 
-- Preserva um título de documento e o `all-head-content` nativo do Blogger para canonical, feeds, compartilhamento e regras de indexação configuradas. Evite inserir blocos duplicados de metadados.
+- Em artigos e páginas estáticas, o título do documento apresenta o nome do conteúdo antes do nome do blog quando ambos estão disponíveis. A home e as listagens usam o título nativo. O `all-head-content` do Blogger fornece canonical, descrições de pesquisa, feeds, compartilhamento e regras de indexação configuradas. Evite inserir blocos duplicados de metadados.
 - Usa título principal em artigos, páginas e listagens fora da home. A apresentação editável fornece o H1 da home; preserve um H1 significativo ao personalizá-la.
 - Identifica o conteúdo visível dos artigos com microdados schema.org `BlogPosting`: título, autor, corpo e permalink. Páginas estáticas usam `WebPage`. Essa abordagem dispensa montar JSON com texto não escapado de posts. Não inventa datas, avaliações, organização ou credenciais editoriais.
 - Oferece links HTML, leitura responsiva e imagens decorativas dos cards com alt vazio, dimensões e decodificação assíncrona. Imagens informativas dentro dos posts ainda precisam de texto alternativo escrito por você.
@@ -54,9 +54,11 @@ Sem dependências adicionais:
 
 ```sh
 python3 scripts/audit_seo.py --url https://www.example.com/
-python3 scripts/audit_seo.py --url https://www.example.com/2026/10/example.html
+python3 scripts/audit_seo.py --url https://www.example.com/2026/10/example.html --compare-mobile
 python3 scripts/audit_seo.py --file /tmp/pagina-salva.html
 ```
+
+Após importar, use `--compare-mobile` na home, em um artigo e em uma página estática. O auditor solicita `m=0` e `m=1` e compara título, canonical e descrição. A descrição ausente continua sendo um aviso em cada versão.
 
 O relatório JSON verifica título, canonical, descrição, H1, idioma, ausência de alt, sintaxe JSON-LD e restrições de pesquisa. Código de saída 1 indica erro estrutural; avisos precisam de contexto e não alteram o código. O escopo de cada robô permanece no relatório. A auditoria **não** comprova indexação, completude de schema, acesso via robots.txt ou desempenho. Não execute sobre XML de template não compilado. Falhas HTTP são erros; redirecionamentos são seguidos e o HTML final é inspecionado.
 

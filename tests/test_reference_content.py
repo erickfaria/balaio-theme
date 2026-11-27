@@ -39,15 +39,32 @@ class ReferenceContentTests(unittest.TestCase):
                 result.append(node.get("cond"))
         return result
 
-    def test_topics_reuse_native_label_widget_outside_legacy_sidebar(self):
+    def test_main_navigation_contains_the_native_label_widget(self):
         for name, root, _ in self.themes():
             with self.subTest(theme=name):
-                topics = root.find(".//" + B + "section[@id='topics']")
+                nav = root.find(".//" + H + "nav[@class='navigation']")
+                topics = nav.find(B + "section[@id='topics']")
                 labels = topics.find(B + "widget[@id='Label1']")
                 self.assertEqual(labels.get("type"), "Label")
                 self.assertIsNotNone(labels.find(".//" + H + "details/" + H + "summary"))
                 self.assertIsNone(root.find(".//" + B + "section[@id='sidebar']/" + B + "widget[@id='Label1']"))
                 self.assertIsNotNone(root.find(".//" + B + "section[@id='sidebar']"))
+
+    def test_card_thumbnail_keeps_native_src_and_guards_resized_candidates(self):
+        for name, root, _ in self.themes():
+            with self.subTest(theme=name):
+                card = root.find(".//" + B + "includable[@id='card']")
+                thumb = card.find(".//" + H + "img")
+                self.assertEqual(thumb.get(E + "src"), "data:post.thumbnailUrl")
+                self.assertEqual(thumb.get("loading"), "lazy")
+                resizing = [node.get("value") for node in card.iter(B + "with")]
+                self.assertEqual(resizing, [
+                    'resizeImage(data:post.thumbnailUrl, 320, "4:3")',
+                    'resizeImage(data:post.thumbnailUrl, 640, "4:3")',
+                ])
+                variants = thumb.find(B + "if")
+                self.assertEqual(variants.get("cond"), "data:small and data:large and data:small != data:large")
+                self.assertIsNotNone(variants.find(B + "attr[@name='srcset']"))
 
     def test_curated_links_are_optional_native_home_content(self):
         for name, root, parents in self.themes():

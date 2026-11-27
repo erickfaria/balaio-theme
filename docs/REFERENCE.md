@@ -24,7 +24,7 @@ Se houver muitos conteúdos, crie uma página **Biblioteca** com seções e link
 
 ## Páginas e categorias no cabeçalho
 
-**Layout → Páginas** mantém os links principais. **Menu** continua disponível para links extras. A descoberta automática de páginas permanece como antes; se você publicar muitos capítulos estáticos, considere o [modo manual do menu](PAGES.md#escolher-somente-algumas-páginas-ou-ordenar-todo-o-menu) para selecionar somente as entradas principais. Não há novo limite silencioso de páginas.
+**Layout → Páginas** mantém os links principais e **Menu** recebe links extras. A descoberta automática pode ser ativada separadamente. [Configuração da navegação](PAGES.md).
 
 **Layout → Assuntos** configura o mesmo `Label1` que existia na área lateral antiga, preservando o ID do gadget. Escolha cinco a sete marcadores principais e um título curto. As contagens não são exibidas. Siga a [configuração curta do Layout](LAYOUT.md). O marcador do Blogger funciona como categoria; o tema não cria nem reorganiza seus rótulos. A seção lateral antiga continua reservada para compatibilidade, oculta.
 

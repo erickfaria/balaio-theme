@@ -22,6 +22,26 @@ class RenderedSEOTests(unittest.TestCase):
         self.assertEqual(report['h1'], ['A useful post'])
         self.assertEqual(report['title'], ['A & B'])
 
+    def test_mobile_mode_preserves_other_query_parameters(self):
+        url = 'https://example.com/search?q=ci%C3%AAncia&tag=&m=0&m=1#content'
+        self.assertEqual(module.with_mobile_mode(url, '1'),
+                         'https://example.com/search?q=ci%C3%AAncia&tag=&m=1')
+
+    def test_compare_mobile_metadata(self):
+        desktop = module.audit(HTML)
+        self.assertEqual(module.compare_mobile(desktop, desktop)['comparison_errors'], [])
+        mobile = module.audit(HTML.replace('/post"', '/post?m=1"')
+                              .replace('<title>A &amp; B', '<title>Mobile')
+                              .replace('content="An example."', 'content="Mobile summary."'))
+        self.assertEqual(module.compare_mobile(desktop, mobile)['comparison_errors'], [
+            'Desktop and mobile canonical URLs differ.',
+            'Desktop and mobile document titles differ.',
+            'Desktop and mobile meta descriptions differ.',
+        ])
+        self.assertEqual(module.compare_mobile(mobile, mobile)['comparison_errors'], [
+            'The desktop canonical URL includes a Blogger mobile mode parameter.',
+        ])
+
     def test_registered_blog_without_rendered_element_is_error(self):
         registration = "<script>_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', document.getElementById('Blog1'), {}, 'displayModeFull'));</script>"
         report = module.audit(HTML.replace('</body>', "<div id='main' class='no-items section'></div>" + registration + '</body>'))
@@ -67,9 +87,24 @@ class TemplateSEOTests(unittest.TestCase):
                 node.tag = node.tag.removeprefix('{http://www.w3.org/1999/xhtml}')
             head = root.find('head')
             self.assertEqual(len(head.findall('title')), 1)
+            title = head.find('title/' + b + 'if')
+            data = '{http://www.google.com/2005/gml/data}'
+            self.assertEqual([node.tag for node in title], [
+                data + 'blog.pageName', data + 'blog.title', b + 'else', data + 'blog.pageTitle',
+            ])
+            for field in ('"item"', '"static_page"', 'data:blog.pageName', 'data:blog.title'):
+                self.assertIn(field, title.get('cond'))
             self.assertEqual(len([node for node in head.findall(b + 'include') if node.get('name') == 'all-head-content']), 1)
             self.assertFalse([node for node in head.findall('link') if node.get('rel') == 'canonical'])
             self.assertFalse([node for node in head.findall('meta') if node.get('name') in ('description', 'robots', 'googlebot')])
+            header = root.find(".//" + b + "widget[@id='Header1']")
+            self.assertIsNotNone(header.find(".//a[@class='brand']/" + data + "title"))
+            self.assertIsNone(header.find(".//" + data + "description"))
+            intro = root.find(".//" + b + "widget[@id='HTML1']/" + b + "widget-settings/" +
+                              b + "widget-setting[@name='content']")
+            heading = ET.fromstring(intro.text)
+            self.assertEqual(heading.tag, 'h1')
+            self.assertTrue(heading.text.strip())
             article = root.find('.//' + b + "includable[@id='article']/article")
             self.assertIn('BlogPosting', article.get(expr + 'itemtype'))
             self.assertIn('WebPage', article.get(expr + 'itemtype'))

@@ -3,15 +3,15 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
   <head>
     <meta charset='UTF-8'/>
-    <meta content='0.2.0-rc.16' name='balaio-version'/>
+    <meta content='0.2.0-rc.17' name='balaio-version'/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
-    <title><data:blog.pageTitle/></title>
+    <title><b:if cond='(data:blog.pageType == "item" or data:blog.pageType == "static_page") and data:blog.pageName and data:blog.title'><data:blog.pageName/> | <data:blog.title/><b:else/><data:blog.pageTitle/></b:if></title>
     <b:include data='blog' name='all-head-content'/>
     <link href='https://fonts.googleapis.com' rel='preconnect'/>
     <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
     <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400..750&amp;family=Newsreader:opsz,wght@6..72,400..700&amp;display=swap' rel='stylesheet'/>
     <b:skin><![CDATA[
-/* Balaio v0.2.0-rc.16 — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
+/* Balaio v0.2.0-rc.17 — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
    Edit the variables below to customize your blog identity. */
 /* Blogger Designer controls.
 <Variable name="papercolor" description="Page background" type="color" default="#fffefb" value="#fffefb"/>
@@ -23,7 +23,7 @@
 <Variable name="sandcolor" description="Pastel sand card" type="color" default="#f8f1e7" value="#f8f1e7"/>
 <Variable name="bluecolor" description="Pastel blue card" type="color" default="#eef2f6" value="#eef2f6"/>
 <Variable name="interfacefont" description="Interface font" type="font" default="normal 400 17px Inter, system-ui, sans-serif" value="normal 400 17px Inter, system-ui, sans-serif"/>
-<Variable name="readingfont" description="Post and page font" type="font" default="normal 400 22px Newsreader, serif" value="normal 400 22px Newsreader, serif"/>
+<Variable name="readingfont" description="Post and page font" type="font" default="normal 400 24px Newsreader, serif" value="normal 400 24px Newsreader, serif"/>
 */
 :root {
   --paper:$papercolor;
@@ -114,12 +114,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   letter-spacing:-.045em;
   color:var(--ink);
   overflow-wrap:anywhere;
-}
-.description {
-  color:var(--muted);
-  margin:6px 0 0;
-  max-width:60ch;
-  font-size:15px;
 }
 .masthead-top > .header {
   flex:1;
@@ -228,25 +222,27 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   transform-origin:left center;
 }
 .navigation {
-  padding:0;
-}
-.navigation .section,.navigation .widget {
-  height:auto;
-  min-height:44px;
-}
-.navigation li {
-  margin:0;
-  padding:0;
-}
-.navigation ul {
+  position:relative;
   display:flex;
   flex-wrap:wrap;
+  align-items:flex-start;
   gap:6px 16px;
+  padding-top:8px;
+}
+body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
+  display:contents;
+}
+.navigation .navbar ul {
   list-style:none;
   margin:0;
   padding:0;
 }
-.navigation a,.topic-menu summary,.topic-menu a {
+.navigation li,.topic-menu {
+  min-width:0;
+  margin:0;
+  padding:0;
+}
+.navigation a,.topic-menu summary {
   display:inline-flex;
   align-items:center;
   min-height:44px;
@@ -267,20 +263,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   text-decoration:underline;
   text-underline-offset:4px;
 }
-.navigation-row {
-  display:flex;
-  align-items:flex-start;
-  gap:0 24px;
-  padding-top:8px;
-}
-.navigation-row .navigation {
-  flex:1;
-  min-width:0;
-}
-.topics {
-  position:relative;
-  flex:none;
-}
 .topic-menu summary {
   list-style:none;
   cursor:pointer;
@@ -297,9 +279,10 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 }
 .topic-menu .topic-list {
   position:absolute;
-  right:0;
+  inset-block-start:100%;
+  inset-inline-start:0;
   z-index:4;
-  width:min(300px,calc(100vw - 32px));
+  width:min(300px,100%);
   max-height:min(60vh,420px);
   overflow:auto;
   list-style:none;
@@ -311,10 +294,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 }
 .topic-menu a {
   display:flex;
-  align-items:center;
-  min-height:44px;
-  font-size:14px;
-  overflow-wrap:anywhere;
 }
 .widget h2 {
   font:var(--reading-font);
@@ -408,7 +387,7 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 }
 .opening-cards {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
   gap:16px;
   margin-bottom:24px;
 }
@@ -429,10 +408,11 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 }
 .opening-cards .post-image-link {
   order:-1;
+  width:100%;
   margin:0 0 8px;
 }
 .opening-cards .post-image {
-  aspect-ratio:4/3;
+  aspect-ratio:16/9;
   border-radius:7px;
 }
 .opening-cards .post-card h2 {
@@ -441,15 +421,13 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 .opening-cards .post-summary {
   font-size:14px;
 }
-.opening-cards .meta {
-  font-size:11px;
-}
 .opening-cards .post-copy {
   display:flex;
   flex-direction:column;
   flex:1;
 }
 .opening-cards .meta {
+  font-size:11px;
   margin-top:12px;
 }
 .posts {
@@ -838,22 +816,8 @@ body#layout #contactpage {
 .article-grid {
   grid-template-columns:minmax(0,1fr);
 }
-#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.FeaturedPost,.widget.ReportAbuse,.widget.Profile,.widget.Attribution {
+body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.FeaturedPost,.widget.ReportAbuse,.widget.Profile,.widget.Attribution) {
   display:none;
-}
-@media(min-width:801px) and (max-width:1050px) {
-  .opening-cards {
-    grid-template-columns:1fr;
-  }
-  .opening-cards .post-card {
-    display:grid;
-    grid-template-columns:minmax(0,1fr) 150px;
-    gap:20px;
-  }
-  .opening-cards .post-image-link {
-    order:0;
-    margin:0;
-  }
 }
 @media(max-width:800px) {
   .wrap {
@@ -871,7 +835,10 @@ body#layout #contactpage {
   .search {
     width:calc(100% - 50px);
   }
-  .navigation-row {
+  .search input {
+    font-size:16px;
+  }
+  .navigation {
     padding-top:6px;
   }
   .intro {
@@ -898,14 +865,19 @@ body#layout #contactpage {
   }
 }
 @media(max-width:600px) {
+  .intro {
+    padding-top:12px;
+  }
+  .intro h1 {
+    font-size:clamp(26px,6vw,30px);
+  }
   .opening-cards {
-    grid-template-columns:1fr;
+    grid-template-columns:minmax(0,1fr);
   }
   .opening-cards .post-image-link {
-    max-width:none;
-  }
-  .opening-cards .post-image {
-    aspect-ratio:16/9;
+    order:0;
+    width:min(100%,240px);
+    margin:10px 0 0;
   }
 }
 @media(max-width:480px) {
@@ -920,8 +892,8 @@ body#layout #contactpage {
   .post-card h2 {
     font-size:25px;
   }
-  .navigation ul {
-    gap:6px 12px;
+  .navigation {
+    column-gap:12px;
   }
 }
 @media(prefers-reduced-motion:reduce) {
@@ -960,7 +932,6 @@ body#layout #contactpage {
             <b:widget id='Header1' locked='true' title='Header' type='Header' version='1' mobile='yes'>
               <b:includable id='main'>
                 <a class='brand' expr:href='data:blog.homepageUrl'><data:title/></a>
-                <b:if cond='data:description'><p class='description'><data:description/></p></b:if>
               </b:includable>
             </b:widget>
           </b:section>
@@ -972,12 +943,11 @@ body#layout #contactpage {
             </form>
           </details>
         </div>
-        <div class='navigation-row'>
-        <nav aria-label='Main navigation' class='navigation' data-auto-pages='true'>
+        <nav aria-label='Main navigation' class='navigation' data-auto-pages='false'>
           <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
             <b:widget id='PageList1' locked='false' mobile='yes' title='Pages' type='PageList' version='1'>
               <b:includable id='main'>
-                <ul>
+                <ul role='list'>
                   <b:if cond='data:links'>
                     <b:loop values='data:links' var='link'><li><a expr:href='data:link.href' expr:aria-current='data:link.isCurrentPage ? "page" : "false"'><data:link.title/></a></li></b:loop>
                   <b:else/><li><a expr:href='data:blog.homepageUrl'>Home</a></li></b:if>
@@ -986,26 +956,25 @@ body#layout #contactpage {
             </b:widget>
             <b:widget id='LinkList1' locked='false' title='Menu' type='LinkList' version='1' mobile='yes'>
               <b:includable id='main'>
-                <ul>
+                <ul role='list'>
                   <b:loop values='data:links' var='link'><li><a expr:href='data:link.target' expr:aria-current='data:blog.url == data:link.target ? "page" : "false"'><data:link.name/></a></li></b:loop>
                 </ul>
               </b:includable>
             </b:widget>
           </b:section>
+          <b:section class='topics' id='topics' maxwidgets='1' showaddelement='yes'>
+            <b:widget id='Label1' locked='false' title='Topics' type='Label' version='1' mobile='yes'>
+              <b:includable id='main'>
+                <b:if cond='data:labels'>
+                  <details class='topic-menu'>
+                    <summary><data:title/></summary>
+                    <ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url' rel='tag'><data:label.name/></a></li></b:loop></ul>
+                  </details>
+                </b:if>
+              </b:includable>
+            </b:widget>
+          </b:section>
         </nav>
-        <b:section class='topics' id='topics' maxwidgets='1' showaddelement='yes'>
-          <b:widget id='Label1' locked='false' title='Topics' type='Label' version='1' mobile='yes'>
-            <b:includable id='main'>
-              <b:if cond='data:labels'>
-                <details class='topic-menu'>
-                  <summary><data:title/></summary>
-                  <ul class='topic-list'><b:loop values='data:labels' var='label'><li><a expr:href='data:label.url' rel='tag'><data:label.name/></a></li></b:loop></ul>
-                </details>
-              </b:if>
-            </b:includable>
-          </b:widget>
-        </b:section>
-        </div>
       </div>
     </header>
     <main class='wrap' id='content' tabindex='-1'>
@@ -1013,7 +982,7 @@ body#layout #contactpage {
         <b:section id='introduction' maxwidgets='1' showaddelement='yes'>
           <b:widget id='HTML1' locked='false' title='Introduction' type='HTML' version='1' mobile='yes'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<div class="eyebrow">A space for curiosity</div><h1>Knowledge starts with a good question.</h1><p>A place to gather discoveries, connect ideas and share what we learn.</p>]]></b:widget-setting>
+              <b:widget-setting name='content'><![CDATA[<h1>Articles on science, technology and society</h1>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'><div class='intro'><data:content/></div></b:includable>
           </b:widget>
@@ -1098,6 +1067,22 @@ body#layout #contactpage {
     if (text != null) element.textContent = text;
     return element;
   }
+  function imageURL(value, base) {
+    if (!value) return null;
+    try {
+      const url = new URL(value, base);
+      return url.protocol === 'https:' ? url : null;
+    } catch (_) { return null; }
+  }
+  function copyImageCandidates(image, sourceImage, base) {
+    const candidates = (sourceImage.getAttribute('srcset') || '').match(/^([^\s,]+) 320w,\s*([^\s,]+) 640w$/);
+    if (!candidates) return;
+    const small = imageURL(candidates[1], base);
+    const large = imageURL(candidates[2], base);
+    if (!small || !large || small.href.includes(',') || large.href.includes(',') || small.href === large.href) return;
+    image.sizes = sourceImage.getAttribute('sizes') || 'auto, 240px';
+    image.srcset = small.href + ' 320w, ' + large.href + ' 640w';
+  }
   // Rebuild only text, links and the thumbnail; never insert fetched scripts or HTML.
   function copyCard(source, url, base) {
     const card = node('article', 'post-card');
@@ -1129,25 +1114,22 @@ body#layout #contactpage {
     if (meta.childElementCount) copy.append(meta);
     card.append(copy);
     const sourceImage = source.querySelector('img.post-image');
-    if (sourceImage) {
-      try {
-        const imageURL = new URL(sourceImage.getAttribute('src'), base);
-        if (imageURL.protocol === 'https:') {
-          const imageLink = node('a', 'post-image-link');
-          imageLink.href = url.href;
-          imageLink.tabIndex = -1;
-          imageLink.setAttribute('aria-hidden', 'true');
-          const image = node('img', 'post-image');
-          image.alt = '';
-          image.width = 640;
-          image.height = 480;
-          image.loading = 'lazy';
-          image.decoding = 'async';
-          image.src = imageURL.href;
-          imageLink.append(image);
-          card.append(imageLink);
-        }
-      } catch (_) { /* A missing thumbnail never removes the post. */ }
+    const thumbnail = sourceImage && imageURL(sourceImage.getAttribute('src'), base);
+    if (thumbnail) {
+      const imageLink = node('a', 'post-image-link');
+      imageLink.href = url.href;
+      imageLink.tabIndex = -1;
+      imageLink.setAttribute('aria-hidden', 'true');
+      const image = node('img', 'post-image');
+      image.alt = '';
+      image.width = 640;
+      image.height = 480;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      copyImageCandidates(image, sourceImage, base);
+      image.src = thumbnail.href;
+      imageLink.append(image);
+      card.append(imageLink);
     }
     return card;
   }
@@ -1165,14 +1147,17 @@ body#layout #contactpage {
         const timer = setTimeout(() => controller.abort(), 8000);
         let markup;
         try {
-          const response = await fetch(next.href, {signal: controller.signal, credentials: 'omit', redirect: 'error'});
+          const response = await fetch(next.href, {
+            signal: controller.signal, credentials: 'omit', redirect: 'error', priority: 'low'
+          });
           if (!response.ok) throw new Error('Page unavailable');
           markup = await response.text();
         } finally { clearTimeout(timer); }
         // A template keeps fetched styles, images and scripts inert.
         const template = document.createElement('template');
         template.innerHTML = markup;
-        const source = template.content;
+        const source = template.content.getElementById(blog.id);
+        if (!source) break;
         const cards = [...source.querySelectorAll('.posts > .post-card, .opening-cards > .post-card')];
         if (!cards.length) break;
         const following = source.querySelector('.pager a[rel="next"]');
@@ -1202,7 +1187,13 @@ body#layout #contactpage {
       // The last working native pagination link remains available on failure.
     } finally { list.removeAttribute('aria-busy'); }
   }
-  fillHome();
+  function scheduleContinuation() {
+    if (window.requestIdleCallback) window.requestIdleCallback(fillHome, {timeout: 1000});
+    else setTimeout(fillHome, 0);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleContinuation, {once: true});
+  } else scheduleContinuation();
 })();
               //]]></script>
             </b:includable>
@@ -1230,7 +1221,20 @@ body#layout #contactpage {
                   <p class='post-summary'><data:post.snippet/></p>
                   <b:include data='post' name='metadata'/>
                 </div>
-                <b:if cond='data:post.thumbnailUrl'><a class='post-image-link' expr:href='data:post.url' tabindex='-1' aria-hidden='true'><img alt='' class='post-image' expr:src='data:post.thumbnailUrl' loading='lazy' decoding='async' width='640' height='480'/></a></b:if>
+                <b:if cond='data:post.thumbnailUrl'>
+                  <b:with value='resizeImage(data:post.thumbnailUrl, 320, "4:3")' var='small'>
+                    <b:with value='resizeImage(data:post.thumbnailUrl, 640, "4:3")' var='large'>
+                      <a class='post-image-link' expr:href='data:post.url' tabindex='-1' aria-hidden='true'>
+                        <img alt='' class='post-image' expr:src='data:post.thumbnailUrl' loading='lazy' decoding='async' width='640' height='480'>
+                          <b:if cond='data:small and data:large and data:small != data:large'>
+                            <b:attr name='srcset' expr:value='data:small + " 320w, " + data:large + " 640w"'/>
+                            <b:attr name='sizes' value='auto, (max-width: 600px) 240px, (max-width: 1144px) 45vw, 515px'/>
+                          </b:if>
+                        </img>
+                      </a>
+                    </b:with>
+                  </b:with>
+                </b:if>
               </article>
             </b:includable>
             <b:includable id='article' var='post'>
@@ -1261,11 +1265,13 @@ body#layout #contactpage {
             </b:includable>
           </b:widget>
         </b:section>
-        <aside aria-label='Explore the blog' class='sidebar'>
-          <b:section class='sidebar' id='sidebar' showaddelement='yes'>
-            <!-- Reserved for optional legacy gadgets kept by Blogger during import. -->
-          </b:section>
-        </aside>
+        <b:if cond='data:view.isLayoutMode'>
+          <aside aria-label='Explore the blog' class='sidebar'>
+            <b:section class='sidebar' id='sidebar' showaddelement='yes'>
+              <!-- Reserved for optional legacy gadgets kept by Blogger during import. -->
+            </b:section>
+          </aside>
+        </b:if>
       </div>
       <b:section class='contact-section' id='contactpage' maxwidgets='1' showaddelement='no'>
         <b:widget cond='data:blog.pageType == "static_page"' id='ContactForm1' locked='false' mobile='yes' title='Contact form' type='ContactForm' version='1'>
@@ -1319,7 +1325,7 @@ body#layout #contactpage {
     function appendPages(pages) {
       if (!Array.isArray(pages)) return;
       const seen = new Set();
-      for (const link of nav.querySelectorAll('a[href]')) {
+      for (const link of nav.querySelectorAll('.navbar a[href]')) {
         const url = localURL(link.getAttribute('href'));
         if (url) seen.add(url.pathname);
       }

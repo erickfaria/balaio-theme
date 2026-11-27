@@ -6,15 +6,15 @@ rc.15 keeps the same native widgets and uses ordinary HTML/CSS for the header. I
 
 ## 1. Topics: five to seven categories
 
-In **Layout → Topics → Edit**, use the widget's label selection to show five to seven main categories. Prefer broad subjects and short names. Specific labels can remain on posts without filling the header. This presentation has no counts, triangle, pill or highlighted background, and shares the menu's typography and alignment.
+In **Layout → Topics → Edit**, use the widget's label selection to show five to seven main categories. Prefer broad subjects and short names. Specific labels can remain on posts without filling the header. The Topics control uses the menu typography, follows the Pages and Menu links, and wraps alongside them.
 
 The theme displays the labels configured in the widget. It does not take the first seven alphabetically or hide others through CSS. If the interface initially shows all labels, change the selection in Layout. No Balaio Científico category names or domain are imposed on other installations.
 
 ## 2. Menu: a few main paths
 
-Library, Projects and About are examples of main entry points; use published pages and short titles. Automatic discovery remains active for compatibility. For documentation with many static chapters, configure [manual navigation](PAGES.md) once and select links under **Layout → Pages**.
+Library, Projects and About are examples of main entry points. Choose published pages with short labels in **Layout → Pages**.
 
-The upgrade does not silently switch to manual mode, which could remove previously discovered page links. Chapter links belong inside materials and indexes; they do not all need to be in the header. Configured gadget links are delivered in the initial HTML, including without JavaScript.
+Links configured in the gadget appear in the initial HTML, including without JavaScript. When updating, add any links you previously relied on from the feed or [enable automatic mode](PAGES.md#optional-automatic-pages).
 
 ## 3. Guides and projects: up to three highlights
 

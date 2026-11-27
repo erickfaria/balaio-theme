@@ -64,22 +64,54 @@ class HomeScriptTests(unittest.TestCase):
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const source = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
-for (const budget of ['4', '0']) {
-  const calls = [], timers = [];
+for (const {budget, count, readyState, useIdle} of [
+  {budget: '4', count: 2, readyState: 'loading', useIdle: true},
+  {budget: '4', count: 2, readyState: 'complete', useIdle: false},
+  {budget: '0', count: 2, readyState: 'loading', useIdle: true},
+  {budget: '4', count: 10, readyState: 'loading', useIdle: true},
+]) {
+  const calls = [], timers = [], tasks = [], events = [];
   const older = {getAttribute: () => '/search?start=2'};
-  const cards = ['first', 'second'].map(slug => ({querySelector: () => ({getAttribute: () => '/' + slug + '.html?m=1'})}));
+  const cards = Array.from({length: count}, (_, index) => ({
+    querySelector: () => ({getAttribute: () => '/post-' + index + '.html?m=1'})
+  }));
   const blog = {querySelector: () => older, querySelectorAll: () => cards};
   const list = {dataset: {homePosts: '10', pageLimit: budget}, closest: () => blog,
     setAttribute() {}, removeAttribute() {}};
   const fetch = (url, options) => { calls.push({url, options}); return new Promise(() => {}); };
-  vm.runInNewContext(source, {window: {fetch, AbortController}, fetch, AbortController, URL,
-    document: {getElementById: () => list},
+  const window = {fetch, AbortController};
+  if (useIdle) window.requestIdleCallback = (run, options) => tasks.push({run, timeout: options.timeout});
+  const document = {readyState, getElementById: () => list,
+    addEventListener: (name, run, options) => events.push({name, run, once: options.once})};
+  vm.runInNewContext(source, {window, fetch, AbortController, URL, document,
     location: {origin: 'https://example.com', href: 'https://example.com/'},
     setTimeout: (run, delay) => {timers.push({run, delay}); return timers.length;}, clearTimeout() {}});
-  assert.equal(calls.length, budget === '0' ? 0 : 1);
-  if (budget === '0') continue;
+  assert.equal(calls.length, 0);
+  if (budget === '0' || count === 10) {
+    assert.equal(events.length + tasks.length + timers.length, 0);
+    continue;
+  }
+  if (readyState === 'loading') {
+    assert.equal(events.length, 1);
+    assert.equal(events[0].name, 'DOMContentLoaded');
+    assert.equal(events[0].once, true);
+    assert.equal(tasks.length, 0);
+    events[0].run();
+  }
+  assert.equal(calls.length, 0);
+  if (useIdle) {
+    assert.equal(tasks.length, 1);
+    assert.equal(tasks[0].timeout, 1000);
+    tasks.shift().run();
+  } else {
+    assert.equal(timers.length, 1);
+    assert.equal(timers[0].delay, 0);
+    timers.shift().run();
+  }
+  assert.equal(calls.length, 1);
   assert.equal(calls[0].options.credentials, 'omit');
   assert.equal(calls[0].options.redirect, 'error');
+  assert.equal(calls[0].options.priority, 'low');
   assert.equal(new URL(calls[0].url).searchParams.get('m'), '0');
   assert.equal(new URL(calls[0].url).searchParams.get('max-results'), '8');
   assert.equal(timers[0].delay, 8000);

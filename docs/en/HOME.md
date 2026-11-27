@@ -17,8 +17,8 @@ The owner confirmed rc.3, and it was observed working live on October 11, 2026 w
 ## How continuation works
 
 1. Initially supplied posts remain HTML: two opening cards and any remaining list entries.
-2. Only on home, the script inside `Blog1` follows the native older-posts link on the same origin. It requests the remaining count and uses web mode `m=0` for the responsive presentation. The restored script starts when the initial posts are already in the document.
-3. The theme rebuilds text, author/date, labels and thumbnails from the received entries. Visible permalinks are not repeated. Fetched scripts, styles and event handlers are never inserted into the active page.
+2. Only on home, the script inside `Blog1` follows the native older-posts link on the same origin. It requests the remaining count and uses web mode `m=0` for the responsive presentation. Continuation waits for the initial HTML to be ready and uses browser idle time when available. Requests have low priority.
+3. The theme rebuilds text, author/date, labels and thumbnails from entries received inside `Blog1`. Visible permalinks are not repeated. Fetched scripts, styles and event handlers are never inserted into the active page.
 4. A complete page is displayed before advancing the older-posts link. The target never cuts a page midway and skips unseen entries; a larger response can exceed ten posts.
 5. Loading stops at the target, after four extra pages, on failure, on a cycle without new entries, or at the end of the archive. Each request has an eight-second timeout. Native pagination remains available at the first undisplayed section; it is hidden only when the archive end is confirmed.
 
