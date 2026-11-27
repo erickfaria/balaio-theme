@@ -5,7 +5,7 @@
     <meta charset='UTF-8'/>
     <meta content='0.2.0-rc.16' name='balaio-version'/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
-    <title><data:blog.pageTitle/></title>
+    <title><b:if cond='(data:blog.pageType == "item" or data:blog.pageType == "static_page") and data:blog.pageName and data:blog.title'><data:blog.pageName/> | <data:blog.title/><b:else/><data:blog.pageTitle/></b:if></title>
     <b:include data='blog' name='all-head-content'/>
     <link href='https://fonts.googleapis.com' rel='preconnect'/>
     <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>

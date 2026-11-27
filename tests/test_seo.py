@@ -67,6 +67,13 @@ class TemplateSEOTests(unittest.TestCase):
                 node.tag = node.tag.removeprefix('{http://www.w3.org/1999/xhtml}')
             head = root.find('head')
             self.assertEqual(len(head.findall('title')), 1)
+            title = head.find('title/' + b + 'if')
+            data = '{http://www.google.com/2005/gml/data}'
+            self.assertEqual([node.tag for node in title], [
+                data + 'blog.pageName', data + 'blog.title', b + 'else', data + 'blog.pageTitle',
+            ])
+            for field in ('"item"', '"static_page"', 'data:blog.pageName', 'data:blog.title'):
+                self.assertIn(field, title.get('cond'))
             self.assertEqual(len([node for node in head.findall(b + 'include') if node.get('name') == 'all-head-content']), 1)
             self.assertFalse([node for node in head.findall('link') if node.get('rel') == 'canonical'])
             self.assertFalse([node for node in head.findall('meta') if node.get('name') in ('description', 'robots', 'googlebot')])

@@ -6,7 +6,7 @@ The theme provides a technical foundation. Rankings, indexing and citations also
 
 ## What the theme does
 
-- Keeps one native document title and Blogger's `all-head-content` for canonical URLs, feeds, sharing metadata and configured indexing controls. Do not paste duplicate metadata blocks into the template.
+- Article and static-page document titles put the content name before the blog name when both are available. The homepage and listings use the native title. Blogger's `all-head-content` supplies canonical URLs, search descriptions, feeds, sharing metadata and configured indexing controls. Do not paste duplicate metadata blocks into the template.
 - Uses a main heading for articles, static pages and non-home listings. The editable home introduction supplies its H1; keep one meaningful H1 when editing it.
 - Describes visible article content with schema.org `BlogPosting` microdata (headline, author, body and permalink). Static pages use `WebPage`. Microdata avoids constructing JSON from unescaped post text. No invented dates, ratings, organization or publisher credentials are emitted.
 - Uses normal HTML links, responsive reading layouts and decorative card images with empty alt text, dimensions and asynchronous decoding. Descriptive images inside posts still need your own alt text.
