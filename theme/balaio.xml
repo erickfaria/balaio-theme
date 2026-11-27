@@ -414,6 +414,7 @@ body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
 }
 .opening-cards .post-image-link {
   order:-1;
+  width:100%;
   margin:0 0 8px;
 }
 .opening-cards .post-image {
