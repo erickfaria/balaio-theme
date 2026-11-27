@@ -6,7 +6,7 @@
 
 - **Título e descrição:** ajuste o nome do blog e a descrição de pesquisa em Configurações. O cabeçalho mostra o nome do blog.
 - **Abertura:** gadget **Apresentação** no Layout. Edite o texto, preservando uma única tag `<h1>`. Se remover o gadget, mantenha um único H1 descritivo na home.
-- **Páginas:** escolha os links e a ordem em Layout. A descoberta de páginas publicadas é opcional. [Modos do menu](PAGES.md).
+- **Páginas:** escolha os links e a ordem em Layout. [Configuração da navegação](PAGES.md).
 - **Menu:** adicione links extras de marcadores ou sites externos; evite duplicar Início.
 - **Assuntos:** na candidata de conteúdo de referência, selecione marcadores no gadget nativo do cabeçalho; links manuais continuam possíveis no Menu.
 - **Guias e projetos:** selecione poucos links duradouros no gadget da home; a faixa some quando estiver vazia. [Guia da candidata](REFERENCE.md).
@@ -22,7 +22,7 @@ Se houver menos de dois posts, os cards exibem somente os disponíveis. Posts se
 
 A v0.2.0-rc.7 inclui controles em **Tema → Personalizar → Avançado**, usando [variáveis de cor e fonte documentadas pelo Blogger](https://support.google.com/blogger/answer/46871?hl=en). Importe o XML atualizado primeiro em um blog de teste. Estes controles ainda precisam de confirmação no Designer publicado. Eles não existem na v0.1.0 estável anterior.
 
-Os controles abrangem fundo da página, textos principal e secundário, links/botões, divisórias, superfícies pastel verde/areia/azul, fonte da interface e fonte de posts/páginas. Escolha fundos claros e texto escuro. A paleta padrão passa na verificação de contraste mínimo de 4,5:1 para texto comum sobre as quatro superfícies de leitura/cards. Cores personalizadas precisam de nova conferência de contraste.
+Os controles abrangem fundo da página, textos principal e secundário, links/botões, divisórias, superfícies pastel verde e areia, fonte da interface e fonte de posts/páginas. Escolha fundos claros e texto escuro. A paleta padrão passa na verificação de contraste mínimo de 4,5:1 para texto comum sobre as três superfícies de leitura/cards. Cores personalizadas precisam de nova conferência de contraste.
 
 A interface começa em 17px e o corpo de posts/páginas em 24px, inclusive no celular. A fonte de leitura também se aplica aos títulos, preservando seus tamanhos responsivos. Largura de leitura, espaçamento e estrutura continuam definidos pelo tema: coluna centralizada, fundo simples e divisórias discretas.
 

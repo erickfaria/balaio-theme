@@ -6,7 +6,7 @@ Um caderno aberto de ideias: simples de navegar e confortável de ler. O minimal
 
 ## Escolhas do projeto
 
-- Fundo claro e quente, texto em tom de grafite e verde profundo nos links e tons suaves de verde, areia e azul nos cards.
+- Fundo claro e quente, texto em tom de grafite e verde profundo nos links e tons suaves de verde e areia nos cards.
 - Inter para o nome do blog e a interface; Newsreader para títulos e artigos, com fallback para fontes do dispositivo.
 - Home aberta por dois cards das publicações mais recentes, com composição própria; as demais seguem em lista editorial.
 - Texto antes da imagem, inclusive na ordem do HTML. Miniaturas opcionais acompanham cada entrada sem comandar a página.

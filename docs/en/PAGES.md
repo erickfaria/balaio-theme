@@ -18,7 +18,7 @@ Balaio includes editable page-body samples for About, Contact and Privacy. About
 4. After publishing, copy the actual URL shown by Blogger. Page URLs depend on the platform and your titles; the theme does not assume fixed `/p/` paths.
 5. In **Layout → Pages**, choose which published pages appear in the menu and arrange their order. Use **Menu** for extra links and keep Home in one place.
 
-The theme XML installs layouts and gadgets, not page records. Samples are separate so importing the theme cannot overwrite your page content. The default menu follows the gadgets. If you previously relied on feed-discovered links, add them under **Layout → Pages** or enable automatic discovery below. [Blogger page instructions](https://support.google.com/blogger/answer/165955?hl=en).
+Use **Pages** to create content and **Layout → Pages** to select links. If you used feed discovery in an older theme, move the links you want into the Pages or Menu gadgets before upgrading. [Blogger page instructions](https://support.google.com/blogger/answer/165955?hl=en).
 
 ## Page layout
 
@@ -28,23 +28,13 @@ The upper menu uses ordinary links, wraps on small screens and highlights the cu
 
 Test each page and the top navigation on a phone after import. Local previews use fictitious content and do not verify live Blogger behavior.
 
-## Optional automatic pages
-
-Change `data-auto-pages='false'` to `data-auto-pages='true'` on the navigation element in the XML to enable discovery. In this mode the theme requests the blog’s own **public summary page feed**, without an API key or login, and adds up to 150 published pages. Configured links stay first; additional pages are sorted alphabetically. Duplicate URLs, including mobile variants, are skipped. Drafts are not part of the public feed.
-
-In rc.9, navigation requests the feed when a page opens or reloads, revalidating the HTTP cache (`cache: no-cache`) without storing a session list. **Publishing adds a page; returning it to draft removes its automatic link on the next reload**, once Blogger’s feed reflects the change. Creating or saving a draft alone does not add it. An already-open tab does not update itself: reload it; there is no polling. Manually configured gadget links remain under your control and must be removed there when needed.
-
-Requests have a six-second timeout and low priority. Network/feed failure or disabled JavaScript preserves native Pages-widget links. Page names, domain and URLs are not hardcoded for Balaio Científico or another blog.
-
 ## Select only some pages or control the complete order
 
-Under **Layout → Pages → Edit**, add items using each published page’s actual URL and label, then arrange them. Some interfaces have page selection; others use **Add a new item**. Save the gadget and Layout. Manual mode respects exactly this list and makes no feed request.
-
-In automatic mode, deselecting a page in the gadget does not exclude it from public-feed discovery. Use manual mode to choose which public pages appear.
+Under **Layout → Pages → Edit**, select the pages to show and arrange their order. If the gadget offers **Add a new item**, use the published URL and the label you want. Save the gadget and Layout.
 
 ## Important links for search and disabled JavaScript
 
-Configured gadget links are server-rendered in the initial HTML. Automatically discovered links require JavaScript. Configure About, Contact and Privacy in the gadget for script-free access too; automatic mode will not duplicate them. This does not guarantee indexing or search ranking.
+Both native gadgets render links in the initial HTML. Put About, Contact and Privacy in either gadget to give readers and crawlers a direct link.
 
 Current-page links use a subtle underline and font weight, without a colored background. Navigation height follows wrapped links, overriding Blogger’s native 30px navbar height.
 

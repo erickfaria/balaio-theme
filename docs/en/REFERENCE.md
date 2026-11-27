@@ -24,7 +24,7 @@ For a larger collection, create a **Library** page with sections and real chapte
 
 ## Header pages and categories
 
-**Layout → Pages** holds the main links and **Menu** holds extra links. Automatic discovery is a separate option. [Navigation setup](PAGES.md).
+**Layout → Pages** holds the main links. Use **Menu** for extra links. [Navigation setup](PAGES.md).
 
 **Layout → Topics** configures the same `Label1` widget previously in the legacy sidebar, retaining its identity. Select five to seven main labels and use a short title. Counters are not displayed. Follow the [short Layout setup](LAYOUT.md). Blogger labels serve as categories; the theme does not create or reorganize them. The hidden legacy sidebar section remains reserved for import compatibility.
 
@@ -34,7 +34,7 @@ Paste the [guide sample](../../examples/pages/guide.en.html) into a post or page
 
 Existing `class="post-toc"` indexes receive the same understated styling. The theme does not scan the article to build a contents list automatically. Text, headings, code and tables retain the reading column, without a permanent sidebar or fixed navigation covering content.
 
-Editorial selection and descriptive links establish the emphasis. The strip adds neither duplicate article schema nor an extra H1, and does not guarantee rankings. Configured gadget links are in initial HTML; automatic page discovery retains its existing JavaScript dependency.
+Editorial selection and descriptive links establish the emphasis. The strip adds neither duplicate article schema nor an extra H1, and does not guarantee rankings. Configured gadget links are in the initial HTML.
 
 ## A restrained author byline
 

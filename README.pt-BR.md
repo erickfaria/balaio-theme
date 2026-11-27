@@ -1,14 +1,14 @@
 # Balaio — Tema Blogger gratuito e minimalista
 
-> **Versão atual da main: v0.2.0-rc.17.** Abertura mais curta, menu nativo por padrão, leitura em 24px, miniaturas responsivas e títulos de SEO por página. A nova importação no Blogger e as medições em produção estão pendentes. [Validação](docs/VALIDATION.md).
+> **Candidata atual: v0.2.0-rc.18.** Navegação nativa, continuação da home só quando necessária, Newsreader aberta mais leve e CSS enxuto. A integração do Analytics usa o ID das Configurações do Blogger. [Validação](docs/VALIDATION.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
-Um **template XML gratuito para Blogger**: minimalista, responsivo, open source e fácil de personalizar. Design editorial próprio, com verde, areia e azul pastel, tipografia confortável e uma base técnica preparada para SEO em blogs pessoais e científicos.
+Um **template XML gratuito para Blogger**: minimalista, responsivo, open source e fácil de personalizar. Design editorial próprio, com verde pastel e areia, tipografia confortável e uma base técnica preparada para SEO em blogs pessoais e científicos.
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Tema padrão:** `v0.2.0-rc.17`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [ZIP da versão e checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.17).
+> **Tema padrão:** `v0.2.0-rc.18`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [ZIP da versão e checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.18).
 >
 > **Alternativa anterior:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada, mas sem a continuação e o layout atuais.
 
@@ -31,7 +31,7 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 2. Escolha um **blog de teste** no Blogger. Faça backup do tema atual em **Tema → menu → Fazer backup**.
 3. Abra **Tema → menu → Editar HTML**. Substitua o conteúdo do editor pelo XML completo e salve.
 4. Configure título, descrição e idioma em **Configurações**.
-5. Em **Layout → Páginas**, escolha os links do menu, os nomes e a ordem. Use **Menu** para links extras. A descoberta automática pode ser [ativada no XML](docs/PAGES.md#páginas-automáticas-opcionais).
+5. Em **Layout → Páginas**, escolha os links, os nomes e a ordem. Use **Menu** para links extras. [Páginas e menu](docs/PAGES.md).
 6. Edite **Apresentação** (português) ou **Introduction** (inglês) para mudar a abertura. Use **Assuntos** para marcadores e **Guias e projetos** para uma seleção curta de referências; este layout não tem lateral.
 7. Comece com 10 posts por página em **Configurações → Postagens**; o Blogger pode paginar antes. Confira artigos, páginas, busca, paginação e comentários no celular e no computador antes de usar no blog principal.
 
@@ -45,10 +45,10 @@ Não precisa compilar nem instalar ferramentas para usar o tema.
 - Layout responsivo para celulares, tablets e computadores; miniaturas opcionais e entradas com largura completa quando não há imagem.
 - Busca nativa, marcadores, paginação, artigos e páginas estáticas.
 - Comentários básicos e link para comentar; formulário incorporado e respostas encadeadas ainda pendentes.
-- Apresentação editável com um título curto, menu nativo de Páginas e links extras. A descoberta automática de páginas é opcional.
+- Apresentação editável, navegação nativa de Páginas e links extras no HTML inicial.
 - Foco de teclado, link para pular ao conteúdo, rolagem contida em código/tabelas e estilos para impressão.
 - **Inter** para interface e **Newsreader** para títulos e leitura, via Google Fonts com fallback local e `display=swap`. Posts/páginas usam 24px e entrelinha de 1,75 por padrão. Ambas usam SIL OFL 1.1; suas licenças são separadas da MIT.
-- Sem bibliotecas JavaScript de terceiros ou dependências externas de pacotes Python. A continuação da home e o menu automático são código próprio MIT; a paginação nativa funciona sem JavaScript.
+- Busca e paginação nativas funcionam sem JavaScript do tema. A continuação da home curta usa código próprio MIT. As ferramentas Python usam apenas a biblioteca padrão.
 
 A candidata inclui controles nativos de cores/fontes; a conferência no Designer publicado permanece pendente. Logo em imagem e layout específico de 404 ainda não estão implementados. A prévia usa o CSS real com conteúdo de exemplo; não compila expressões do Blogger.
 

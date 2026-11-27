@@ -3,15 +3,16 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
   <head>
     <meta charset='UTF-8'/>
-    <meta content='0.2.0-rc.17' name='balaio-version'/>
+    <meta content='0.2.0-rc.18' name='balaio-version'/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><b:if cond='(data:blog.pageType == "item" or data:blog.pageType == "static_page") and data:blog.pageName and data:blog.title'><data:blog.pageName/> | <data:blog.title/><b:else/><data:blog.pageTitle/></b:if></title>
     <b:include data='blog' name='all-head-content'/>
     <link href='https://fonts.googleapis.com' rel='preconnect'/>
     <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
-    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400..750&amp;family=Newsreader:opsz,wght@6..72,400..700&amp;display=swap' rel='stylesheet'/>
+    <!-- Pin Newsreader's optical size to 24 to request a smaller variable-weight font. -->
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400..750&amp;family=Newsreader:opsz,wght@24,400..700&amp;display=swap' rel='stylesheet'/>
     <b:skin><![CDATA[
-/* Balaio v0.2.0-rc.17 — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
+/* Balaio v0.2.0-rc.18 — original code, MIT. Inter e Newsreader: SIL OFL 1.1.
    Edit the variables below to customize your blog identity. */
 /* Blogger Designer controls.
 <Variable name="papercolor" description="Page background" type="color" default="#fffefb" value="#fffefb"/>
@@ -21,7 +22,6 @@
 <Variable name="linecolor" description="Soft dividers" type="color" default="#dce5df" value="#dce5df"/>
 <Variable name="washcolor" description="Pastel green surface" type="color" default="#edf5ef" value="#edf5ef"/>
 <Variable name="sandcolor" description="Pastel sand card" type="color" default="#f8f1e7" value="#f8f1e7"/>
-<Variable name="bluecolor" description="Pastel blue card" type="color" default="#eef2f6" value="#eef2f6"/>
 <Variable name="interfacefont" description="Interface font" type="font" default="normal 400 17px Inter, system-ui, sans-serif" value="normal 400 17px Inter, system-ui, sans-serif"/>
 <Variable name="readingfont" description="Post and page font" type="font" default="normal 400 24px Newsreader, serif" value="normal 400 24px Newsreader, serif"/>
 */
@@ -33,7 +33,6 @@
   --line:$linecolor;
   --wash:$washcolor;
   --card-sand:$sandcolor;
-  --card-blue:$bluecolor;
   --reading-width:760px;
   --interface-font:$interfacefont;
   --reading-font:$readingfont;
@@ -148,7 +147,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   align-items:center;
   width:min(300px,calc(100% - 50px));
   height:44px;
-  max-width:100%;
   padding:0;
   border:1px solid var(--line);
   border-radius:999px;
@@ -190,9 +188,6 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
   from {opacity:0;transform:translateX(6px)}
   to {opacity:1;transform:translateX(0)}
 }
-@media(prefers-reduced-motion:reduce) {
-  .search {animation:none}
-}
 .search-icon {
   display:block;
   position:relative;
@@ -231,6 +226,13 @@ a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible {
 }
 body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
   display:contents;
+}
+/* Give Blogger's Layout editor room for the native gadget controls. */
+body#layout .navigation {
+  display:block;
+}
+body#layout .navigation .navbar {
+  height:auto;
 }
 .navigation .navbar ul {
   list-style:none;
@@ -403,9 +405,6 @@ body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
 .opening-cards .post-card:nth-child(2) {
   background:var(--card-sand);
 }
-.opening-cards .post-card:nth-child(3) {
-  background:var(--card-blue);
-}
 .opening-cards .post-image-link {
   order:-1;
   width:100%;
@@ -430,11 +429,6 @@ body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
   font-size:11px;
   margin-top:12px;
 }
-.posts {
-  display:flex;
-  flex-direction:column;
-  gap:0;
-}
 .post-card {
   display:grid;
   grid-template-columns:minmax(0,1fr) 180px;
@@ -443,9 +437,6 @@ body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
   border-top:1px solid var(--line);
   padding:28px 0;
 }
-.post-card h2 {
-  overflow-wrap:anywhere;
-}
 .post-copy {
   min-width:0;
 }
@@ -453,6 +444,7 @@ body:not(#layout) .navigation :is(.section,.widget,.navbar ul) {
   grid-column:1/-1;
 }
 .post-card h2 {
+  overflow-wrap:anywhere;
   font:var(--reading-font);
   font-weight:600;
   font-size:28px;
@@ -813,9 +805,6 @@ body#layout #contactpage {
   padding:32px;
   background:var(--wash);
 }
-.article-grid {
-  grid-template-columns:minmax(0,1fr);
-}
 body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.FeaturedPost,.widget.ReportAbuse,.widget.Profile,.widget.Attribution) {
   display:none;
 }
@@ -852,7 +841,6 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
     padding-top:16px;
   }
   .content-grid {
-    grid-template-columns:1fr;
     gap:24px;
     padding:16px 0 32px;
   }
@@ -897,6 +885,7 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
   }
 }
 @media(prefers-reduced-motion:reduce) {
+  .search {animation:none}
   * {
     scroll-behavior:auto!important;
   }
@@ -943,7 +932,7 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
             </form>
           </details>
         </div>
-        <nav aria-label='Main navigation' class='navigation' data-auto-pages='false'>
+        <nav aria-label='Main navigation' class='navigation'>
           <b:section class='navbar' id='navigation' maxwidgets='2' showaddelement='yes'>
             <b:widget id='PageList1' locked='false' mobile='yes' title='Pages' type='PageList' version='1'>
               <b:includable id='main'>
@@ -1016,17 +1005,22 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
                       <b:if cond='data:index &lt; 2'><b:include data='post' name='card'/></b:if>
                     </b:loop>
                   </div>
-                  <b:loop index='index' values='data:posts' var='post'>
-                    <b:if cond='data:index == 2'><h2 class='section-title more-title'>More to read</h2></b:if>
-                  </b:loop>
+                  <b:if cond='data:posts.size &gt; 2'><h2 class='section-title more-title'>More to read</h2></b:if>
                 </b:if>
-                <div class='posts' id='postlist' data-home-posts='10' data-page-limit='4' data-list-title='More to read'>
-                  <b:loop index='index' values='data:posts' var='post'>
-                    <b:if cond='data:blog.url != data:blog.homepageUrl or data:index &gt;= 2'><b:include data='post' name='card'/></b:if>
-                  </b:loop>
-                </div>
-                <b:include name='pagination'/>
-                <b:if cond='data:blog.url == data:blog.homepageUrl'><b:include name='homeContinuation'/></b:if>
+                <!-- Share the continuation settings between Blogger's render condition and the browser. -->
+                <b:with var='homePostTarget' value='10'>
+                  <b:with var='homePageLimit' value='4'>
+                    <div class='posts' id='postlist' expr:data-home-posts='data:homePostTarget' expr:data-page-limit='data:homePageLimit' data-list-title='More to read'>
+                      <b:loop index='index' values='data:posts' var='post'>
+                        <b:if cond='data:blog.url != data:blog.homepageUrl or data:index &gt;= 2'><b:include data='post' name='card'/></b:if>
+                      </b:loop>
+                    </div>
+                    <b:include name='pagination'/>
+                    <b:if cond='data:blog.url == data:blog.homepageUrl and data:olderPageUrl and not data:posts.empty and data:posts.size &lt; data:homePostTarget and data:homePageLimit &gt; 0'>
+                      <b:include name='homeContinuation'/>
+                    </b:if>
+                  </b:with>
+                </b:with>
               </b:if>
             </b:includable>
             <b:includable id='homeContinuation'>
@@ -1307,80 +1301,6 @@ body:not(#layout) :is(#sidebar,.widget.BlogSearch,.widget.BlogArchive,.widget.Fe
       </b:section>
     </main>
     <footer class='site-footer wrap'><a href='https://www.blogger.com/go/report-abuse' rel='nofollow'>Report abuse</a></footer>
-    <script id='page-navigation' type='text/javascript'>//<![CDATA[
-(() => {
-  'use strict';
-  function initializeNavigation() {
-    const nav = document.querySelector('.navigation[data-auto-pages="true"]');
-    const widget = nav && nav.querySelector('#PageList1');
-    const list = widget && widget.querySelector('ul');
-    if (!list || !window.fetch || !window.AbortController) return;
-    function localURL(value) {
-      if (typeof value !== 'string' || !value.trim()) return null;
-      try {
-        const url = new URL(value, location.href);
-        return url.origin === location.origin && /^https?:$/.test(url.protocol) ? url : null;
-      } catch (_) { return null; }
-    }
-    function appendPages(pages) {
-      if (!Array.isArray(pages)) return;
-      const seen = new Set();
-      for (const link of nav.querySelectorAll('.navbar a[href]')) {
-        const url = localURL(link.getAttribute('href'));
-        if (url) seen.add(url.pathname);
-      }
-      const entries = [];
-      for (const page of pages.slice(0, 150)) {
-        const url = localURL(page && page.href);
-        const title = page && typeof page.title === 'string' ? page.title.trim() : '';
-        if (!url || !url.pathname.startsWith('/p/') || !title || seen.has(url.pathname)) continue;
-        seen.add(url.pathname);
-        entries.push({title, url});
-      }
-      entries.sort((a, b) => a.title.localeCompare(b.title, document.documentElement.lang || undefined));
-      for (const page of entries) {
-        const item = document.createElement('li');
-        const link = document.createElement('a');
-        link.href = page.url.href;
-        link.textContent = page.title;
-        if (page.url.pathname === location.pathname) link.setAttribute('aria-current', 'page');
-        item.append(link);
-        list.append(item);
-      }
-    }
-    const feed = localURL(nav.dataset.pagesFeed || '/feeds/pages/summary?alt=json&max-results=150');
-    if (!feed) return;
-    async function loadPages() {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 6000);
-      try {
-        const response = await fetch(feed.href, {
-          signal: controller.signal, credentials: 'omit', redirect: 'error', priority: 'low', cache: 'no-cache'
-        });
-        if (!response.ok) return;
-        const data = await response.json();
-        if (!data || !data.feed || typeof data.feed !== 'object') return;
-        const entries = data.feed.entry;
-        if (entries !== undefined && !Array.isArray(entries)) return;
-        const pages = [];
-        for (const entry of (entries || []).slice(0, 150)) {
-          const links = entry && entry.link;
-          const link = Array.isArray(links) && links.find(item => item && item.rel === 'alternate');
-          const title = entry && entry.title && entry.title.$t;
-          if (link && typeof title === 'string') pages.push({title, href: link.href});
-        }
-        appendPages(pages);
-      } catch (_) {
-        // Native menu links remain available if the public feed is unavailable.
-      } finally { clearTimeout(timer); }
-    }
-    loadPages();
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeNavigation, {once: true});
-  } else initializeNavigation();
-})();
-    //]]></script>
     <b:if cond='data:blog.analyticsAccountNumber'>
       <b:include data='blog' name='google-analytics'/>
     </b:if>

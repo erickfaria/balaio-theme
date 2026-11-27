@@ -14,7 +14,7 @@ The theme displays the labels configured in the widget. It does not take the fir
 
 Library, Projects and About are examples of main entry points. Choose published pages with short labels in **Layout → Pages**.
 
-Links configured in the gadget appear in the initial HTML, including without JavaScript. When updating, add any links you previously relied on from the feed or [enable automatic mode](PAGES.md#optional-automatic-pages).
+Links configured in the gadget appear in the initial HTML, including without JavaScript. When updating an older installation, add any essential links you previously obtained from the feed. [Menu configuration](PAGES.md).
 
 ## 3. Guides and projects: up to three highlights
 

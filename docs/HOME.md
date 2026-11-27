@@ -2,7 +2,7 @@
 
 [English](en/HOME.md) · [Português](HOME.md)
 
-A v0.2.0-rc.7 preserva até **dois destaques** e mostra os demais posts numa lista sóbria abaixo. Quando o Blogger entrega poucos posts, o tema segue as próximas páginas do próprio blog para tentar completar **dez posts no total**. Não usa feed público, biblioteca externa, carrossel ou rolagem infinita.
+O tema mostra até **dois destaques** e lista os demais posts abaixo. Quando o Blogger entrega uma home curta com link para posts antigos, a continuação pode seguir a paginação nativa em direção a **dez posts**.
 
 ## Por que apareciam apenas dois posts?
 
@@ -17,7 +17,7 @@ A rc.3 foi confirmada pelo proprietário e observada funcionando no blog em 11/1
 ## Como a continuação funciona
 
 1. Os posts recebidos inicialmente aparecem em HTML: dois cards e, quando disponíveis, as entradas seguintes na lista.
-2. Somente na home, o script dentro de `Blog1` consulta o link nativo de publicações anteriores no mesmo domínio. Ele pede a quantidade restante e seleciona o modo web `m=0` para receber a mesma apresentação responsiva. A continuação espera o HTML inicial estar pronto e usa um período ocioso do navegador quando disponível. As requisições têm prioridade baixa.
+2. O gadget Blog1 inclui o script só na home com posts abaixo da meta, link para posts antigos e limite de páginas maior que zero. Ele espera o HTML inicial e usa um período ocioso quando disponível. As requisições usam prioridade baixa e pedem a quantidade restante.
 3. O tema reconstrói texto, autoria, data, marcadores e miniaturas somente das entradas recebidas em `Blog1`. Permalinks já visíveis não são repetidos. Scripts, estilos e eventos do HTML recebido não são inseridos na página.
 4. Cada página é mostrada por completo antes de atualizar o link de publicações anteriores. A meta não corta uma página pela metade, evitando saltar posts; uma resposta maior pode ultrapassar dez entradas.
 5. O carregamento para ao atingir a meta, após quatro páginas adicionais, numa falha, num ciclo sem novidades ou no fim do arquivo. Cada requisição tem timeout de oito segundos. O link nativo continua disponível no primeiro trecho ainda não mostrado; desaparece quando o fim do arquivo foi confirmado.
@@ -26,20 +26,15 @@ O resultado depende da rede e da quantidade de posts disponíveis. Sem JavaScrip
 
 ## Personalizar ou desligar
 
-No XML, procure o elemento `id='postlist'`:
+Procure `homePostTarget` e `homePageLimit` dentro de Blog1 no XML. Esses valores controlam a renderização do template e o comportamento no navegador.
 
-```xml
-<div class='posts' id='postlist' data-home-posts='10' data-page-limit='4' data-list-title='Mais leituras'>
-```
+- `homePostTarget`: meta contando os destaques. Padrão 10, intervalo 2–40.
+- `homePageLimit`: máximo de páginas adicionais. Padrão 4, intervalo 0–6. Use 0 para omitir o script e manter a paginação nativa.
 
-- `data-home-posts`: meta total, contando os destaques. Padrão 10; limitada pelo código ao intervalo 2–40.
-- `data-page-limit`: máximo de páginas adicionais. Padrão 4; intervalo 0–6. Defina **0** para desligar a continuação automática e manter apenas a paginação nativa.
-- `data-list-title`: título usado quando a lista começa vazia. A variante inglesa já contém a tradução.
-
-Meta alta pode aumentar tráfego e tempo de carregamento. Dez posts e quatro páginas são os padrões recomendados. O limite de requisições evita baixar todo o arquivo do blog. Os destaques continuam automáticos; o tema não escolhe posts por interesse nem altera sua ordem cronológica.
+Valores maiores podem aumentar o tráfego. Ao atualizar um tema personalizado, transfira os valores anteriores de `data-home-posts` e `data-page-limit` para essas variáveis.
 
 ## Conferir após importar
 
-Confira dois destaques, a lista abaixo, ausência de posts repetidos e o destino de **Publicações anteriores**. Abra um post da lista, uma busca e uma página fixa. Teste também uma rede lenta ou JavaScript desligado. Se só houver dois posts, confirme que o XML identifica `v0.2.0-rc.7` e que o link nativo seguinte funciona. Em uma instalação antiga da rc.2, importe o XML completo da candidata atual; aumentar a quantidade de posts não corrige o erro de sintaxe. O console do navegador não deve apresentar `Unexpected token '<'` no script do tema.
+Confira dois destaques, a lista abaixo, ausência de posts repetidos e o destino de **Publicações anteriores**. Abra um post da lista, uma busca e uma página fixa. Teste também uma rede lenta ou JavaScript desligado. Se só houver dois posts, confirme a versão publicada e confira se o link nativo seguinte funciona. Em uma instalação antiga da rc.2, importe o XML completo da candidata atual; aumentar a quantidade de posts não corrige o erro de sintaxe. O console do navegador não deve apresentar `Unexpected token '<'` no script do tema.
 
 Os artigos e links nativos continuam acessíveis aos rastreadores. A continuação por JavaScript é um complemento para leitores; sua execução por mecanismos de busca não é garantida. [SEO e rastreadores](SEO.md) · [Validação e limitações](VALIDATION.md) · [Instalação](INSTALLATION.md).

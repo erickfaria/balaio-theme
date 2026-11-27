@@ -24,7 +24,7 @@ Se houver muitos conteúdos, crie uma página **Biblioteca** com seções e link
 
 ## Páginas e categorias no cabeçalho
 
-**Layout → Páginas** mantém os links principais e **Menu** recebe links extras. A descoberta automática pode ser ativada separadamente. [Configuração da navegação](PAGES.md).
+**Layout → Páginas** mantém os links principais. Use **Menu** para links extras. [Configuração da navegação](PAGES.md).
 
 **Layout → Assuntos** configura o mesmo `Label1` que existia na área lateral antiga, preservando o ID do gadget. Escolha cinco a sete marcadores principais e um título curto. As contagens não são exibidas. Siga a [configuração curta do Layout](LAYOUT.md). O marcador do Blogger funciona como categoria; o tema não cria nem reorganiza seus rótulos. A seção lateral antiga continua reservada para compatibilidade, oculta.
 
@@ -34,7 +34,7 @@ Copie o [modelo de guia](../examples/pages/guide.pt-BR.html) para o corpo de um 
 
 O tema também aplica esse tratamento discreto a índices existentes com `class="post-toc"`. Não percorre o artigo para inventar um índice automaticamente. Texto, títulos, código e tabelas mantêm a largura de leitura existente; não há painel lateral permanente nem navegação fixa cobrindo o texto.
 
-A importância de um conteúdo vem da seleção editorial e dos links descritivos. A faixa não cria schema de artigo adicional, não duplica H1 e não implica ganho garantido de posição nas buscas. Links configurados nos gadgets são entregues no HTML inicial; a descoberta automática de páginas mantém sua dependência anterior de JavaScript.
+A importância de um conteúdo vem da seleção editorial e dos links descritivos. A faixa não cria schema de artigo adicional, não duplica H1 e não implica ganho garantido de posição nas buscas. Os links configurados nos gadgets são entregues no HTML inicial.
 
 ## Autoria discreta
 

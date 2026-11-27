@@ -18,7 +18,7 @@ O Balaio inclui modelos editáveis de corpo das páginas **Sobre**, **Contato** 
 4. Depois de publicar, copie a URL real fornecida pelo Blogger. O endereço depende da plataforma e dos títulos; o tema não presume caminhos `/p/` fixos.
 5. Em **Layout → Páginas**, escolha quais páginas publicadas aparecem no menu e defina a ordem. Use **Menu** para links extras e mantenha Início em um só lugar.
 
-O XML instala layouts e gadgets, não registros de páginas. Os exemplos separados permitem importar o tema sem sobrescrever o conteúdo das páginas. O menu padrão segue a seleção dos gadgets. Se você dependia de links descobertos pelo feed, adicione-os em **Layout → Páginas** ou reative a descoberta abaixo. [Instruções do Blogger](https://support.google.com/blogger/answer/165955?hl=pt-BR).
+Use **Páginas** para criar conteúdo e **Layout → Páginas** para selecionar links. Se usava a descoberta por feed numa versão anterior, coloque os links desejados nos gadgets Páginas ou Menu antes de atualizar. [Instruções do Blogger](https://support.google.com/blogger/answer/165955?hl=pt-BR).
 
 ## Formato das páginas
 
@@ -28,23 +28,13 @@ O menu superior usa links comuns, quebra linhas em telas pequenas e destaca a p�
 
 Teste cada página e o menu superior em celular após importar. As prévias usam conteúdo fictício e não verificam o comportamento real no Blogger.
 
-## Páginas automáticas opcionais
-
-Para ativar a descoberta, troque `data-auto-pages='false'` por `data-auto-pages='true'` no elemento de navegação do XML. Nesse modo, o tema consulta o **feed público resumido de páginas do próprio blog**, sem chave de API ou login, e acrescenta até 150 páginas publicadas. Os links já configurados aparecem primeiro; os novos vêm em ordem alfabética. URLs repetidas, inclusive variantes móveis, são ignoradas. Rascunhos não fazem parte do feed público.
-
-Na rc.9, o menu faz uma consulta ao abrir ou atualizar a página, revalidando o cache HTTP (`cache: no-cache`), sem guardar uma lista na sessão. **Publicar adiciona a página; voltar para rascunho remove o link automático na próxima atualização**, assim que o feed do Blogger refletir a mudança. Criar ou salvar somente um rascunho não o inclui no menu. Uma aba já aberta não muda sozinha: atualize-a; não há polling. Links adicionados manualmente no gadget continuam sob seu controle e devem ser removidos ali quando necessário.
-
-O carregamento tem timeout de seis segundos e prioridade baixa. Falha de rede, feed indisponível ou JavaScript desligado preservam os links nativos configurados no gadget Páginas. O tema não fixa nomes, domínio ou endereços das páginas do Balaio Científico para outras instalações.
-
 ## Escolher somente algumas páginas ou ordenar todo o menu
 
-Em **Layout → Páginas → Editar**, adicione os itens com o título e a URL real da página publicada e ordene-os. Algumas interfaces mostram seleção de páginas; outras usam **Adicionar novo item**. Salve o gadget e o Layout. Esse modo respeita exatamente a lista configurada e não consulta o feed.
-
-No modo automático, desmarcar uma página apenas no gadget não a exclui da descoberta do feed público. Use o modo manual para controlar quais páginas públicas aparecem no menu.
+Em **Layout → Páginas → Editar**, selecione as páginas que deseja mostrar e ajuste a ordem. Se o gadget mostrar **Adicionar novo item**, use a URL publicada e o nome desejado. Salve o gadget e o Layout.
 
 ## Links importantes para buscas e funcionamento sem JavaScript
 
-Os itens configurados no gadget são renderizados no HTML inicial. Os itens descobertos automaticamente dependem de JavaScript. Para Sobre, Contato e Privacidade sempre estarem disponíveis também sem script, configure esses links no gadget; o modo automático evita duplicá-los. Isso não garante indexação ou posição em buscas.
+Os dois gadgets nativos entregam os links no HTML inicial. Coloque Sobre, Contato e Privacidade em um deles para dar a leitores e rastreadores um link direto.
 
 ## Apostilas, projetos e pequenas Wikis
 

@@ -1,14 +1,14 @@
 # Balaio — Free minimal Blogger theme
 
-> **Current main version: v0.2.0-rc.17.** A shorter home introduction, native Pages navigation by default, 24px article text, responsive thumbnails and page-specific SEO titles. Fresh Blogger import and production performance measurements are pending. [Validation](docs/en/VALIDATION.md).
+> **Current release candidate: v0.2.0-rc.18.** Native navigation, home continuation only when needed, lighter open Newsreader and leaner CSS. Blogger Analytics integration uses the ID in Settings. [Validation](docs/en/VALIDATION.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
-A **free Blogger XML template**: minimal, responsive, open source and easy to customize. Original editorial design with pastel green, sand and blue, readable typography and a technical SEO foundation for personal blogs and science communication.
+A **free Blogger XML template**: minimal, responsive, open source and easy to customize. Original editorial design with pastel green and sand, readable typography and a technical SEO foundation for personal blogs and science communication.
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Default template:** `v0.2.0-rc.17`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Release ZIP and checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.17).
+> **Default template:** `v0.2.0-rc.18`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Release ZIP and checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.18).
 >
 > **Earlier fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with confirmed import but without the current home continuation and layout.
 
@@ -31,7 +31,7 @@ No build tools are needed to install the theme.
 2. Choose a **test blog** in Blogger. Back up the current theme from **Theme → menu → Back up**.
 3. Open **Theme → menu → Edit HTML**. Replace the editor contents with the entire selected XML file, then save.
 4. Configure your title, description and language in **Settings**.
-5. In **Layout → Pages**, choose menu links, labels and order. Use **Menu** for extra links. Automatic discovery can be [enabled in the XML](docs/en/PAGES.md#optional-automatic-pages).
+5. In **Layout → Pages**, choose the links, labels and order. Use **Menu** for extra links. [Page navigation](docs/en/PAGES.md).
 6. Edit **Introduction** (English) or **Apresentação** (Portuguese) to change the opening text. Use **Topics** for labels and **Guides and projects** for a short selection of reference links; this layout has no sidebar.
 7. Start with 10 posts per home page under **Settings → Posts**; Blogger may paginate earlier. Check articles, pages, search, pagination and comments on mobile and desktop before moving to your main blog.
 
@@ -45,10 +45,10 @@ No build tools are needed to install the theme.
 - Responsive layouts for phones, tablets and desktop; optional thumbnails and full-width entries when no image is available.
 - Native Blogger search in an icon-only disclosure, label links, pagination, article and static-page layouts. Click/tap the magnifier or press Enter/Space, then Tab to the field; toggle it again to close.
 - Basic comment display and a link to add a comment; embedded forms and threaded replies remain pending.
-- Editable introduction with a short heading, native Pages navigation and extra Menu links. Automatic page discovery is optional.
+- Editable introduction, native Pages navigation and extra Menu links in the initial HTML.
 - Keyboard focus, skip link, contained code/table scrolling and print styles.
 - **Inter** for interface and **Newsreader** for titles and reading, served by Google Fonts with local fallbacks and `display=swap`. Post/page text defaults to 24px with a 1.75 line height. Both fonts use SIL OFL 1.1; their licenses remain separate from MIT.
-- No third-party JavaScript libraries or Python package dependencies. The home continuation and page-menu enhancement are original MIT code; native pagination works without JavaScript.
+- Native search and pagination work without theme JavaScript. The short-home continuation uses original MIT code. The Python tools need no third-party packages.
 
 Native color/font controls are included in the candidate; live Designer verification remains pending. A logo image and a dedicated 404 layout are not implemented yet. The preview is a visual fixture using real theme CSS; it does not compile Blogger expressions.
 

@@ -1,6 +1,16 @@
-# Validação — v0.2.0-rc.17
+# Validação — v0.2.0-rc.18
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
+
+## rc.18 — Fontes menores e scripts sob demanda — 27/11/2026
+
+- Os dois XMLs passaram nas verificações de estrutura e tradução. Os 39 testes locais cobrem a condição de continuação, paginação nativa, SEO e conteúdo do pacote.
+- As prévias em Chromium a 320, 360, 768 e 1440 px cobrem navegação, busca, Assuntos, leitura em 24px, contato e conteúdo largo. Uma prévia de Layout com a regra nativa de 30px da navbar mostrou navegação e Assuntos em linhas separadas.
+- Na prévia, a home com dez posts e link de publicações anteriores não enviou script próprio nem fez consultas extras. A home com dois posts chegou a dez entradas distintas após quatro consultas. O limite zero e a falha parcial preservaram a paginação nativa.
+- O Google Fonts respondeu com 132.000 bytes para o WOFF2 latino anterior da Newsreader e 57.952 bytes para a variante de tamanho óptico 24. A reprodução móvel usou 106.208 bytes de fontes com essa variante, ante 180.256. A 390 px, os blocos medidos de títulos, parágrafo e corpo tiveram as mesmas alturas. O eixo óptico pode alterar o desenho dos caracteres em outros tamanhos.
+- A remoção dos dois scripts ociosos da home observada da rc.17 simulou economia de 10.467 bytes brutos e 2.988 bytes em gzip. A comparação usa compressão local do mesmo HTML. O include de GA4 é idêntico ao da rc.17.
+
+O proprietário confirmou a importação portuguesa da rc.17, e o site público exibiu a home e um artigo da amostra. A nova importação da rc.18 no Blogger, a migração de gadgets, os eventos de Analytics e as medições de carregamento em produção ainda precisam de conferência. [Instalação e atualização](RELEASE.md).
 
 ## rc.17 — Menu nativo, leitura e SEO — 27/11/2026
 

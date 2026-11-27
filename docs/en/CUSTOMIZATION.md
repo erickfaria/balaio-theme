@@ -6,7 +6,7 @@
 
 - **Title, description and language:** configure these in Blogger Settings. The header displays the blog name.
 - **Opening text:** Introduction gadget in Layout (Apresentação in Portuguese). Keep one `h1`; if removing the gadget, keep a single descriptive home H1 elsewhere.
-- **Pages:** choose the links and order in Layout. Published-page discovery is optional. [Navigation modes](PAGES.md).
+- **Pages:** choose links and order in Layout. [Navigation setup](PAGES.md).
 - **Menu:** add extra label or external links; avoid duplicating Home.
 - **Topics:** in the reference-content candidate, select labels in the native header gadget; manual Menu links remain available.
 - **Guides and projects:** select a few lasting home links; the strip disappears when empty. [Candidate guide](REFERENCE.md).
@@ -22,7 +22,7 @@ With fewer than two posts, cards show only the available entries. Without a thum
 
 Version v0.2.0-rc.7 includes controls under **Theme → Customize → Advanced** using [Blogger's documented color/font variables](https://support.google.com/blogger/answer/46871?hl=en). Import the updated XML in a test blog first. These controls still need confirmation in the live Designer. They are absent from the previous stable v0.1.0.
 
-The controls cover page background, main and secondary text, links/buttons, dividers, green/sand/blue pastel surfaces, interface font and post/page font. Choose pale backgrounds and dark text. The default palette passes a 4.5:1 contrast check for normal text on its four reading/card surfaces. Custom colors need a new contrast check.
+The controls cover page background, main and secondary text, links/buttons, dividers, green and sand pastel surfaces, interface font and post/page font. Choose pale backgrounds and dark text. The default palette passes a 4.5:1 contrast check for normal text on its three reading and card surfaces. Custom colors need a new contrast check.
 
 The interface starts at 17px and article/page text at 24px, including phones. The reading font applies to titles too, with their existing responsive sizes preserved. Reading width, spacing and layouts remain defined by the theme: a centered column, plain background and restrained separators.
 

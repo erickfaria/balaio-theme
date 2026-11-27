@@ -2,7 +2,7 @@
 
 [English](HOME.md) · [Português](../HOME.md)
 
-v0.2.0-rc.7 preserves up to **two highlights** and lists the other posts below. When Blogger supplies a short page, the theme follows the blog’s native older-page links toward **ten posts in total**. It does not use public feeds, external libraries, carousels or infinite scrolling.
+The theme shows up to **two highlights** and lists the other posts below. When Blogger supplies a short home with an older-posts link, continuation can follow native pagination toward **ten posts**.
 
 ## Why were only two posts visible?
 
@@ -17,7 +17,7 @@ The owner confirmed rc.3, and it was observed working live on October 11, 2026 w
 ## How continuation works
 
 1. Initially supplied posts remain HTML: two opening cards and any remaining list entries.
-2. Only on home, the script inside `Blog1` follows the native older-posts link on the same origin. It requests the remaining count and uses web mode `m=0` for the responsive presentation. Continuation waits for the initial HTML to be ready and uses browser idle time when available. Requests have low priority.
+2. The Blog1 widget includes the script only on a nonempty home below the post target, with an older-posts URL and a positive page budget. It waits for the initial HTML and uses idle time when available. Requests use low priority and ask for the remaining count.
 3. The theme rebuilds text, author/date, labels and thumbnails from entries received inside `Blog1`. Visible permalinks are not repeated. Fetched scripts, styles and event handlers are never inserted into the active page.
 4. A complete page is displayed before advancing the older-posts link. The target never cuts a page midway and skips unseen entries; a larger response can exceed ten posts.
 5. Loading stops at the target, after four extra pages, on failure, on a cycle without new entries, or at the end of the archive. Each request has an eight-second timeout. Native pagination remains available at the first undisplayed section; it is hidden only when the archive end is confirmed.
@@ -26,20 +26,15 @@ Results depend on available posts and the network. Without JavaScript/fetch supp
 
 ## Customize or disable
 
-Find the `id='postlist'` element in the XML:
+Find the `homePostTarget` and `homePageLimit` variables inside Blog1 in the XML. Their values control both template rendering and browser behavior.
 
-```xml
-<div class='posts' id='postlist' data-home-posts='10' data-page-limit='4' data-list-title='More to read'>
-```
+- `homePostTarget`: target including highlights. Default 10, supported range 2–40.
+- `homePageLimit`: maximum number of additional pages. Default 4, supported range 0–6. Set it to 0 to omit the script and use native pagination alone.
 
-- `data-home-posts`: total target, including highlights. Default 10; clamped to 2–40 by the script.
-- `data-page-limit`: maximum additional pages. Default 4; clamped to 0–6. Set **0** to disable automatic continuation and keep native pagination only.
-- `data-list-title`: heading used when the initial list is empty. The Portuguese variant already includes its translation.
-
-Higher targets can increase traffic and loading time. Ten posts and four pages are the recommended defaults. The request limit prevents downloading the entire archive. Highlights remain automatic; the theme does not choose posts by interest or change chronological order.
+Larger settings may increase traffic. When updating a customized theme, transfer any previous `data-home-posts` or `data-page-limit` settings to these variables.
 
 ## Verify after importing
 
-Check two highlights, the list below, unique entries and the destination of **Older posts**. Open a list article, search and a static page. Test a slow network or JavaScript disabled. If only two posts remain, confirm the XML identifies `v0.2.0-rc.7` and the native next-page link works. If rc.2 is installed, import the complete current candidate XML; raising the post count cannot fix the syntax error. The browser console should not report `Unexpected token '<'` in the theme script.
+Check two highlights, the list below, unique entries and the destination of **Older posts**. Open a list article, search and a static page. Test a slow network or JavaScript disabled. If only two posts remain, confirm the published version and check the native next-page link. If rc.2 is installed, import the complete current candidate XML; raising the post count cannot fix the syntax error. The browser console should not report `Unexpected token '<'` in the theme script.
 
 Native posts and pagination links remain available to crawlers. JavaScript continuation supplements the reader experience; execution by search engines is not guaranteed. [SEO and crawlers](SEO.md) · [Validation and limits](VALIDATION.md) · [Installation](INSTALLATION.md).

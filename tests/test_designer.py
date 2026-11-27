@@ -46,7 +46,7 @@ class DesignerTests(unittest.TestCase):
     def test_default_text_contrast_on_pastel_surfaces(self):
         settings = designer_settings(skin(ROOT / "theme/balaio.xml"))
         for text in ("inkcolor", "mutedcolor", "accentcolor"):
-            for surface in ("papercolor", "washcolor", "sandcolor", "bluecolor"):
+            for surface in ("papercolor", "washcolor", "sandcolor"):
                 a, b = sorted((luminance(settings[text]["default"]), luminance(settings[surface]["default"])))
                 with self.subTest(text=text, surface=surface):
                     self.assertGreaterEqual((b + 0.05) / (a + 0.05), 4.5)

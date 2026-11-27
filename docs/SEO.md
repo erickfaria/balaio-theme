@@ -64,6 +64,6 @@ O relatório JSON verifica título, canonical, descrição, H1, idioma, ausênci
 
 [Performance e controles de carregamento](PERFORMANCE.md).
 
-## Menu automático e HTML inicial
+## Navegação no HTML inicial
 
-Na rc.8, páginas publicadas podem completar o menu por JavaScript a partir do feed público. Os links configurados no gadget Páginas continuam no HTML inicial e não são duplicados pelo carregamento automático. Configure links essenciais no gadget para navegação sem script e para rastreadores que não executam JavaScript. O modo manual desliga a descoberta automática. [Configuração e limites](PAGES.md).
+Os links de Páginas e Menu chegam no HTML inicial, inclusive com JavaScript desligado. Use rótulos descritivos e selecione as páginas importantes no editor de Layout. [Configuração da navegação](PAGES.md).

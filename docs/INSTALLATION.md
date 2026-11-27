@@ -4,7 +4,7 @@
 
 ## Antes de instalar
 
-Use o XML da versão v0.2.0-rc.17. Escolha o idioma e faça backup do tema atual. A nova importação ainda precisa de conferência em um blog de teste separado. [Arquivos da versão e atualização](RELEASE.md).
+Use o XML da versão v0.2.0-rc.18. Escolha o idioma e faça backup do tema atual. A nova importação ainda precisa de conferência em um blog de teste separado. [Arquivos da versão e atualização](RELEASE.md).
 
 ## Passo a passo
 
@@ -32,7 +32,7 @@ As capturas do proprietário mostraram a apresentação móvel antiga em `?m=1` 
 | O editor rejeita o arquivo | Confira se copiou o XML completo, sem cercas de Markdown ou HTML do GitHub. Registre a mensagem exata para uma issue. |
 | Não há imagem no card | Use um post com imagem. A miniatura depende dos dados fornecidos pelo Blogger; sem imagem, a entrada continua legível. |
 | As fontes parecem diferentes | Confira acesso ao Google Fonts. O fallback usa fontes do dispositivo quando as fontes remotas não carregam. |
-| O menu não tem minhas páginas | Publique as páginas e selecione os links em **Layout → Páginas**. Se ativou a descoberta automática no XML, confira o JavaScript e o feed público. [Modos do menu](PAGES.md). |
+| O menu não tem minhas páginas | Publique as páginas e selecione os links em **Layout → Páginas**. Use **Menu** para links extras. [Configuração da navegação](PAGES.md). |
 | A abertura continua igual | Edite Apresentação/Introduction no Layout e salve. Preserve um único `h1`. |
 | Comentários não aparecem | Confira as configurações e permissões do post. O formulário incorporado e as respostas encadeadas ainda não estão prontos. |
 | Quero voltar ao tema anterior | Restaure o XML que você salvou antes da instalação pelo menu do tema. |
@@ -55,7 +55,7 @@ A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no ce
 
 ## Falha ao restaurar
 
-A validação local não executa o compilador nem a migração de gadgets do Blogger. A rc.6 recupera os gadgets completos da rc.3; a seção lateral legada fica reservada ao editor de Layout. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.17` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.
+A validação local não executa o compilador nem a migração de gadgets do Blogger. A rc.6 recupera os gadgets completos da rc.3; a seção lateral legada fica reservada ao editor de Layout. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.18` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.
 
 ## Formulário de contato
 

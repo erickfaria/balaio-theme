@@ -20,7 +20,8 @@ class NavigationTests(unittest.TestCase):
         for path in (ROOT / "theme").glob("*.xml"):
             root = ET.parse(path).getroot()
             nav = root.find(f".//{H}nav[@class='navigation']")
-            self.assertEqual(nav.get("data-auto-pages"), "false")
+            self.assertIsNone(nav.get("data-auto-pages"))
+            self.assertIsNone(root.find(f".//{H}script[@id='page-navigation']"))
             navigation = nav.find(f"{B}section[@id='navigation']")
             self.assertEqual(navigation.find(f"{B}widget[@id='PageList1']").get("type"), "PageList")
             for widget in root.iter(f"{B}widget"):
