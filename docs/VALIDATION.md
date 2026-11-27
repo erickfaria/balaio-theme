@@ -1,6 +1,20 @@
-# Validação — v0.2.0-rc.16
+# Validação — v0.2.0-rc.17
 
 [English](en/VALIDATION.md) · [Português](VALIDATION.md)
+
+## rc.17 — Menu nativo, leitura e SEO — 27/11/2026
+
+| Verificação | Resultado |
+| --- | --- |
+| Checks locais | 39 testes passando, XML e traduções conferidos, links internos válidos, prévia e pacote gerados |
+| Navegação | Links nativos disponíveis sem JavaScript. O modo padrão não consulta o feed. O modo opcional continua descobrindo páginas publicadas |
+| Layout | Abertura sem rolagem horizontal nas prévias de 320, 360, 768 e 1440 px. No mesmo conteúdo de demonstração a 360 px, o primeiro título de post passou de 721 para 545 px do topo em relação à versão anterior da branch |
+| Leitura e imagens | Texto com 24px na prévia. Em Chromium com densidade 1×, a miniatura de 320w foi selecionada a 360 px e a de 640w a 1440 px. A continuação preservou a alternativa de imagem e completou dez posts distintos na home curta |
+| SEO | Os dois XMLs preservam o cabeçalho nativo e os microdados visíveis. O auditor compara título, canonical e descrição em `m=0` e `m=1` |
+
+As medições de layout vêm da prévia, com recursos externos bloqueados. Na instalação pública anterior à rc.17, o auditor encontrou paridade móvel na home, em um artigo e em Sobre. O artigo e Sobre ainda tinham aviso de descrição ausente. Essa leitura pública serve de referência para a atualização.
+
+**Pendente no Blogger:** importar ambos os idiomas, conferir gadgets legados no editor de Layout, confirmar as URLs das miniaturas publicadas e reauditar os metadados. O ganho real de transferência e tempo de carregamento depende do HTML e dos recursos servidos após a importação. [Instalação e atualização](RELEASE.md) · [Auditoria de SEO](SEO.md).
 
 ## rc.16 — Analytics nativo opcional — 27/10/2026
 

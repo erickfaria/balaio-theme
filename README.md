@@ -1,6 +1,6 @@
 # Balaio — Free minimal Blogger theme
 
-> **Current main version: v0.2.0-rc.16.** Optional GA4 integration through Blogger Settings. Uniform header navigation, Topics without counts and web library/documentation models. Blogger import and actual Analytics collection still need verification. [GA4 setup](docs/en/ANALYTICS.md) · [Validation](docs/en/VALIDATION.md).
+> **Current main version: v0.2.0-rc.17.** A shorter home introduction, native Pages navigation by default, 24px article text, responsive thumbnails and page-specific SEO titles. Fresh Blogger import and production performance measurements are pending. [Validation](docs/en/VALIDATION.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ A **free Blogger XML template**: minimal, responsive, open source and easy to cu
 
 **MIT licensed.** Use, modify and redistribute it, including for commercial projects. Keep the copyright and license notices with copies or substantial portions of the code. No visible site credit or paid permission is required by MIT. The software is provided without warranty. [Read the license](LICENSE) · [MIT explained by OSI](https://opensource.org/license/mit).
 
-> **Default template:** `v0.2.0-rc.16`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Validation evidence](docs/en/VALIDATION.md). [Earlier rc.15 release and checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.15).
+> **Default template:** `v0.2.0-rc.17`. [Download Portuguese XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Download English XML](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Release ZIP and checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.17).
 >
 > **Earlier fallback:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), with confirmed import but without the current home continuation and layout.
 

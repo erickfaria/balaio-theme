@@ -4,7 +4,7 @@
 
 ## Antes de instalar
 
-Use o XML da rc.16 na main: lupa recolhível ao lado do título, espaços menores e menu que revalida páginas publicadas, sobre os gadgets da rc.8 já importada. A nova importação da rc.16 ainda precisa de conferência. Antes de instalar em outro blog, guarde seu backup e confira num blog de teste. Os pacotes de releases antigos não contêm esta versão.
+Use o XML da versão v0.2.0-rc.17. Escolha o idioma e faça backup do tema atual. A nova importação ainda precisa de conferência em um blog de teste separado. [Arquivos da versão e atualização](RELEASE.md).
 
 ## Passo a passo
 
@@ -55,7 +55,7 @@ A navegação superior agora inclui **Páginas** (`PageList1`), habilitado no ce
 
 ## Falha ao restaurar
 
-A validação local não executa o compilador nem a migração de gadgets do Blogger. A rc.6 recupera os gadgets completos da rc.3; a lateral legada permanece oculta por CSS. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.16` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.
+A validação local não executa o compilador nem a migração de gadgets do Blogger. A rc.6 recupera os gadgets completos da rc.3; a seção lateral legada fica reservada ao editor de Layout. Faça backup antes de instalar. Se Restaurar falhar ou a página ficar vazia, tente **Tema → Editar HTML** com o XML completo e registre a mensagem exata do editor. Confirme que o arquivo começa com `<?xml` e que a versão é `0.2.0-rc.17` no meta `balaio-version`. Confira a URL pública fora da prévia do editor. Não altere nem reimporte o conteúdo do blog para resolver uma falha de apresentação.
 
 ## Formulário de contato
 

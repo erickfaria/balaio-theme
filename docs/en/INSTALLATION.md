@@ -4,7 +4,7 @@
 
 ## Before installation
 
-Use the rc.16 XML on main: collapsible search beside the title, tighter spacing and revalidated published-page navigation, based on the imported rc.8 widget bodies. Fresh rc.16 import verification is pending. Before installing on another blog, retain a backup and check a test blog. Older release packages do not contain this version.
+Use the v0.2.0-rc.17 release XML. Select your language and back up your current theme. A fresh import is pending, so check the new template in a separate test blog. [Release files and upgrade steps](RELEASE.md).
 
 ## Steps
 
@@ -55,7 +55,7 @@ The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publ
 
 ## Restore failure
 
-Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar remains hidden through CSS. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.16` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.
+Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar section is reserved for Layout. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.17` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.
 
 ## Contact form
 

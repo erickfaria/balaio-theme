@@ -1,6 +1,6 @@
 # Balaio — Tema Blogger gratuito e minimalista
 
-> **Versão atual da main: v0.2.0-rc.16.** Integração opcional com GA4 pelas Configurações do Blogger. Cabeçalho uniforme, Assuntos sem contagens e modelos de Biblioteca/documentação web. A importação e a coleta real de Analytics ainda precisam ser conferidas. [Configuração do GA4](docs/ANALYTICS.md) · [Validação](docs/VALIDATION.md).
+> **Versão atual da main: v0.2.0-rc.17.** Abertura mais curta, menu nativo por padrão, leitura em 24px, miniaturas responsivas e títulos de SEO por página. A nova importação no Blogger e as medições em produção estão pendentes. [Validação](docs/VALIDATION.md).
 
 **[English](README.md) · [Português brasileiro](README.pt-BR.md)**
 
@@ -8,7 +8,7 @@ Um **template XML gratuito para Blogger**: minimalista, responsivo, open source 
 
 **Licença MIT.** Você pode usar, modificar e redistribuir o código, inclusive em projetos comerciais. Preserve os avisos de autoria e licença nas cópias ou partes substanciais do código. A MIT não exige crédito visível no site nem autorização paga. O software é fornecido sem garantia. [Leia a licença](LICENSE) · [MIT na Open Source Initiative](https://opensource.org/license/mit).
 
-> **Tema padrão:** `v0.2.0-rc.16`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [Evidências da validação](docs/VALIDATION.md). [Release anterior rc.15 e checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.15).
+> **Tema padrão:** `v0.2.0-rc.17`. [Baixar XML português](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.xml) · [Baixar XML inglês](https://raw.githubusercontent.com/erickfaria/balaio-theme/main/theme/balaio.en.xml) · [ZIP da versão e checksums](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.17).
 >
 > **Alternativa anterior:** [v0.1.0](https://github.com/erickfaria/balaio-theme/releases/tag/v0.1.0), com importação confirmada, mas sem a continuação e o layout atuais.
 

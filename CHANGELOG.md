@@ -1,5 +1,13 @@
 # Changelog / Histórico
 
+## 0.2.0-rc.17 — Simpler navigation and mobile reading / Navegação simples e leitura móvel — 2026-11-27
+
+- Make native Pages navigation the default, keep feed discovery optional, place Topics with the other links and shorten the default homepage introduction. / Usar Páginas como menu padrão, manter a descoberta por feed opcional, integrar Assuntos aos links e encurtar a apresentação padrão da home.
+- Set body reading text to 24px and simplify the opening-card grid. On phones, show the post title before the thumbnail and use a 16px search field. / Definir leitura em 24px e simplificar a grade dos destaques. No celular, mostrar o título antes da miniatura e usar 16px no campo de busca.
+- Supply 320w and 640w thumbnails when Blogger generates both. Keep the original source, schedule short-home continuation at low priority and reserve the legacy sidebar for the Layout editor. / Oferecer miniaturas de 320w e 640w quando disponíveis, manter a origem como alternativa, adiar a continuação da home curta com prioridade baixa e reservar a lateral legada ao editor de Layout.
+- Put article and static-page titles first in the document title. Keep Blogger canonical and descriptions, and add an optional desktop/mobile comparison to the SEO auditor. / Priorizar o título do conteúdo nas páginas internas, manter canonical e descrições do Blogger e adicionar a comparação desktop/celular ao auditor de SEO.
+- Ship both XMLs, a ZIP and SHA-256 checksums. Document upgrading from automatic navigation and checking Blogger import. / Distribuir os dois XMLs, ZIP e checksums SHA-256. Documentar a atualização de instalações com navegação automática e a conferência no Blogger.
+
 ## 0.2.0-rc.16 — optional native Analytics / Analytics nativo opcional — 2026-10-27
 
 - Connect both language templates to Blogger's native Analytics include, only when the owner has configured an ID in Settings. No embedded tracking ID, copied Google code, new CSS or custom script. / Conectar os dois idiomas ao include nativo de Analytics do Blogger, somente com ID configurado pelo proprietário. Sem ID embutido, código Google copiado, CSS ou script próprio novo.
