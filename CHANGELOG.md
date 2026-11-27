@@ -1,5 +1,13 @@
 # Changelog / Histórico
 
+## 0.2.0-rc.18 — Smaller fonts and native navigation / Fontes mais leves e navegação nativa — 2026-11-27
+
+- Remove feed-based page discovery and use only the Pages and Menu gadgets for header links. / Remover a descoberta de páginas pelo feed e usar os gadgets Páginas e Menu para os links do cabeçalho.
+- Emit the continuation script only on a short, nonempty home with native older-posts pagination and a positive request budget. / Enviar o script de continuação só na home curta com posts, link nativo de publicações anteriores e limite de consultas positivo.
+- Pin the open Newsreader font to optical size 24. Keep variable weights and the 24px reading default. / Fixar o tamanho óptico da Newsreader aberta em 24. Manter pesos variáveis e leitura padrão em 24px.
+- Remove redundant CSS and give Blogger’s Layout editor room to show the navigation gadgets. / Eliminar CSS redundante e dar espaço para os gadgets de navegação no editor de Layout.
+- Preserve Blogger Analytics for installations with a configured ID. / Preservar o Analytics do Blogger nas instalações com ID configurado.
+
 ## 0.2.0-rc.17 — Simpler navigation and mobile reading / Navegação simples e leitura móvel — 2026-11-27
 
 - Make native Pages navigation the default, keep feed discovery optional, place Topics with the other links and shorten the default homepage introduction. / Usar Páginas como menu padrão, manter a descoberta por feed opcional, integrar Assuntos aos links e encurtar a apresentação padrão da home.

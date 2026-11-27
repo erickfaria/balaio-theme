@@ -1,12 +1,12 @@
-# Install and upgrade — v0.2.0-rc.17
+# Install and upgrade — v0.2.0-rc.18
 
 [English](RELEASE.md) · [Português](../RELEASE.md)
 
-**v0.2.0-rc.17** simplifies the header and homepage, consolidates Topics into the navigation and sets the reading default to 24px. The Pages widget supplies the menu in the initial HTML. Automatic discovery is optional. [Menu configuration](PAGES.md).
+**v0.2.0-rc.18** uses the native Pages and Menu gadgets for all top links. A nonempty home below the target includes continuation only if an older-posts URL and a positive page budget are available. [Navigation](PAGES.md) · [Home](HOME.md).
 
-An article or static page puts its title first. Blogger supplies canonical links and search descriptions. Responsive thumbnail candidates use 320w and 640w when available. The short-home continuation runs at low priority, and the legacy sidebar section is reserved for the Layout editor. [SEO](SEO.md) · [Performance](PERFORMANCE.md).
+Newsreader uses the lighter optical-size 24 instance under SIL OFL 1.1. Reading defaults to 24px. CSS removes an unused third highlight color and repeated layout rules. Blogger continues to supply canonical URLs, descriptions and configured Analytics. [Performance](PERFORMANCE.md) · [SEO](SEO.md).
 
-Use a separate test blog before updating production. [Release downloads](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.17) · [Validation](VALIDATION.md).
+Use a separate test blog before updating production. [Release downloads](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.18) · [Validation](VALIDATION.md).
 
 ## Other features
 
@@ -18,18 +18,18 @@ Use a separate test blog before updating production. [Release downloads](https:/
 
 | File | Use |
 | --- | --- |
-| `balaio-0.2.0-rc.17.zip` | Install package: templates, bilingual guides, HTML/Markdown page and material examples, version, changelog and MIT/OFL notices |
+| `balaio-0.2.0-rc.18.zip` | Install package: templates, bilingual guides, HTML/Markdown page and material examples, version, changelog and MIT/OFL notices |
 | `balaio.xml` | Portuguese interface |
 | `balaio.en.xml` | English interface |
 | `SHA256SUMS.txt` | SHA-256 checksums for the three assets above |
 
-The ZIP extracts into `balaio-0.2.0-rc.17/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
+The ZIP extracts into `balaio-0.2.0-rc.18/`. Select an XML inside `theme/`; do not upload the ZIP as a Blogger theme. The install package excludes development scripts, development tests, backups and generated previews. GitHub's automatic source archives include tracked development files.
 
 ## Upgrade from an earlier version
 
 1. Back up your current Blogger XML and record custom gadgets, links and Designer values. Use a separate test blog first.
-2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.17`.
-3. Review the links in **Layout → Pages** and use **Menu** for extra links. If you relied on feed-discovered links, add them to the gadget or [enable automatic mode](PAGES.md#optional-automatic-pages). Create page content through Pages.
+2. In **Theme → menu → Edit HTML**, paste the complete candidate XML in the chosen language and save. The CSS source comment identifies `v0.2.0-rc.18`.
+3. Review **Layout → Pages** and use **Menu** for extra links. If you used automatic discovery, add those links to the native gadgets. If you customized continuation limits, transfer them to the [new XML variables](HOME.md).
 4. Review the Introduction, Topics and any legacy widgets in Layout. Move any links you still need into Pages or Menu. Shorten a saved Introduction if you want the compact homepage.
 5. In **Theme → Customize → Advanced**, check colors and **Post and page font**. Saved settings may retain an old size; choose 24px if needed. Reading width and pastel defaults remain documented in [CUSTOMIZATION.md](CUSTOMIZATION.md).
 6. If a separate legacy mobile theme appears, choose **Desktop** under Mobile settings. The theme itself adapts to phone width. Start with ten posts under **Settings → Posts**; Blogger may paginate earlier. See [INSTALLATION.md](INSTALLATION.md).

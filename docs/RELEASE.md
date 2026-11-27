@@ -1,12 +1,12 @@
-# Instalar e atualizar — v0.2.0-rc.17
+# Instalar e atualizar — v0.2.0-rc.18
 
 [English](en/RELEASE.md) · [Português](RELEASE.md)
 
-**v0.2.0-rc.17** simplifica o cabeçalho e a abertura da home, integra Assuntos ao menu e define 24px como padrão de leitura. O gadget Páginas entrega os links no HTML inicial. A descoberta automática é opcional. [Configuração do menu](PAGES.md).
+**v0.2.0-rc.18** usa os gadgets nativos Páginas e Menu para todos os links do topo. A home com posts abaixo da meta inclui a continuação só quando há link de publicações antigas e limite de páginas positivo. [Navegação](PAGES.md) · [Home](HOME.md).
 
-Artigos e páginas estáticas mostram o título do conteúdo primeiro. O Blogger fornece canonical e descrições de pesquisa. As miniaturas oferecem 320w e 640w quando disponíveis. A continuação da home curta usa prioridade baixa, e a seção lateral legada fica reservada ao editor de Layout. [SEO](SEO.md) · [Performance](PERFORMANCE.md).
+A Newsreader usa a variante mais leve de tamanho óptico 24 sob SIL OFL 1.1. A leitura segue em 24px. O CSS elimina a cor sem uso de um terceiro destaque e regras repetidas de layout. O Blogger fornece canonical, descrições e a integração de Analytics configurada. [Performance](PERFORMANCE.md) · [SEO](SEO.md).
 
-Use um blog de teste separado antes de atualizar a produção. [Downloads da versão](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.17) · [Validação](VALIDATION.md).
+Use um blog de teste separado antes de atualizar a produção. [Downloads da versão](https://github.com/erickfaria/balaio-theme/releases/tag/v0.2.0-rc.18) · [Validação](VALIDATION.md).
 
 ## Outros recursos
 
@@ -18,18 +18,18 @@ Use um blog de teste separado antes de atualizar a produção. [Downloads da ver
 
 | Arquivo | Uso |
 | --- | --- |
-| `balaio-0.2.0-rc.17.zip` | Pacote de instalação: templates, guias bilíngues, exemplos HTML/Markdown de páginas e materiais, versão, changelog e avisos MIT/OFL |
+| `balaio-0.2.0-rc.18.zip` | Pacote de instalação: templates, guias bilíngues, exemplos HTML/Markdown de páginas e materiais, versão, changelog e avisos MIT/OFL |
 | `balaio.xml` | Interface em português |
 | `balaio.en.xml` | Interface em inglês |
 | `SHA256SUMS.txt` | Checksums SHA-256 dos três arquivos acima |
 
-O ZIP extrai para `balaio-0.2.0-rc.17/`. Escolha um XML em `theme/`; não envie o ZIP como tema Blogger. O pacote não inclui scripts de desenvolvimento, testes de desenvolvimento, backups nem prévias geradas. Os arquivos de código automáticos do GitHub incluem os arquivos de desenvolvimento rastreados.
+O ZIP extrai para `balaio-0.2.0-rc.18/`. Escolha um XML em `theme/`; não envie o ZIP como tema Blogger. O pacote não inclui scripts de desenvolvimento, testes de desenvolvimento, backups nem prévias geradas. Os arquivos de código automáticos do GitHub incluem os arquivos de desenvolvimento rastreados.
 
 ## Atualizar a partir de uma versão anterior
 
 1. Faça backup do XML atual do Blogger e registre gadgets, links e valores do Designer personalizados. Use primeiro um blog de teste separado.
-2. Em **Tema → menu → Editar HTML**, cole o XML completo da candidata no idioma escolhido e salve. O comentário do CSS identifica `v0.2.0-rc.17`.
-3. Confira os links em **Layout → Páginas** e use **Menu** para links extras. Se dependia dos links descobertos pelo feed, configure-os no gadget ou [reative o modo automático](PAGES.md#páginas-automáticas-opcionais). Crie o conteúdo em Páginas.
+2. Em **Tema → menu → Editar HTML**, cole o XML completo da candidata no idioma escolhido e salve. O comentário do CSS identifica `v0.2.0-rc.18`.
+3. Confira **Layout → Páginas** e use **Menu** para links extras. Se usava descoberta automática, adicione esses links aos gadgets nativos. Se personalizou os limites da continuação, transfira os valores para as [variáveis do XML](HOME.md).
 4. Confira Apresentação, Assuntos e os gadgets legados no editor de Layout. Mova os links que ainda usa para Páginas ou Menu. Se quiser a home mais compacta, encurte uma apresentação já salva.
 5. Em **Tema → Personalizar → Avançado**, confira cores e **Fonte de posts e páginas**. Valores salvos podem preservar um tamanho anterior; escolha 24px se necessário. Largura de leitura e padrões pastel estão em [CUSTOMIZATION.md](CUSTOMIZATION.md).
 6. Se aparecer o tema móvel antigo separado, escolha **Computador** nas configurações móveis. O próprio tema se adapta ao celular. Comece com dez posts em **Configurações → Postagens**; o Blogger pode paginar antes. Consulte [INSTALLATION.md](INSTALLATION.md).

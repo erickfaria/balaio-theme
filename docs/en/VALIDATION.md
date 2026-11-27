@@ -1,6 +1,16 @@
-# Validation — v0.2.0-rc.17
+# Validation — v0.2.0-rc.18
 
 [English](VALIDATION.md) · [Português](../VALIDATION.md)
+
+## rc.18 — Reduced font and script delivery — 2026-11-27
+
+- Both XMLs pass structural and locale checks. The 39 local tests cover the continuation condition, native fallback, SEO and package contents.
+- Chromium previews at 320, 360, 768 and 1440 px cover navigation, search, Topics, 24px reading, contact and wide article content. A Layout preview with Blogger’s 30px navbar rule kept navigation and Topics in separate rows.
+- In preview, a home with ten posts and an older-posts link sent no theme script or extra requests. A home with two posts reached ten distinct entries after four requests. Disabled continuation and partial failure preserved native pagination.
+- Google Fonts responded with 132,000 bytes for the prior Latin Newsreader WOFF2 and 57,952 bytes for the optical-size 24 file. The same mobile replay used 106,208 bytes of fonts with that variant instead of 180,256. At 390 px the measured heading, paragraph and body blocks had the same heights. The optical axis can affect glyph appearance at other sizes.
+- Removing both unused scripts from the observed rc.17 home yielded a simulated saving of 10,467 raw bytes and 2,988 gzip bytes. This comparison uses local compression of the same HTML. The GA4 include is identical to rc.17.
+
+The owner confirmed the Portuguese rc.17 import, and the public site rendered its home and a sampled article. A fresh rc.18 Blogger import, widget migration, Analytics events and production loading measurements remain unverified. [Install and upgrade](RELEASE.md).
 
 ## rc.17 — Native navigation, reading and SEO — 2026-11-27
 

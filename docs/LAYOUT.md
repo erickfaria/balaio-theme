@@ -14,7 +14,7 @@ O tema apresenta os marcadores configurados no gadget: não escolhe os primeiros
 
 Biblioteca, Projetos e Sobre são exemplos de entradas principais. Escolha páginas publicadas com títulos curtos em **Layout → Páginas**.
 
-Os links escolhidos no gadget fazem parte do HTML inicial, inclusive sem JavaScript. Em atualizações, adicione ali as páginas que antes apareciam pelo feed ou [reative o modo automático](PAGES.md#páginas-automáticas-opcionais).
+Os links escolhidos no gadget fazem parte do HTML inicial, inclusive sem JavaScript. Ao atualizar uma instalação antiga, adicione ao gadget os links essenciais que antes vinham do feed. [Configuração do menu](PAGES.md).
 
 ## 3. Guias e projetos: até três destaques
 

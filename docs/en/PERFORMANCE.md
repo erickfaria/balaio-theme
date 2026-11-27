@@ -2,12 +2,12 @@
 
 [English](PERFORMANCE.md) · [Português](../PERFORMANCE.md)
 
-rc.7 retains the rc.6 baseline and restores rc.3 widgets and continuation, retaining the pastel layout, 22px reading text and open Inter/Newsreader fonts. The base includes no external JavaScript library or carousel. Analytics is optional starting with rc.16 and is only called with an ID configured in Blogger. [Setup](ANALYTICS.md). Portuguese import and home continuation were confirmed by the owner and checked on the public blog. [Status and evidence](VALIDATION.md).
+The current theme uses native navigation, open Inter and Newsreader fonts, and 24px body text. Blogger calls its Analytics integration when an ID is configured in Settings. [Analytics](ANALYTICS.md) · [Validation](VALIDATION.md).
 
 ## How the theme limits work
 
-- One Google Fonts stylesheet, two preconnections, `display=swap` and local fallbacks. Inter 400–750 and Newsreader 400–700 use variable ranges. [Google Fonts CSS2](https://developers.google.com/fonts/docs/css2).
-- Two HTML highlights and a continuation list targeting ten posts. When the homepage needs more posts, continuation waits for the initial HTML and browser idle time when available, fetching at most four sequential pages at low priority. Requests have eight-second timeouts; it does not download the entire archive. [Home settings](HOME.md).
+- One Google Fonts stylesheet and two preconnections, with `display=swap` and device fallbacks. Inter keeps weights 400–750. Newsreader keeps weights 400–700 and pins optical size to 24 for a smaller WOFF2 file. [Licenses](PROVENANCE.md).
+- Two HTML highlights and native pagination. A nonempty home below the target with an older-posts link can include the continuation script. It waits for the initial HTML and requests up to four pages at low priority by default. [Home settings](HOME.md).
 - Inert template parsing; the theme reads only the response’s Blog1 widget and rebuilds entries with text, links and thumbnails. Fetched scripts, event handlers and styles are never inserted into the active document. Native pagination remains on failure.
 - Decorative thumbnails have dimensions, lazy loading and asynchronous decoding. When Blogger offers two distinct sizes, the browser chooses between 320w and 640w. The original URL remains the fallback. Entries without thumbnails remain readable.
 - Page-specific titles, Blogger canonical and metadata, with visible-content microdata. No special crawler scripts or duplicated metadata.
@@ -23,7 +23,7 @@ The inspected rc.3 home HTML measured 37,049 decoded bytes (9,744 gzip). One art
 
 ## Keep your installation fast
 
-1. Start with ten posts in Settings and retain the default continuation budget. Set `data-page-limit='0'` to disable extra requests. Higher targets increase traffic.
+1. Set the home count in Blogger according to how many posts readers need. Set `homePageLimit` to 0 in the XML to use only native pagination. [Home settings](HOME.md).
 2. Check inherited optional gadgets in the Layout editor after installing the theme.
 3. Resize/compress images before upload; include dimensions and descriptive alt text. Keep initial article images eager; use lazy loading for later images. [Browser image loading](https://web.dev/articles/browser-level-image-lazy-loading).
 4. Avoid fixed widths and excessive post styles/scripts. Use the [post sample](POSTS.md) and a native jump break after long introductions.
@@ -36,11 +36,9 @@ After import, check two highlights plus the list below, correct pagination, an a
 
 `make check` validates XML, locales, documentation and code. `make preview` generates visual/continuation cases, including a home starting with only two posts. The preview does not compile Blogger XML. Actions runs checks and creates artifacts identified by commit.
 
-## Automatic navigation — rc.9
+## Native navigation
 
-In rc.9, navigation requests the summary page feed once per page load, at low priority with a six-second timeout. It revalidates the HTTP cache, allowing conditional responses, and does not access session storage. This trades rc.8’s avoided requests for refreshed published/draft links on reload. The observed four-page feed response measured 6,659 bytes and varies with content. There is no external library, API key or polling.
-
-Automatic links are added by JavaScript; keep essential links in the native gadget for script-free access and initial HTML. Use `data-auto-pages='false'` for a fully manual menu without this request. [Modes and limits](PAGES.md).
+The Pages and Menu gadgets render their links in HTML. The theme makes no page-feed requests. [Menu configuration](PAGES.md).
 
 ## Optional contact — rc.13
 

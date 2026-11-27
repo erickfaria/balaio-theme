@@ -4,7 +4,7 @@
 
 ## Before installation
 
-Use the v0.2.0-rc.17 release XML. Select your language and back up your current theme. A fresh import is pending, so check the new template in a separate test blog. [Release files and upgrade steps](RELEASE.md).
+Use the v0.2.0-rc.18 release XML. Select your language and back up your current theme. A fresh import is pending, so check the new template in a separate test blog. [Release files and upgrade steps](RELEASE.md).
 
 ## Steps
 
@@ -32,7 +32,7 @@ The project owner's screenshots showed the legacy mobile presentation at `?m=1` 
 | The editor rejects the file | Make sure the XML is complete, without Markdown fences or GitHub HTML. Include the exact editor message in an issue. |
 | A card has no image | Try a post containing an image. Thumbnails depend on Blogger data; entries remain readable without an image. |
 | Fonts look different | Check access to Google Fonts. Local fallback fonts are used when remote fonts are unavailable. |
-| My pages are missing from the menu | Publish the pages and select links in **Layout → Pages**. If you enabled automatic discovery in the XML, check JavaScript and the public feed. [Navigation modes](PAGES.md). |
+| My pages are missing from the menu | Publish the pages and select their links in **Layout → Pages**. Use **Menu** for additional links. [Navigation setup](PAGES.md). |
 | The introduction has not changed | Edit Introduction/Apresentação in Layout and save. Keep a single `h1`. |
 | Comments are missing | Check blog settings and post permissions. Embedded forms and threaded replies are not implemented yet. |
 | I want the previous theme back | Restore the XML you backed up before installation from the theme menu. |
@@ -55,7 +55,7 @@ The top navigation now includes **Pages** (`PageList1`), enabled on mobile. Publ
 
 ## Restore failure
 
-Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar section is reserved for Layout. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.17` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.
+Local checks do not run Blogger’s compiler or widget migration. rc.6 recovers the complete rc.3 widget bodies; the legacy sidebar section is reserved for Layout. Back up before installation. If Restore fails or produces a blank page, try **Theme → Edit HTML** with the entire XML and record the editor’s exact message. Check that the file begins with `<?xml` and identifies `0.2.0-rc.18` in `balaio-version` metadata. Inspect the public URL outside the editor preview. Do not edit or reimport blog content to fix a presentation failure.
 
 ## Contact form
 

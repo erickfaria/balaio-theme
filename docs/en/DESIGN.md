@@ -6,7 +6,7 @@ An open notebook of ideas: simple to navigate and comfortable to read. Minimalis
 
 ## Design choices
 
-- Warm light background, graphite text, deep green links and soft green, sand and blue cards.
+- Warm light background, graphite text, deep green links and soft green and sand cards.
 - Inter for identity and interface; Newsreader for titles and articles, with device-font fallbacks.
 - Two opening cards for the latest posts, followed by a steady editorial list.
 - Text first in HTML order; optional images support the content.
