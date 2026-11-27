@@ -1157,14 +1157,17 @@ body#layout #contactpage {
         const timer = setTimeout(() => controller.abort(), 8000);
         let markup;
         try {
-          const response = await fetch(next.href, {signal: controller.signal, credentials: 'omit', redirect: 'error'});
+          const response = await fetch(next.href, {
+            signal: controller.signal, credentials: 'omit', redirect: 'error', priority: 'low'
+          });
           if (!response.ok) throw new Error('Page unavailable');
           markup = await response.text();
         } finally { clearTimeout(timer); }
         // A template keeps fetched styles, images and scripts inert.
         const template = document.createElement('template');
         template.innerHTML = markup;
-        const source = template.content;
+        const source = template.content.getElementById(blog.id);
+        if (!source) break;
         const cards = [...source.querySelectorAll('.posts > .post-card, .opening-cards > .post-card')];
         if (!cards.length) break;
         const following = source.querySelector('.pager a[rel="next"]');
@@ -1194,7 +1197,13 @@ body#layout #contactpage {
       // The last working native pagination link remains available on failure.
     } finally { list.removeAttribute('aria-busy'); }
   }
-  fillHome();
+  function scheduleContinuation() {
+    if (window.requestIdleCallback) window.requestIdleCallback(fillHome, {timeout: 1000});
+    else setTimeout(fillHome, 0);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleContinuation, {once: true});
+  } else scheduleContinuation();
 })();
               //]]></script>
             </b:includable>

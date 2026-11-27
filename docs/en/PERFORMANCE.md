@@ -7,13 +7,13 @@ rc.7 retains the rc.6 baseline and restores rc.3 widgets and continuation, retai
 ## How the theme limits work
 
 - One Google Fonts stylesheet, two preconnections, `display=swap` and local fallbacks. Inter 400–750 and Newsreader 400–700 use variable ranges. [Google Fonts CSS2](https://developers.google.com/fonts/docs/css2).
-- Two HTML highlights and a continuation list targeting ten posts. The restored script starts inside Blog1 after the post markup, fetching at most four sequential pages. Requests have eight-second timeouts; it does not download the entire archive. [Home settings](HOME.md).
-- Inert template parsing; entries are rebuilt with text, links and thumbnails. Fetched scripts, event handlers and styles are never inserted into the active document. Native pagination remains on failure.
+- Two HTML highlights and a continuation list targeting ten posts. When the homepage needs more posts, continuation waits for the initial HTML and browser idle time when available, fetching at most four sequential pages at low priority. Requests have eight-second timeouts; it does not download the entire archive. [Home settings](HOME.md).
+- Inert template parsing; the theme reads only the response’s Blog1 widget and rebuilds entries with text, links and thumbnails. Fetched scripts, event handlers and styles are never inserted into the active document. Native pagination remains on failure.
 - Decorative thumbnails have dimensions, lazy loading and asynchronous decoding. Entries without thumbnails remain readable.
-- Native title, canonical and metadata, with visible-content microdata. No special crawler scripts or duplicated metadata.
+- Page-specific titles, Blogger canonical and metadata, with visible-content microdata. No special crawler scripts or duplicated metadata.
 - The legacy sidebar is hidden through CSS to retain the importable structure. This does not remove its HTML: remove unused optional gadgets in Layout, such as duplicate search, date archives or Featured Post. Header, Pages, Menu and Posts remain core gadgets.
 
-The experimental rc.4 script optimizations — load/idle scheduling, low priority, Blog1 scope and mobile-parameter cleanup — are not part of the recovered script. This candidate prioritizes confirmed behavior; future changes must preserve the post list in actual Blogger import tests.
+Check a short homepage and native pagination after importing the theme. Measure load on a mobile connection to assess the effects of scheduling and the priority hint.
 
 ## Earlier measurements
 

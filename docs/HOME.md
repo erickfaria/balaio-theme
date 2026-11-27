@@ -17,8 +17,8 @@ A rc.3 foi confirmada pelo proprietário e observada funcionando no blog em 11/1
 ## Como a continuação funciona
 
 1. Os posts recebidos inicialmente aparecem em HTML: dois cards e, quando disponíveis, as entradas seguintes na lista.
-2. Somente na home, o script dentro de `Blog1` consulta o link nativo de publicações anteriores no mesmo domínio. Ele pede a quantidade restante e seleciona o modo web `m=0` para receber a mesma apresentação responsiva. O script recuperado inicia quando os posts iniciais já estão no documento.
-3. O tema reconstrói texto, autoria, data, marcadores e miniaturas das entradas recebidas. Permalinks já visíveis não são repetidos. Scripts, estilos e eventos do HTML recebido não são inseridos na página.
+2. Somente na home, o script dentro de `Blog1` consulta o link nativo de publicações anteriores no mesmo domínio. Ele pede a quantidade restante e seleciona o modo web `m=0` para receber a mesma apresentação responsiva. A continuação espera o HTML inicial estar pronto e usa um período ocioso do navegador quando disponível. As requisições têm prioridade baixa.
+3. O tema reconstrói texto, autoria, data, marcadores e miniaturas somente das entradas recebidas em `Blog1`. Permalinks já visíveis não são repetidos. Scripts, estilos e eventos do HTML recebido não são inseridos na página.
 4. Cada página é mostrada por completo antes de atualizar o link de publicações anteriores. A meta não corta uma página pela metade, evitando saltar posts; uma resposta maior pode ultrapassar dez entradas.
 5. O carregamento para ao atingir a meta, após quatro páginas adicionais, numa falha, num ciclo sem novidades ou no fim do arquivo. Cada requisição tem timeout de oito segundos. O link nativo continua disponível no primeiro trecho ainda não mostrado; desaparece quando o fim do arquivo foi confirmado.
 

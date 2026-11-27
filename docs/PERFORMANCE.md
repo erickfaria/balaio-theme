@@ -7,13 +7,13 @@ A rc.7 mantém a base da rc.6 e recupera os gadgets e a continuação da rc.3, m
 ## Como o tema limita o trabalho
 
 - Uma folha Google Fonts, duas pré-conexões, `display=swap` e alternativas locais. Inter 400–750 e Newsreader 400–700 usam intervalos variáveis. [Google Fonts CSS2](https://developers.google.com/fonts/docs/css2).
-- Dois destaques em HTML e lista de continuação com meta de dez posts. O script recuperado inicia dentro de Blog1, depois do HTML dos posts, consultando no máximo quatro páginas sequenciais. Cada requisição tem timeout de oito segundos; não baixa o arquivo inteiro. [Configuração da home](HOME.md).
-- Parsing em template inerte; as entradas são reconstruídas com nós de texto, links e miniaturas. Scripts, eventos e estilos recebidos não são inseridos no documento ativo. A paginação nativa permanece disponível em caso de falha.
+- Dois destaques em HTML e lista de continuação com meta de dez posts. Quando a home precisa de mais posts, a continuação espera o HTML inicial e um período ocioso quando disponível, consultando no máximo quatro páginas sequenciais com prioridade baixa. Cada requisição tem timeout de oito segundos; não baixa o arquivo inteiro. [Configuração da home](HOME.md).
+- Parsing em template inerte; o tema lê somente o widget Blog1 da resposta e reconstrói as entradas com nós de texto, links e miniaturas. Scripts, eventos e estilos recebidos não são inseridos no documento ativo. A paginação nativa permanece disponível em caso de falha.
 - Miniaturas decorativas com dimensões, carregamento lento e decodificação assíncrona. Artigos sem miniatura continuam legíveis.
-- Título, canonical e metadados nativos, com microdados do conteúdo visível. Sem scripts especiais para rastreadores ou metadados duplicados.
+- Título por página, canonical e metadados do Blogger, com microdados do conteúdo visível. Sem scripts especiais para rastreadores ou metadados duplicados.
 - Lateral legada oculta por CSS para preservar a estrutura importável. Isso não elimina seu HTML: remova no Layout gadgets opcionais que não usa, como busca duplicada, arquivo por data ou destaque repetido. Os gadgets centrais de Cabeçalho, Páginas, Menu e Postagens são necessários.
 
-As otimizações experimentais da rc.4 — agendamento após load/ociosidade, prioridade baixa, escopo Blog1 e limpeza dos parâmetros móveis — não fazem parte do script recuperado. A prioridade desta candidata é recuperar o comportamento confirmado; futuras mudanças precisam preservar a lista de posts em testes de importação reais.
+Compare a home curta e a paginação nativa após importar o tema. Meça o carregamento em uma conexão móvel para avaliar o efeito do agendamento e da prioridade declarada.
 
 ## Medições anteriores
 
